@@ -1,6 +1,11 @@
 # Alpha
 My attempt to clone a text-based version of a game called RuneScape.
 
+Controls:
+Inventory: u = use, d = drop, s = swap
+  -example: 1u (use slot one; depends on item) or 1s3 (swap slot 1 and 3), or 5d (drop item in slot 5)
+ 0 is back
+
 Current Features
   Finished Skills: Hitpoints, Attack, Strength, Defense, Ranged, Prayer, Magic, Slayer
   Planned Skills: Woodcutting, Fletching, Fishing, Cooking, Mining, Smithing, Herblore, Crafting, Runecrafting
