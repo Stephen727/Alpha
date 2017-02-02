@@ -15,7 +15,7 @@ Equipment::Equipment(Player *p)
 {
 	player = p;
 	for (int i = 0; i < 11; i++)
-		item[i] = NULL;
+		item[i] = nullptr;
 	for (int i = 0; i < 8; i++)
 		bonus[i] = 0;
 }
@@ -23,6 +23,14 @@ Equipment::Equipment(Player *p)
 
 Equipment::~Equipment()
 {
+	player = nullptr;
+	delete player;
+
+	for (int i = 0; i < 11; i++)
+	{
+		item[i] = nullptr;
+		delete item[i];
+	}
 }
 
 
@@ -33,7 +41,7 @@ void Equipment::calculateBonus()
 
 	for (int i = 0; i < 10; i++)
 	{
-		if (item[i] != NULL)
+		if (item[i] != nullptr)
 		{
 			bonus[0] += item[i]->getItemBonusDefinition()->getMeleeAtt();
 			bonus[1] += item[i]->getItemBonusDefinition()->getRangeAtt();
@@ -51,25 +59,25 @@ void Equipment::unequip(int slot)
 {
 	if (slot < 0 || slot > 10)
 		return;
-	else if (item[slot] == NULL)
+	else if (item[slot] == nullptr)
 		return;
 	else if (player->inventory->getFreeSlots())
 	{
 		Item *temp = new Item(item[slot]->getId(), item[slot]->getAmount());
 		player->inventory->add(temp);
 		delete item[slot];
-		item[slot] = NULL;
+		item[slot] = nullptr;
 		calculateBonus();
 	}
 }
 
 bool Equipment::hasAmmo()
 {
-	if (item[3] != NULL)
+	if (item[3] != nullptr)
 	{
 		if (item[3]->getRangedDefinition()->getType())
 			return true;
-		else if (item[10] != NULL)
+		else if (item[10] != nullptr)
 		{
 			for (int i = 0; item[3]->getRangedDefinition()->getAmmo().size(); i++)
 				if (item[10]->getId() == item[3]->getRangedDefinition()->getAmmo()[i])
@@ -102,8 +110,8 @@ void Equipment::useAmmo()
 
 bool Equipment::canEquip(Item *_item)
 {
-	if (_item != NULL)
-		if (_item->getEquipmentDefinition() == NULL)
+	if (_item != nullptr)
+		if (_item->getEquipmentDefinition() == nullptr)
 			return false;
 		else if (_item->getEquipmentDefinition()->getSlot() < 0 && _item->getEquipmentDefinition()->getSlot() > 10)
 			return false;
@@ -114,7 +122,7 @@ bool Equipment::canEquip(Item *_item)
 
 	if (_item->getEquipmentDefinition()->getSlot() == 3)
 		if (_item->getWeaponDefinition()->is2h())
-			if (item[5] != NULL && item[3] != NULL)
+			if (item[5] != nullptr && item[3] != nullptr)
 				if (player->inventory->getFreeSlots() < 1)
 					return false;
 
@@ -123,7 +131,7 @@ bool Equipment::canEquip(Item *_item)
 
 void Equipment::equip(int slot)
 {
-	if (player->inventory->getSlot(slot) == NULL)
+	if (player->inventory->getSlot(slot) == nullptr)
 		return;
 
 	Item _item = *player->inventory->getSlot(slot);
@@ -134,7 +142,7 @@ void Equipment::equip(int slot)
 	player->inventory->remove(slot);
 	Item *temp = new Item(_item.getId(), _item.getAmount());
 
-	if (item[_item.getEquipmentDefinition()->getSlot()] != NULL)
+	if (item[_item.getEquipmentDefinition()->getSlot()] != nullptr)
 	{
 		if (_item.getEquipmentDefinition()->getSlot() == 10)
 		{
@@ -151,10 +159,10 @@ void Equipment::equip(int slot)
 
 	if (temp->getEquipmentDefinition()->getSlot() == 3)
 	{
-		if (temp->getWeaponDefinition()->is2h() && item[5] != NULL)
+		if (temp->getWeaponDefinition()->is2h() && item[5] != nullptr)
 			unequip(5);
 	}
-	else if (temp->getEquipmentDefinition()->getSlot() == 5 && item[3] != NULL)
+	else if (temp->getEquipmentDefinition()->getSlot() == 5 && item[3] != nullptr)
 	{
 		if (item[3]->getWeaponDefinition()->is2h())
 			unequip(3);
@@ -168,17 +176,17 @@ void Equipment::clear()
 	for (int i = 0; i < 11; i++)
 	{
 		delete item[i];
-		item[i] = NULL;
+		item[i] = nullptr;
 	}
 	calculateBonus();
 }
 
 Item* Equipment::getItem(int slot)
 {
-	if (item[slot] != NULL)
+	if (item[slot] != nullptr)
 		return item[slot];
 	else
-		return NULL;
+		return nullptr;
 }
 
 int Equipment::getBonus(int slot)
@@ -245,7 +253,7 @@ void Equipment::displayEquip()
 			break;
 		}
 
-		if (item[i] != NULL)
+		if (item[i] != nullptr)
 		{
 			std::cout << " [" << i + 1 << "] " << slot << item[i]->getItemDefinition()->getName();
 			if (item[i]->getItemDefinition()->isStackable())
@@ -270,7 +278,7 @@ void Equipment::save()
 
 	for (int i = 0; i < 11; i++)
 	{
-		if (item[i] != NULL)
+		if (item[i] != nullptr)
 			outFile << *item[i];
 	}
 

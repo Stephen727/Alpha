@@ -36,9 +36,9 @@ private:
 	std::vector<SkillData> requirements;
 
 public:
-	int getId() { return id; }
-	int getSlot() { return slot; }
-	std::vector<SkillData> getReq() { return requirements; }
+	int getId() const { return id; }
+	int getSlot() const { return slot; }
+	std::vector<SkillData> getReq() const { return requirements; }
 };
 
 #endif

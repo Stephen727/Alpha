@@ -15,6 +15,8 @@ Potion::Potion(Player *p)
 
 Potion::~Potion()
 {
+	player = nullptr;
+	delete player;
 }
 
 

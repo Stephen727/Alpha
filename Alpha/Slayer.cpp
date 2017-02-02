@@ -18,6 +18,11 @@ Slayer::Slayer(Player* _player)
 
 Slayer::~Slayer()
 {
+	currentTask = nullptr;
+	delete currentTask;
+
+	player = nullptr;
+	delete player;
 }
 
 
@@ -86,7 +91,7 @@ void Slayer::checkKill(Npc* npc)
 {
 	if (isTask(npc->getId()))
 	{
-		player->skills->addExperience(npc->getNpcDefinition()->getHitpoints(), slayer);
+		player->skills->addExperience(npc->getNpcDefinition().getHitpoints(), slayer);
 		amount--;
 
 		if (!amount)

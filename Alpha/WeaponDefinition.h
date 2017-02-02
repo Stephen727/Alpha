@@ -21,9 +21,9 @@ private:
 	int speed;
 
 public:
-	int getId() { return id; }
-	bool is2h() { return twoHanded; }
-	int getSpeed() { return speed; }
+	int getId() const { return id; }
+	bool is2h() const { return twoHanded; }
+	int getSpeed() const { return speed; }
 };
 
 #endif

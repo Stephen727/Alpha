@@ -89,7 +89,7 @@ int Combat::meleeAttack(Npc* npc, Player* player)
 	FormulaData formulaData;
 	if (formulaData.isAccurateHit(attackRoll, defenseRoll))
 	{
-		int damage = rand() % npc->getNpcDefinition()->getMaxHit() + 1;
+		int damage = rand() % npc->getNpcDefinition().getMaxHit() + 1;
 		return damage;
 	}
 	else
@@ -109,7 +109,7 @@ int Combat::rangedAttack(Npc* npc, Player* player)
 	FormulaData formulaData;
 	if (formulaData.isAccurateHit(attackRoll, defenseRoll))
 	{
-		int damage = rand() % npc->getNpcDefinition()->getMaxHit() + 1;
+		int damage = rand() % npc->getNpcDefinition().getMaxHit() + 1;
 		if (damage > npc->getHitpoints()) damage = npc->getHitpoints();
 		return damage;
 	}
@@ -130,7 +130,7 @@ int Combat::magicAttack(Npc* npc, Player* player)
 	FormulaData formulaData;
 	if (formulaData.isAccurateHit(attackRoll, defenseRoll))
 	{
-		int damage = rand() % npc->getNpcDefinition()->getMaxHit() + 1;
+		int damage = rand() % npc->getNpcDefinition().getMaxHit() + 1;
 		if (damage > player->skills->getEffect(hitpoints)) damage = player->skills->getEffect(hitpoints);
 		return damage;
 	}
@@ -254,7 +254,7 @@ int Combat::getNpcDamage(Npc* npc, Player* player)
 {
 	int npcHit = 0;
 
-	switch (npc->getNpcDefinition()->getAttackStyle())
+	switch (npc->getNpcDefinition().getAttackStyle())
 	{
 	case 0:
 		npcHit = meleeAttack(npc, player);
@@ -280,7 +280,7 @@ int Combat::getNpcDamage(Npc* npc, Player* player)
 void Combat::fight(Player* player, Npc* npc)
 {
 	CombatInterface *combatInterface = new CombatInterface;
-	combatInterface->displayScreen(player, npc);
+	combatInterface->displayScreen(*player, *npc);
 
 	while (player->skills->getEffect(hitpoints) && npc->getHitpoints())
 	{
@@ -297,7 +297,7 @@ void Combat::fight(Player* player, Npc* npc)
 			player->skills->addCombatExperience(playerHit);
 
 			system("CLS");
-			combatInterface->displayScreen(player, npc);
+			combatInterface->displayScreen(*player, *npc);
 		}
 
 		//Npc is attacking player
@@ -307,7 +307,7 @@ void Combat::fight(Player* player, Npc* npc)
 			player->skills->subHitpoints(npcHit);
 
 			system("CLS");
-			combatInterface->displayScreen(player, npc);
+			combatInterface->displayScreen(*player, *npc);
 		}
 
 		_sleep(600);
@@ -332,7 +332,7 @@ void Combat::battle(Player* player, int id)
 
 		while (player->skills->getEffect(hitpoints) && npc->getHitpoints())
 		{
-			combatInterface->displayMenu(player, npc);
+			combatInterface->displayMenu(*player, *npc);
 
 			while (!(std::cin >> input))
 			{
@@ -424,11 +424,15 @@ void Combat::battle(Player* player, int id)
 				}
 				break;
 			case 7:
+				delete npc;
+				delete combatInterface;
 				return;
 				break;
 			default:
 				break;
 			}
 		}
+		delete npc;
 	}
+	delete combatInterface;
 }

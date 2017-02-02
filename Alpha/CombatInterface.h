@@ -13,13 +13,13 @@ public:
 
 private:
 	void barDisplay(int, int);
-	void npcDisplay(Npc*);
-	void playerDisplay(Player*);
-	void attackDisplay(Player*);
+	void npcDisplay(const Npc&);
+	void playerDisplay(const Player&);
+	void attackDisplay(const Player&);
 	
 public:
-	void displayMenu(Player*, Npc*);
-	void displayScreen(Player*, Npc*);
+	void displayMenu(const Player&, const Npc&);
+	void displayScreen(const Player&, const Npc&);
 };
 
 #endif

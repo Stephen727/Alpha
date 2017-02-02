@@ -50,13 +50,13 @@ public:
 	void toggleAutoCast() { autoCast = !autoCast; }
 	void setAutoCast(bool b) { autoCast = b; }
 
-	std::string getName() { return username; }
-	bool hasEatDelay() { return foodDelay > 0; }
-	bool hasDrinkDelay() { return potionDelay > 0; }
-	int getCombatDelay() { return combatDelay; }
-	int getAttackStyle();
+	std::string getName() const { return username; }
+	bool hasEatDelay() const { return foodDelay > 0; }
+	bool hasDrinkDelay() const { return potionDelay > 0; }
+	int getCombatDelay() const { return combatDelay; }
+	int getAttackStyle() const;
 	int getCombatStance() const { return combatStance; }
-	bool getAutoCast() { return autoCast; }
+	bool getAutoCast() const { return autoCast; }
 };
 
 #endif

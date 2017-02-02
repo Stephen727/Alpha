@@ -102,9 +102,9 @@ double RangedFormulas::getDefenseRoll(const Player &player)
 	return getEffectiveDefense(player) * (2.0 + (double)player.equipment->getBonus(4));
 }
 
-double RangedFormulas::getDefenseRoll(Npc npc)
+double RangedFormulas::getDefenseRoll(const Npc &npc)
 {
-	return npc.getNpcDefinition()->getDefenseStat() * (2.0 + npc.getNpcDefinition()->getDefenseStat() * 0.33);
+	return npc.getNpcDefinition().getDefenseStat() * (2.0 + npc.getNpcDefinition().getDefenseStat() * 0.33);
 }
 
 double RangedFormulas::getAttackRoll(const Player &player)
@@ -112,9 +112,9 @@ double RangedFormulas::getAttackRoll(const Player &player)
 	return getEffectiveRange(player) * (2.0 + (double)player.equipment->getBonus(1));
 }
 
-double RangedFormulas::getAttackRoll(Npc npc)
+double RangedFormulas::getAttackRoll(const Npc &npc)
 {
-	return npc.getNpcDefinition()->getAttackStat() * (2.0 + npc.getNpcDefinition()->getAttackStat() * 0.33);
+	return npc.getNpcDefinition().getAttackStat() * (2.0 + npc.getNpcDefinition().getAttackStat() * 0.33);
 }
 
 double RangedFormulas::calculateBasedamage(const Player &player)

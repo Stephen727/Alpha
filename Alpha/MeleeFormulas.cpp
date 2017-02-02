@@ -82,9 +82,9 @@ double MeleeFormulas::getDefenseRoll(const Player &player)
 	return getEffectiveDefense(player) * (2.0 + (double)player.equipment->getBonus(3));
 }
 
-double MeleeFormulas::getDefenseRoll(Npc npc)
+double MeleeFormulas::getDefenseRoll(const Npc &npc)
 {
-	return npc.getNpcDefinition()->getDefenseStat() * (2.0 + npc.getNpcDefinition()->getDefenseStat() * 0.33);
+	return npc.getNpcDefinition().getDefenseStat() * (2.0 + npc.getNpcDefinition().getDefenseStat() * 0.33);
 }
 
 double MeleeFormulas::getAttackRoll(const Player &player)
@@ -92,9 +92,9 @@ double MeleeFormulas::getAttackRoll(const Player &player)
 	return getEffectiveAttack(player) * (2.0 + (double)player.equipment->getBonus(0));
 }
 
-double MeleeFormulas::getAttackRoll(Npc npc)
+double MeleeFormulas::getAttackRoll(const Npc &npc)
 {
-	return npc.getNpcDefinition()->getAttackStat() * (2.0 + npc.getNpcDefinition()->getAttackStat() * 0.33);
+	return npc.getNpcDefinition().getAttackStat() * (2.0 + npc.getNpcDefinition().getAttackStat() * 0.33);
 }
 
 double MeleeFormulas::calculateBasedamage(const Player &player)

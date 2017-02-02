@@ -17,9 +17,9 @@ private:
 
 public:
 	double getDefenseRoll(const Player&);
-	double getDefenseRoll(Npc);
+	double getDefenseRoll(const Npc&);
 	double getAttackRoll(const Player&);
-	double getAttackRoll(Npc);
+	double getAttackRoll(const Npc&);
 
 	double calculateBasedamage(const Player&);
 };

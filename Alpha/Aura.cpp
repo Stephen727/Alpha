@@ -12,6 +12,7 @@ Aura::Aura(std::string _name, int _level, double _drainRate, AuraType _auraType)
 
 Aura::~Aura()
 {
+	delete[] aura;
 }
 
 Aura *aura[20] = {

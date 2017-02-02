@@ -22,6 +22,8 @@ PrayerBook::PrayerBook(Player* _player)
 
 PrayerBook::~PrayerBook()
 {
+	player = nullptr;
+	delete player;
 }
 
 

@@ -19,12 +19,14 @@ UseItem::UseItem(Player *p)
 
 UseItem::~UseItem()
 {
+	player = nullptr;
+	delete player;
 }
 
 
 bool UseItem::isPotion(Item* item)
 {
-	if (item->getPotionDefinition() != NULL)
+	if (item->getPotionDefinition() != nullptr)
 		return true;
 	else
 		return false;
@@ -33,7 +35,7 @@ bool UseItem::isPotion(Item* item)
 
 bool UseItem::isFood(Item* item)
 {
-	if (item->getFoodDefinition() != NULL)
+	if (item->getFoodDefinition() != nullptr)
 		return true;
 	else
 		return false;
@@ -41,7 +43,7 @@ bool UseItem::isFood(Item* item)
 
 bool UseItem::isEquipment(Item* item)
 {
-	if (item->getEquipmentDefinition() != NULL)
+	if (item->getEquipmentDefinition() != nullptr)
 		return true;
 	else
 		return false;
@@ -51,7 +53,7 @@ void UseItem::use(int slot)
 {
 	if (slot < 0 || slot > 19)
 		return;
-	else if (player->inventory->getSlot(slot) == NULL)
+	else if (player->inventory->getSlot(slot) == nullptr)
 		return;
 	else if (player->prayer->isBone(slot))
 		player->prayer->buryBone(slot);

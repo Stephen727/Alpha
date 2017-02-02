@@ -26,15 +26,15 @@ private:
 	int bonus[8];
 
 public:
-	int getId() { return id; }
-	int getMeleeAtt() { return bonus[0]; }
-	int getMagicAtt(){ return bonus[1]; }
-	int getRangeAtt(){ return bonus[2]; }
-	int getMeleeDef(){ return bonus[3]; }
-	int getMagicDef(){ return bonus[4]; }
-	int getRangeDef(){ return bonus[5]; }
-	int getStrength(){ return bonus[6]; }
-	int getPrayer(){ return bonus[7]; }
+	int getId() const { return id; }
+	int getMeleeAtt() const { return bonus[0]; }
+	int getMagicAtt() const { return bonus[1]; }
+	int getRangeAtt() const { return bonus[2]; }
+	int getMeleeDef() const { return bonus[3]; }
+	int getMagicDef() const { return bonus[4]; }
+	int getRangeDef() const { return bonus[5]; }
+	int getStrength() const { return bonus[6]; }
+	int getPrayer() const { return bonus[7]; }
 };
 
 #endif

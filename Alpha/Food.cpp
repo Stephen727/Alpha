@@ -15,6 +15,8 @@ Food::Food(Player *p)
 
 Food::~Food()
 {
+	player = nullptr;
+	delete player;
 }
 
 

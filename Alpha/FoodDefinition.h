@@ -19,8 +19,8 @@ private:
 		heal;
 
 public:
-	int getId() { return id; }
-	int getHeal() { return heal; }
+	int getId() const { return id; }
+	int getHeal() const { return heal; }
 };
 
 #endif

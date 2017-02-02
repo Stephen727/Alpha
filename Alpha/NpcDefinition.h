@@ -37,16 +37,16 @@ private:
 		defenseStat;
 
 public:
-	int getId() { return id; }
-	std::string getName() { return name; }
-	int getLevel() { return level; }
-	int getHitpoints() { return hitpoints; }
-	int getMaxHit() { return maxHit; }
-	int getWeakness() { return weakness; }
-	int getAttackStyle() { return attackStyle; }
-	int getAttackSpeed() { return attackSpeed; }
-	int getAttackStat() { return attackStat; }
-	int getDefenseStat() { return defenseStat; }
+	int getId() const { return id; }
+	std::string getName() const { return name; }
+	int getLevel() const { return level; }
+	int getHitpoints() const { return hitpoints; }
+	int getMaxHit() const { return maxHit; }
+	int getWeakness() const { return weakness; }
+	int getAttackStyle() const { return attackStyle; }
+	int getAttackSpeed() const { return attackSpeed; }
+	int getAttackStat() const { return attackStat; }
+	int getDefenseStat() const { return defenseStat; }
 };
 
 #endif

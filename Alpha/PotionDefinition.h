@@ -39,10 +39,10 @@ private:
 	std::vector<SkillData> skillData;
 
 public:
-	int getId() { return id; }
-	int getReplaceId() { return replaceId; }
-	int getType() { return type; }
-	std::vector<SkillData> getSkillData() { return skillData; }
+	int getId() const { return id; }
+	int getReplaceId() const { return replaceId; }
+	int getType() const { return type; }
+	std::vector<SkillData> getSkillData() const { return skillData; }
 };
 
 #endif

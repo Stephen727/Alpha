@@ -23,9 +23,9 @@ private:
 	std::vector<int> ammo;
 
 public:
-	int getId() { return id; }
-	bool getType() { return type; }
-	std::vector<int> getAmmo() { return ammo; }
+	int getId() const { return id; }
+	bool getType() const { return type; }
+	std::vector<int> getAmmo() const { return ammo; }
 };
 
 #endif

@@ -17,6 +17,8 @@ Prayer::Prayer(Player* _player)
 
 Prayer::~Prayer()
 {
+	player = nullptr;
+	delete player;
 }
 
 

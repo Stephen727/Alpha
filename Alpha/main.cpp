@@ -3,10 +3,13 @@
 
 int main()
 {
-	Player player("Reginald");
+	Player *player = new Player("Reginald");
 
-	Combat combat;
-	combat.battle(&player, 38);
+	Combat *combat = new Combat;
+	combat->battle(player, 100);
+
+	delete combat;
+	delete player;
 
 	return 0;
 }

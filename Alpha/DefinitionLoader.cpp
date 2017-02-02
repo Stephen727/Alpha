@@ -13,6 +13,29 @@ DefinitionLoader::DefinitionLoader()
 
 DefinitionLoader::~DefinitionLoader()
 {
+	for (auto it = itemDefinition.begin(); it != itemDefinition.end();)
+			it = itemDefinition.erase(it);
+
+	for (auto it = itemBonusDefinition.begin(); it != itemBonusDefinition.end();)
+		it = itemBonusDefinition.erase(it);
+
+	for (auto it = equipmentDefinition.begin(); it != equipmentDefinition.end();)
+		it = equipmentDefinition.erase(it);
+
+	for (auto it = foodDefinition.begin(); it != foodDefinition.end();)
+		it = foodDefinition.erase(it);
+
+	for (auto it = potionDefinition.begin(); it != potionDefinition.end();)
+		it = potionDefinition.erase(it);
+
+	for (auto it = rangedDefinition.begin(); it != rangedDefinition.end();)
+		it = rangedDefinition.erase(it);
+
+	for (auto it = weaponDefinition.begin(); it != weaponDefinition.end();)
+		it = weaponDefinition.erase(it);
+
+	for (auto it = npcDefinition.begin(); it != npcDefinition.end();)
+		it = npcDefinition.erase(it);
 }
 
 void DefinitionLoader::loadItemDefinition()

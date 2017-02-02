@@ -9,24 +9,28 @@ Npc::Npc()
 Npc::Npc(int _id)
 {
 	id = _id;
-	hitpoints = getNpcDefinition()->getHitpoints();
+	setNpcDefinition();
+	hitpoints = npcDefinition->getHitpoints();
 	delay = 1;
 }
 
 
 Npc::~Npc()
 {
+	npcDefinition = nullptr;
+	delete npcDefinition;
 }
 
 
-NpcDefinition* Npc::getNpcDefinition()
+void Npc::setNpcDefinition()
 {
 	for (int i = 0; i < definitionLoader.npcDefinition.size(); i++)
 	{
 		if (definitionLoader.npcDefinition[i]->getId() == id)
 		{
-			return definitionLoader.npcDefinition[i];
+			npcDefinition = definitionLoader.npcDefinition[i];
+			return;
 		}
 	}
-	return NULL;
+	npcDefinition = nullptr;
 }

@@ -29,12 +29,12 @@ Skills::Skills(Player *p)
 		skills[i].level = 1;
 		skills[i].effectiveLevel = 1;
 	}
-
-	addExperience(5000000, magic);
 }
 
 Skills::~Skills()
 {
+	player = nullptr;
+	delete player;
 }
 
 int Skills::getExpForLevel(int skill)

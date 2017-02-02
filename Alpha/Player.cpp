@@ -79,7 +79,7 @@ void Player::drinkDelay()
 	potionDelay = 3;
 }
 
-int Player::getAttackStyle()
+int Player::getAttackStyle() const
 {
 	if (autoCast)
 		return 2;

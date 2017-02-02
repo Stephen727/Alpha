@@ -18,6 +18,8 @@ Magic::Magic(Player* _player)
 
 Magic::~Magic()
 {
+	player = nullptr;
+	delete player;
 }
 
 

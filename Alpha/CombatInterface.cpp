@@ -32,30 +32,30 @@ void CombatInterface::barDisplay(int cur, int max)
 	std::cout << "]";
 }
 
-void CombatInterface::npcDisplay(Npc *npc)
+void CombatInterface::npcDisplay(const Npc &npc)
 {
-	std::cout << "\t(Level " << npc->getNpcDefinition()->getLevel() << ") " << npc->getNpcDefinition()->getName() << std::endl;
-	std::cout << "   HP: " << npc->getHitpoints() << " / " << npc->getNpcDefinition()->getHitpoints() << "   " << std::endl;
-	barDisplay(npc->getHitpoints(), npc->getNpcDefinition()->getHitpoints());
+	std::cout << "\t(Level " << npc.getNpcDefinition().getLevel() << ") " << npc.getNpcDefinition().getName() << std::endl;
+	std::cout << "   HP: " << npc.getHitpoints() << " / " << npc.getNpcDefinition().getHitpoints() << "   " << std::endl;
+	barDisplay(npc.getHitpoints(), npc.getNpcDefinition().getHitpoints());
 	std::cout << "   " << std::endl;
 }
 
-void CombatInterface::playerDisplay(Player *player)
+void CombatInterface::playerDisplay(const Player &player)
 {
 	std::cout << std::endl << " > " << std::endl << std::endl;
-	std::cout << "\t(Level " << player->skills->getCombatLevel() << ") " << player->getName() << std::endl;
-	std::cout << "   HP: " << player->skills->getEffect(hitpoints) << " / " << player->skills->getLevel(hitpoints) << "\t\tPray: " << player->skills->getEffect(prayer) << " / " << player->skills->getLevel(prayer) << "   " << std::endl;
-	barDisplay(player->skills->getEffect(hitpoints), player->skills->getLevel(hitpoints));
+	std::cout << "\t(Level " << player.skills->getCombatLevel() << ") " << player.getName() << std::endl;
+	std::cout << "   HP: " << player.skills->getEffect(hitpoints) << " / " << player.skills->getLevel(hitpoints) << "\t\tPray: " << player.skills->getEffect(prayer) << " / " << player.skills->getLevel(prayer) << "   " << std::endl;
+	barDisplay(player.skills->getEffect(hitpoints), player.skills->getLevel(hitpoints));
 	std::cout << "   " << std::endl;
 	std::cout << std::endl << " > " << std::endl << std::endl;
 }
 
-void CombatInterface::attackDisplay(Player* player)
+void CombatInterface::attackDisplay(const Player &player)
 {
 	std::vector<std::string> names;
 	int j = 0;
 
-	switch (player->getAttackStyle())
+	switch (player.getAttackStyle())
 	{
 	case 0:
 		names.push_back("Accurate");
@@ -81,14 +81,14 @@ void CombatInterface::attackDisplay(Player* player)
 		j++;
 		if (i < names.size())
 			std::cout << " [" << i + 1 << "] " << names[i];
-		if (j == player->getCombatStance())
+		if (j == player.getCombatStance())
 			std::cout << " <-";
 		std::cout << std::endl;
 		if (i != 3) std::cout << std::endl;
 	}
 }
 
-void CombatInterface::displayMenu(Player* player, Npc* npc)
+void CombatInterface::displayMenu(const Player &player, const Npc &npc)
 {
 	std::cout << "\t\t\t\t---Combat---" << std::endl;
 	std::cout << "+-----------------------------------------------------------------------------+" << std::endl << std::endl;
@@ -106,7 +106,7 @@ void CombatInterface::displayMenu(Player* player, Npc* npc)
 	std::cout << ">";
 }
 
-void CombatInterface::displayScreen(Player* player, Npc* npc)
+void CombatInterface::displayScreen(const Player &player, const Npc &npc)
 {
 	std::cout << "\t\t\t\t---Combat---" << std::endl;
 	std::cout << "+-----------------------------------------------------------------------------+" << std::endl << std::endl;

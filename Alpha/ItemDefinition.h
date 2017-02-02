@@ -31,13 +31,13 @@ private:
 		generalPrice;
 
 public:
-	std::string getName() { return name; }
-	int getId() { return id; }
-	bool isStackable() { return stackable; }
-	bool isNote() { return note; }
-	int getNoteId() { return noteId; }
-	int getAlchemyPrice() { return alchemyPrice; }
-	int getGeneralPrice() { return generalPrice; }
+	std::string getName() const { return name; }
+	int getId() const { return id; }
+	bool isStackable() const { return stackable; }
+	bool isNote() const { return note; }
+	int getNoteId() const { return noteId; }
+	int getAlchemyPrice() const { return alchemyPrice; }
+	int getGeneralPrice() const { return generalPrice; }
 };
 
 #endif

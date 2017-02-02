@@ -14,12 +14,20 @@ Inventory::Inventory(Player *p)
 {
 	player = p;
 	for (int i = 0; i < 20; i++)
-		item[i] = NULL;
+		item[i] = nullptr;
 }
 
 
 Inventory::~Inventory()
 {
+	player = nullptr;
+	delete player;
+
+	for (int i = 0; i < 20; i++)
+	{
+		delete item[i];
+		item[i] = nullptr;
+	}
 }
 
 
@@ -27,7 +35,7 @@ bool Inventory::canAdd(Item _item)
 {
 	for (int i = 0; i < 20; i++)
 	{
-		if (item[i] == NULL)
+		if (item[i] == nullptr)
 		{
 			return true;
 		}
@@ -51,7 +59,7 @@ void Inventory::add(Item *_item)
 	{
 		for (int i = 0; i < 20; i++)
 		{
-			if (item[i] != NULL)
+			if (item[i] != nullptr)
 			{
 				if (item[i]->getId() == _item->getId())
 				{
@@ -65,7 +73,7 @@ void Inventory::add(Item *_item)
 		}
 		for (int i = 0; i < 20; i++)
 		{
-			if (item[i] == NULL)
+			if (item[i] == nullptr)
 			{
 				item[i] = _item;
 				return;
@@ -76,10 +84,10 @@ void Inventory::add(Item *_item)
 
 void Inventory::remove(int slot)
 {
-	if (item[slot] != NULL)
+	if (item[slot] != nullptr)
 	{
 		delete item[slot];
-		item[slot] = NULL;
+		item[slot] = nullptr;
 	}
 }
 
@@ -90,7 +98,7 @@ void Inventory::remove(int slot, int amount)
 	if (item[slot]->getAmount() < 1)
 	{
 		delete item[slot];
-		item[slot] = NULL;
+		item[slot] = nullptr;
 	}
 }
 
@@ -100,7 +108,7 @@ void Inventory::remove(std::vector<Item> items)
 	{
 		for (int j = 0; j < 20; j++)
 		{
-			if (item[j] != NULL)
+			if (item[j] != nullptr)
 			{
 				if (item[j]->getId() == items[i].getId())
 				{
@@ -121,10 +129,10 @@ void Inventory::clear()
 {
 	for (int i = 0; i < 20; i++)
 	{
-		if (item[i] != NULL)
+		if (item[i] != nullptr)
 		{
 			delete item[i];
-			item[i] = NULL;
+			item[i] = nullptr;
 		}
 	}
 }
@@ -132,10 +140,10 @@ void Inventory::clear()
 Item* Inventory::getSlot(int slot)
 {
 	if (slot >= 0 && slot < 20)
-		if (item[slot] != NULL)
+		if (item[slot] != nullptr)
 			return item[slot];
 
-	return NULL;
+	return nullptr;
 }
 
 int Inventory::getFreeSlots()
@@ -143,7 +151,7 @@ int Inventory::getFreeSlots()
 	int total = 0;
 	for (int i = 0; i < 20; i++)
 	{
-		if (item[i] == NULL)
+		if (item[i] == nullptr)
 			total++;
 	}
 	return total;
@@ -153,7 +161,7 @@ bool Inventory::hasItem(int id)
 {
 	for (int i = 0; i < 20; i++)
 	{
-		if (item[i] != NULL)
+		if (item[i] != nullptr)
 		{
 			if (item[i]->getId() == id)
 				return true;
@@ -168,7 +176,7 @@ bool Inventory::hasItem(int id, int amount)
 
 	for (int i = 0; i < 20; i++)
 	{
-		if (item[i] != NULL)
+		if (item[i] != nullptr)
 		{
 			if (item[i]->getId() == id)
 				total += item[i]->getAmount();
@@ -194,7 +202,7 @@ int Inventory::hasAmount(int id)
 
 	for (int i = 0; i < 20; i++)
 	{
-		if (item[i] != NULL)
+		if (item[i] != nullptr)
 		{
 			if (item[i]->getId() == id)
 				total += item[i]->getAmount();
@@ -208,7 +216,7 @@ void Inventory::removeItem(int id)
 {
 	for (int i = 0; i < 20; i++)
 	{
-		if (item[i] != NULL)
+		if (item[i] != nullptr)
 		{
 			if (item[i]->getId() == id)
 			{
@@ -228,7 +236,7 @@ void Inventory::removeItem(int id, int amount)
 		if (i > 20)
 			return;
 
-		if (item[i] != NULL)
+		if (item[i] != nullptr)
 		{
 			if (item[i]->getId() == id)
 			{
@@ -250,9 +258,9 @@ void Inventory::removeItem(int id, int amount)
 
 void Inventory::swap(int first_slot, int second_slot)
 {
-	if (item[first_slot] == NULL)
+	if (item[first_slot] == nullptr)
 		return;
-	else if (item[second_slot] != NULL)
+	else if (item[second_slot] != nullptr)
 	{
 		Item *temp = item[first_slot];
 		item[first_slot] = item[second_slot];
@@ -261,7 +269,7 @@ void Inventory::swap(int first_slot, int second_slot)
 	else
 	{
 		item[second_slot] = item[first_slot];
-		item[first_slot] = NULL;
+		item[first_slot] = nullptr;
 	}
 }
 
@@ -281,7 +289,7 @@ void Inventory::displayInv()
 
 	for (int i = 0; i < 20; i++)
 	{
-		if (item[i] != NULL)
+		if (item[i] != nullptr)
 		{
 			std::cout << " [" << i + 1 << "]\t" << item[i]->getItemDefinition()->getName();
 
@@ -305,7 +313,7 @@ void Inventory::save()
 
 	for (int i = 0; i < 20; i++)
 	{
-		if (item[i] != NULL)
+		if (item[i] != nullptr)
 			outFile << i << " " << *item[i];
 	}
 
