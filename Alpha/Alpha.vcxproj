@@ -70,6 +70,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Aura.cpp" />
+    <ClCompile Include="Bank.cpp" />
     <ClCompile Include="Combat.cpp" />
     <ClCompile Include="CombatAssistant.cpp" />
     <ClCompile Include="CombatInterface.cpp" />
@@ -97,6 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Aura.h" />
+    <ClInclude Include="Bank.h" />
     <ClInclude Include="Combat.h" />
     <ClInclude Include="CombatAssistant.h" />
     <ClInclude Include="CombatInterface.h" />

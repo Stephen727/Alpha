@@ -2,6 +2,9 @@
 #include "Player.h"
 #include "PrayerBook.h"
 
+#include <fstream>
+#include <sstream>
+
 
 const int EXP_FOR_LEVEL[] = { 0, 83, 174, 276, 388, 512, 650, 801, 969, 1154, 1358,
 1584, 1833, 2107, 2411, 2746, 3115, 3523, 3973, 4470, 5018, 5624, 6291, 7028, 7842,
@@ -202,4 +205,46 @@ void Skills::displayStats()
 	}
 
 	std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << ">";
+}
+
+void Skills::save()
+{
+	std::ofstream outFile("save.txt", std::ios::app);
+
+	outFile << "Skills" << std::endl;
+
+	for (int i = 0; i < 17; i++)
+		outFile << skills[i].effectiveLevel << " " << skills[i].level << " " << skills[i].experience << " " << std::endl;
+
+	outFile << std::endl;
+
+	outFile.close();
+}
+
+void Skills::load()
+{
+	std::ifstream infile("save.txt");
+	int cur, max, exp,
+		i = 0;
+
+	std::string line;
+
+	while (std::getline(infile, line))
+	{
+		std::istringstream iss(line);
+
+		if (line == "Skills")
+		{
+			while (infile >> cur >> max >> exp)
+			{
+				skills[i].effectiveLevel = cur;
+				skills[i].level = max;
+				skills[i].experience = exp;
+				i++;
+			}
+		}
+
+	}
+
+	infile.close();
 }

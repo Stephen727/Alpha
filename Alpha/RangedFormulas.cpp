@@ -58,37 +58,40 @@ double RangedFormulas::getRangedStrength(const Player &player)
 
 	switch (player.equipment->getItem(10)->getId())
 	{
-	case 0: //Bronze arrow
+	case 52: //Bronze arrow
 		return 7;
 		break;
-	case 1: //Bronze bolt
-	case 2: //Iron arrow
+	case 59: //Bronze bolt
+	case 53: //Iron arrow
 		return 10;
 		break;
-	case 3: //Steel arrow
+	case 54: //Steel arrow
 		return 16;
 		break;
-	case 4: //Mithril arrow
+	case 55: //Mithril arrow
 		return 22;
 		break;
-	case 5: //Adamant arrow
+	case 58: //Broad arrow
+		return 28;
+		break;
+	case 56: //Adamant arrow
 		return 31;
 		break;
-	case 6: //Iron bolt
-	case 7: //Rune arrow
+	case 60: //Iron bolt
+	case 57: //Rune arrow
 		return 49;
 		break;
-	case 8: //Steel bolt
+	case 61: //Steel bolt
 		return 64;
 		break;
-	case 9: //Mithril bolt
+	case 62: //Mithril bolt
 		return 82;
 		break;
-	case 10: //Broad bolt
-	case 11: //Adamant bolt
+	case 63: //Adamant bolt
+	case 65: //Broad bolt
 		return 100;
 		break;
-	case 12: //Rune bolt
+	case 64: //Rune bolt
 		return 115;
 		break;
 	default:

@@ -171,6 +171,8 @@ int Combat::getPlayerInput(Player* player)
 
 	while (!(std::cin >> input) || cantAttack(player, input))
 	{
+		if (!input) break;
+
 		if (std::cin.fail())
 		{
 			std::cin.clear();

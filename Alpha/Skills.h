@@ -54,6 +54,9 @@ public:
 	void addCombatExperience(int);
 
 	void displayStats();
+
+	void save();
+	void load();
 };
 
 #endif

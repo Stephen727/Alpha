@@ -79,7 +79,7 @@ bool Equipment::hasAmmo()
 			return true;
 		else if (item[10] != nullptr)
 		{
-			for (int i = 0; item[3]->getRangedDefinition()->getAmmo().size(); i++)
+			for (int i = 0; i < item[3]->getRangedDefinition()->getAmmo().size(); i++)
 				if (item[10]->getId() == item[3]->getRangedDefinition()->getAmmo()[i])
 					return true;
 		}

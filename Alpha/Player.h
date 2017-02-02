@@ -36,8 +36,8 @@ public:
 
 private:
 	std::string username;
-	int combatDelay, foodDelay, potionDelay;
-	int combatStance;
+	int combatDelay, foodDelay, potionDelay,
+		combatStance;
 	bool autoCast;
 
 public:
