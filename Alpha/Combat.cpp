@@ -22,6 +22,7 @@
 Combat::Combat()
 {
 	srand(time(NULL));
+	playerInput = -1;
 }
 
 Combat::~Combat()
@@ -205,19 +206,18 @@ bool getInput(char *c)
 bool Combat::checkPlayerInput(Player* player)
 {
 	static bool autoAttack = false;
-	static int input = 0;
 
 	char key = ' ';
-	if (getInput(&key) || cantAttack(player, input)) autoAttack = false;
+	if (getInput(&key) || cantAttack(player, playerInput)) autoAttack = false;
 
 	if (!autoAttack)
 	{
-		input = getPlayerInput(player);
-		player->setCombatStance(input);
+		playerInput = getPlayerInput(player);
+		player->setCombatStance(playerInput);
 		autoAttack = true;
 	}
 
-	if (!input) { autoAttack = false; return true; }
+	if (!playerInput) { autoAttack = false; return true; }
 	else
 		return false;
 }
@@ -374,6 +374,7 @@ void Combat::battle(Player* player, int id)
 			{
 			case 1:
 				fight(player, npc);
+				resetPlayerInput();
 				break;
 			case 2:
 				while (input)
@@ -460,7 +461,6 @@ void Combat::battle(Player* player, int id)
 			}
 		}
 		if(!npc->getHitpoints()) getLoot(player, id);
-		
 		player->resetDelay();
 		delete npc;
 	}

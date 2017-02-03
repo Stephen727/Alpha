@@ -12,6 +12,8 @@ public:
 	~Combat();
 
 private:
+	int playerInput;
+
 	int meleeAttack(Player*, Npc*);
 	int rangedAttack(Player*, Npc*);
 	int magicAttack(Player*, Npc*);
@@ -25,6 +27,7 @@ private:
 
 	int getPlayerInput(Player*);
 	bool checkPlayerInput(Player*);
+	void resetPlayerInput() { playerInput = -1; }
 
 	int getPlayerDamage(Player*, Npc*);
 	int getNpcDamage(Npc*, Player*);

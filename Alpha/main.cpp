@@ -1,10 +1,6 @@
 #include "Player.h"
 #include "Combat.h"
 
-#include "DefinitionLoader.h"
-#include "Item.h"
-#include <iostream>
-
 int main()
 {
 	Player *player = new Player("Reginald");
