@@ -157,7 +157,12 @@ void Magic::setCurrentSpell(int spell)
 		}
 	}
 	else if (currentSpell == spell)
-		player->toggleAutoCast();
+	{
+		if (player->getAutoCast())
+			player->toggleAutoCast();
+		else if (hasRunes())
+			player->toggleAutoCast();
+	}
 	else
 	{
 		currentSpell = spell;

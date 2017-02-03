@@ -18,10 +18,11 @@ private:
 	Player* player;
 	int currentSpell;
 
-	bool hasRunes();
 	void useRunes();
 
 public:
+	bool hasRunes();
+
 	void setCurrentSpell(int);
 	
 	SpellBook* getCurrentSpell() { return &spellBook[currentSpell]; }

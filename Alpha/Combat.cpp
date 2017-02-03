@@ -160,8 +160,16 @@ int Combat::getMaxInput(Player* player)
 bool Combat::cantAttack(Player* player, int input)
 {
 	if (player->getAttackStyle() == 1)
+	{
 		if (!player->equipment->hasAmmo())
 			return true;
+	}
+	else if (player->getAttackStyle() == 2)
+	{
+		if (!player->magic->hasRunes())
+			return true;
+	}
+
 	return (input < 0 || input > getMaxInput(player));
 }
 
