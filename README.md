@@ -5,6 +5,13 @@ Controls:
 Inventory: u = use, d = drop, s = swap
   -example: 1u (use slot one; depends on item) or 1s3 (swap slot 1 and 3), or 5d (drop item in slot 5)
  0 is back
+ 
+ Equipment: Shows current bonuses, select slot to unequip items
+ 
+ Melee: Attack with fists or a melee weapon
+ Range: Equip bow and arrows, each shot consumes an arrow but player has chance to pick back up
+ Prayer: Select  prayer to toggle, gives bonuses (lookup OSRS Prayer to get a better idea)
+ Magic: Similar to prayer, toggle spell to autocast (requires runes)
 
 Current Features
   Finished Skills: Hitpoints, Attack, Strength, Defense, Ranged, Prayer, Magic, Slayer
