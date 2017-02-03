@@ -1,5 +1,8 @@
 #include <fstream>
 
+#ifndef DEFINITIONLOADER_H
+#define DEFINITIONLOADER_H
+
 #include "ItemDefinition.h"
 #include "ItemBonusDefinition.h"
 #include "EquipmentDefinition.h"
@@ -8,9 +11,7 @@
 #include "RangedDefinition.h"
 #include "WeaponDefinition.h"
 #include "NpcDefinition.h"
-
-#ifndef DEFINITIONLOADER_H
-#define DEFINITIONLOADER_H
+#include "ShopDefinition.h"
 
 class DefinitionLoader
 {
@@ -27,6 +28,7 @@ public:
 	std::vector<RangedDefinition*> rangedDefinition;
 	std::vector<WeaponDefinition*> weaponDefinition;
 	std::vector<NpcDefinition*> npcDefinition;
+	std::vector<ShopDefinition*> shopDefinition;
 
 private:
 	void loadItemDefinition();
@@ -37,6 +39,7 @@ private:
 	void loadRangedDefinition();
 	void loadWeaponDefinition();
 	void loadNpcDefinition();
+	void loadShopDefinition();
 	void loadDefinitions();
 };
 

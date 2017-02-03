@@ -76,3 +76,7 @@ Yew_shortbow 74 0 0 75 480 0
 Yew_shortbow 75 1 1 74 480 0
 Magic_shortbow 76 0 0 77 960 0
 Magic_shortbow 77 1 1 76 960 0
+Wooden_sword 78 0 0 79 0 0
+Wooden_sword 79 1 1 78 0 0
+Wooden_shield 80 0 0 81 12 20
+Wooden_shield 81 1 1 80 12 20

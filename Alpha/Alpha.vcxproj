@@ -124,6 +124,7 @@
     <ClInclude Include="PrayerBook.h" />
     <ClInclude Include="RangedDefinition.h" />
     <ClInclude Include="RangedFormulas.h" />
+    <ClInclude Include="ShopDefinition.h" />
     <ClInclude Include="Skills.h" />
     <ClInclude Include="Slayer.h" />
     <ClInclude Include="SlayerTask.h" />

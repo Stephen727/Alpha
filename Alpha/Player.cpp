@@ -33,6 +33,15 @@ Player::Player(std::string _username)
 	food = new Food(this);
 	potion = new Potion(this);
 	useItem = new UseItem(this);
+
+	//Starting Items
+	inventory->add(new Item(78, 1)); //Wooden sword
+	inventory->add(new Item(80, 1)); //Wooden shield
+	inventory->add(new Item(66, 1)); //Shortbow
+	inventory->add(new Item(52, 25)); //Bronze arrows
+	inventory->add(new Item(0, 30)); //Air runes
+	inventory->add(new Item(1, 30)); //Mind runes
+	inventory->add(new Item(31, 1)); //Peach
 }
 
 Player::~Player()

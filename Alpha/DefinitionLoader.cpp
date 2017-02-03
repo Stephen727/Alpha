@@ -209,6 +209,33 @@ void DefinitionLoader::loadNpcDefinition()
 	std::cout << "Npc definitions loaded: " << npcDefinition.size() << std::endl;
 }
 
+void DefinitionLoader::loadShopDefinition()
+{
+	std::ifstream infile("shopDefinition.txt");
+	if (!infile) std::cerr << "shopDefinition.txt could not be opened!" << std::endl;
+	else std::cout << "Loading shop definitions..." << std::endl;
+
+	std::string line;
+	std::vector<Item> stock;
+
+	while (std::getline(infile, line))
+	{
+		std::istringstream iss(line);
+		int id, amount;
+		std::string name;
+		iss >> name;
+
+		while (iss >> id >> amount)
+			stock.push_back(Item(id, amount));
+
+		shopDefinition.push_back(new ShopDefinition(name, stock));
+		stock.clear();
+	}
+
+	infile.close();
+	std::cout << "Shop definitions loaded: " << shopDefinition.size() << std::endl;
+}
+
 void DefinitionLoader::loadDefinitions()
 {
 	clock_t begin = clock();
@@ -221,6 +248,7 @@ void DefinitionLoader::loadDefinitions()
 	loadRangedDefinition();
 	loadWeaponDefinition();
 	loadNpcDefinition();
+	loadShopDefinition();
 	std::cout << "Game defitions loaded!" << std::endl;
 	clock_t end = clock();
 	std::cout << "Elapsed time: " << double(end - begin) / CLOCKS_PER_SEC << " seconds." << std::endl;
