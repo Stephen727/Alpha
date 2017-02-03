@@ -80,6 +80,7 @@
     <ClCompile Include="FormulaData.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="Loot.cpp" />
     <ClCompile Include="Magic.cpp" />
     <ClCompile Include="MagicFormulas.cpp" />
     <ClCompile Include="main.cpp" />
@@ -103,6 +104,7 @@
     <ClInclude Include="CombatAssistant.h" />
     <ClInclude Include="CombatInterface.h" />
     <ClInclude Include="DefinitionLoader.h" />
+    <ClInclude Include="DropDefinition.h" />
     <ClInclude Include="Equipment.h" />
     <ClInclude Include="EquipmentDefinition.h" />
     <ClInclude Include="Food.h" />
@@ -112,6 +114,8 @@
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemBonusDefinition.h" />
     <ClInclude Include="ItemDefinition.h" />
+    <ClInclude Include="Loot.h" />
+    <ClInclude Include="LootDefinition.h" />
     <ClInclude Include="Magic.h" />
     <ClInclude Include="MagicFormulas.h" />
     <ClInclude Include="MeleeFormulas.h" />

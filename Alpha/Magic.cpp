@@ -176,8 +176,8 @@ void Magic::setCurrentSpell(int spell)
 void Magic::castSpell()
 {
 	useRunes();
-	if (!hasRunes())
-		player->setAutoCast(false);
+	//if (!hasRunes())
+		//player->setAutoCast(false);
 }
 
 void Magic::displaySpellBook()

@@ -30,6 +30,7 @@ private:
 	int getNpcDamage(Npc*, Player*);
 
 	void fight(Player*, Npc*);
+	void getLoot(Player*, int);
 
 public:
 	void battle(Player*, int);

@@ -15,6 +15,7 @@
 #include "Inventory.h"
 #include "UseItem.h"
 #include "Slayer.h"
+#include "Loot.h"
 #include <conio.h>
 
 
@@ -329,6 +330,23 @@ void Combat::fight(Player* player, Npc* npc)
 	delete combatInterface;
 }
 
+void Combat::getLoot(Player* player, int id)
+{
+	Loot *loot = new Loot(id);
+	std::vector<Item*> drop = loot->getDrop();
+
+	if (drop.size())
+	{
+		if (player->inventory->getFreeSlots())
+		{
+			for (auto i : drop)
+				player->inventory->add(new Item(i->getId(), i->getAmount()));
+
+			delete loot;
+		}
+	}
+}
+
 void Combat::battle(Player* player, int id)
 {
 	CombatInterface *combatInterface = new CombatInterface;
@@ -338,7 +356,6 @@ void Combat::battle(Player* player, int id)
 	while (player->skills->getEffect(hitpoints))
 	{
 		Npc *npc = new Npc(id);
-		player->resetDelay();
 
 		while (player->skills->getEffect(hitpoints) && npc->getHitpoints())
 		{
@@ -442,6 +459,9 @@ void Combat::battle(Player* player, int id)
 				break;
 			}
 		}
+		if(!npc->getHitpoints()) getLoot(player, id);
+		
+		player->resetDelay();
 		delete npc;
 	}
 	delete combatInterface;

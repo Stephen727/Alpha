@@ -11,6 +11,7 @@
 #include "RangedDefinition.h"
 #include "WeaponDefinition.h"
 #include "NpcDefinition.h"
+#include "LootDefinition.h"
 #include "ShopDefinition.h"
 
 class DefinitionLoader
@@ -28,6 +29,7 @@ public:
 	std::vector<RangedDefinition*> rangedDefinition;
 	std::vector<WeaponDefinition*> weaponDefinition;
 	std::vector<NpcDefinition*> npcDefinition;
+	std::vector<LootDefinition*> lootDefinition;
 	std::vector<ShopDefinition*> shopDefinition;
 
 private:
@@ -39,6 +41,7 @@ private:
 	void loadRangedDefinition();
 	void loadWeaponDefinition();
 	void loadNpcDefinition();
+	void loadLootDefinition();
 	void loadShopDefinition();
 	void loadDefinitions();
 };

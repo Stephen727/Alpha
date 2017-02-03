@@ -96,6 +96,9 @@
     <ClCompile Include="Bank.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Loot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EquipmentDefinition.h">
@@ -199,6 +202,15 @@
     </ClInclude>
     <ClInclude Include="ShopDefinition.h">
       <Filter>Header Files\Definitions</Filter>
+    </ClInclude>
+    <ClInclude Include="LootDefinition.h">
+      <Filter>Header Files\Definitions</Filter>
+    </ClInclude>
+    <ClInclude Include="DropDefinition.h">
+      <Filter>Header Files\Definitions</Filter>
+    </ClInclude>
+    <ClInclude Include="Loot.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

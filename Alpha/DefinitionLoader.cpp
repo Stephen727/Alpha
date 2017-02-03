@@ -209,6 +209,31 @@ void DefinitionLoader::loadNpcDefinition()
 	std::cout << "Npc definitions loaded: " << npcDefinition.size() << std::endl;
 }
 
+void DefinitionLoader::loadLootDefinition()
+{
+	std::ifstream infile("lootDefinition.txt");
+
+	std::string line;
+	std::vector<DropDefinition*> loot;
+
+	while (std::getline(infile, line))
+	{
+		std::istringstream iss(line);
+		int id, chance, min, max, npc;
+		char delim = ':';
+
+		iss >> npc;
+
+		while (iss >> id >> delim >> chance >> min >> delim >> max)
+			loot.push_back(new DropDefinition(id, chance, min, max));
+
+		lootDefinition.push_back(new LootDefinition(npc, loot));
+		loot.clear();
+	}
+
+	infile.close();
+}
+
 void DefinitionLoader::loadShopDefinition()
 {
 	std::ifstream infile("shopDefinition.txt");
@@ -248,6 +273,7 @@ void DefinitionLoader::loadDefinitions()
 	loadRangedDefinition();
 	loadWeaponDefinition();
 	loadNpcDefinition();
+	loadLootDefinition();
 	loadShopDefinition();
 	std::cout << "Game defitions loaded!" << std::endl;
 	clock_t end = clock();
