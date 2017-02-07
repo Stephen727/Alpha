@@ -158,6 +158,151 @@ void Bank::displayBank()
 		std::cout << " Empty." << std::endl;
 }
 
+void Bank::makeDeposit()
+{
+	int input;
+
+	do
+	{
+		system("CLS");
+		player->inventory->displayInv();
+		std::cout << std::endl << "Which item would you like to deposit? ";
+
+		while (!(std::cin >> input))
+		{
+			system("CLS");
+			player->inventory->displayInv();
+			std::cout << std::endl << "Which item would you like to deposit? ";
+
+			if (std::cin.fail())
+			{
+				std::cin.clear();
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			}
+		}
+
+		int amount = 1;
+
+		if (input && player->inventory->getSlot(input - 1) != nullptr)
+		{
+			if (player->inventory->getSlot(input - 1)->getItemDefinition()->isStackable() && player->inventory->getSlot(input - 1)->getAmount() > 1)
+			{
+				system("CLS");
+				player->inventory->displayInv();
+				std::cout << std::endl << "Which item would you like to deposit? " << input << std::endl;
+				std::cout << "How many do you have to deposit? ";
+
+				while (!(std::cin >> amount))
+				{
+					system("CLS");
+					player->inventory->displayInv();
+					std::cout << std::endl << "Which item would you like to deposit? " << amount << std::endl;
+					std::cout << "How many do you have to deposit? ";
+
+					if (std::cin.fail())
+					{
+						std::cin.clear();
+						std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+					}
+				}
+			}
+		}
+		deposit(input - 1, amount);
+	} while (input);
+	access();
+}
+
+void Bank::makeWithdraw()
+{
+	int input;
+
+	do
+	{
+		system("CLS");
+		displayBank();
+		std::cout << std::endl << "Which bank slot would you like to access? ";
+
+		while (!(std::cin >> input))
+		{
+			system("CLS");
+			displayBank();
+			std::cout << std::endl << "Which bank slot would you like to access? ";
+
+			if (std::cin.fail())
+			{
+				std::cin.clear();
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			}
+		}
+
+		int amount = 1;
+
+		if (input)
+		{
+			system("CLS");
+			displayBank();
+			std::cout << std::endl << "Which bank slot would you like to access? " << input << std::endl;
+			std::cout << "How many would you like to withdraw? ";
+
+			while (!(std::cin >> amount))
+			{
+				system("CLS");
+				displayBank();
+				std::cout << std::endl << "Which bank slot would you like to access? " << input << std::endl;
+				std::cout << "How many would you like to withdraw? ";
+
+				if (std::cin.fail())
+				{
+					std::cin.clear();
+					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+				}
+			}
+		}
+		withdraw(input - 1, amount);
+	} while (input);
+	access();
+}
+
+void Bank::access()
+{
+	int input;
+
+	do
+	{
+		system("CLS");
+		std::cout << "+--------------------+" << std::endl;
+		std::cout << "|     ---Bank---     | " << std::endl;
+		std::cout << "+--------------------+" << std::endl;
+		std::cout << "|   [1] Deposit      |" << std::endl;
+		std::cout << "|   [2] Withdraw     |" << std::endl;
+		std::cout << "+--------------------+" << std::endl;
+		std::cout << ">";
+
+		while (!(std::cin >> input))
+		{
+			system("CLS");
+			std::cout << "+--------------------+" << std::endl;
+			std::cout << "|     ---Bank---     | " << std::endl;
+			std::cout << "+--------------------+" << std::endl;
+			std::cout << "|   [1] Deposit      |" << std::endl;
+			std::cout << "|   [2] Withdraw     |" << std::endl;
+			std::cout << "+--------------------+" << std::endl;
+			std::cout << ">";
+
+			if (std::cin.fail())
+			{
+				std::cin.clear();
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			}
+		}
+
+		if (input == 1)
+			makeDeposit();
+		else if (input == 2)
+			makeWithdraw();
+	} while (input);
+}
+
 void Bank::save()
 {
 	std::ofstream outFile("save.txt", std::ios::app);

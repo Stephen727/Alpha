@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "Combat.h"
+#include "Bank.h"
 
 int main()
 {
@@ -7,6 +8,8 @@ int main()
 
 	Combat *combat = new Combat;
 	combat->battle(player, 44);
+
+	player->bank->access();
 
 	delete combat;
 	delete player;

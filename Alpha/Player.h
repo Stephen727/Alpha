@@ -3,6 +3,7 @@
 class Skills;
 class Inventory;
 class Equipment;
+class Bank;
 class PrayerBook;
 class Prayer;
 class Magic;
@@ -26,6 +27,7 @@ public:
 	Skills *skills;
 	Inventory *inventory;
 	Equipment *equipment;
+	Bank *bank;
 	PrayerBook *prayerBook;
 	Prayer *prayer;
 	Magic *magic;

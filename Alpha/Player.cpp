@@ -3,6 +3,7 @@
 #include "Skills.h"
 #include "Inventory.h"
 #include "Equipment.h"
+#include "Bank.h"
 #include "PrayerBook.h"
 #include "Prayer.h"
 #include "Magic.h"
@@ -26,6 +27,7 @@ Player::Player(std::string _username)
 	skills = new Skills(this);
 	inventory = new Inventory(this);
 	equipment = new Equipment(this);
+	bank = new Bank(this);
 	prayerBook = new PrayerBook(this);
 	prayer = new Prayer(this);
 	magic = new Magic(this);
@@ -49,6 +51,7 @@ Player::~Player()
 	delete skills;
 	delete inventory;
 	delete equipment;
+	delete bank;
 	delete prayerBook;
 	delete prayer;
 	delete magic;
