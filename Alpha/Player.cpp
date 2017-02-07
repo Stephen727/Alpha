@@ -37,6 +37,7 @@ Player::Player(std::string _username)
 	useItem = new UseItem(this);
 
 	//Starting Items
+	inventory->add(new Item(33, 30)); //Coins
 	inventory->add(new Item(78, 1)); //Wooden sword
 	inventory->add(new Item(80, 1)); //Wooden shield
 	inventory->add(new Item(66, 1)); //Shortbow

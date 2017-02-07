@@ -80,10 +80,6 @@ int Combat::magicAttack(Player* player, Npc* npc)
 
 int Combat::meleeAttack(Npc* npc, Player* player)
 {
-	if (player->prayerBook->getActivated(15))
-		if (rand() % 2)
-			return 0;
-
 	MeleeFormulas meleeFormulas;
 	double attackRoll = meleeFormulas.getAttackRoll(*npc);
 	double defenseRoll = meleeFormulas.getDefenseRoll(*player);
@@ -100,10 +96,6 @@ int Combat::meleeAttack(Npc* npc, Player* player)
 
 int Combat::rangedAttack(Npc* npc, Player* player)
 {
-	if (player->prayerBook->getActivated(14))
-		if (rand() % 2)
-			return 0;
-
 	RangedFormulas rangedFormulas;
 	double attackRoll = rangedFormulas.getAttackRoll(*npc);
 	double defenseRoll = rangedFormulas.getDefenseRoll(*player);
@@ -121,10 +113,6 @@ int Combat::rangedAttack(Npc* npc, Player* player)
 
 int Combat::magicAttack(Npc* npc, Player* player)
 {
-	if (player->prayerBook->getActivated(13))
-		if (rand() % 2)
-			return 0;
-
 	MagicFormulas magicFormulas;
 	double attackRoll = magicFormulas.getAttackRoll(*npc);
 	double defenseRoll = magicFormulas.getDefenseRoll(*player);

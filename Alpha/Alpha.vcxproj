@@ -91,6 +91,7 @@
     <ClCompile Include="Prayer.cpp" />
     <ClCompile Include="PrayerBook.cpp" />
     <ClCompile Include="RangedFormulas.cpp" />
+    <ClCompile Include="Shop.cpp" />
     <ClCompile Include="Skills.cpp" />
     <ClCompile Include="Slayer.cpp" />
     <ClCompile Include="SlayerTask.cpp" />
@@ -128,6 +129,7 @@
     <ClInclude Include="PrayerBook.h" />
     <ClInclude Include="RangedDefinition.h" />
     <ClInclude Include="RangedFormulas.h" />
+    <ClInclude Include="Shop.h" />
     <ClInclude Include="ShopDefinition.h" />
     <ClInclude Include="Skills.h" />
     <ClInclude Include="Slayer.h" />

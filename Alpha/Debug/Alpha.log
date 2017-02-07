@@ -1,8 +1,27 @@
-﻿Build started 2/7/2017 3:08:51 AM.
+﻿Build started 2/7/2017 1:13:05 PM.
      1>Project "C:\Users\Valued Customer\Desktop\Stephen Benner\Programming\C++\Runescape Clone\Alpha\Alpha\Alpha.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         E:\Program Files (x86)\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /analyze- /errorReport:prompt /clr:nostdlib main.cpp
-         main.cpp
+         E:\Program Files (x86)\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /analyze- /errorReport:prompt /clr:nostdlib Combat.cpp CombatAssistant.cpp
+         Combat.cpp
+     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(44): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
+     1>Combat.cpp(24): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>Combat.cpp(312): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+                 E:\Program Files (x86)\VC\include\stdlib.h(911) : see declaration of '_sleep'
+         CombatAssistant.cpp
+     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(44): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
+     1>CombatAssistant.cpp(31): warning C4018: '<' : signed/unsigned mismatch
+     1>CombatAssistant.cpp(220): warning C4244: '*=' : conversion from 'double' to 'int', possible loss of data
+     1>CombatAssistant.cpp(222): warning C4244: '*=' : conversion from 'double' to 'int', possible loss of data
+     1>CombatAssistant.cpp(236): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>CombatAssistant.cpp(240): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>CombatAssistant.cpp(250): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>CombatAssistant.cpp(255): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>CombatAssistant.cpp(258): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>CombatAssistant.cpp(263): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>CombatAssistant.cpp(268): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>CombatAssistant.cpp(285): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+         Generating Code...
+     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\combatassistant.cpp(171): warning C4715: 'CombatAssistant::canAttack' : not all control paths return a value
        Link:
          E:\Program Files (x86)\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Valued Customer\Desktop\Stephen Benner\Programming\C++\Runescape Clone\Alpha\Debug\Alpha.exe" /INCREMENTAL /NOLOGO /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Valued Customer\Desktop\Stephen Benner\Programming\C++\Runescape Clone\Alpha\Debug\Alpha.pdb" /ASSEMBLYDEBUG /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 Debug\Aura.obj
          Debug\Bank.obj
@@ -26,6 +45,7 @@
          Debug\Prayer.obj
          Debug\PrayerBook.obj
          Debug\RangedFormulas.obj
+         Debug\Shop.obj
          Debug\Skills.obj
          Debug\Slayer.obj
          Debug\SlayerTask.obj
@@ -37,4 +57,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.69
+Time Elapsed 00:00:02.36

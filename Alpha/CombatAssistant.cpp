@@ -4,6 +4,7 @@
 #include "Equipment.h"
 #include "Inventory.h"
 #include "Magic.h"
+#include "PrayerBook.h"
 
 
 std::vector<std::pair<int, int>> slayerMonster = {
@@ -282,6 +283,26 @@ int CombatAssistant::npcDamageModifier(Npc* npc, Player* player, int npcHit)
 			npcHit = 14;
 			for (int i = 0; i < 7; i++)
 				player->skills->drainSkill((double)player->skills->getLevel(i) / 10.0, i);
+			break;
+		default:
+			break;
+		}
+	}
+	else
+	{
+		switch (npc->getNpcDefinition().getAttackStyle())
+		{
+		case 0:
+			if (player->prayerBook->getActivated(15)) //Protect from Melee
+				npcHit *= 0;
+			break;
+		case 1:
+			if (player->prayerBook->getActivated(14)) //Protect from Range
+				npcHit *= 0;
+			break;
+		case 2:
+			if (player->prayerBook->getActivated(13)) //Protect from Magic
+				npcHit *= 0;
 			break;
 		default:
 			break;

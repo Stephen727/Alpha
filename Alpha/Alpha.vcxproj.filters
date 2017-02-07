@@ -99,6 +99,9 @@
     <ClCompile Include="Loot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Shop.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EquipmentDefinition.h">
@@ -210,6 +213,9 @@
       <Filter>Header Files\Definitions</Filter>
     </ClInclude>
     <ClInclude Include="Loot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Shop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
