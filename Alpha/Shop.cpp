@@ -41,7 +41,68 @@ void Shop::display(const Player& player)
 	std::cout << ">";
 }
 
-void Shop::enter(Player *player)
+void Shop::sell(Player *player)
+{
+	int input, amount, price;
+
+	do
+	{
+		system("CLS");
+		player->inventory->displayInv();
+
+		while (!(std::cin >> input))
+		{
+			system("CLS");
+			player->inventory->displayInv();
+
+			if (std::cin.fail())
+			{
+				std::cin.clear();
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			}
+		}
+
+		if (player->inventory->getSlot(input - 1) != nullptr)
+		{
+			if (player->inventory->getSlot(input - 1)->getItemDefinition()->getId() == 33)
+				;
+			else if (player->inventory->getSlot(input - 1)->getItemDefinition()->isStackable())
+			{
+				system("CLS");
+				player->inventory->displayInv();
+				std::cout << input << "   >";
+
+				while (!(std::cin >> amount))
+				{
+					system("CLS");
+					player->inventory->displayInv();
+					std::cout << input << "   >";
+
+					if (std::cin.fail())
+					{
+						std::cin.clear();
+						std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+					}
+				}
+
+				price = player->inventory->getSlot(input - 1)->getItemDefinition()->getGeneralPrice() * 0.40;
+
+				if (amount >= player->inventory->getSlot(input - 1)->getAmount())
+					amount = player->inventory->getSlot(input - 1)->getAmount();
+				else if (amount < 1)
+					sell(player);
+
+				if (player->inventory->canAdd(Item(33, player->inventory->getSlot(input - 1)->getItemDefinition()->getGeneralPrice() * 0.40)))
+				{
+						player->inventory->add(new Item(33, price * amount));
+						player->inventory->remove(input - 1, amount);
+				}
+			}
+		}
+	} while (input);
+}
+
+void Shop::buy(Player* player)
 {
 	int input, amount;
 	display(*player);
@@ -81,13 +142,13 @@ void Shop::enter(Player *player)
 				}
 
 				if (amount < 1)
-					enter(player);
+					buy(player);
 
 				if (amount > stock[input - 1].getAmount())
-						amount = stock[input - 1].getAmount();
+					amount = stock[input - 1].getAmount();
 
 				if (amount > player->inventory->hasAmount(33) / (stock[input - 1].getItemDefinition()->getGeneralPrice()))
-						amount = player->inventory->hasAmount(33) / (stock[input - 1].getItemDefinition()->getGeneralPrice());
+					amount = player->inventory->hasAmount(33) / (stock[input - 1].getItemDefinition()->getGeneralPrice());
 
 				if (amount)
 				{
@@ -118,8 +179,55 @@ void Shop::enter(Player *player)
 				return;
 			}
 		}
-		enter(player);
+		buy(player);
 	}
 	else
 		return;
+}
+
+void Shop::enter(Player *player)
+{
+	int input;
+
+	system("CLS");
+	std::cout << "+--------------------+" << std::endl;
+	std::cout << "|     ---Shop---     | " << std::endl;
+	std::cout << "+--------------------+" << std::endl;
+	std::cout << "|     [1] Buy        |" << std::endl;
+	std::cout << "|     [2] Sell       |" << std::endl;
+	std::cout << "+--------------------+" << std::endl;
+	std::cout << ">";
+
+	while (!(std::cin >> input))
+	{
+		system("CLS");
+		std::cout << "+--------------------+" << std::endl;
+		std::cout << "|     ---Shop---     | " << std::endl;
+		std::cout << "+--------------------+" << std::endl;
+		std::cout << "|     [1] Buy        |" << std::endl;
+		std::cout << "|     [2] Sell       |" << std::endl;
+		std::cout << "+--------------------+" << std::endl;
+		std::cout << ">";
+
+		if (std::cin.fail())
+		{
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		}
+	}
+
+	switch (input)
+	{
+	case 0:
+		return;
+		break;
+	case 1:
+		buy(player);
+		break;
+	case 2:
+		sell(player);
+		break;
+	default:
+		enter(player);
+	}
 }

@@ -20,6 +20,9 @@ private:
 
 	void display(const Player&);
 	bool canPurchase(const Player&, int);
+
+	void sell(Player*);
+	void buy(Player*);
 public:
 	void enter(Player*);
 };
