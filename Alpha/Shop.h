@@ -18,6 +18,9 @@ private:
 	std::string name;
 	std::vector<Item> stock;
 
+	bool canAdd(Item);
+	void add(Item*);
+
 	void display(const Player&);
 	bool canPurchase(const Player&, int);
 
