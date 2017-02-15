@@ -37,7 +37,7 @@ bool Shop::canAdd(Item _item)
 	}
 }
 
-void Shop::add(Item *_item)
+void Shop::add(Item *_item, int amount)
 {
 	if (canAdd(*_item))
 	{
@@ -47,13 +47,13 @@ void Shop::add(Item *_item)
 				{
 					if (stock[i].getItemDefinition()->isStackable())
 					{
-						stock[i].add(_item->getAmount());
+						stock[i].add(amount);
 						return;
 					}
 				}
 			}
 		}
-	stock.push_back(*_item);
+	stock.push_back(Item(_item->getId(), amount));
 }
 
 void Shop::display(const Player& player)
@@ -136,7 +136,7 @@ void Shop::sell(Player *player)
 
 				if (player->inventory->canAdd(Item(33, player->inventory->getSlot(input - 1)->getItemDefinition()->getGeneralPrice() * 0.40)))
 				{
-					add(player->inventory->getSlot(input - 1));
+					add(player->inventory->getSlot(input - 1), amount);
 					player->inventory->add(new Item(33, price * amount));
 					player->inventory->remove(input - 1, amount);
 				}

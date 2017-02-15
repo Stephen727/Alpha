@@ -84,6 +84,7 @@
     <ClCompile Include="Magic.cpp" />
     <ClCompile Include="MagicFormulas.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Map.cpp" />
     <ClCompile Include="MeleeFormulas.cpp" />
     <ClCompile Include="Npc.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -119,6 +120,7 @@
     <ClInclude Include="LootDefinition.h" />
     <ClInclude Include="Magic.h" />
     <ClInclude Include="MagicFormulas.h" />
+    <ClInclude Include="Map.h" />
     <ClInclude Include="MeleeFormulas.h" />
     <ClInclude Include="Npc.h" />
     <ClInclude Include="NpcDefinition.h" />

@@ -19,7 +19,7 @@ private:
 	std::vector<Item> stock;
 
 	bool canAdd(Item);
-	void add(Item*);
+	void add(Item*, int);
 
 	void display(const Player&);
 	bool canPurchase(const Player&, int);

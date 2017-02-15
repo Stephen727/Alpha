@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <string>
 
 class Player;
 
@@ -53,6 +54,7 @@ public:
 	void addExperience(int, int);
 	void addCombatExperience(int);
 
+	void displayStat(int);
 	void displayStats();
 
 	void save();

@@ -191,6 +191,14 @@ void Skills::addCombatExperience(int dmg)
 	}
 }
 
+void Skills::displayStat(int skill)
+{
+	std::string name[] = { "Hitpoints", "Attack", "Strength", "Defense", "Ranged", "Prayer", "Magic", "Woodcut",
+		"Fletching", "Fishing", "Cooking", "Mining", "Smithing", "Herblore", "Crafting", "Runecraft", "Slayer" };
+
+	std::cout << name[skill] << ":\t" << skills[skill].effectiveLevel << "/" << skills[skill].level;
+}
+
 void Skills::displayStats()
 {
 	std::cout << "   ---Skills---" << std::endl;

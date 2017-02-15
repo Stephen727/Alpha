@@ -104,7 +104,6 @@ int Combat::rangedAttack(Npc* npc, Player* player)
 	if (formulaData.isAccurateHit(attackRoll, defenseRoll))
 	{
 		int damage = rand() % npc->getNpcDefinition().getMaxHit() + 1;
-		if (damage > npc->getHitpoints()) damage = npc->getHitpoints();
 		return damage;
 	}
 	else
@@ -121,7 +120,6 @@ int Combat::magicAttack(Npc* npc, Player* player)
 	if (formulaData.isAccurateHit(attackRoll, defenseRoll))
 	{
 		int damage = rand() % npc->getNpcDefinition().getMaxHit() + 1;
-		if (damage > player->skills->getEffect(hitpoints)) damage = player->skills->getEffect(hitpoints);
 		return damage;
 	}
 	else
@@ -235,6 +233,7 @@ int Combat::getPlayerDamage(Player* player, Npc* npc)
 		playerHit = 0;
 
 	playerHit = combatAssistant->playerDamageModifier(player, npc, playerHit);
+	if (player->getAttackStyle() == npc->getNpcDefinition().getWeakness()) playerHit *= 1.15;
 	delete combatAssistant;
 
 	if (playerHit >= npc->getHitpoints())
