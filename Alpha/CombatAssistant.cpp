@@ -5,6 +5,7 @@
 #include "Inventory.h"
 #include "Magic.h"
 #include "PrayerBook.h"
+#include "Slayer.h"
 
 
 std::vector<std::pair<int, int>> slayerMonster = {
@@ -215,12 +216,14 @@ bool CombatAssistant::canKill(Player* player, Npc* npc)
 
 int CombatAssistant::playerDamageModifier(Player* player, Npc* npc, int playerHit)
 {
-	if (player->equipment->getItem(0) != nullptr)
-		if (player->equipment->getItem(0)->getId() == 0) //Black Mask
-			playerHit *= 1.15;
-		else if (player->equipment->getItem(0)->getId() == 1) //Slayer Helmet
-			playerHit *= 1.25;
-
+	if (player->slayer->isTask(npc->getId()))
+	{
+		if (player->equipment->getItem(0) != nullptr)
+			if (player->equipment->getItem(0)->getId() == 0) //Black Mask
+				playerHit *= 1.15;
+			else if (player->equipment->getItem(0)->getId() == 1) //Slayer Helmet
+				playerHit *= 1.25;
+	}
 	return playerHit;
 }
 

@@ -261,6 +261,62 @@ void DefinitionLoader::loadShopDefinition()
 	std::cout << "Shop definitions loaded: " << shopDefinition.size() << std::endl;
 }
 
+void DefinitionLoader::loadDungeonDefinition()
+{
+	std::ifstream infile("dungeonDefinition.txt");
+	if (!infile) std::cerr << "dungeonDefinition.txt could not be opened!" << std::endl;
+	else std::cout << "Loading dungeon definitions..." << std::endl;
+
+	std::string line;
+
+	while (std::getline(infile, line))
+	{
+		std::istringstream iss(line);
+		int _id, temp;
+		std::string _name;
+		std::vector<int> _npcId;
+
+		iss >> _id >> _name;
+
+		while (iss >> temp)
+			_npcId.push_back(temp);
+
+		dungeonDefinition.push_back(new DungeonDefinition(_id, _name, _npcId));
+		_npcId.clear();
+	}
+
+	infile.close();
+	std::cout << "Dungeon definitions loaded: " << dungeonDefinition.size() << std::endl;
+}
+
+void DefinitionLoader::loadCityDefinition()
+{
+	std::ifstream infile("cityDefinition.txt");
+	if (!infile) std::cerr << "cityDefinition.txt could not be opened!" << std::endl;
+	else std::cout << "Loading city definitions..." << std::endl;
+
+	std::string line;
+
+	while (std::getline(infile, line))
+	{
+		std::istringstream iss(line);
+		int _id, temp;
+		std::string _name;
+		std::vector<int> _dungeonId;
+
+		iss >> _id >> _name;
+
+		while (iss >> temp)
+			_dungeonId.push_back(temp);
+
+		cityDefinition.push_back(new CityDefinition(_id, _name, _dungeonId));
+		_dungeonId.clear();
+	}
+
+	infile.close();
+	std::cout << "City definitions loaded: " << cityDefinition.size() << std::endl;
+}
+
 void DefinitionLoader::loadDefinitions()
 {
 	clock_t begin = clock();
@@ -275,6 +331,8 @@ void DefinitionLoader::loadDefinitions()
 	loadNpcDefinition();
 	loadLootDefinition();
 	loadShopDefinition();
+	loadDungeonDefinition();
+	loadCityDefinition();
 	std::cout << "Game defitions loaded!" << std::endl;
 	clock_t end = clock();
 	std::cout << "Elapsed time: " << double(end - begin) / CLOCKS_PER_SEC << " seconds." << std::endl;

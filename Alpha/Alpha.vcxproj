@@ -102,11 +102,13 @@
   <ItemGroup>
     <ClInclude Include="Aura.h" />
     <ClInclude Include="Bank.h" />
+    <ClInclude Include="CityDefinition.h" />
     <ClInclude Include="Combat.h" />
     <ClInclude Include="CombatAssistant.h" />
     <ClInclude Include="CombatInterface.h" />
     <ClInclude Include="DefinitionLoader.h" />
     <ClInclude Include="DropDefinition.h" />
+    <ClInclude Include="DungeonDefinition.h" />
     <ClInclude Include="Equipment.h" />
     <ClInclude Include="EquipmentDefinition.h" />
     <ClInclude Include="Food.h" />

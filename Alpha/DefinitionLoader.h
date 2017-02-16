@@ -13,6 +13,8 @@
 #include "NpcDefinition.h"
 #include "LootDefinition.h"
 #include "ShopDefinition.h"
+#include "DungeonDefinition.h"
+#include "CityDefinition.h"
 
 class DefinitionLoader
 {
@@ -31,6 +33,8 @@ public:
 	std::vector<NpcDefinition*> npcDefinition;
 	std::vector<LootDefinition*> lootDefinition;
 	std::vector<ShopDefinition*> shopDefinition;
+	std::vector<DungeonDefinition*> dungeonDefinition;
+	std::vector<CityDefinition*> cityDefinition;
 
 private:
 	void loadItemDefinition();
@@ -43,6 +47,8 @@ private:
 	void loadNpcDefinition();
 	void loadLootDefinition();
 	void loadShopDefinition();
+	void loadDungeonDefinition();
+	void loadCityDefinition();
 	void loadDefinitions();
 };
 

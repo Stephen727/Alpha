@@ -1,7 +1,10 @@
 #include "Slayer.h"
 #include "Player.h"
 #include "Skills.h"
+
 #include <iostream>
+#include <fstream>
+#include <sstream>
 
 
 Slayer::Slayer()
@@ -52,6 +55,12 @@ void Slayer::getCurrentSlayerTask()
 
 void Slayer::getNewSlayerTask(int id)
 {
+	if (currentTask != nullptr)
+	{
+		if (currentMaster <= id)
+			return;
+	}
+
 	do
 	{
 		switch (id)
@@ -59,26 +68,32 @@ void Slayer::getNewSlayerTask(int id)
 		case 0:
 			currentTask = turael[rand() % turael.size()];
 			amount = rand() % 36 + 15;
+			currentMaster = id;
 			break;
 		case 1:
 			currentTask = mazchna[rand() % mazchna.size()];
 			amount = rand() % 36 + 15;
+			currentMaster = id;
 			break;
 		case 2:
 			currentTask = vannaka[rand() % vannaka.size()];
 			amount = rand() % 46 + 40;
+			currentMaster = id;
 			break;
 		case 3:
 			currentTask = chaeldar[rand() % chaeldar.size()];
 			amount = rand() % 51 + 80;
+			currentMaster = id;
 			break;
 		case 4:
 			currentTask = nieve[rand() % nieve.size()];
 			amount = rand() % 66 + 120;
+			currentMaster = id;
 			break;
 		case 5:
 			currentTask = duradel[rand() % duradel.size()];
 			amount = rand() % 121 + 130;
+			currentMaster = id;
 			break;
 		default:
 			return;
@@ -97,4 +112,20 @@ void Slayer::checkKill(Npc* npc)
 		if (!amount)
 			currentTask = nullptr;
 	}
+}
+
+void Slayer::save()
+{
+	std::ofstream outFile("save.txt", std::ios::app);
+
+	outFile << "Slayer" << std::endl;
+
+	outFile.close();
+}
+
+void Slayer::load()
+{
+	std::ifstream infile("save.txt");
+
+	infile.close();
 }

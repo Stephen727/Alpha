@@ -15,7 +15,12 @@ public:
 private:
 	Player *player;
 
+	void dungeonDisplay(int);
+	void cityDisplay(int);
 	void shopDisplay();
+	void slayerDisplay();
+	void bagDisplay();
+	void gearDisplay();
 	bool getInput();
 public:
 	void display();

@@ -18,17 +18,20 @@ public:
 private:
 	Player* player;
 	SlayerTask* currentTask;
-	int amount;
-
-	bool isTask(int);
+	int amount, currentMaster;
 
 public:
 	bool hasTask();
 	void getCurrentSlayerTask();
+	int getCurrentSlayerTaskId() { if (hasTask()) return currentTask->getId()[0]; }
 
 	void getNewSlayerTask(int);
 
+	bool isTask(int);
 	void checkKill(Npc*);
+
+	void save();
+	void load();
 };
 
 #endif

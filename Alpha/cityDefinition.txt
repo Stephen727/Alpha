@@ -1,0 +1,6 @@
+0 Lumbridge 2 4 11 17
+1 Varrock 16 23 15 1
+2 Falador 22 10 12 18
+3 Seers'_Village 19 21 9 0
+4 Ardougne 14 13 8 5
+5 Karamja 6 3 7 20
