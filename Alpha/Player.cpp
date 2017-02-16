@@ -122,3 +122,30 @@ void Player::setCombatStance(int stance)
 		break;
 	}
 }
+
+void Player::save()
+{
+	std::ofstream outFile("save.txt");
+
+	outFile << username << std::endl << std::endl;
+	this->skills->save();
+	this->inventory->save();
+	this->equipment->save();
+	this->bank->save();
+
+	outFile.close();
+}
+
+void Player::load()
+{
+	std::ifstream infile("save.txt");
+	std::vector<DropDefinition*> loot;
+
+	std::getline(infile, username);
+	this->skills->load();
+	this->inventory->load();
+	this->equipment->load();
+	this->bank->load();
+
+	infile.close();
+}

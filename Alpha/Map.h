@@ -15,6 +15,8 @@ public:
 private:
 	Player *player;
 
+	void shopDisplay();
+	bool getInput();
 public:
 	void display();
 };

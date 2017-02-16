@@ -59,6 +59,9 @@ public:
 	int getAttackStyle() const;
 	int getCombatStance() const { return combatStance; }
 	bool getAutoCast() const { return autoCast; }
+
+	void save();
+	void load();
 };
 
 #endif
