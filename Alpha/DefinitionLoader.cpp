@@ -7,6 +7,7 @@
 
 DefinitionLoader::DefinitionLoader()
 {
+	srand(time(NULL));
 	loadDefinitions();
 }
 

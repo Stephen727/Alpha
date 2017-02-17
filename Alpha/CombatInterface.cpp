@@ -101,7 +101,7 @@ void CombatInterface::displayMenu(const Player &player, const Npc &npc)
 	std::cout << " [4] Equipment" << std::endl;
 	std::cout << " [5] Prayer" << std::endl;
 	std::cout << " [6] Magic" << std::endl;
-	std::cout << " [7] Escape" << std::endl;
+	std::cout << " [0] Escape" << std::endl;
 	std::cout << "+-----------------------------------------------------------------------------+" << std::endl;
 	std::cout << ">";
 }

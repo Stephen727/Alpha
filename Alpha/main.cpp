@@ -7,11 +7,13 @@
 
 int main()
 {
-	Player *player = new Player("Reginald");
+	Player *player = new Player;
+	player->load();
 
-	Map map(player);
-	map.display();
+	Map *map = new Map(player);
+	map->display();
 
+	delete map;
 	delete player;
 
 	return 0;

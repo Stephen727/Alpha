@@ -18,7 +18,7 @@ public:
 private:
 	Player* player;
 	SlayerTask* currentTask;
-	int amount, currentMaster;
+	int amount, currentMaster, currentSlot;
 
 public:
 	bool hasTask();

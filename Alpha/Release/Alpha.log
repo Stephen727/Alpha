@@ -1,7 +1,14 @@
-﻿Build started 2/16/2017 5:11:21 PM.
+﻿Build started 2/16/2017 9:17:15 PM.
      1>Project "C:\Users\Valued Customer\Desktop\Stephen Benner\Programming\C++\Runescape Clone\Alpha\Alpha\Alpha.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         E:\Program Files (x86)\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _UNICODE /D UNICODE /EHa /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /analyze- /errorReport:prompt /clr:nostdlib Combat.cpp CombatAssistant.cpp DefinitionLoader.cpp Map.cpp Player.cpp Slayer.cpp main.cpp
+         E:\Program Files (x86)\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _UNICODE /D UNICODE /EHa /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /analyze- /errorReport:prompt /clr:nostdlib Bank.cpp Combat.cpp CombatAssistant.cpp CombatInterface.cpp Equipment.cpp Food.cpp Inventory.cpp Magic.cpp MagicFormulas.cpp Map.cpp MeleeFormulas.cpp Player.cpp Potion.cpp Prayer.cpp PrayerBook.cpp RangedFormulas.cpp Shop.cpp Skills.cpp Slayer.cpp UseItem.cpp main.cpp
+         Bank.cpp
+     1>Bank.cpp(28): warning C4018: '<' : signed/unsigned mismatch
+     1>Bank.cpp(78): warning C4018: '<' : signed/unsigned mismatch
+     1>Bank.cpp(101): warning C4018: '<' : signed/unsigned mismatch
+     1>Bank.cpp(149): warning C4018: '<' : signed/unsigned mismatch
+     1>Bank.cpp(312): warning C4018: '<' : signed/unsigned mismatch
+     1>Bank.cpp(326): warning C4101: 'i' : unreferenced local variable
          Combat.cpp
      1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
      1>Combat.cpp(24): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
@@ -21,7 +28,32 @@
      1>CombatAssistant.cpp(266): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
      1>CombatAssistant.cpp(271): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
      1>CombatAssistant.cpp(288): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-         DefinitionLoader.cpp
+         CombatInterface.cpp
+     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
+     1>CombatInterface.cpp(20): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>CombatInterface.cpp(82): warning C4018: '<' : signed/unsigned mismatch
+         Equipment.cpp
+     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
+     1>Equipment.cpp(82): warning C4018: '<' : signed/unsigned mismatch
+     1>Equipment.cpp(96): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>Equipment.cpp(119): warning C4018: '<' : signed/unsigned mismatch
+         Food.cpp
+     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
+         Inventory.cpp
+     1>Inventory.cpp(107): warning C4018: '<' : signed/unsigned mismatch
+     1>Inventory.cpp(191): warning C4018: '<' : signed/unsigned mismatch
+         Magic.cpp
+     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
+     1>Magic.cpp(46): warning C4018: '<' : signed/unsigned mismatch
+     1>Magic.cpp(49): warning C4018: '<' : signed/unsigned mismatch
+     1>Magic.cpp(52): warning C4018: '<' : signed/unsigned mismatch
+     1>Magic.cpp(55): warning C4018: '<' : signed/unsigned mismatch
+     1>Magic.cpp(74): warning C4018: '<' : signed/unsigned mismatch
+     1>Magic.cpp(77): warning C4018: '<' : signed/unsigned mismatch
+     1>Magic.cpp(80): warning C4018: '<' : signed/unsigned mismatch
+     1>Magic.cpp(83): warning C4018: '<' : signed/unsigned mismatch
+         MagicFormulas.cpp
+     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
          Map.cpp
      1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
      1>Map.cpp(40): warning C4018: '<' : signed/unsigned mismatch
@@ -30,15 +62,45 @@
      1>Map.cpp(75): warning C4018: '>' : signed/unsigned mismatch
      1>Map.cpp(94): warning C4018: '<' : signed/unsigned mismatch
      1>Map.cpp(98): warning C4018: '>' : signed/unsigned mismatch
+         MeleeFormulas.cpp
+     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
          Player.cpp
      1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
+         Potion.cpp
+     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
+     1>Potion.cpp(39): warning C4018: '<' : signed/unsigned mismatch
+         Prayer.cpp
+     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
+     1>Prayer.cpp(87): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+         PrayerBook.cpp
+     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
+         RangedFormulas.cpp
+     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
+         Shop.cpp
+     1>Shop.cpp(26): warning C4018: '<' : signed/unsigned mismatch
+     1>Shop.cpp(44): warning C4018: '<' : signed/unsigned mismatch
+     1>Shop.cpp(66): warning C4018: '<' : signed/unsigned mismatch
+     1>Shop.cpp(135): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>Shop.cpp(137): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>Shop.cpp(167): warning C4018: '<=' : signed/unsigned mismatch
+         Skills.cpp
+     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
+     1>Skills.cpp(87): warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
+     1>Skills.cpp(93): warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
+     1>Skills.cpp(96): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>Skills.cpp(144): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>Skills.cpp(153): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
          Slayer.cpp
      1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
      1>Slayer.cpp(41): warning C4018: '<' : signed/unsigned mismatch
-         main.cpp
+         UseItem.cpp
+     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
          Generating Code...
      1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\slayer.h(26): warning C4715: 'Slayer::getCurrentSlayerTaskId' : not all control paths return a value
      1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\combatassistant.cpp(172): warning C4715: 'CombatAssistant::canAttack' : not all control paths return a value
+         Compiling...
+         main.cpp
+         Generating Code...
        Link:
          E:\Program Files (x86)\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Valued Customer\Desktop\Stephen Benner\Programming\C++\Runescape Clone\Alpha\Release\Alpha.exe" /INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Valued Customer\Desktop\Stephen Benner\Programming\C++\Runescape Clone\Alpha\Release\Alpha.pdb" /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 /SAFESEH Release\Aura.obj
          Release\Bank.obj
@@ -75,4 +137,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:06.02
+Time Elapsed 00:00:13.74

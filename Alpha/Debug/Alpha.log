@@ -1,43 +1,11 @@
-﻿Build started 2/16/2017 5:10:48 PM.
+﻿Build started 2/17/2017 3:40:30 PM.
      1>Project "C:\Users\Valued Customer\Desktop\Stephen Benner\Programming\C++\Runescape Clone\Alpha\Alpha\Alpha.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         E:\Program Files (x86)\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /analyze- /errorReport:prompt /clr:nostdlib Combat.cpp CombatAssistant.cpp Map.cpp Player.cpp Slayer.cpp main.cpp
-         Combat.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-     1>Combat.cpp(24): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-     1>Combat.cpp(236): warning C4244: '*=' : conversion from 'double' to 'int', possible loss of data
-     1>Combat.cpp(311): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
-                 E:\Program Files (x86)\VC\include\stdlib.h(911) : see declaration of '_sleep'
-         CombatAssistant.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-     1>CombatAssistant.cpp(32): warning C4018: '<' : signed/unsigned mismatch
-     1>CombatAssistant.cpp(223): warning C4244: '*=' : conversion from 'double' to 'int', possible loss of data
-     1>CombatAssistant.cpp(225): warning C4244: '*=' : conversion from 'double' to 'int', possible loss of data
-     1>CombatAssistant.cpp(239): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>CombatAssistant.cpp(243): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>CombatAssistant.cpp(253): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>CombatAssistant.cpp(258): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>CombatAssistant.cpp(261): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>CombatAssistant.cpp(266): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>CombatAssistant.cpp(271): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>CombatAssistant.cpp(288): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-         Map.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-     1>Map.cpp(40): warning C4018: '<' : signed/unsigned mismatch
-     1>Map.cpp(45): warning C4018: '>' : signed/unsigned mismatch
-     1>Map.cpp(70): warning C4018: '<' : signed/unsigned mismatch
-     1>Map.cpp(75): warning C4018: '>' : signed/unsigned mismatch
-     1>Map.cpp(94): warning C4018: '<' : signed/unsigned mismatch
-     1>Map.cpp(98): warning C4018: '>' : signed/unsigned mismatch
+         E:\Program Files (x86)\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /analyze- /errorReport:prompt /clr:nostdlib Player.cpp main.cpp
          Player.cpp
      1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-         Slayer.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-     1>Slayer.cpp(41): warning C4018: '<' : signed/unsigned mismatch
          main.cpp
          Generating Code...
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\slayer.h(26): warning C4715: 'Slayer::getCurrentSlayerTaskId' : not all control paths return a value
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\combatassistant.cpp(172): warning C4715: 'CombatAssistant::canAttack' : not all control paths return a value
        Link:
          E:\Program Files (x86)\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Valued Customer\Desktop\Stephen Benner\Programming\C++\Runescape Clone\Alpha\Debug\Alpha.exe" /INCREMENTAL /NOLOGO /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Valued Customer\Desktop\Stephen Benner\Programming\C++\Runescape Clone\Alpha\Debug\Alpha.pdb" /ASSEMBLYDEBUG /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 Debug\Aura.obj
          Debug\Bank.obj
@@ -74,4 +42,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:04.63
+Time Elapsed 00:00:02.35

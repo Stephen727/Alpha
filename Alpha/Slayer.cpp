@@ -16,6 +16,9 @@ Slayer::Slayer(Player* _player)
 {
 	player = _player;
 	currentTask = nullptr;
+	currentSlot = 0;
+	currentMaster = 0;
+	amount = 0;
 }
 
 
@@ -66,32 +69,38 @@ void Slayer::getNewSlayerTask(int id)
 		switch (id)
 		{
 		case 0:
-			currentTask = turael[rand() % turael.size()];
+			currentSlot = rand() % turael.size();
+			currentTask = turael[currentSlot];
 			amount = rand() % 36 + 15;
 			currentMaster = id;
 			break;
 		case 1:
-			currentTask = mazchna[rand() % mazchna.size()];
+			currentSlot = rand() % mazchna.size();
+			currentTask = mazchna[currentSlot];
 			amount = rand() % 36 + 15;
 			currentMaster = id;
 			break;
 		case 2:
-			currentTask = vannaka[rand() % vannaka.size()];
+			currentSlot = rand() % vannaka.size();
+			currentTask = vannaka[currentSlot];
 			amount = rand() % 46 + 40;
 			currentMaster = id;
 			break;
 		case 3:
-			currentTask = chaeldar[rand() % chaeldar.size()];
+			currentSlot = rand() % chaeldar.size();
+			currentTask = chaeldar[currentSlot];
 			amount = rand() % 51 + 80;
 			currentMaster = id;
 			break;
 		case 4:
-			currentTask = nieve[rand() % nieve.size()];
+			currentSlot = rand() % nieve.size();
+			currentTask = nieve[currentSlot];
 			amount = rand() % 66 + 120;
 			currentMaster = id;
 			break;
 		case 5:
-			currentTask = duradel[rand() % duradel.size()];
+			currentSlot = rand() % duradel.size();
+			currentTask = duradel[currentSlot];
 			amount = rand() % 121 + 130;
 			currentMaster = id;
 			break;
@@ -120,6 +129,8 @@ void Slayer::save()
 
 	outFile << "Slayer" << std::endl;
 
+	outFile << currentSlot << " " << currentMaster << " " << amount << std::endl << std::endl;
+
 	outFile.close();
 }
 
@@ -127,5 +138,40 @@ void Slayer::load()
 {
 	std::ifstream infile("save.txt");
 
+	std::string line;
+
+	while (std::getline(infile, line))
+	{
+		std::istringstream iss(line);
+
+		if (line == "Slayer")
+			infile >> currentSlot >> currentMaster >> amount;
+	}
+
 	infile.close();
+
+	switch (currentMaster)
+	{
+	case 0:
+		currentTask = turael[currentSlot];
+		break;
+	case 1:
+		currentTask = mazchna[currentSlot];
+		break;
+	case 2:
+		currentTask = vannaka[currentSlot];
+		break;
+	case 3:
+		currentTask = chaeldar[currentSlot];
+		break;
+	case 4:
+		currentTask = nieve[currentSlot];
+		break;
+	case 5:
+		currentTask = duradel[currentSlot];
+		break;
+	default:
+		return;
+		break;
+	}
 }

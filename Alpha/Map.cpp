@@ -11,6 +11,7 @@
 #include "UseItem.h"
 #include "Shop.h"
 #include "Combat.h"
+#include "Prayer.h"
 
 
 Map::Map()
@@ -112,6 +113,66 @@ void Map::shopDisplay()
 	}
 }
 
+void Map::worldDisplay()
+{
+	int input;
+	system("CLS");
+
+	std::cout << " ---World---" << std::endl;
+	std::cout << " [1] Mine" << std::endl;
+	std::cout << " [2] Abyss" << std::endl;
+	std::cout << " [3] Pond" << std::endl;
+	std::cout << " [4] Forest" << std::endl;
+	std::cout << std::endl << ">";
+
+	while (!(std::cin >> input) || (input < 0 || input > 4))
+	{
+		if (std::cin.fail())
+		{
+			std::cin.clear();
+			std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+		}
+	}
+}
+
+void Map::skillDisplay()
+{
+	int input;
+	system("CLS");
+
+	std::cout << " ---Skilling---" << std::endl;
+	std::cout << " [1] Temple" << std::endl;
+	std::cout << " [2] Range" << std::endl;
+	std::cout << " [3] Anvil" << std::endl;
+	std::cout << " [4] Tanner" << std::endl;
+	std::cout << std::endl << ">";
+
+	while (!(std::cin >> input) || (input < 0 || input > 4))
+	{
+		if (std::cin.fail())
+		{
+			std::cin.clear();
+			std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+		}
+	}
+
+	switch (input)
+	{
+	case 1: //Temple
+		player->prayer->offerBones();
+		player->skills->restore(prayer);
+		break;
+	case 2: //Range
+		break;
+	case 3: //Anvil
+		break;
+	case 4: //Tanner
+		break;
+	default:
+		break;
+	}
+}
+
 void Map::slayerDisplay()
 {
 	int input;
@@ -206,8 +267,10 @@ bool Map::getInput()
 		shopDisplay();
 		break;
 	case 'W': //World
+		worldDisplay();
 		break;
 	case 'E': //Skill
+		skillDisplay();
 		break;
 	case 'R': //Bank
 		player->bank->access();

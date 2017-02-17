@@ -14,7 +14,22 @@
 
 
 Player::Player()
-{
+{	
+	combatDelay = 0, foodDelay = 0, potionDelay = 0;
+	combatStance = 0;
+	autoCast = false;
+
+	skills = new Skills(this);
+	inventory = new Inventory(this);
+	equipment = new Equipment(this);
+	bank = new Bank(this);
+	prayerBook = new PrayerBook(this);
+	prayer = new Prayer(this);
+	magic = new Magic(this);
+	slayer = new Slayer(this);
+	food = new Food(this);
+	potion = new Potion(this);
+	useItem = new UseItem(this);
 }
 
 Player::Player(std::string _username)
@@ -60,6 +75,23 @@ Player::~Player()
 	delete food;
 	delete potion;
 	delete useItem;
+}
+
+void Player::create()
+{
+	do
+	{
+		system("CLS");
+		std::cout << "Please enter a username: ";
+
+		std::getline(std::cin, username);
+
+		if (username.length() < 1 || username.length() > 15)
+		{
+			std::cout << "Username must be between 1 and 15 characters in length." << std::endl;
+			system("PAUSE");
+		}
+	} while (username.length() < 1 || username.length() > 15);
 }
 
 void Player::tickDelay()
@@ -123,11 +155,19 @@ void Player::setCombatStance(int stance)
 	}
 }
 
+void Player::respawn()
+{
+	this->inventory->clear();
+	this->equipment->clear();
+	this->skills->reset();
+}
+
 void Player::save()
 {
 	std::ofstream outFile("save.txt");
 
 	outFile << username << std::endl << std::endl;
+	this->slayer->save();
 	this->skills->save();
 	this->inventory->save();
 	this->equipment->save();
@@ -139,9 +179,9 @@ void Player::save()
 void Player::load()
 {
 	std::ifstream infile("save.txt");
-	std::vector<DropDefinition*> loot;
 
 	std::getline(infile, username);
+	this->slayer->load();
 	this->skills->load();
 	this->inventory->load();
 	this->equipment->load();

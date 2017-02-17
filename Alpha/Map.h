@@ -18,6 +18,8 @@ private:
 	void dungeonDisplay(int);
 	void cityDisplay(int);
 	void shopDisplay();
+	void worldDisplay();
+	void skillDisplay();
 	void slayerDisplay();
 	void bagDisplay();
 	void gearDisplay();

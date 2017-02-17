@@ -438,7 +438,7 @@ void Combat::battle(Player* player, int id)
 					player->magic->setCurrentSpell(input - 1);
 				}
 				break;
-			case 7:
+			case 0:
 				delete npc;
 				delete combatInterface;
 				return;
@@ -451,5 +451,7 @@ void Combat::battle(Player* player, int id)
 		player->resetDelay();
 		delete npc;
 	}
+	if (!player->skills->getEffect(hitpoints))
+		player->respawn();
 	delete combatInterface;
 }

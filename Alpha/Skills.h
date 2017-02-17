@@ -50,6 +50,7 @@ public:
 	void drainSkill(int, int);
 	void boostSkill(int, double, int, int);
 	void update();
+	void restore(int);
 
 	void addExperience(int, int);
 	void addCombatExperience(int);
@@ -57,6 +58,7 @@ public:
 	void displayStat(int);
 	void displayStats();
 
+	void reset();
 	void save();
 	void load();
 };

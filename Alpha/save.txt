@@ -1,5 +1,8 @@
 Reginald
 
+Slayer
+22 0 19
+
 Skills
 10 10 1154 
 1 1 0 
@@ -21,6 +24,7 @@ Skills
 
 Inventory
 0 33 30
+1 78 1
 2 80 1
 3 66 1
 4 52 25
@@ -29,7 +33,6 @@ Inventory
 7 31 1
 
 Equipment
-78 1
 
 Bank
 

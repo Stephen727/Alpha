@@ -128,6 +128,11 @@ void Skills::update()
 	}
 }
 
+void Skills::restore(int skill)
+{
+	skills[skill].effectiveLevel = skills[skill].level;
+}
+
 void Skills::addExperience(int exp, int skill)
 {
 	double ratio = (double)skills[skill].effectiveLevel / skills[skill].level;
@@ -213,6 +218,12 @@ void Skills::displayStats()
 	}
 
 	std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << ">";
+}
+
+void Skills::reset()
+{
+	for (int i = 0; i < 17; i++)
+		skills[i].effectiveLevel = skills[i].level;
 }
 
 void Skills::save()
