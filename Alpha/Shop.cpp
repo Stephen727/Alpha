@@ -70,13 +70,17 @@ void Shop::display(const Player& player)
 
 		std::cout << str;
 		std::cout << "x" << stock[i].getAmount();
-		std::cout << "\t" << stock[i].getItemDefinition()->getGeneralPrice() << std::endl;
+
+		if (stock[i].getItemDefinition()->getGeneralPrice())
+			std::cout << "\t" << stock[i].getItemDefinition()->getGeneralPrice() << std::endl;
+		else
+			std::cout << "\t" << stock[i].getItemDefinition()->getAlchemyPrice() << std::endl;
 	}
 
 	if (!stock.size())
 		std::cout << " Shop is out of stock." << std::endl;
 
-	std::cout << std::endl << "You have " << player.inventory->hasAmount(33) << " coins." << std::endl;
+	std::cout << std::endl << "You have " << player.inventory->hasAmount(516) << " coins." << std::endl;
 	std::cout << ">";
 }
 
@@ -103,7 +107,7 @@ void Shop::sell(Player *player)
 
 		if (player->inventory->getSlot(input - 1) != nullptr)
 		{
-			if (player->inventory->getSlot(input - 1)->getItemDefinition()->getId() == 33)
+			if (player->inventory->getSlot(input - 1)->getItemDefinition()->getId() == 516)
 				;
 			else if (player->inventory->getSlot(input - 1)->getItemDefinition()->isStackable())
 			{
@@ -132,12 +136,12 @@ void Shop::sell(Player *player)
 
 			if (amount > 0)
 			{
-				price = player->inventory->getSlot(input - 1)->getItemDefinition()->getGeneralPrice() * 0.40;
+				price = player->inventory->getSlot(input - 1)->getItemDefinition()->getAlchemyPrice() * 0.66;
 
-				if (player->inventory->canAdd(Item(33, player->inventory->getSlot(input - 1)->getItemDefinition()->getGeneralPrice() * 0.40)))
+				if (player->inventory->canAdd(Item(516, price * amount)))
 				{
 					add(player->inventory->getSlot(input - 1), amount);
-					player->inventory->add(new Item(33, price * amount));
+					player->inventory->add(new Item(516, price * amount));
 					player->inventory->remove(input - 1, amount);
 				}
 			}
@@ -193,14 +197,17 @@ void Shop::buy(Player* player)
 						amount = stock[input - 1].getAmount();
 
 					if (stock[input - 1].getItemDefinition()->getGeneralPrice())
-						if (amount > player->inventory->hasAmount(33) / (stock[input - 1].getItemDefinition()->getGeneralPrice()))
-							amount = player->inventory->hasAmount(33) / (stock[input - 1].getItemDefinition()->getGeneralPrice());
+						if (amount > player->inventory->hasAmount(516) / (stock[input - 1].getItemDefinition()->getGeneralPrice()))
+							amount = player->inventory->hasAmount(516) / (stock[input - 1].getItemDefinition()->getGeneralPrice());
 
 					if (amount)
 					{
-						if (player->inventory->hasItem(33, (stock[input - 1].getItemDefinition()->getGeneralPrice()) * amount))
+						if (player->inventory->hasItem(516, (stock[input - 1].getItemDefinition()->getGeneralPrice()) * amount))
 						{
-							player->inventory->removeItem(33, (stock[input - 1].getItemDefinition()->getGeneralPrice()) * amount);
+							int price = stock[input - 1].getItemDefinition()->getGeneralPrice() * amount;
+							if (!price) price = stock[input - 1].getItemDefinition()->getAlchemyPrice() * amount;
+
+							player->inventory->removeItem(516, price);
 							player->inventory->add(new Item(stock[input - 1].getId(), amount));
 
 							std::cout << "You purchased " << amount << ": " << stock[input - 1].getItemDefinition()->getName() << "." << std::endl;

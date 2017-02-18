@@ -12,6 +12,7 @@
 #include "Shop.h"
 #include "Combat.h"
 #include "Prayer.h"
+#include "Cooking.h"
 
 
 Map::Map()
@@ -143,11 +144,12 @@ void Map::skillDisplay()
 	std::cout << " ---Skilling---" << std::endl;
 	std::cout << " [1] Temple" << std::endl;
 	std::cout << " [2] Range" << std::endl;
-	std::cout << " [3] Anvil" << std::endl;
-	std::cout << " [4] Tanner" << std::endl;
+	std::cout << " [3] Furnace" << std::endl;
+	std::cout << " [4] Anvil" << std::endl;
+	std::cout << " [5] Tanner" << std::endl;
 	std::cout << std::endl << ">";
 
-	while (!(std::cin >> input) || (input < 0 || input > 4))
+	while (!(std::cin >> input) || (input < 0 || input > 5))
 	{
 		if (std::cin.fail())
 		{
@@ -163,10 +165,14 @@ void Map::skillDisplay()
 		player->skills->restore(prayer);
 		break;
 	case 2: //Range
+		for (int i = 0; i < 20; i++)
+			player->cooking->cook(i);
 		break;
-	case 3: //Anvil
+	case 3: //Furnace
 		break;
-	case 4: //Tanner
+	case 4: //Anvil
+		break;
+	case 5: //Tanner
 		break;
 	default:
 		break;

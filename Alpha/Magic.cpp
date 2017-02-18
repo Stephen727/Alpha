@@ -28,12 +28,12 @@ bool Magic::hasRunes()
 	if (spellBook[currentSpell].getName() == "Smite")
 		if (player->equipment->getItem(3) == nullptr)
 			return false;
-		else if (player->equipment->getItem(3)->getId() != 19) //God Staff
+		else if (player->equipment->getItem(3)->getId() != 569) //God Staff
 			return false;
 	else if (spellBook[currentSpell].getName() == "Magic Dart")
 		if (player->equipment->getItem(3) == nullptr)
 			return false;
-		else if (player->equipment->getItem(3)->getId() != 21) //Slayer's Staff
+		else if (player->equipment->getItem(3)->getId() != 571) //Slayer's Staff
 			return false;
 
 	std::vector<Item> runes = spellBook[currentSpell].getRunes();
@@ -42,17 +42,17 @@ bool Magic::hasRunes()
 	{
 		switch (player->equipment->getItem(3)->getId())
 		{
-		case 11: //Air staff
-			for (int i = 0; i < runes.size(); i++) if (runes[i].getId() == 0) runes.erase(runes.begin() + i);
+		case 561: //Air staff
+			for (int i = 0; i < runes.size(); i++) if (runes[i].getId() == 539) runes.erase(runes.begin() + i);
 			break;
-		case 13: //Water staff
-			for (int i = 0; i < runes.size(); i++) if (runes[i].getId() == 2) runes.erase(runes.begin() + i);
+		case 563: //Water staff
+			for (int i = 0; i < runes.size(); i++) if (runes[i].getId() == 541) runes.erase(runes.begin() + i);
 			break;
-		case 15: //Earth staff
-			for (int i = 0; i < runes.size(); i++) if (runes[i].getId() == 3) runes.erase(runes.begin() + i);
+		case 565: //Earth staff
+			for (int i = 0; i < runes.size(); i++) if (runes[i].getId() == 542) runes.erase(runes.begin() + i);
 			break;
-		case 17: //Fire staff
-			for (int i = 0; i < runes.size(); i++) if (runes[i].getId() == 4) runes.erase(runes.begin() + i);
+		case 567: //Fire staff
+			for (int i = 0; i < runes.size(); i++) if (runes[i].getId() == 543) runes.erase(runes.begin() + i);
 			break;
 		default:
 			break;
@@ -70,17 +70,17 @@ void Magic::useRunes()
 	{
 		switch (player->equipment->getItem(3)->getId())
 		{
-		case 11: //Air staff
-			for (int i = 0; i < runes.size(); i++) if (runes[i].getId() == 0) runes.erase(runes.begin() + i);
+		case 561: //Air staff
+			for (int i = 0; i < runes.size(); i++) if (runes[i].getId() == 539) runes.erase(runes.begin() + i);
 			break;
-		case 13: //Water staff
-			for (int i = 0; i < runes.size(); i++) if (runes[i].getId() == 2) runes.erase(runes.begin() + i);
+		case 563: //Water staff
+			for (int i = 0; i < runes.size(); i++) if (runes[i].getId() == 541) runes.erase(runes.begin() + i);
 			break;
-		case 15: //Earth staff
-			for (int i = 0; i < runes.size(); i++) if (runes[i].getId() == 3) runes.erase(runes.begin() + i);
+		case 565: //Earth staff
+			for (int i = 0; i < runes.size(); i++) if (runes[i].getId() == 542) runes.erase(runes.begin() + i);
 			break;
-		case 17: //Fire staff
-			for (int i = 0; i < runes.size(); i++) if (runes[i].getId() == 4) runes.erase(runes.begin() + i);
+		case 567: //Fire staff
+			for (int i = 0; i < runes.size(); i++) if (runes[i].getId() == 543) runes.erase(runes.begin() + i);
 			break;
 		default:
 			break;
@@ -122,9 +122,9 @@ void Magic::setCurrentSpell(int spell)
 					if (player->inventory->getSlot(input - 1)->getAmount() < 6)
 						return;
 				
-				if (player->inventory->canAdd(Item(33, player->inventory->getSlot(input - 1)->getItemDefinition()->getAlchemyPrice())))
+				if (player->inventory->canAdd(Item(516, player->inventory->getSlot(input - 1)->getItemDefinition()->getAlchemyPrice())))
 				{
-					player->inventory->add(new Item(33, player->inventory->getSlot(input - 1)->getItemDefinition()->getAlchemyPrice()));
+					player->inventory->add(new Item(516, player->inventory->getSlot(input - 1)->getItemDefinition()->getAlchemyPrice()));
 					player->inventory->remove(input - 1, 1);
 					player->skills->addExperience(65, magic);
 					useRunes();
@@ -142,14 +142,14 @@ void Magic::setCurrentSpell(int spell)
 			{
 				if (player->inventory->getSlot(i) != nullptr)
 				{
-					if (player->inventory->getSlot(i)->getId() == 23) //Bones
-						player->inventory->replace(new Item(31, 1), i);
-					else if (player->inventory->getSlot(i)->getId() == 25) //Big Bones
-						player->inventory->replace(new Item(31, 1), i);
-					else if (player->inventory->getSlot(i)->getId() == 27) //Dragon Bones
-						player->inventory->replace(new Item(31, 1), i);
-					else if (player->inventory->getSlot(i)->getId() == 29) //Lava Dragon Bones
-						player->inventory->replace(new Item(31, 1), i);
+					if (player->inventory->getSlot(i)->getId() == 549) //Bones
+						player->inventory->replace(new Item(517, 1), i);
+					else if (player->inventory->getSlot(i)->getId() == 551) //Big Bones
+						player->inventory->replace(new Item(517, 1), i);
+					else if (player->inventory->getSlot(i)->getId() == 553) //Dragon Bones
+						player->inventory->replace(new Item(517, 1), i);
+					else if (player->inventory->getSlot(i)->getId() == 555) //Lava Dragon Bones
+						player->inventory->replace(new Item(517, 1), i);
 				}
 			}
 			player->skills->addExperience(36, magic);

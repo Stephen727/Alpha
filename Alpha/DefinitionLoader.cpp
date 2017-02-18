@@ -249,9 +249,10 @@ void DefinitionLoader::loadShopDefinition()
 		std::istringstream iss(line);
 		int id, amount;
 		std::string name;
+		char delim = ',';
 		iss >> name;
 
-		while (iss >> id >> amount)
+		while (iss >>id >> delim >> amount)
 			stock.push_back(Item(id, amount));
 
 		shopDefinition.push_back(new ShopDefinition(name, stock));

@@ -16,8 +16,8 @@ Slayer::Slayer(Player* _player)
 {
 	player = _player;
 	currentTask = nullptr;
-	currentSlot = 0;
-	currentMaster = 0;
+	currentSlot = -1;
+	currentMaster = -1;
 	amount = 0;
 }
 

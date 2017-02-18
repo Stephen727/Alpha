@@ -35,9 +35,9 @@ std::vector<Item*> Loot::getDrop()
 	for (int i = 0; i < lootTable.size(); i++)
 	{
 		if (lootTable[i]->getChance() == 100)
-			drop.push_back(new Item(lootTable[i]->getIndex(), rand() % lootTable[i]->getMax() + lootTable[i]->getMin()));
+			drop.push_back(new Item(lootTable[i]->getIndex(), rand() % (lootTable[i]->getMax() - lootTable[i]->getMin() + 1) + lootTable[i]->getMin()));
 		else if (lootTable[i]->getChance() > dropRoll)
-			temp.push_back(new Item(lootTable[i]->getIndex(), rand() % lootTable[i]->getMax() + lootTable[i]->getMin()));
+			temp.push_back(new Item(lootTable[i]->getIndex(), rand() % (lootTable[i]->getMax() - lootTable[i]->getMin() + 1) + lootTable[i]->getMin()));
 	}
 
 	if (temp.size())

@@ -21,4 +21,4 @@
 20 Shadow_Lair 61 88 99
 21 Waterfall 101 103 104
 22 Mountains 49 50 52 51
-23 Lava River 87 90 105
+23 Lava_River 87 90 105

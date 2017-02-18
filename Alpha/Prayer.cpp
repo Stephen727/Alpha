@@ -29,16 +29,16 @@ bool Prayer::isBone(int slot)
 	
 	switch (player->inventory->getSlot(slot)->getId())
 	{
-	case 23: //Bones
+	case 549: //Bones
 		return true;
 		break;
-	case 25: //Big Bones
+	case 551: //Big Bones
 		return true;
 		break;
-	case 27: //Dragon Bones
+	case 553: //Dragon Bones
 		return true;
 		break;
-	case 29: //Lava Dragon Bones
+	case 555: //Lava Dragon Bones
 		return true;
 		break;
 	default:
@@ -51,16 +51,16 @@ int Prayer::getExp(int id)
 {
 	switch (id)
 	{
-	case 23: //Bones
+	case 549: //Bones
 		return 4;
 		break;
-	case 25: //Big Bones
+	case 551: //Big Bones
 		return 15;
 		break;
-	case 27: //Dragon Bones
+	case 553: //Dragon Bones
 		return 72;
 		break;
-	case 29: //Lava Dragon Bones
+	case 555: //Lava Dragon Bones
 		return 85;
 		break;
 	default:

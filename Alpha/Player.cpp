@@ -8,6 +8,7 @@
 #include "Prayer.h"
 #include "Magic.h"
 #include "Slayer.h"
+#include "Cooking.h"
 #include "Food.h"
 #include "Potion.h"
 #include "UseItem.h"
@@ -27,6 +28,7 @@ Player::Player()
 	prayer = new Prayer(this);
 	magic = new Magic(this);
 	slayer = new Slayer(this);
+	cooking = new Cooking(this);
 	food = new Food(this);
 	potion = new Potion(this);
 	useItem = new UseItem(this);
@@ -52,14 +54,16 @@ Player::Player(std::string _username)
 	useItem = new UseItem(this);
 
 	//Starting Items
-	inventory->add(new Item(33, 30)); //Coins
-	inventory->add(new Item(78, 1)); //Wooden sword
-	inventory->add(new Item(80, 1)); //Wooden shield
-	inventory->add(new Item(66, 1)); //Shortbow
-	inventory->add(new Item(52, 25)); //Bronze arrows
-	inventory->add(new Item(0, 30)); //Air runes
-	inventory->add(new Item(1, 30)); //Mind runes
-	inventory->add(new Item(31, 1)); //Peach
+	inventory->add(new Item(516, 30)); //Coins
+	inventory->add(new Item(268, 1)); //Bronze dagger
+	inventory->add(new Item(282, 1)); //Bronze sq shield
+	inventory->add(new Item(44, 1)); //Shortbow
+	inventory->add(new Item(65, 25)); //Bronze arrows
+	inventory->add(new Item(539, 30)); //Air runes
+	inventory->add(new Item(540, 30)); //Mind runes
+	inventory->add(new Item(163, 1)); //Shrimp
+	inventory->add(new Item(163, 1)); //Shrimp
+	inventory->add(new Item(163, 1)); //Shrimp
 }
 
 Player::~Player()

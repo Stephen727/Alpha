@@ -8,6 +8,7 @@ class PrayerBook;
 class Prayer;
 class Magic;
 class Slayer;
+class Cooking;
 class Food;
 class Potion;
 class UseItem;
@@ -32,6 +33,7 @@ public:
 	Prayer *prayer;
 	Magic *magic;
 	Slayer *slayer;
+	Cooking *cooking;
 	Food* food;
 	Potion* potion;
 	UseItem* useItem;

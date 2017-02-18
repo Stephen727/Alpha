@@ -127,7 +127,7 @@ std::vector<SlayerTask*> vannaka = {
 	new SlayerTask("Turoths", 55, { 23 }),
 	new SlayerTask("Vampires", 1, { 56 }),
 	new SlayerTask("Wall beasts", 35, { 13 }),
-	new SlayerTask("Werfewolf", 1, { 57 })
+	new SlayerTask("Werewolf", 1, { 57 })
 };
 
 std::vector<SlayerTask*> chaeldar = {
