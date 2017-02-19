@@ -108,6 +108,12 @@
     <ClCompile Include="Cooking.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Smithing.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Fishing.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EquipmentDefinition.h">
@@ -234,6 +240,12 @@
       <Filter>Header Files\Definitions</Filter>
     </ClInclude>
     <ClInclude Include="Cooking.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Smithing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Fishing.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

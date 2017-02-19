@@ -1,4 +1,4 @@
-﻿Build started 2/17/2017 8:05:59 PM.
+﻿Build started 2/19/2017 4:45:10 PM.
      1>Project "C:\Users\Valued Customer\Desktop\Stephen Benner\Programming\C++\Runescape Clone\Alpha\Alpha\Alpha.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          E:\Program Files (x86)\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _UNICODE /D UNICODE /EHa /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /analyze- /errorReport:prompt /clr:nostdlib main.cpp
@@ -9,8 +9,10 @@
          Release\Combat.obj
          Release\CombatAssistant.obj
          Release\CombatInterface.obj
+         Release\Cooking.obj
          Release\DefinitionLoader.obj
          Release\Equipment.obj
+         Release\Fishing.obj
          Release\Food.obj
          Release\FormulaData.obj
          Release\Inventory.obj
@@ -31,6 +33,7 @@
          Release\Skills.obj
          Release\Slayer.obj
          Release\SlayerTask.obj
+         Release\Smithing.obj
          Release\SpellBook.obj
          Release\UseItem.obj
          "Release\.NETFramework,Version=v4.5.AssemblyAttributes.obj"
@@ -39,4 +42,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.34
+Time Elapsed 00:00:01.44

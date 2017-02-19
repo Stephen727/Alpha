@@ -77,6 +77,7 @@
     <ClCompile Include="Cooking.cpp" />
     <ClCompile Include="DefinitionLoader.cpp" />
     <ClCompile Include="Equipment.cpp" />
+    <ClCompile Include="Fishing.cpp" />
     <ClCompile Include="Food.cpp" />
     <ClCompile Include="FormulaData.cpp" />
     <ClCompile Include="Inventory.cpp" />
@@ -97,6 +98,7 @@
     <ClCompile Include="Skills.cpp" />
     <ClCompile Include="Slayer.cpp" />
     <ClCompile Include="SlayerTask.cpp" />
+    <ClCompile Include="Smithing.cpp" />
     <ClCompile Include="SpellBook.cpp" />
     <ClCompile Include="UseItem.cpp" />
   </ItemGroup>
@@ -113,6 +115,7 @@
     <ClInclude Include="DungeonDefinition.h" />
     <ClInclude Include="Equipment.h" />
     <ClInclude Include="EquipmentDefinition.h" />
+    <ClInclude Include="Fishing.h" />
     <ClInclude Include="Food.h" />
     <ClInclude Include="FoodDefinition.h" />
     <ClInclude Include="FormulaData.h" />
@@ -140,6 +143,7 @@
     <ClInclude Include="Skills.h" />
     <ClInclude Include="Slayer.h" />
     <ClInclude Include="SlayerTask.h" />
+    <ClInclude Include="Smithing.h" />
     <ClInclude Include="SpellBook.h" />
     <ClInclude Include="UseItem.h" />
     <ClInclude Include="WeaponDefinition.h" />

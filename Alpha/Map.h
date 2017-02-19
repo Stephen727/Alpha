@@ -17,12 +17,25 @@ private:
 
 	void dungeonDisplay(int);
 	void cityDisplay(int);
+
 	void shopDisplay();
+
+	void mineDisplay();
+	void abyssDisplay();
+	void pondDisplay();
+	void forestDisplay();
 	void worldDisplay();
+
+	void rangeDisplay();
+	void furnaceDisplay();
+	void anvilDisplay();
 	void skillDisplay();
+
 	void slayerDisplay();
+
 	void bagDisplay();
 	void gearDisplay();
+
 	bool getInput();
 public:
 	void display();

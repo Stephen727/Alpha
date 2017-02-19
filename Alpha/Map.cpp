@@ -12,7 +12,9 @@
 #include "Shop.h"
 #include "Combat.h"
 #include "Prayer.h"
+#include "Fishing.h"
 #include "Cooking.h"
+#include "Smithing.h"
 
 
 Map::Map()
@@ -114,6 +116,111 @@ void Map::shopDisplay()
 	}
 }
 
+void Map::mineDisplay()
+{
+	int input;
+	system("CLS");
+
+	std::cout << "   ---Mine---" << std::endl;
+	std::cout << " [1] Essence Rock" << std::endl;
+	std::cout << " [2] Copper Rock" << std::endl;
+	std::cout << " [3] Tin Rock" << std::endl;
+	std::cout << " [4] Iron Rock" << std::endl;
+	std::cout << " [5] Coal Rock" << std::endl;
+	std::cout << " [6] Gold Rock" << std::endl;
+	std::cout << " [7] Mithril Rock" << std::endl;
+	std::cout << " [8] Adamant Rock" << std::endl;
+	std::cout << " [9] Rune Rock" << std::endl;
+	std::cout << std::endl << ">";
+
+	while (!(std::cin >> input) || (input < 0 || input > 9))
+	{
+		if (std::cin.fail())
+		{
+			std::cin.clear();
+			std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+		}
+	}
+}
+
+void Map::abyssDisplay()
+{
+	int input;
+	system("CLS");
+
+	std::cout << " ---Abyss---" << std::endl;
+	std::cout << " [1] Air Altar" << std::endl;
+	std::cout << " [2] Mind Altar" << std::endl;
+	std::cout << " [3] Water Altar" << std::endl;
+	std::cout << " [4] Earth Altar" << std::endl;
+	std::cout << " [5] Fire Altar" << std::endl;
+	std::cout << " [6] Cosmic Altar" << std::endl;
+	std::cout << " [7] Chaos Altar" << std::endl;
+	std::cout << " [8] Nature Altar" << std::endl;
+	std::cout << " [9] Death Altar" << std::endl;
+	std::cout << " [10] Blood Altar" << std::endl;
+	std::cout << std::endl << ">";
+
+	while (!(std::cin >> input) || (input < 0 || input > 10))
+	{
+		if (std::cin.fail())
+		{
+			std::cin.clear();
+			std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+		}
+	}
+}
+
+void Map::pondDisplay()
+{
+	int input;
+	system("CLS");
+
+	std::cout << "     ---Pond---" << std::endl;
+	std::cout << " [1] Small Net / Bait" << std::endl;
+	std::cout << " [2] Lure / Bait" << std::endl;
+	std::cout << " [3] Cage / Harpoon" << std::endl;
+	std::cout << " [4] Big Net / Harpoon" << std::endl;
+	std::cout << " [5] Harpoon / Small Net" << std::endl;
+	std::cout << std::endl << ">";
+
+	while (!(std::cin >> input) || (input < 0 || input > 5))
+	{
+		if (std::cin.fail())
+		{
+			std::cin.clear();
+			std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+		}
+	}
+
+	if (input)
+		player->fishing->fish(input - 1);
+}
+
+void Map::forestDisplay()
+{
+	int input;
+	system("CLS");
+
+	std::cout << " ---Forest---" << std::endl;
+	std::cout << " [1] Tree" << std::endl;
+	std::cout << " [2] Oak Tree" << std::endl;
+	std::cout << " [3] Willow Tree" << std::endl;
+	std::cout << " [4] Maple Tree" << std::endl;
+	std::cout << " [5] Yew Tree" << std::endl;
+	std::cout << " [6] Magic Tree" << std::endl;
+	std::cout << std::endl << ">";
+
+	while (!(std::cin >> input) || (input < 0 || input > 6))
+	{
+		if (std::cin.fail())
+		{
+			std::cin.clear();
+			std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+		}
+	}
+}
+
 void Map::worldDisplay()
 {
 	int input;
@@ -132,6 +239,147 @@ void Map::worldDisplay()
 		{
 			std::cin.clear();
 			std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+		}
+	}
+
+	switch (input)
+	{
+	case 1:
+		mineDisplay();
+		break;
+	case 2:
+		abyssDisplay();
+		break;
+	case 3:
+		pondDisplay();
+		break;
+	case 4:
+		forestDisplay();
+		break;
+	default:
+		break;
+	}
+}
+
+void Map::rangeDisplay()
+{
+	system("CLS");
+	std::cout << "\t---Range---" << std::endl;
+
+	for (int i = 0; i < 20; i++)
+		player->cooking->cook(i);
+
+	std::cout << std::endl << ">";
+
+	std::cin.clear();
+	std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+	std::cin.ignore();
+}
+
+void Map::furnaceDisplay()
+{
+	int input;
+	system("CLS");
+
+	std::cout << " ---Furnace---" << std::endl;
+	std::cout << " [1] Bronze" << std::endl;
+	std::cout << " [2] Iron" << std::endl;
+	std::cout << " [3] Steel" << std::endl;
+	std::cout << " [4] Gold" << std::endl;
+	std::cout << " [5] Mithril" << std::endl;
+	std::cout << " [6] Adamant" << std::endl;
+	std::cout << " [7] Rune" << std::endl;
+	std::cout << std::endl << ">";
+
+	while (!(std::cin >> input) || (input < 0 || input > 7))
+	{
+		if (std::cin.fail())
+		{
+			std::cin.clear();
+			std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+		}
+	}
+	
+	if (input)
+		player->smithing->smelt(input - 1);
+}
+
+void Map::anvilDisplay()
+{
+	int input, tier;
+	system("CLS");
+
+	std::cout << " ---Anvil---" << std::endl;
+	std::cout << " [1] Bronze" << std::endl;
+	std::cout << " [2] Iron" << std::endl;
+	std::cout << " [3] Steel" << std::endl;
+	std::cout << " [4] Gold" << std::endl;
+	std::cout << " [5] Mithril" << std::endl;
+	std::cout << " [6] Adamant" << std::endl;
+	std::cout << " [7] Rune" << std::endl;
+	std::cout << std::endl << ">";
+
+	while (!(std::cin >> input) || (input < 0 || input > 7))
+	{
+		if (std::cin.fail())
+		{
+			std::cin.clear();
+			std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+		}
+	}
+
+	if (input)
+	{
+		tier = input - 1;
+
+		system("CLS");
+		std::cout << " ---Anvil---" << std::endl;
+		std::cout << " [1] Dagger" << std::endl;
+		std::cout << " [2] Hatchet" << std::endl;
+		std::cout << " [3] Mace" << std::endl;
+		std::cout << " [4] Med Helm" << std::endl;
+		std::cout << " [5] Bolts" << std::endl;
+		std::cout << " [6] Sword" << std::endl;
+		std::cout << " [7] Arrowtips" << std::endl;
+		std::cout << " [8] Scimitar" << std::endl;
+		std::cout << " [9] C'bow Limb" << std::endl;
+		std::cout << " [10] Longsword" << std::endl;
+		std::cout << " [11] Full Helm" << std::endl;
+		std::cout << " [12] Sq Shield" << std::endl;
+		std::cout << " [13] Warhammer" << std::endl;
+		std::cout << " [14] Battleaxe" << std::endl;
+		std::cout << " [15] Chainbody" << std::endl;
+		std::cout << " [16] 2h Sword" << std::endl;
+		std::cout << " [17] Platelegs" << std::endl;
+		std::cout << " [18] Platebody" << std::endl;
+		std::cout << std::endl << ">";
+
+		while (!(std::cin >> input) || (input < 0 || input > 18))
+		{
+			if (std::cin.fail())
+			{
+				std::cin.clear();
+				std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+			}
+		}
+
+		if (input)
+		{
+			player->smithing->smith(input - 1, tier);
+
+			system("CLS");
+			std::cout << " ---Anvil---" << std::endl;
+			std::cout << " Hammer..." << std::endl;
+			_sleep(300);
+			std::cout << "   Hammer..." << std::endl;
+			_sleep(300);
+			std::cout << "     Hammer..." << std::endl;
+			_sleep(300);
+			std::cout << std::endl << " >";
+
+			std::cin.clear();
+			std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+			std::cin.ignore();
 		}
 	}
 }
@@ -165,12 +413,13 @@ void Map::skillDisplay()
 		player->skills->restore(prayer);
 		break;
 	case 2: //Range
-		for (int i = 0; i < 20; i++)
-			player->cooking->cook(i);
+		rangeDisplay();
 		break;
 	case 3: //Furnace
+		furnaceDisplay();
 		break;
 	case 4: //Anvil
+		anvilDisplay();
 		break;
 	case 5: //Tanner
 		break;

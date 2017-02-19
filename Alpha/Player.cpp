@@ -8,7 +8,9 @@
 #include "Prayer.h"
 #include "Magic.h"
 #include "Slayer.h"
+#include "Fishing.h"
 #include "Cooking.h"
+#include "Smithing.h"
 #include "Food.h"
 #include "Potion.h"
 #include "UseItem.h"
@@ -28,7 +30,9 @@ Player::Player()
 	prayer = new Prayer(this);
 	magic = new Magic(this);
 	slayer = new Slayer(this);
+	fishing = new Fishing(this);
 	cooking = new Cooking(this);
+	smithing = new Smithing(this);
 	food = new Food(this);
 	potion = new Potion(this);
 	useItem = new UseItem(this);
@@ -49,6 +53,9 @@ Player::Player(std::string _username)
 	prayer = new Prayer(this);
 	magic = new Magic(this);
 	slayer = new Slayer(this);
+	fishing = new Fishing(this);
+	cooking = new Cooking(this);
+	smithing = new Smithing(this);
 	food = new Food(this);
 	potion = new Potion(this);
 	useItem = new UseItem(this);
@@ -76,6 +83,9 @@ Player::~Player()
 	delete prayer;
 	delete magic;
 	delete slayer;
+	delete fishing;
+	delete cooking;
+	delete smithing;
 	delete food;
 	delete potion;
 	delete useItem;

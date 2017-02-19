@@ -38,17 +38,22 @@ void Cooking::cook(int slot)
 				int rate = ((player->skills->getEffect(8) * 50) - (cookReq[i] * 15)) / cookReq[i] / 3 * 4;
 				int roll = rand() % 99 + 1;
 
+				_sleep(300);
+
 				if (rate >= roll)
 				{
+
 					player->inventory->remove(slot);
 					player->inventory->add(new Item(cookedFood[i], 1));
 					player->skills->addExperience(cookExp[i], cooking);
+					std::cout << " You successfully cook the " << Item(rawFood[i], 1).getItemDefinition()->getName() << "." << std::endl;
 					return;
 				}
 				else
 				{
 					player->inventory->remove(slot);
 					player->inventory->add(new Item(216, 1));
+					std::cout << " You burn the " << Item(rawFood[i], 1).getItemDefinition()->getName() << "." << std::endl;
 					return;
 				}
 			}
