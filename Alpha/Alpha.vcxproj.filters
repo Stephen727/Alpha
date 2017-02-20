@@ -123,6 +123,9 @@
     <ClCompile Include="Woodcutting.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Fletching.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EquipmentDefinition.h">
@@ -264,6 +267,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Woodcutting.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Fletching.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

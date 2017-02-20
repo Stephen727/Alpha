@@ -13,6 +13,7 @@
 #include "Mining.h"
 #include "Smithing.h"
 #include "Woodcutting.h"
+#include "Fletching.h"
 #include "Runecrafting.h"
 #include "Food.h"
 #include "Potion.h"
@@ -38,6 +39,7 @@ Player::Player()
 	mining = new Mining(this);
 	smithing = new Smithing(this);
 	woodcutting = new Woodcutting(this);
+	fletching = new Fletching(this);
 	runecrafting = new Runecrafting(this);
 	food = new Food(this);
 	potion = new Potion(this);
@@ -64,6 +66,7 @@ Player::Player(std::string _username)
 	mining = new Mining(this);
 	smithing = new Smithing(this);
 	woodcutting = new Woodcutting(this);
+	fletching = new Fletching(this);
 	runecrafting = new Runecrafting(this);
 	food = new Food(this);
 	potion = new Potion(this);
@@ -97,6 +100,7 @@ Player::~Player()
 	delete mining;
 	delete smithing;
 	delete woodcutting;
+	delete fletching;
 	delete runecrafting;
 	delete food;
 	delete potion;

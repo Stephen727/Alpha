@@ -56,32 +56,16 @@ void Bank::deposit(int slot, int amount)
 	if (player->inventory->getSlot(slot) != nullptr)
 	{
 		Item _item = *player->inventory->getSlot(slot);
-		//_item.note();
 
-		/*
-		if (_item.getItemDefinition()->isStackable())
-		{
-			if (amount > player->inventory->getSlot(slot)->getAmount())
-			{
-				deposit(new Item(_item.getId(), player->inventory->getSlot(slot)->getAmount()));
-				player->inventory->remove(slot, player->inventory->getSlot(slot)->getAmount());
-			}
-			else if (amount > 0)
-			{
-				deposit(new Item(_item.getId(), amount));
-				player->inventory->remove(slot, amount);
-			}
-		}
-		*/
 		if (amount > player->inventory->hasAmount(_item.getId()))
 		{
-				deposit(new Item(_item.getId(), player->inventory->hasAmount(_item.getId())));
-				player->inventory->removeItem(_item.getId(), player->inventory->hasAmount(_item.getId()));
+			deposit(new Item(_item.getId(), player->inventory->hasAmount(_item.getId())));
+			player->inventory->removeItem(_item.getId(), player->inventory->hasAmount(_item.getId()));
 		}
 		else if (amount > 0)
 		{
-				deposit(new Item(_item.getId(), amount));
-				player->inventory->removeItem(_item.getId(), amount);
+			deposit(new Item(_item.getId(), amount));
+			player->inventory->removeItem(_item.getId(), amount);
 		}
 	}
 }
@@ -251,7 +235,7 @@ void Bank::makeWithdraw()
 
 		int amount = 1;
 
-		if (input)
+		if (input && item[input - 1]->getAmount() > 1)
 		{
 			system("CLS");
 			displayBank();

@@ -1,14 +1,16 @@
-﻿Build started 2/20/2017 3:52:03 AM.
+﻿Build started 2/20/2017 4:26:42 PM.
      1>Project "C:\Users\Valued Customer\Desktop\Stephen Benner\Programming\C++\Runescape Clone\Alpha\Alpha\Alpha.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         E:\Program Files (x86)\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /analyze- /errorReport:prompt /clr:nostdlib Skills.cpp
-         Skills.cpp
+         E:\Program Files (x86)\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /analyze- /errorReport:prompt /clr:nostdlib Map.cpp
+         Map.cpp
      1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-     1>Skills.cpp(87): warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
-     1>Skills.cpp(93): warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
-     1>Skills.cpp(96): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>Skills.cpp(149): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>Skills.cpp(158): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>Map.cpp(47): warning C4018: '<' : signed/unsigned mismatch
+     1>Map.cpp(52): warning C4018: '>' : signed/unsigned mismatch
+     1>Map.cpp(77): warning C4018: '<' : signed/unsigned mismatch
+     1>Map.cpp(82): warning C4018: '>' : signed/unsigned mismatch
+     1>Map.cpp(102): warning C4018: '<' : signed/unsigned mismatch
+     1>Map.cpp(106): warning C4018: '>' : signed/unsigned mismatch
+     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\slayer.h(26): warning C4715: 'Slayer::getCurrentSlayerTaskId' : not all control paths return a value
        Link:
          E:\Program Files (x86)\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Valued Customer\Desktop\Stephen Benner\Programming\C++\Runescape Clone\Alpha\Debug\Alpha.exe" /INCREMENTAL /NOLOGO /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Valued Customer\Desktop\Stephen Benner\Programming\C++\Runescape Clone\Alpha\Debug\Alpha.pdb" /ASSEMBLYDEBUG /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 Debug\Aura.obj
          Debug\Bank.obj
@@ -19,6 +21,7 @@
          Debug\DefinitionLoader.obj
          Debug\Equipment.obj
          Debug\Fishing.obj
+         Debug\Fletching.obj
          Debug\Food.obj
          Debug\FormulaData.obj
          Debug\Inventory.obj
@@ -51,4 +54,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.78
+Time Elapsed 00:00:02.04

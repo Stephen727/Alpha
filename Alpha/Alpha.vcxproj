@@ -78,6 +78,7 @@
     <ClCompile Include="DefinitionLoader.cpp" />
     <ClCompile Include="Equipment.cpp" />
     <ClCompile Include="Fishing.cpp" />
+    <ClCompile Include="Fletching.cpp" />
     <ClCompile Include="Food.cpp" />
     <ClCompile Include="FormulaData.cpp" />
     <ClCompile Include="Inventory.cpp" />
@@ -119,6 +120,7 @@
     <ClInclude Include="Equipment.h" />
     <ClInclude Include="EquipmentDefinition.h" />
     <ClInclude Include="Fishing.h" />
+    <ClInclude Include="Fletching.h" />
     <ClInclude Include="Food.h" />
     <ClInclude Include="FoodDefinition.h" />
     <ClInclude Include="FormulaData.h" />

@@ -418,9 +418,10 @@ void Map::skillDisplay()
 		std::cout << " [3] Furnace" << std::endl;
 		std::cout << " [4] Anvil" << std::endl;
 		std::cout << " [5] Tanner" << std::endl;
+		std::cout << " [6] Spinning Wheel" << std::endl;
 		std::cout << std::endl << ">";
 
-		while (!(std::cin >> input) || (input < 0 || input > 5))
+		while (!(std::cin >> input) || (input < 0 || input > 6))
 		{
 			if (std::cin.fail())
 			{
@@ -453,6 +454,8 @@ void Map::skillDisplay()
 			anvilDisplay();
 			break;
 		case 5: //Tanner
+			break;
+		case 6: //Spinng wheel
 			break;
 		default:
 			break;

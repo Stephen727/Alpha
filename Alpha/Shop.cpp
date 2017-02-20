@@ -130,10 +130,11 @@ void Shop::sell(Player *player)
 				{
 					price = player->inventory->getSlot(input - 1)->getItemDefinition()->getAlchemyPrice() * 0.66;
 
-					if (player->inventory->canAdd(Item(516, price * amount)) && price)
+					if (player->inventory->canAdd(Item(516, price * amount)))
 					{
 						add(player->inventory->getSlot(input - 1), amount);
-						player->inventory->add(new Item(516, price * amount));
+						if (price)
+							player->inventory->add(new Item(516, price * amount));
 						player->inventory->removeItem(player->inventory->getSlot(input - 1)->getItemDefinition()->getId(), amount);
 					}
 				}
