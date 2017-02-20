@@ -26,12 +26,7 @@ bool Shop::canAdd(Item _item)
 		for (int i = 0; i < stock.size(); i++)
 		{
 			if (stock[i].getId() == _item.getId())
-			{
-				if (stock[i].getItemDefinition()->isStackable())
-				{
 					return true;
-				}
-			}
 		}
 		return false;
 	}
@@ -45,11 +40,8 @@ void Shop::add(Item *_item, int amount)
 		{
 				if (stock[i].getId() == _item->getId())
 				{
-					if (stock[i].getItemDefinition()->isStackable())
-					{
 						stock[i].add(amount);
 						return;
-					}
 				}
 			}
 		}
@@ -107,42 +99,43 @@ void Shop::sell(Player *player)
 
 		if (player->inventory->getSlot(input - 1) != nullptr)
 		{
-			if (player->inventory->getSlot(input - 1)->getItemDefinition()->getId() == 516)
-				;
-			else if (player->inventory->getSlot(input - 1)->getItemDefinition()->isStackable())
+			if (player->inventory->getSlot(input - 1)->getItemDefinition()->getId() != 516)
 			{
-				system("CLS");
-				player->inventory->displayInv();
-				std::cout << input << "   >";
-
-				while (!(std::cin >> amount))
+				if ((player->inventory->getSlot(input - 1)->getItemDefinition()->isStackable() && player->inventory->getSlot(input - 1)->getAmount() > 1) || (player->inventory->hasAmount(player->inventory->getSlot(input - 1)->getId()) > 1))
 				{
 					system("CLS");
 					player->inventory->displayInv();
 					std::cout << input << "   >";
 
-					if (std::cin.fail())
+					while (!(std::cin >> amount))
 					{
-						std::cin.clear();
-						std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+						system("CLS");
+						player->inventory->displayInv();
+						std::cout << input << "   >";
+
+						if (std::cin.fail())
+						{
+							std::cin.clear();
+							std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+						}
 					}
+
+					if (amount > player->inventory->hasAmount(player->inventory->getSlot(input - 1)->getItemDefinition()->getId()))
+						amount = player->inventory->hasAmount(player->inventory->getSlot(input - 1)->getItemDefinition()->getId());
 				}
+				else
+					amount = 1;
 
-				if (amount >= player->inventory->getSlot(input - 1)->getAmount())
-					amount = player->inventory->getSlot(input - 1)->getAmount();
-			}
-			else
-				amount = 1;
-
-			if (amount > 0)
-			{
-				price = player->inventory->getSlot(input - 1)->getItemDefinition()->getAlchemyPrice() * 0.66;
-
-				if (player->inventory->canAdd(Item(516, price * amount)))
+				if (amount > 0)
 				{
-					add(player->inventory->getSlot(input - 1), amount);
-					player->inventory->add(new Item(516, price * amount));
-					player->inventory->remove(input - 1, amount);
+					price = player->inventory->getSlot(input - 1)->getItemDefinition()->getAlchemyPrice() * 0.66;
+
+					if (player->inventory->canAdd(Item(516, price * amount)) && price)
+					{
+						add(player->inventory->getSlot(input - 1), amount);
+						player->inventory->add(new Item(516, price * amount));
+						player->inventory->removeItem(player->inventory->getSlot(input - 1)->getItemDefinition()->getId(), amount);
+					}
 				}
 			}
 		}

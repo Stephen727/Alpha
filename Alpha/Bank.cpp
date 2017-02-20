@@ -56,17 +56,32 @@ void Bank::deposit(int slot, int amount)
 	if (player->inventory->getSlot(slot) != nullptr)
 	{
 		Item _item = *player->inventory->getSlot(slot);
-		_item.note();
+		//_item.note();
 
-		if (amount > player->inventory->getSlot(slot)->getAmount())
+		/*
+		if (_item.getItemDefinition()->isStackable())
 		{
-			deposit(new Item(_item.getId(), player->inventory->getSlot(slot)->getAmount()));
-			player->inventory->remove(slot, player->inventory->getSlot(slot)->getAmount());
+			if (amount > player->inventory->getSlot(slot)->getAmount())
+			{
+				deposit(new Item(_item.getId(), player->inventory->getSlot(slot)->getAmount()));
+				player->inventory->remove(slot, player->inventory->getSlot(slot)->getAmount());
+			}
+			else if (amount > 0)
+			{
+				deposit(new Item(_item.getId(), amount));
+				player->inventory->remove(slot, amount);
+			}
+		}
+		*/
+		if (amount > player->inventory->hasAmount(_item.getId()))
+		{
+				deposit(new Item(_item.getId(), player->inventory->hasAmount(_item.getId())));
+				player->inventory->removeItem(_item.getId(), player->inventory->hasAmount(_item.getId()));
 		}
 		else if (amount > 0)
 		{
-			deposit(new Item(_item.getId(), amount));
-			player->inventory->remove(slot, amount);
+				deposit(new Item(_item.getId(), amount));
+				player->inventory->removeItem(_item.getId(), amount);
 		}
 	}
 }
@@ -166,13 +181,13 @@ void Bank::makeDeposit()
 	{
 		system("CLS");
 		player->inventory->displayInv();
-		std::cout << std::endl << "Which item would you like to deposit? ";
+		std::cout << "Which item would you like to deposit? ";
 
 		while (!(std::cin >> input))
 		{
 			system("CLS");
 			player->inventory->displayInv();
-			std::cout << std::endl << "Which item would you like to deposit? ";
+			std::cout << "Which item would you like to deposit? ";
 
 			if (std::cin.fail())
 			{
@@ -185,18 +200,18 @@ void Bank::makeDeposit()
 
 		if (input && player->inventory->getSlot(input - 1) != nullptr)
 		{
-			if (player->inventory->getSlot(input - 1)->getItemDefinition()->isStackable() && player->inventory->getSlot(input - 1)->getAmount() > 1)
+			if ((player->inventory->getSlot(input - 1)->getItemDefinition()->isStackable() && player->inventory->getSlot(input - 1)->getAmount() > 1) || (player->inventory->hasAmount(player->inventory->getSlot(input - 1)->getId()) > 1))
 			{
 				system("CLS");
 				player->inventory->displayInv();
-				std::cout << std::endl << "Which item would you like to deposit? " << input << std::endl;
+				std::cout << "Which item would you like to deposit? " << input << std::endl;
 				std::cout << "How many do you have to deposit? ";
 
 				while (!(std::cin >> amount))
 				{
 					system("CLS");
 					player->inventory->displayInv();
-					std::cout << std::endl << "Which item would you like to deposit? " << amount << std::endl;
+					std::cout << "Which item would you like to deposit? " << amount << std::endl;
 					std::cout << "How many do you have to deposit? ";
 
 					if (std::cin.fail())
@@ -209,7 +224,6 @@ void Bank::makeDeposit()
 		}
 		deposit(input - 1, amount);
 	} while (input);
-	access();
 }
 
 void Bank::makeWithdraw()
@@ -248,7 +262,7 @@ void Bank::makeWithdraw()
 			{
 				system("CLS");
 				displayBank();
-				std::cout << std::endl << "Which bank slot would you like to access? " << input << std::endl;
+				std::cout  << "Which bank slot would you like to access? " << input << std::endl;
 				std::cout << "How many would you like to withdraw? ";
 
 				if (std::cin.fail())
@@ -260,7 +274,6 @@ void Bank::makeWithdraw()
 		}
 		withdraw(input - 1, amount);
 	} while (input);
-	access();
 }
 
 void Bank::access()

@@ -10,7 +10,10 @@
 #include "Slayer.h"
 #include "Fishing.h"
 #include "Cooking.h"
+#include "Mining.h"
 #include "Smithing.h"
+#include "Woodcutting.h"
+#include "Runecrafting.h"
 #include "Food.h"
 #include "Potion.h"
 #include "UseItem.h"
@@ -32,7 +35,10 @@ Player::Player()
 	slayer = new Slayer(this);
 	fishing = new Fishing(this);
 	cooking = new Cooking(this);
+	mining = new Mining(this);
 	smithing = new Smithing(this);
+	woodcutting = new Woodcutting(this);
+	runecrafting = new Runecrafting(this);
 	food = new Food(this);
 	potion = new Potion(this);
 	useItem = new UseItem(this);
@@ -55,7 +61,10 @@ Player::Player(std::string _username)
 	slayer = new Slayer(this);
 	fishing = new Fishing(this);
 	cooking = new Cooking(this);
+	mining = new Mining(this);
 	smithing = new Smithing(this);
+	woodcutting = new Woodcutting(this);
+	runecrafting = new Runecrafting(this);
 	food = new Food(this);
 	potion = new Potion(this);
 	useItem = new UseItem(this);
@@ -85,7 +94,10 @@ Player::~Player()
 	delete slayer;
 	delete fishing;
 	delete cooking;
+	delete mining;
 	delete smithing;
+	delete woodcutting;
+	delete runecrafting;
 	delete food;
 	delete potion;
 	delete useItem;

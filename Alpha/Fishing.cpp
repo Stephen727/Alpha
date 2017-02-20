@@ -57,7 +57,7 @@ void Fishing::smallNetBait() //shrimps and anchovies, sardine and herring
 				player->inventory->add(new Item(135, 1));
 				player->skills->addExperience(30, fishing);
 			}
-			player->inventory->removeItem(207);
+			player->inventory->removeItem(207, 1);
 		}
 		else if (player->skills->getEffect(fishing) >= 5) //sardine
 		{

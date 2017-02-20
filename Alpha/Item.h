@@ -26,8 +26,8 @@ public:
 	void setId(int i) { id = i; }
 	void setAmount(int i) { amount = i; }
 
-	void add() { if (getItemDefinition()->isStackable()) amount++; }
-	void add(int am) { if (getItemDefinition()->isStackable()) amount += am; }
+	void add() { amount++; }
+	void add(int am) { amount += am; }
 	void remove() { amount--; }
 	void remove(int am) { amount -= am; }
 	void note();

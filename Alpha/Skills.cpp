@@ -206,6 +206,8 @@ void Skills::displayStat(int skill)
 
 void Skills::displayStats()
 {
+	int totalLevel = 0, totalExperience = 0;
+
 	std::cout << "   ---Skills---" << std::endl;
 
 	std::string name[] = { "Hitpoints", "Attack", "Strength", "Defense", "Ranged", "Prayer", "Magic", "Woodcut", 
@@ -213,11 +215,16 @@ void Skills::displayStats()
 
 	for (int i = 0; i < 17; i++)
 	{
+		totalLevel += skills[i].level;
+		totalExperience += skills[i].experience;
 		std::cout << " [" << i + 1 << "] " << name[i] << ":     \t" << skills[i].effectiveLevel << "/" << skills[i].level;
 		std::cout << "\t (" << skills[i].experience << ")" << std::endl;
 	}
 
-	std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << ">";
+	std::cout << std::endl << " Total Level: " << totalLevel << std::endl;
+	std::cout << " Total Exp: " << totalExperience << std::endl;
+
+	std::cout << std::endl << std::endl << std::endl << ">";
 }
 
 void Skills::reset()

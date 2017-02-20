@@ -14,7 +14,10 @@
 #include "Prayer.h"
 #include "Fishing.h"
 #include "Cooking.h"
+#include "Mining.h"
 #include "Smithing.h"
+#include "Woodcutting.h"
+#include "Runecrafting.h"
 
 
 Map::Map()
@@ -145,6 +148,10 @@ void Map::mineDisplay()
 				std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
 			}
 		}
+
+		if (input)
+			player->mining->mine(input - 1);
+
 	} while (input);
 }
 
@@ -176,6 +183,9 @@ void Map::abyssDisplay()
 				std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
 			}
 		}
+		if (input)
+			player->runecrafting->runecraft(input - 1);
+
 	} while (input);
 }
 
@@ -232,6 +242,10 @@ void Map::forestDisplay()
 				std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
 			}
 		}
+
+		if (input)
+			player->woodcutting->chop(input - 1);
+
 	} while (input);
 }
 
@@ -386,23 +400,7 @@ void Map::anvilDisplay()
 			}
 
 			if (input)
-			{
 				player->smithing->smith(input - 1, tier);
-
-				system("CLS");
-				std::cout << " ---Anvil---" << std::endl;
-				std::cout << " Hammer..." << std::endl;
-				_sleep(300);
-				std::cout << "   Hammer..." << std::endl;
-				_sleep(300);
-				std::cout << "     Hammer..." << std::endl;
-				_sleep(300);
-				std::cout << std::endl << " >";
-
-				std::cin.clear();
-				std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
-				std::cin.ignore();
-			}
 		}
 	} while (input);
 }

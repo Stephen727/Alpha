@@ -35,7 +35,7 @@ void Cooking::cook(int slot)
 		{
 			if (player->skills->getEffect(cooking) >= cookReq[i])
 			{
-				int rate = ((player->skills->getEffect(8) * 50) - (cookReq[i] * 15)) / cookReq[i] / 3 * 4;
+				int rate = ((player->skills->getEffect(cooking) * 50) - (cookReq[i] * 15)) / cookReq[i] / 3 * 4;
 				int roll = rand() % 99 + 1;
 
 				_sleep(300);

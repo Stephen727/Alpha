@@ -88,12 +88,14 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="MeleeFormulas.cpp" />
+    <ClCompile Include="Mining.cpp" />
     <ClCompile Include="Npc.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Potion.cpp" />
     <ClCompile Include="Prayer.cpp" />
     <ClCompile Include="PrayerBook.cpp" />
     <ClCompile Include="RangedFormulas.cpp" />
+    <ClCompile Include="Runecrafting.cpp" />
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="Skills.cpp" />
     <ClCompile Include="Slayer.cpp" />
@@ -101,6 +103,7 @@
     <ClCompile Include="Smithing.cpp" />
     <ClCompile Include="SpellBook.cpp" />
     <ClCompile Include="UseItem.cpp" />
+    <ClCompile Include="Woodcutting.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Aura.h" />
@@ -129,6 +132,7 @@
     <ClInclude Include="MagicFormulas.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="MeleeFormulas.h" />
+    <ClInclude Include="Mining.h" />
     <ClInclude Include="Npc.h" />
     <ClInclude Include="NpcDefinition.h" />
     <ClInclude Include="Player.h" />
@@ -138,6 +142,7 @@
     <ClInclude Include="PrayerBook.h" />
     <ClInclude Include="RangedDefinition.h" />
     <ClInclude Include="RangedFormulas.h" />
+    <ClInclude Include="Runecrafting.h" />
     <ClInclude Include="Shop.h" />
     <ClInclude Include="ShopDefinition.h" />
     <ClInclude Include="Skills.h" />
@@ -147,6 +152,7 @@
     <ClInclude Include="SpellBook.h" />
     <ClInclude Include="UseItem.h" />
     <ClInclude Include="WeaponDefinition.h" />
+    <ClInclude Include="Woodcutting.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

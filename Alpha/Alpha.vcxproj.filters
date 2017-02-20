@@ -114,6 +114,15 @@
     <ClCompile Include="Fishing.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Mining.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Runecrafting.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Woodcutting.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EquipmentDefinition.h">
@@ -246,6 +255,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Fishing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mining.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Runecrafting.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Woodcutting.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

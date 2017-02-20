@@ -44,9 +44,16 @@ void Smithing::smelt(std::vector<Item> items, int newId, int exp)
 	{
 		for (int i = 0; i < items.size(); i++)
 			player->inventory->removeItem(items[i].getId(), items[i].getAmount());
+
+		std::cout << "You smelt ores in the furnace..." << std::endl;
+
 		player->inventory->add(new Item(newId, 1));
 		player->skills->addExperience(exp, smithing);
 	}
+
+	std::cin.clear();
+	std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+	std::cin.ignore();
 }
 
 void Smithing::smelt(int id)
@@ -100,7 +107,16 @@ void Smithing::smelt(int id)
 void Smithing::smith(int id, int tier)
 {
 	if (!player->inventory->hasItem(266))
+	{
+		system("CLS");
+		std::cout << "You stare at the anvil. Then the metal bar." << std::endl;
+		std::cout << "You could try moulding it with your hands," << std::endl;
+		std::cout << "but a hammer might work better..." << std::endl;
+		std::cin.clear();
+		std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+		std::cin.ignore();
 		return;
+	}
 
 	switch (id)
 	{
@@ -113,7 +129,9 @@ void Smithing::smith(int id, int tier)
 				player->inventory->add(new Item(dagger[tier].first, 1));
 				player->skills->addExperience(bar[tier].second, smithing);
 			}
+			else return;
 		}
+		else return;
 		break;
 	case 1:
 		if (player->skills->getEffect(smithing) >= hatchet[tier].second)
@@ -124,7 +142,9 @@ void Smithing::smith(int id, int tier)
 				player->inventory->add(new Item(hatchet[tier].first, 1));
 				player->skills->addExperience(bar[tier].second, smithing);
 			}
+			else return;
 		}
+		else return;
 		break;
 	case 2:
 		if (player->skills->getEffect(smithing) >= mace[tier].second)
@@ -135,7 +155,9 @@ void Smithing::smith(int id, int tier)
 				player->inventory->add(new Item(mace[tier].first, 1));
 				player->skills->addExperience(bar[tier].second, smithing);
 			}
+			else return;
 		}
+		else return;
 		break;
 	case 3:
 		if (player->skills->getEffect(smithing) >= medHelm[tier].second)
@@ -146,7 +168,9 @@ void Smithing::smith(int id, int tier)
 				player->inventory->add(new Item(medHelm[tier].first, 1));
 				player->skills->addExperience(bar[tier].second, smithing);
 			}
+			else return;
 		}
+		else return;
 		break;
 	case 4:
 		if (player->skills->getEffect(smithing) >= bolt[tier].second)
@@ -157,7 +181,9 @@ void Smithing::smith(int id, int tier)
 				player->inventory->add(new Item(bolt[tier].first, 10));
 				player->skills->addExperience(bar[tier].second, smithing);
 			}
+			else return;
 		}
+		else return;
 		break;
 	case 5:
 		if (player->skills->getEffect(smithing) >= sword[tier].second)
@@ -168,7 +194,9 @@ void Smithing::smith(int id, int tier)
 				player->inventory->add(new Item(sword[tier].first, 1));
 				player->skills->addExperience(bar[tier].second, smithing);
 			}
+			else return;
 		}
+		else return;
 		break;
 	case 6:
 		if (player->skills->getEffect(smithing) >= arrowtip[tier].second)
@@ -179,7 +207,9 @@ void Smithing::smith(int id, int tier)
 				player->inventory->add(new Item(arrowtip[tier].first, 15));
 				player->skills->addExperience(bar[tier].second, smithing);
 			}
+			else return;
 		}
+		else return;
 		break;
 	case 7:
 		if (player->skills->getEffect(smithing) >= scimitar[tier].second)
@@ -190,7 +220,9 @@ void Smithing::smith(int id, int tier)
 				player->inventory->add(new Item(scimitar[tier].first, 1));
 				player->skills->addExperience(bar[tier].second * 2, smithing);
 			}
+			else return;
 		}
+		else return;
 		break;
 	case 8:
 		if (player->skills->getEffect(smithing) >= cbowLimb[tier].second)
@@ -201,7 +233,9 @@ void Smithing::smith(int id, int tier)
 				player->inventory->add(new Item(cbowLimb[tier].first, 1));
 				player->skills->addExperience(bar[tier].second * 2, smithing);
 			}
+			else return;
 		}
+		else return;
 		break;
 	case 9:
 		if (player->skills->getEffect(smithing) >= longsword[tier].second)
@@ -212,7 +246,9 @@ void Smithing::smith(int id, int tier)
 				player->inventory->add(new Item(longsword[tier].first, 1));
 				player->skills->addExperience(bar[tier].second * 2, smithing);
 			}
+			else return;
 		}
+		else return;
 		break;
 	case 10:
 		if (player->skills->getEffect(smithing) >= fullHelm[tier].second)
@@ -223,7 +259,9 @@ void Smithing::smith(int id, int tier)
 				player->inventory->add(new Item(fullHelm[tier].first, 1));
 				player->skills->addExperience(bar[tier].second * 2, smithing);
 			}
+			else return;
 		}
+		else return;
 		break;
 	case 11:
 		if (player->skills->getEffect(smithing) >= sqShield[tier].second)
@@ -234,7 +272,9 @@ void Smithing::smith(int id, int tier)
 				player->inventory->add(new Item(sqShield[tier].first, 1));
 				player->skills->addExperience(bar[tier].second * 2, smithing);
 			}
+			else return;
 		}
+		else return;
 		break;
 	case 12:
 		if (player->skills->getEffect(smithing) >= warhammer[tier].second)
@@ -245,7 +285,9 @@ void Smithing::smith(int id, int tier)
 				player->inventory->add(new Item(warhammer[tier].first, 1));
 				player->skills->addExperience(bar[tier].second * 3, smithing);
 			}
+			else return;
 		}
+		else return;
 		break;
 	case 13:
 		if (player->skills->getEffect(smithing) >= battleaxe[tier].second)
@@ -256,7 +298,9 @@ void Smithing::smith(int id, int tier)
 				player->inventory->add(new Item(battleaxe[tier].first, 1));
 				player->skills->addExperience(bar[tier].second * 3, smithing);
 			}
+			else return;
 		}
+		else return;
 		break;
 	case 14:
 		if (player->skills->getEffect(smithing) >= chainbody[tier].second)
@@ -267,7 +311,9 @@ void Smithing::smith(int id, int tier)
 				player->inventory->add(new Item(chainbody[tier].first, 1));
 				player->skills->addExperience(bar[tier].second * 3, smithing);
 			}
+			else return;
 		}
+		else return;
 		break;
 	case 15:
 		if (player->skills->getEffect(smithing) >= kiteshield[tier].second)
@@ -278,7 +324,9 @@ void Smithing::smith(int id, int tier)
 				player->inventory->add(new Item(kiteshield[tier].first, 1));
 				player->skills->addExperience(bar[tier].second * 3, smithing);
 			}
+			else return;
 		}
+		else return;
 		break;
 	case 16:
 		if (player->skills->getEffect(smithing) >= twohand[tier].second)
@@ -289,7 +337,9 @@ void Smithing::smith(int id, int tier)
 				player->inventory->add(new Item(twohand[tier].first, 1));
 				player->skills->addExperience(bar[tier].second * 3, smithing);
 			}
+			else return;
 		}
+		else return;
 		break;
 	case 17:
 		if (player->skills->getEffect(smithing) >= plateleg[tier].second)
@@ -300,7 +350,9 @@ void Smithing::smith(int id, int tier)
 				player->inventory->add(new Item(plateleg[tier].first, 1));
 				player->skills->addExperience(bar[tier].second * 3, smithing);
 			}
+			else return;
 		}
+		else return;
 		break;
 	case 18:
 		if (player->skills->getEffect(smithing) >= platebody[tier].second)
@@ -311,9 +363,26 @@ void Smithing::smith(int id, int tier)
 				player->inventory->add(new Item(platebody[tier].first, 1));
 				player->skills->addExperience(bar[tier].second * 5, smithing);
 			}
+			else return;
 		}
+		else return;
 		break;
 	default:
+		return;
 		break;
 	}
+
+	system("CLS");
+	std::cout << " ---Anvil---" << std::endl;
+	std::cout << " Hammer..." << std::endl;
+	_sleep(300);
+	std::cout << "   Hammer..." << std::endl;
+	_sleep(300);
+	std::cout << "     Hammer..." << std::endl;
+	_sleep(300);
+	std::cout << std::endl << " >";
+
+	std::cin.clear();
+	std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+	std::cin.ignore();
 }
