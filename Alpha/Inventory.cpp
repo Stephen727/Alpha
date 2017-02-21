@@ -285,7 +285,7 @@ void useRunes()
 
 void Inventory::displayInv()
 {
-	std::cout << " ---Inventory---" << std::endl;
+	std::cout << std::endl << " ---Inventory---" << std::endl;
 
 	for (int i = 0; i < 20; i++)
 	{

@@ -14,6 +14,7 @@ class Mining;
 class Smithing;
 class Woodcutting;
 class Fletching;
+class Herblore;
 class Crafting;
 class Runecrafting;
 class Food;
@@ -46,6 +47,7 @@ public:
 	Smithing *smithing;
 	Woodcutting *woodcutting;
 	Fletching *fletching;
+	Herblore *herblore;
 	Crafting *crafting;
 	Runecrafting *runecrafting;
 	Food* food;
@@ -56,7 +58,7 @@ private:
 	std::string username;
 	int combatDelay, foodDelay, potionDelay,
 		combatStance;
-	bool autoCast;
+	bool autoCast, inCombat;
 
 	void create();
 public:
@@ -68,6 +70,7 @@ public:
 	void setCombatStance(int);
 	void toggleAutoCast() { autoCast = !autoCast; }
 	void setAutoCast(bool b) { autoCast = b; }
+	void setInCombat(bool b) { inCombat = b; }
 
 	std::string getName() const { return username; }
 	bool hasEatDelay() const { return foodDelay > 0; }

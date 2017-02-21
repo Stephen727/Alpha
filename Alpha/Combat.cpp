@@ -340,6 +340,8 @@ void Combat::battle(Player* player, int id)
 
 	int input;
 
+	player->setInCombat(true);
+
 	while (player->skills->getEffect(hitpoints))
 	{
 		Npc *npc = new Npc(id);
@@ -439,6 +441,8 @@ void Combat::battle(Player* player, int id)
 				}
 				break;
 			case 0:
+				player->resetDelay();
+				player->setInCombat(false);
 				delete npc;
 				delete combatInterface;
 				return;

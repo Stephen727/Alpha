@@ -820,7 +820,6 @@ void Fletching::fletch(int slotOne, int slotTwo)
 	else if (player->inventory->getSlot(slotTwo) == NULL)
 		return;
 
-	system("CLS");
 	player->inventory->displayInv();
 
 	//Use knife on logs

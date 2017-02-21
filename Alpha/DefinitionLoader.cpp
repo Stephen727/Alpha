@@ -135,11 +135,11 @@ void DefinitionLoader::loadPotionDefinition()
 		double _modifier;
 		char delim = ',';
 		std::vector<PotionDefinition::SkillData> _skillData;
-		iss >> _id >> _replaceId, _type;
+		iss >> _id >> _replaceId >> _type;
 
 		while (iss >> _skillId >> _add >> delim >> _modifier)
 			_skillData.push_back(PotionDefinition::SkillData(_skillId, _add, _modifier));
-
+		
 		potionDefinition.push_back(new PotionDefinition(_id, _replaceId, _type, _skillData));
 		_skillData.clear();
 	}

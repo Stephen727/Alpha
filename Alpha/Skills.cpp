@@ -85,6 +85,7 @@ void Skills::boostSkill(int add, double modifier, int skill, int type)
 	else if (type && skills[skill].effectiveLevel < skills[skill].level)
 	{
 		skills[skill].effectiveLevel += skills[skill].level * modifier + add;
+
 		if (skills[skill].effectiveLevel >= skills[skill].level)
 			skills[skill].effectiveLevel = skills[skill].level;
 		return;
@@ -94,8 +95,9 @@ void Skills::boostSkill(int add, double modifier, int skill, int type)
 
 	if (skills[skill].effectiveLevel > (skills[skill].level + skills[skill].level * modifier + add) && (modifier || add))
 		skills[skill].effectiveLevel = (skills[skill].level + skills[skill].level * modifier + add);
-	else if (skills[skill].effectiveLevel < 1)
-		skills[skill].effectiveLevel = 1;
+	
+	if (skills[skill].effectiveLevel < 0)
+		skills[skill].effectiveLevel = 0;
 }
 
 void Skills::update()

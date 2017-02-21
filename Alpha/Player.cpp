@@ -14,6 +14,7 @@
 #include "Smithing.h"
 #include "Woodcutting.h"
 #include "Fletching.h"
+#include "Herblore.h"
 #include "Crafting.h"
 #include "Runecrafting.h"
 #include "Food.h"
@@ -26,6 +27,7 @@ Player::Player()
 	combatDelay = 0, foodDelay = 0, potionDelay = 0;
 	combatStance = 0;
 	autoCast = false;
+	inCombat = false;
 
 	skills = new Skills(this);
 	inventory = new Inventory(this);
@@ -41,6 +43,7 @@ Player::Player()
 	smithing = new Smithing(this);
 	woodcutting = new Woodcutting(this);
 	fletching = new Fletching(this);
+	herblore = new Herblore(this);
 	crafting = new Crafting(this);
 	runecrafting = new Runecrafting(this);
 	food = new Food(this);
@@ -54,6 +57,7 @@ Player::Player(std::string _username)
 	combatDelay = 0, foodDelay = 0, potionDelay = 0;
 	combatStance = 0;
 	autoCast = false;
+	inCombat = false;
 
 	skills = new Skills(this);
 	inventory = new Inventory(this);
@@ -69,6 +73,7 @@ Player::Player(std::string _username)
 	smithing = new Smithing(this);
 	woodcutting = new Woodcutting(this);
 	fletching = new Fletching(this);
+	herblore = new Herblore(this);
 	crafting = new Crafting(this);
 	runecrafting = new Runecrafting(this);
 	food = new Food(this);
@@ -104,6 +109,7 @@ Player::~Player()
 	delete smithing;
 	delete woodcutting;
 	delete fletching;
+	delete herblore;
 	delete crafting;
 	delete runecrafting;
 	delete food;
@@ -148,14 +154,20 @@ void Player::tickDelay()
 
 void Player::eatDelay()
 {
-	combatDelay += 3 - potionDelay;
-	foodDelay = 3;
+	if (inCombat)
+	{
+		combatDelay += 3 - potionDelay;
+		foodDelay = 3;
+	}
 }
 
 void Player::drinkDelay()
 {
-	combatDelay += 3 - foodDelay;
-	potionDelay = 3;
+	if (inCombat)
+	{
+		combatDelay += 3 - foodDelay;
+		potionDelay = 3;
+	}
 }
 
 int Player::getAttackStyle() const
@@ -191,6 +203,8 @@ void Player::setCombatStance(int stance)
 
 void Player::respawn()
 {
+	inCombat = false;
+	resetDelay();
 	this->inventory->clear();
 	this->equipment->clear();
 	this->skills->reset();

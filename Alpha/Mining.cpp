@@ -70,7 +70,13 @@ void Mining::mine(int id)
 	}
 
 	if (!pickaxe)
+	{
+		std::cout << "You punch the rock. It doesn't work..." << std::endl;
+		std::cin.clear();
+		std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+		std::cin.ignore();
 		return;
+	}
 
 	int mineTimer;
 	int oreModifier;

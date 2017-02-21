@@ -46,14 +46,11 @@ void Smithing::smelt(std::vector<Item> items, int newId, int exp)
 			player->inventory->removeItem(items[i].getId(), items[i].getAmount());
 
 		std::cout << "You smelt ores in the furnace..." << std::endl;
+		_sleep(300);
 
 		player->inventory->add(new Item(newId, 1));
 		player->skills->addExperience(exp, smithing);
 	}
-
-	std::cin.clear();
-	std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
-	std::cin.ignore();
 }
 
 void Smithing::smelt(int id)
@@ -118,6 +115,15 @@ void Smithing::smith(int id, int tier)
 		return;
 	}
 
+	system("CLS");
+	std::cout << " ---Anvil---" << std::endl;
+	std::cout << " Hammer..." << std::endl;
+	_sleep(300);
+	std::cout << "   Hammer..." << std::endl;
+	_sleep(300);
+	std::cout << "     Hammer..." << std::endl;
+	_sleep(300);
+
 	switch (id)
 	{
 	case 0:
@@ -128,6 +134,8 @@ void Smithing::smith(int id, int tier)
 				player->inventory->removeItem(bar[tier].first, 1);
 				player->inventory->add(new Item(dagger[tier].first, 1));
 				player->skills->addExperience(bar[tier].second, smithing);
+
+				std::cout << "You smith a dagger!" << std::endl;
 			}
 			else return;
 		}
@@ -141,6 +149,8 @@ void Smithing::smith(int id, int tier)
 				player->inventory->removeItem(bar[tier].first, 1);
 				player->inventory->add(new Item(hatchet[tier].first, 1));
 				player->skills->addExperience(bar[tier].second, smithing);
+
+				std::cout << "You smith a hatchet!" << std::endl;
 			}
 			else return;
 		}
@@ -154,6 +164,8 @@ void Smithing::smith(int id, int tier)
 				player->inventory->removeItem(bar[tier].first, 1);
 				player->inventory->add(new Item(mace[tier].first, 1));
 				player->skills->addExperience(bar[tier].second, smithing);
+
+				std::cout << "You smith a mace!" << std::endl;
 			}
 			else return;
 		}
@@ -167,6 +179,8 @@ void Smithing::smith(int id, int tier)
 				player->inventory->removeItem(bar[tier].first, 1);
 				player->inventory->add(new Item(medHelm[tier].first, 1));
 				player->skills->addExperience(bar[tier].second, smithing);
+
+				std::cout << "You smith a med helm!" << std::endl;
 			}
 			else return;
 		}
@@ -180,6 +194,8 @@ void Smithing::smith(int id, int tier)
 				player->inventory->removeItem(bar[tier].first, 1);
 				player->inventory->add(new Item(bolt[tier].first, 10));
 				player->skills->addExperience(bar[tier].second, smithing);
+
+				std::cout << "You smith some bolts!" << std::endl;
 			}
 			else return;
 		}
@@ -193,6 +209,8 @@ void Smithing::smith(int id, int tier)
 				player->inventory->removeItem(bar[tier].first, 1);
 				player->inventory->add(new Item(sword[tier].first, 1));
 				player->skills->addExperience(bar[tier].second, smithing);
+
+				std::cout << "You smith a sword!" << std::endl;
 			}
 			else return;
 		}
@@ -206,6 +224,8 @@ void Smithing::smith(int id, int tier)
 				player->inventory->removeItem(bar[tier].first, 1);
 				player->inventory->add(new Item(arrowtip[tier].first, 15));
 				player->skills->addExperience(bar[tier].second, smithing);
+
+				std::cout << "You smith some arrow tips!" << std::endl;
 			}
 			else return;
 		}
@@ -219,6 +239,8 @@ void Smithing::smith(int id, int tier)
 				player->inventory->removeItem(bar[tier].first, 2);
 				player->inventory->add(new Item(scimitar[tier].first, 1));
 				player->skills->addExperience(bar[tier].second * 2, smithing);
+
+				std::cout << "You smith a scimitar!" << std::endl;
 			}
 			else return;
 		}
@@ -232,6 +254,8 @@ void Smithing::smith(int id, int tier)
 				player->inventory->removeItem(bar[tier].first, 2);
 				player->inventory->add(new Item(cbowLimb[tier].first, 1));
 				player->skills->addExperience(bar[tier].second * 2, smithing);
+
+				std::cout << "You smith a c'bow limb!" << std::endl;
 			}
 			else return;
 		}
@@ -245,6 +269,8 @@ void Smithing::smith(int id, int tier)
 				player->inventory->removeItem(bar[tier].first, 2);
 				player->inventory->add(new Item(longsword[tier].first, 1));
 				player->skills->addExperience(bar[tier].second * 2, smithing);
+
+				std::cout << "You smith a longsword!" << std::endl;
 			}
 			else return;
 		}
@@ -258,6 +284,8 @@ void Smithing::smith(int id, int tier)
 				player->inventory->removeItem(bar[tier].first, 2);
 				player->inventory->add(new Item(fullHelm[tier].first, 1));
 				player->skills->addExperience(bar[tier].second * 2, smithing);
+
+				std::cout << "You smith a full helm!" << std::endl;
 			}
 			else return;
 		}
@@ -271,6 +299,8 @@ void Smithing::smith(int id, int tier)
 				player->inventory->removeItem(bar[tier].first, 2);
 				player->inventory->add(new Item(sqShield[tier].first, 1));
 				player->skills->addExperience(bar[tier].second * 2, smithing);
+
+				std::cout << "You smith a sq shield!" << std::endl;
 			}
 			else return;
 		}
@@ -284,6 +314,8 @@ void Smithing::smith(int id, int tier)
 				player->inventory->removeItem(bar[tier].first, 3);
 				player->inventory->add(new Item(warhammer[tier].first, 1));
 				player->skills->addExperience(bar[tier].second * 3, smithing);
+
+				std::cout << "You smith a warhammer!" << std::endl;
 			}
 			else return;
 		}
@@ -297,6 +329,8 @@ void Smithing::smith(int id, int tier)
 				player->inventory->removeItem(bar[tier].first, 3);
 				player->inventory->add(new Item(battleaxe[tier].first, 1));
 				player->skills->addExperience(bar[tier].second * 3, smithing);
+
+				std::cout << "You smith a battleaxe!" << std::endl;
 			}
 			else return;
 		}
@@ -310,6 +344,8 @@ void Smithing::smith(int id, int tier)
 				player->inventory->removeItem(bar[tier].first, 3);
 				player->inventory->add(new Item(chainbody[tier].first, 1));
 				player->skills->addExperience(bar[tier].second * 3, smithing);
+
+				std::cout << "You smith a chainbody!" << std::endl;
 			}
 			else return;
 		}
@@ -323,6 +359,8 @@ void Smithing::smith(int id, int tier)
 				player->inventory->removeItem(bar[tier].first, 3);
 				player->inventory->add(new Item(kiteshield[tier].first, 1));
 				player->skills->addExperience(bar[tier].second * 3, smithing);
+
+				std::cout << "You smith a kiteshield!" << std::endl;
 			}
 			else return;
 		}
@@ -336,6 +374,8 @@ void Smithing::smith(int id, int tier)
 				player->inventory->removeItem(bar[tier].first, 3);
 				player->inventory->add(new Item(twohand[tier].first, 1));
 				player->skills->addExperience(bar[tier].second * 3, smithing);
+
+				std::cout << "You smith a 2h sword!" << std::endl;
 			}
 			else return;
 		}
@@ -349,6 +389,8 @@ void Smithing::smith(int id, int tier)
 				player->inventory->removeItem(bar[tier].first, 3);
 				player->inventory->add(new Item(plateleg[tier].first, 1));
 				player->skills->addExperience(bar[tier].second * 3, smithing);
+
+				std::cout << "You smith some platelegs!" << std::endl;
 			}
 			else return;
 		}
@@ -362,6 +404,8 @@ void Smithing::smith(int id, int tier)
 				player->inventory->removeItem(bar[tier].first, 5);
 				player->inventory->add(new Item(platebody[tier].first, 1));
 				player->skills->addExperience(bar[tier].second * 5, smithing);
+
+				std::cout << "You smith a platebody!" << std::endl;
 			}
 			else return;
 		}
@@ -372,14 +416,6 @@ void Smithing::smith(int id, int tier)
 		break;
 	}
 
-	system("CLS");
-	std::cout << " ---Anvil---" << std::endl;
-	std::cout << " Hammer..." << std::endl;
-	_sleep(300);
-	std::cout << "   Hammer..." << std::endl;
-	_sleep(300);
-	std::cout << "     Hammer..." << std::endl;
-	_sleep(300);
 	std::cout << std::endl << " >";
 
 	std::cin.clear();

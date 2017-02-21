@@ -18,11 +18,11 @@ public:
 private:
 	Player *player;
 
-	void smallNetBait();
-	void lureBait();
-	void cageHarpoon();
-	void bigNetHarpoon();
-	void harpoonSmallNet();
+	int smallNetBait();
+	int lureBait();
+	int cageHarpoon();
+	int bigNetHarpoon();
+	int harpoonSmallNet();
 
 	void wait(int);
 	bool getInput(char*);

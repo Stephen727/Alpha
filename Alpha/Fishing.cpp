@@ -20,7 +20,7 @@ Fishing::~Fishing()
 {
 }
 
-void Fishing::smallNetBait() //shrimps and anchovies, sardine and herring
+int Fishing::smallNetBait() //shrimps and anchovies, sardine and herring
 {
 	if (player->inventory->hasItem(195))
 	{
@@ -36,11 +36,13 @@ void Fishing::smallNetBait() //shrimps and anchovies, sardine and herring
 				player->inventory->add(new Item(137, 1));
 				player->skills->addExperience(40, fishing);
 			}
+			return 11;
 		}
 		else if (player->skills->getEffect(fishing) >= 1) //shrimp
 		{
 			player->inventory->add(new Item(131, 1));
 			player->skills->addExperience(10, fishing);
+			return 10;
 		}
 	}
 	else if (player->inventory->hasItem(199) && player->inventory->hasItem(207))
@@ -58,17 +60,20 @@ void Fishing::smallNetBait() //shrimps and anchovies, sardine and herring
 				player->skills->addExperience(30, fishing);
 			}
 			player->inventory->removeItem(207, 1);
+			return 15;
 		}
 		else if (player->skills->getEffect(fishing) >= 5) //sardine
 		{
 			player->inventory->add(new Item(133, 1));
 			player->skills->addExperience(20, fishing);
 			player->inventory->removeItem(207, 1);
+			return 15;
 		}
 	}
+	return 0;
 }
 
-void Fishing::lureBait()
+int Fishing::lureBait()
 {
 	if (player->inventory->hasItem(201) && player->inventory->hasItem(57))
 	{
@@ -85,12 +90,14 @@ void Fishing::lureBait()
 				player->skills->addExperience(70, fishing);
 			}
 			player->inventory->removeItem(57, 1);
+			return 20;
 		}
 		else if (player->skills->getEffect(fishing) >= 20) //trout
 		{
 			player->inventory->add(new Item(141, 1));
 			player->skills->addExperience(50, fishing);
 			player->inventory->removeItem(57, 1);
+			return 20;
 		}
 	}
 	else if (player->inventory->hasItem(199) && player->inventory->hasItem(207))
@@ -100,11 +107,13 @@ void Fishing::lureBait()
 			player->inventory->add(new Item(145, 1));
 			player->skills->addExperience(60, fishing);
 			player->inventory->removeItem(207, 1);
+			return 25;
 		}
 	}
+	return 0;
 }
 
-void Fishing::cageHarpoon()
+int Fishing::cageHarpoon()
 {
 	if (player->inventory->hasItem(205))
 	{
@@ -112,6 +121,7 @@ void Fishing::cageHarpoon()
 		{
 			player->inventory->add(new Item(151, 1));
 			player->skills->addExperience(90, fishing);
+			return 35;
 		}
 	}
 	else if (player->inventory->hasItem(203))
@@ -128,16 +138,19 @@ void Fishing::cageHarpoon()
 				player->inventory->add(new Item(155, 1));
 				player->skills->addExperience(100, fishing);
 			}
+			return 30;
 		}
 		else if (player->skills->getEffect(fishing) >= 35) //tuna
 		{
 			player->inventory->add(new Item(149, 1));
 			player->skills->addExperience(80, fishing);
+			return 30;
 		}
 	}
+	return 0;
 }
 
-void Fishing::bigNetHarpoon()
+int Fishing::bigNetHarpoon()
 {
 	if (player->inventory->hasItem(197))
 	{
@@ -160,6 +173,7 @@ void Fishing::bigNetHarpoon()
 			default:
 				break;
 			}
+			return 23;
 		}
 		else if (player->skills->getEffect(fishing) >= 23) //mackerel and cod
 		{
@@ -173,11 +187,13 @@ void Fishing::bigNetHarpoon()
 				player->inventory->add(new Item(143, 1));
 				player->skills->addExperience(45, fishing);
 			}
+			return 23;
 		}
 		else if (player->skills->getEffect(fishing) >= 16) //mackerel
 		{
 			player->inventory->add(new Item(139, 1));
 			player->skills->addExperience(20, fishing);
+			return 23;
 		}
 	}
 	else if (player->inventory->hasItem(203))
@@ -186,11 +202,13 @@ void Fishing::bigNetHarpoon()
 		{
 			player->inventory->add(new Item(159, 1));
 			player->skills->addExperience(110, fishing);
+			return 40;
 		}
 	}
+	return 0;
 }
 
-void Fishing::harpoonSmallNet()
+int Fishing::harpoonSmallNet()
 {
 	if (player->inventory->hasItem(203))
 	{
@@ -206,11 +224,13 @@ void Fishing::harpoonSmallNet()
 				player->inventory->add(new Item(155, 1));
 				player->skills->addExperience(100, fishing);
 			}
+			return 30;
 		}
 		else if (player->skills->getEffect(fishing) >= 35) //tuna
 		{
 			player->inventory->add(new Item(149, 1));
 			player->skills->addExperience(80, fishing);
+			return 30;
 		}
 	}
 	else if (player->inventory->hasItem(195))
@@ -219,8 +239,10 @@ void Fishing::harpoonSmallNet()
 		{
 			player->inventory->add(new Item(157, 1));
 			player->skills->addExperience(120, fishing);
+			return 35;
 		}
 	}
+	return 0;
 }
 
 void Fishing::wait(int seconds)
@@ -245,33 +267,56 @@ void Fishing::fish(int id)
 	char key = ' ';
 	while (player->inventory->getFreeSlots() && getInput(&key))
 	{
-		std::cout << "You attempt to catch a fish..." << std::endl;
-
 		int fishTimer = (rand() % 10 + 5) - (player->skills->getEffect(fishing) / 9);
 
 		switch (id)
 		{
 		case 0:
-			smallNetBait();
+			fishTimer = smallNetBait();
+			if (fishTimer)
+				fishTimer = rand() % fishTimer + 1;
 			break;
-		case 1:
-			lureBait();
+		case 1:		
+			fishTimer = lureBait();
+			if (fishTimer)
+				fishTimer = rand() % fishTimer + 1;
 			break;
 		case 2:
-			cageHarpoon();
-			fishTimer += 5;
+			fishTimer = cageHarpoon();
+			if (fishTimer)
+				fishTimer = rand() % fishTimer + 1;
 			break;
 		case 3:
-			bigNetHarpoon();
-			fishTimer += 10;
+			fishTimer = bigNetHarpoon();
+			if (fishTimer)
+				fishTimer = rand() % fishTimer + 1;
 			break;
 		case 4:
-			harpoonSmallNet();
+			fishTimer = harpoonSmallNet();
+			if (fishTimer)
+				fishTimer = rand() % fishTimer + 1;
 			break;
 		default:
+			fishTimer = 0;
 			break;
 		}
 
-		if (fishTimer > 0) wait(fishTimer);
+		if (fishTimer)
+		{
+			fishTimer -= (player->skills->getEffect(fishing) / 3);
+			std::cout << "You attempt to catch a fish..." << std::endl;
+			if (fishTimer > 0) wait(fishTimer);
+			else wait(1);
+		}
+		else
+		{
+			std::cout << "You can't fish here!" << std::endl;
+
+			std::cin.clear();
+			std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+			std::cin.ignore();
+
+			return;
+		}
 	}
 }

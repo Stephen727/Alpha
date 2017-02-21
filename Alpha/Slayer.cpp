@@ -119,7 +119,12 @@ void Slayer::checkKill(Npc* npc)
 		amount--;
 
 		if (!amount)
+		{
 			currentTask = nullptr;
+			currentSlot = -1;
+			currentMaster = -1;
+			amount = 0;
+		}
 	}
 }
 
