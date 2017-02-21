@@ -17,6 +17,7 @@
 #include "Mining.h"
 #include "Smithing.h"
 #include "Woodcutting.h"
+#include "Crafting.h"
 #include "Runecrafting.h"
 
 
@@ -261,9 +262,10 @@ void Map::worldDisplay()
 		std::cout << " [2] Abyss" << std::endl;
 		std::cout << " [3] Pond" << std::endl;
 		std::cout << " [4] Forest" << std::endl;
+		std::cout << " [5] Flax Field" << std::endl;
 		std::cout << std::endl << ">";
 
-		while (!(std::cin >> input) || (input < 0 || input > 4))
+		while (!(std::cin >> input) || (input < 0 || input > 5))
 		{
 			if (std::cin.fail())
 			{
@@ -285,6 +287,9 @@ void Map::worldDisplay()
 			break;
 		case 4:
 			forestDisplay();
+			break;
+		case 5:
+			player->crafting->pickFlax();
 			break;
 		default:
 			break;
@@ -433,11 +438,13 @@ void Map::skillDisplay()
 		switch (input)
 		{
 		case 1: //Temple
-			player->prayer->offerBones();
 			player->skills->restore(prayer);
 			
 			system("CLS");
 			std::cout << "You visit the temple..." << std::endl;
+
+			player->prayer->offerBones();
+
 			std::cout << std::endl << ">";
 
 			std::cin.clear();
@@ -454,8 +461,16 @@ void Map::skillDisplay()
 			anvilDisplay();
 			break;
 		case 5: //Tanner
+			system("CLS");
+			std::cout << "You visit the tanner..." << std::endl;
+			player->crafting->tan();
+
+			std::cin.clear();
+			std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+			std::cin.ignore();
 			break;
 		case 6: //Spinng wheel
+			player->crafting->spinFlax();
 			break;
 		default:
 			break;

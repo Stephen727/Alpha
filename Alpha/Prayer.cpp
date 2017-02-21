@@ -84,8 +84,10 @@ void Prayer::offerBones()
 	{
 		if (isBone(i))
 		{
+			std::cout << "You offer your bones to the Gods..." << std::endl;
 			player->skills->addExperience(getExp(player->inventory->getSlot(i)->getId()) * 3.5, prayer);
 			player->inventory->remove(i);
+			_sleep(300);
 		}
 	}
 }

@@ -75,6 +75,7 @@
     <ClCompile Include="CombatAssistant.cpp" />
     <ClCompile Include="CombatInterface.cpp" />
     <ClCompile Include="Cooking.cpp" />
+    <ClCompile Include="Crafting.cpp" />
     <ClCompile Include="DefinitionLoader.cpp" />
     <ClCompile Include="Equipment.cpp" />
     <ClCompile Include="Fishing.cpp" />
@@ -114,6 +115,7 @@
     <ClInclude Include="CombatAssistant.h" />
     <ClInclude Include="CombatInterface.h" />
     <ClInclude Include="Cooking.h" />
+    <ClInclude Include="Crafting.h" />
     <ClInclude Include="DefinitionLoader.h" />
     <ClInclude Include="DropDefinition.h" />
     <ClInclude Include="DungeonDefinition.h" />

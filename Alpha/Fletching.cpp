@@ -33,7 +33,7 @@ void Fletching::knifeOnLog(int slotOne, int slotTwo)
 		return;
 	}
 
-	std::cout << " [1] Shafts   [2] Shortbow(u)   [3] Stock   >";
+	std::cout << "\b [1] Shafts   [2] Shortbow(u)   [3] Stock   >";
 
 	while (!(std::cin >> input) || (input < 1 || input > 3))
 	{

@@ -14,6 +14,7 @@ class Mining;
 class Smithing;
 class Woodcutting;
 class Fletching;
+class Crafting;
 class Runecrafting;
 class Food;
 class Potion;
@@ -45,6 +46,7 @@ public:
 	Smithing *smithing;
 	Woodcutting *woodcutting;
 	Fletching *fletching;
+	Crafting *crafting;
 	Runecrafting *runecrafting;
 	Food* food;
 	Potion* potion;

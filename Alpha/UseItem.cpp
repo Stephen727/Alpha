@@ -3,6 +3,7 @@
 #include "Equipment.h"
 #include "Prayer.h"
 #include "Fletching.h"
+#include "Crafting.h"
 #include "Food.h"
 #include "Potion.h"
 
@@ -100,6 +101,8 @@ void UseItem::select(int slot)
 	case 'S':
 	case 'f':
 	case 'F':
+	case 'c':
+	case 'C':
 		int newSlot;
 		std::cout << ">";
 		std::cin >> newSlot;
@@ -112,6 +115,8 @@ void UseItem::select(int slot)
 			player->inventory->swap(slot, newSlot);
 		else if (input == 'f' || input == 'F')
 			player->fletching->fletch(slot, newSlot);
+		else if (input == 'c' || input == 'C')
+			player->crafting->craft(slot, newSlot);
 		break;
 	default:
 		return;

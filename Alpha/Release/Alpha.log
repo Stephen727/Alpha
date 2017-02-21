@@ -1,140 +1,14 @@
-﻿Build started 2/20/2017 4:27:02 PM.
+﻿Build started 2/20/2017 8:46:37 PM.
      1>Project "C:\Users\Valued Customer\Desktop\Stephen Benner\Programming\C++\Runescape Clone\Alpha\Alpha\Alpha.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         E:\Program Files (x86)\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _UNICODE /D UNICODE /EHa /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /analyze- /errorReport:prompt /clr:nostdlib Bank.cpp Combat.cpp CombatAssistant.cpp CombatInterface.cpp Cooking.cpp Equipment.cpp Fishing.cpp Fletching.cpp Food.cpp Inventory.cpp Magic.cpp MagicFormulas.cpp main.cpp Map.cpp MeleeFormulas.cpp Mining.cpp Player.cpp Potion.cpp Prayer.cpp PrayerBook.cpp RangedFormulas.cpp Runecrafting.cpp Shop.cpp Skills.cpp Slayer.cpp Smithing.cpp UseItem.cpp Woodcutting.cpp
-         Bank.cpp
-     1>Bank.cpp(28): warning C4018: '<' : signed/unsigned mismatch
-     1>Bank.cpp(77): warning C4018: '<' : signed/unsigned mismatch
-     1>Bank.cpp(100): warning C4018: '<' : signed/unsigned mismatch
-     1>Bank.cpp(148): warning C4018: '<' : signed/unsigned mismatch
-     1>Bank.cpp(309): warning C4018: '<' : signed/unsigned mismatch
-     1>Bank.cpp(323): warning C4101: 'i' : unreferenced local variable
-         Combat.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-     1>Combat.cpp(24): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-     1>Combat.cpp(236): warning C4244: '*=' : conversion from 'double' to 'int', possible loss of data
-     1>Combat.cpp(311): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
-                 E:\Program Files (x86)\VC\include\stdlib.h(911) : see declaration of '_sleep'
-         CombatAssistant.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-     1>CombatAssistant.cpp(32): warning C4018: '<' : signed/unsigned mismatch
-     1>CombatAssistant.cpp(223): warning C4244: '*=' : conversion from 'double' to 'int', possible loss of data
-     1>CombatAssistant.cpp(225): warning C4244: '*=' : conversion from 'double' to 'int', possible loss of data
-     1>CombatAssistant.cpp(239): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>CombatAssistant.cpp(243): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>CombatAssistant.cpp(253): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>CombatAssistant.cpp(258): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>CombatAssistant.cpp(261): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>CombatAssistant.cpp(266): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>CombatAssistant.cpp(271): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>CombatAssistant.cpp(288): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-         CombatInterface.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-     1>CombatInterface.cpp(20): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>CombatInterface.cpp(82): warning C4018: '<' : signed/unsigned mismatch
-         Cooking.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-     1>Cooking.cpp(32): warning C4018: '<' : signed/unsigned mismatch
-     1>Cooking.cpp(41): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
-                 E:\Program Files (x86)\VC\include\stdlib.h(911) : see declaration of '_sleep'
-         Equipment.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-     1>Equipment.cpp(82): warning C4018: '<' : signed/unsigned mismatch
-     1>Equipment.cpp(96): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
-     1>Equipment.cpp(119): warning C4018: '<' : signed/unsigned mismatch
-         Fishing.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-         Fletching.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-     1>Fletching.cpp(391): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>Fletching.cpp(443): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>Fletching.cpp(469): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>Fletching.cpp(495): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>Fletching.cpp(521): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>Fletching.cpp(590): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>Fletching.cpp(616): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>Fletching.cpp(668): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>Fletching.cpp(720): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-         Food.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-         Inventory.cpp
-     1>Inventory.cpp(107): warning C4018: '<' : signed/unsigned mismatch
-     1>Inventory.cpp(191): warning C4018: '<' : signed/unsigned mismatch
-         Magic.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-     1>Magic.cpp(46): warning C4018: '<' : signed/unsigned mismatch
-     1>Magic.cpp(49): warning C4018: '<' : signed/unsigned mismatch
-     1>Magic.cpp(52): warning C4018: '<' : signed/unsigned mismatch
-     1>Magic.cpp(55): warning C4018: '<' : signed/unsigned mismatch
-     1>Magic.cpp(74): warning C4018: '<' : signed/unsigned mismatch
-     1>Magic.cpp(77): warning C4018: '<' : signed/unsigned mismatch
-     1>Magic.cpp(80): warning C4018: '<' : signed/unsigned mismatch
-     1>Magic.cpp(83): warning C4018: '<' : signed/unsigned mismatch
-         MagicFormulas.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-         main.cpp
-         Map.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-     1>Map.cpp(47): warning C4018: '<' : signed/unsigned mismatch
-     1>Map.cpp(52): warning C4018: '>' : signed/unsigned mismatch
-     1>Map.cpp(77): warning C4018: '<' : signed/unsigned mismatch
-     1>Map.cpp(82): warning C4018: '>' : signed/unsigned mismatch
-     1>Map.cpp(102): warning C4018: '<' : signed/unsigned mismatch
-     1>Map.cpp(106): warning C4018: '>' : signed/unsigned mismatch
-         MeleeFormulas.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-         Mining.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-     1>Mining.cpp(49): warning C4018: '<' : signed/unsigned mismatch
-         Player.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-         Potion.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-     1>Potion.cpp(39): warning C4018: '<' : signed/unsigned mismatch
-         Prayer.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-     1>Prayer.cpp(87): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-         PrayerBook.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-         Generating Code...
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\slayer.h(26): warning C4715: 'Slayer::getCurrentSlayerTaskId' : not all control paths return a value
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\combatassistant.cpp(172): warning C4715: 'CombatAssistant::canAttack' : not all control paths return a value
-         Compiling...
-         RangedFormulas.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-         Runecrafting.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-         Shop.cpp
-     1>Shop.cpp(26): warning C4018: '<' : signed/unsigned mismatch
-     1>Shop.cpp(39): warning C4018: '<' : signed/unsigned mismatch
-     1>Shop.cpp(58): warning C4018: '<' : signed/unsigned mismatch
-     1>Shop.cpp(131): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>Shop.cpp(165): warning C4018: '<=' : signed/unsigned mismatch
+         E:\Program Files (x86)\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _UNICODE /D UNICODE /EHa /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /analyze- /errorReport:prompt /clr:nostdlib Skills.cpp
          Skills.cpp
      1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
      1>Skills.cpp(87): warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
      1>Skills.cpp(93): warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
      1>Skills.cpp(96): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>Skills.cpp(149): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>Skills.cpp(158): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-         Slayer.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-     1>Slayer.cpp(44): warning C4018: '<' : signed/unsigned mismatch
-         Smithing.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-     1>Smithing.cpp(45): warning C4018: '<' : signed/unsigned mismatch
-     1>Smithing.cpp(378): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
-                 E:\Program Files (x86)\VC\include\stdlib.h(911) : see declaration of '_sleep'
-     1>Smithing.cpp(380): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
-                 E:\Program Files (x86)\VC\include\stdlib.h(911) : see declaration of '_sleep'
-     1>Smithing.cpp(382): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
-                 E:\Program Files (x86)\VC\include\stdlib.h(911) : see declaration of '_sleep'
-         UseItem.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-         Woodcutting.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-     1>Woodcutting.cpp(50): warning C4018: '<' : signed/unsigned mismatch
-         Generating Code...
+     1>Skills.cpp(152): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>Skills.cpp(161): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
        Link:
          E:\Program Files (x86)\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Valued Customer\Desktop\Stephen Benner\Programming\C++\Runescape Clone\Alpha\Release\Alpha.exe" /INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Valued Customer\Desktop\Stephen Benner\Programming\C++\Runescape Clone\Alpha\Release\Alpha.pdb" /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 /SAFESEH Release\Aura.obj
          Release\Bank.obj
@@ -142,6 +16,7 @@
          Release\CombatAssistant.obj
          Release\CombatInterface.obj
          Release\Cooking.obj
+         Release\Crafting.obj
          Release\DefinitionLoader.obj
          Release\Equipment.obj
          Release\Fishing.obj
@@ -178,4 +53,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:17.89
+Time Elapsed 00:00:01.64

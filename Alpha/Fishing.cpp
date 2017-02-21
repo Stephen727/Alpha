@@ -247,8 +247,7 @@ void Fishing::fish(int id)
 	{
 		std::cout << "You attempt to catch a fish..." << std::endl;
 
-		int fishTimer = (rand() % 10 + 10) - (player->skills->getEffect(fishing) / 9);
-		if (fishTimer > 0) wait(fishTimer);
+		int fishTimer = (rand() % 10 + 5) - (player->skills->getEffect(fishing) / 9);
 
 		switch (id)
 		{
@@ -260,9 +259,11 @@ void Fishing::fish(int id)
 			break;
 		case 2:
 			cageHarpoon();
+			fishTimer += 5;
 			break;
 		case 3:
 			bigNetHarpoon();
+			fishTimer += 10;
 			break;
 		case 4:
 			harpoonSmallNet();
@@ -270,5 +271,7 @@ void Fishing::fish(int id)
 		default:
 			break;
 		}
+
+		if (fishTimer > 0) wait(fishTimer);
 	}
 }

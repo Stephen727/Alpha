@@ -137,6 +137,9 @@ void Skills::addExperience(int exp, int skill)
 {
 	double ratio = (double)skills[skill].effectiveLevel / skills[skill].level;
 
+	//BONUS EXPERIENCE
+	exp *= 3;
+
 	skills[skill].experience += exp;
 
 	for (int i = 0; i < 100; i++)
