@@ -51,26 +51,29 @@ bool CombatAssistant::hasWeaponRequirement(Player* player, Npc* npc)
 		else if (player->getAttackStyle() == 1)
 		{
 			if (player->equipment->getItem(10) != nullptr)
-				if (player->equipment->getItem(10)->getId() == 0) //Broad Bolts
+			{
+				if (player->equipment->getItem(10)->getId() == 558) //Broad bolts
 					return true;
+				else if (player->equipment->getItem(10)->getId() == 557) //Broad arrows
+					return true;
+			}
 		}
 		else if (player->equipment->getItem(3) != nullptr)
 		{
-			if (player->equipment->getItem(3)->getId() == 0) //Leaf-Bladed Spear
+			if (player->equipment->getItem(3)->getId() == 756) //Leaf-Bladed Spear
 				return true;
 		}
 		return false;
 		break;
 	case 12: //Harpie Bug Swarm
 		if (player->equipment->getItem(5) != nullptr)
-			if (player->equipment->getItem(5)->getId() == 0) //Bug Lantern
+			if (player->equipment->getItem(5)->getId() == 744) //Bug Lantern
 				return true;
 		return false;
 		break;
 	case 15: //Molanisk
-		if (player->equipment->getItem(5) != nullptr)
-			if (player->equipment->getItem(5)->getId() == 0) //Slayer Bell
-				return true;
+		if (player->inventory->hasItem(752)) //Slayer Bell
+			return true;
 		return false;
 		break;
 	default:
@@ -85,55 +88,55 @@ bool CombatAssistant::hasEquipmentRequirement(Player* player, Npc* npc)
 	{
 	case 5: //Banshee
 		if (player->equipment->getItem(0) != nullptr)
-			if (player->equipment->getItem(0)->getId() == 0) //Earmuffs
+			if (player->equipment->getItem(0)->getId() == 737) //Earmuffs
 				return true;
 		return false;
 		break;
 	case 9: //Cockatrice
 		if (player->equipment->getItem(5) != nullptr)
-			if (player->equipment->getItem(5)->getId() == 0) //Mirror Shield
+			if (player->equipment->getItem(5)->getId() == 741) //Mirror Shield
 				return true;
 		return false;
 		break;
 	case 13: //Wall Beast
 		if (player->equipment->getItem(0) != nullptr)
-			if (player->equipment->getItem(0)->getId() == 0) //Spiny Helmet
+			if (player->equipment->getItem(0)->getId() == 733) //Spiny Helmet
 				return true;
 		return false;
 		break;
 	case 14: //Killerwatt
-		if (player->equipment->getItem(3) != nullptr)
-			if (player->equipment->getItem(3)->getId() == 0) //Insulated Boots
+		if (player->equipment->getItem(8) != nullptr)
+			if (player->equipment->getItem(8)->getId() == 750) //Insulated Boots
 				return true;
 		return false;
 		break;
 	case 16: //Basilisk
 		if (player->equipment->getItem(5) != nullptr)
-			if (player->equipment->getItem(5)->getId() == 0) //Mirror Shield
+			if (player->equipment->getItem(5)->getId() == 741) //Mirror Shield
 				return true;
 		return false;
 		break;
 	case 18: //Fever Spider
-		if (player->equipment->getItem(3) != nullptr)
-			if (player->equipment->getItem(3)->getId() == 0) //Slayer Gloves
+		if (player->equipment->getItem(7) != nullptr)
+			if (player->equipment->getItem(7)->getId() == 754) //Slayer Gloves
 				return true;
 		return false;
 		break;
 	case 25: //Cave Horror
-		if (player->equipment->getItem(1) != nullptr)
-			if (player->equipment->getItem(1)->getId() == 0) //Witchwood Icon
+		if (player->equipment->getItem(2) != nullptr)
+			if (player->equipment->getItem(2)->getId() == 748) //Witchwood Icon
 				return true;
 		return false;
 		break;
 	case 26: //Aberrant Spectre
 		if (player->equipment->getItem(0) != nullptr)
-			if (player->equipment->getItem(0)->getId() == 0) //Nosepeg
+			if (player->equipment->getItem(0)->getId() == 759) //Nosepeg
 				return true;
 		return false;
 		break;
 	case 28: //Dust Devil
 		if (player->equipment->getItem(0) != nullptr)
-			if (player->equipment->getItem(0)->getId() == 0) //Facemask
+			if (player->equipment->getItem(0)->getId() == 735) //Facemask
 				return true;
 		return false;
 		break;
@@ -148,13 +151,13 @@ bool CombatAssistant::hasEquipmentRequirement(Player* player, Npc* npc)
 	case 77: //Mithril Dragon
 	case 105: //Lava dragon
 		if (player->equipment->getItem(5) != nullptr)
-			if (player->equipment->getItem(5)->getId() == 0 || player->equipment->getItem(3)->getId() == 0) //Anti-Dragonfire Shield
+			if (player->equipment->getItem(5)->getId() == 763) //Anti-dragon Shield
 				return true;
 		return false;
 		break;
 	case 37: //Smoke Devil
 		if (player->equipment->getItem(0) != nullptr)
-			if (player->equipment->getItem(0)->getId() == 0) //Facemask
+			if (player->equipment->getItem(0)->getId() == 735) //Facemask
 				return true;
 		return false;
 		break;
@@ -176,34 +179,34 @@ bool CombatAssistant::canKill(Player* player, Npc* npc)
 	switch (npc->getId())
 	{
 	case 7: //Rockslug
-		if (player->inventory->hasItem(0)) //Bag of Salt
+		if (player->inventory->hasItem(739)) //Bag of Salt
 		{
-			player->inventory->removeItem(0, 1);
+			player->inventory->removeItem(739, 1);
 			return true;
 		}
 		else
 			return false;
 		break;
 	case 8: //Desert Lizard
-		if (player->inventory->hasItem(0)) //Ice Cooler
+		if (player->inventory->hasItem(740)) //Ice Cooler
 		{
-			player->inventory->removeItem(0, 1);
+			player->inventory->removeItem(740, 1);
 			return true;
 		}
 		else
 			return false;
 		break;
 	case 24: //Mutated Zygomite
-		if (player->inventory->hasItem(0)) //Fungicide Spray
+		if (player->inventory->hasItem(758)) //Fungicide Spray
 		{
-			player->inventory->removeItem(0, 1);
+			player->inventory->removeItem(758, 1);
 			return true;
 		}
 		else
 			return false;
 		break;
 	case 32: //Gargoyle
-		if (player->inventory->hasItem(0)) //Rock Hammer
+		if (player->inventory->hasItem(761)) //Rock Hammer
 			return true;
 		else
 			return false;
@@ -219,9 +222,9 @@ int CombatAssistant::playerDamageModifier(Player* player, Npc* npc, int playerHi
 	if (player->slayer->isTask(npc->getId()))
 	{
 		if (player->equipment->getItem(0) != nullptr)
-			if (player->equipment->getItem(0)->getId() == 0) //Black Mask
+			if (player->equipment->getItem(0)->getId() == 731) //Black Mask
 				playerHit *= 1.15;
-			else if (player->equipment->getItem(0)->getId() == 1) //Slayer Helmet
+			else if (player->equipment->getItem(0)->getId() == 733) //Slayer Helmet
 				playerHit *= 1.25;
 	}
 	return playerHit;

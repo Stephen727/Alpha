@@ -19,7 +19,9 @@ private:
 	Player *player;
 
 public:
-	void brew();
+	void brew(int);
+	void display();
+	bool decant(int, int);
 };
 
 #endif

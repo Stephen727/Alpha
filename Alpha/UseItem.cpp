@@ -3,6 +3,7 @@
 #include "Equipment.h"
 #include "Prayer.h"
 #include "Fletching.h"
+#include "Herblore.h"
 #include "Crafting.h"
 #include "Food.h"
 #include "Potion.h"
@@ -77,6 +78,8 @@ void UseItem::use(int slot)
 	}
 	else if (isEquipment(player->inventory->getSlot(slot)))
 		player->equipment->equip(slot);
+	else if (player->inventory->getSlot(slot)->getId() == 573)
+		player->herblore->display();
 	else
 		return;
 }
@@ -112,7 +115,10 @@ void UseItem::select(int slot)
 			return;
 
 		if (input == 's' || input == 'S')
-			player->inventory->swap(slot, newSlot);
+		{
+			if (!player->herblore->decant(slot, newSlot))
+				player->inventory->swap(slot, newSlot);
+		}
 		else if (input == 'f' || input == 'F')
 			player->fletching->fletch(slot, newSlot);
 		else if (input == 'c' || input == 'C')
