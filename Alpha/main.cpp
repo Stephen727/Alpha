@@ -1,10 +1,22 @@
 #include "Player.h"
 #include "Map.h"
 
+#include <fstream>
+#include <iostream>
+
 int main()
 {
 	Player *player = new Player;
-	player->load();
+
+	std::ifstream myfile("save.txt");
+	
+	if (myfile.is_open())
+	{
+		myfile.close();
+		player->load();
+	}
+	else
+		player->create();
 
 	Map *map = new Map(player);
 	map->display();

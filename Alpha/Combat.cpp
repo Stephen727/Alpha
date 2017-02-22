@@ -16,6 +16,7 @@
 #include "UseItem.h"
 #include "Slayer.h"
 #include "Loot.h"
+#include "Prayer.h"
 #include <conio.h>
 
 
@@ -324,13 +325,14 @@ void Combat::getLoot(Player* player, int id)
 
 	if (drop.size())
 	{
-		if (player->inventory->getFreeSlots())
+		for (auto i : drop)
 		{
-			for (auto i : drop)
+			if (player->prayer->boneCrusher(i))
+				;
+			else
 				player->inventory->add(new Item(i->getId(), i->getAmount()));
-
-			delete loot;
 		}
+		delete loot;
 	}
 }
 

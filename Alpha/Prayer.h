@@ -1,3 +1,5 @@
+#include "Item.h"
+
 #ifndef PRAYER_H
 #define PRAYER_H
 
@@ -16,11 +18,12 @@ private:
 	Player* player;
 
 	int getExp(int);
-
 public:
 	bool isBone(int);
 	void buryBone(int);
 	void offerBones();
+
+	bool boneCrusher(Item*);
 };
 
 #endif

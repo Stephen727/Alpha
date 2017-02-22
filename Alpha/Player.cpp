@@ -24,73 +24,15 @@
 
 Player::Player()
 {	
-	combatDelay = 0, foodDelay = 0, potionDelay = 0;
-	combatStance = 0;
-	autoCast = false;
-	inCombat = false;
-
-	skills = new Skills(this);
-	inventory = new Inventory(this);
-	equipment = new Equipment(this);
-	bank = new Bank(this);
-	prayerBook = new PrayerBook(this);
-	prayer = new Prayer(this);
-	magic = new Magic(this);
-	slayer = new Slayer(this);
-	fishing = new Fishing(this);
-	cooking = new Cooking(this);
-	mining = new Mining(this);
-	smithing = new Smithing(this);
-	woodcutting = new Woodcutting(this);
-	fletching = new Fletching(this);
-	herblore = new Herblore(this);
-	crafting = new Crafting(this);
-	runecrafting = new Runecrafting(this);
-	food = new Food(this);
-	potion = new Potion(this);
-	useItem = new UseItem(this);
+	username = "";
+	initialize();
 }
 
 Player::Player(std::string _username)
 {
 	username = _username;
-	combatDelay = 0, foodDelay = 0, potionDelay = 0;
-	combatStance = 0;
-	autoCast = false;
-	inCombat = false;
-
-	skills = new Skills(this);
-	inventory = new Inventory(this);
-	equipment = new Equipment(this);
-	bank = new Bank(this);
-	prayerBook = new PrayerBook(this);
-	prayer = new Prayer(this);
-	magic = new Magic(this);
-	slayer = new Slayer(this);
-	fishing = new Fishing(this);
-	cooking = new Cooking(this);
-	mining = new Mining(this);
-	smithing = new Smithing(this);
-	woodcutting = new Woodcutting(this);
-	fletching = new Fletching(this);
-	herblore = new Herblore(this);
-	crafting = new Crafting(this);
-	runecrafting = new Runecrafting(this);
-	food = new Food(this);
-	potion = new Potion(this);
-	useItem = new UseItem(this);
-
-	//Starting Items
-	inventory->add(new Item(516, 30)); //Coins
-	inventory->add(new Item(268, 1)); //Bronze dagger
-	inventory->add(new Item(282, 1)); //Bronze sq shield
-	inventory->add(new Item(44, 1)); //Shortbow
-	inventory->add(new Item(65, 25)); //Bronze arrows
-	inventory->add(new Item(539, 30)); //Air runes
-	inventory->add(new Item(540, 30)); //Mind runes
-	inventory->add(new Item(163, 1)); //Shrimp
-	inventory->add(new Item(163, 1)); //Shrimp
-	inventory->add(new Item(163, 1)); //Shrimp
+	initialize();
+	giveStarterPack();
 }
 
 Player::~Player()
@@ -117,21 +59,51 @@ Player::~Player()
 	delete useItem;
 }
 
-void Player::create()
+void Player::initialize()
 {
-	do
-	{
-		system("CLS");
-		std::cout << "Please enter a username: ";
+	combatDelay = 0, foodDelay = 0, potionDelay = 0;
+	combatStance = 0;
+	autoCast = false;
+	inCombat = false;
 
-		std::getline(std::cin, username);
+	skills = new Skills(this);
+	inventory = new Inventory(this);
+	equipment = new Equipment(this);
+	bank = new Bank(this);
+	prayerBook = new PrayerBook(this);
+	prayer = new Prayer(this);
+	magic = new Magic(this);
+	slayer = new Slayer(this);
+	fishing = new Fishing(this);
+	cooking = new Cooking(this);
+	mining = new Mining(this);
+	smithing = new Smithing(this);
+	woodcutting = new Woodcutting(this);
+	fletching = new Fletching(this);
+	herblore = new Herblore(this);
+	crafting = new Crafting(this);
+	runecrafting = new Runecrafting(this);
+	food = new Food(this);
+	potion = new Potion(this);
+	useItem = new UseItem(this);
+}
 
-		if (username.length() < 1 || username.length() > 15)
-		{
-			std::cout << "Username must be between 1 and 15 characters in length." << std::endl;
-			system("PAUSE");
-		}
-	} while (username.length() < 1 || username.length() > 15);
+void Player::giveStarterPack()
+{
+	//Starting Items
+	inventory->add(new Item(268, 1)); //Bronze dagger
+	inventory->add(new Item(282, 1)); //Bronze sq shield
+	inventory->add(new Item(44, 1)); //Shortbow
+	inventory->add(new Item(65, 25)); //Bronze arrows
+	inventory->add(new Item(539, 30)); //Air runes
+	inventory->add(new Item(540, 30)); //Mind runes
+	inventory->add(new Item(163, 1)); //Shrimp
+	inventory->add(new Item(12, 1)); //Bronze hatchet
+	inventory->add(new Item(195, 1)); //Small net
+	inventory->add(new Item(236, 1)); //Bronze pickaxe
+	inventory->add(new Item(519, 1)); //Air talisman
+
+	bank->deposit(new Item(516, 30)); //Coins
 }
 
 void Player::tickDelay()
@@ -199,6 +171,25 @@ void Player::setCombatStance(int stance)
 	default:
 		break;
 	}
+}
+
+void Player::create()
+{
+	do
+	{
+		system("CLS");
+		std::cout << "Please enter a username: ";
+
+		std::getline(std::cin, username);
+
+		if (username.length() < 1 || username.length() > 15)
+		{
+			std::cout << "Username must be between 3 and 15 characters in length." << std::endl;
+			system("PAUSE");
+		}
+	} while (username.length() < 3 || username.length() > 15);
+
+	giveStarterPack();
 }
 
 void Player::respawn()

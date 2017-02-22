@@ -21,7 +21,6 @@ private:
 	std::vector<Item*> item;
 	Player* player;
 
-	void deposit(Item*);
 	void deposit(int);
 	void deposit(int, int);
 
@@ -33,6 +32,7 @@ private:
 	void makeDeposit();
 	void makeWithdraw();
 public:
+	void deposit(Item*);
 	void access();
 
 	void save();

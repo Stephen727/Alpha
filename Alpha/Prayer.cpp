@@ -91,3 +91,27 @@ void Prayer::offerBones()
 		}
 	}
 }
+
+bool Prayer::boneCrusher(Item* item)
+{
+	switch (item->getId())
+	{
+	case 549: //Bones
+	case 551: //Big Bones
+	case 553: //Dragon Bones
+	case 555: //Lava Dragon Bones
+		break;
+	default:
+		return false;
+		break;
+	}
+
+	if (player->inventory->hasItem(765))
+	{
+		int exp = getExp(item->getId()) / 2;
+		player->skills->addExperience(exp, prayer);
+		return true;
+	}
+	else
+		return false;
+}
