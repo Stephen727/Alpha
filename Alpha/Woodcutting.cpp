@@ -71,7 +71,15 @@ void Woodcutting::chop(int id)
 	}
 
 	if (!axe)
+	{
+		std::cout << "You can't chop these trees!" << std::endl;
+
+		std::cin.clear();
+		std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+		std::cin.ignore();
+
 		return;
+	}
 
 	int chopTimer;
 	int treeModifier;

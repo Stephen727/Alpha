@@ -1,6 +1,7 @@
 #include "Slayer.h"
 #include "Player.h"
 #include "Skills.h"
+#include "Inventory.h"
 
 #include <iostream>
 #include <fstream>
@@ -19,6 +20,7 @@ Slayer::Slayer(Player* _player)
 	currentSlot = -1;
 	currentMaster = -1;
 	amount = 0;
+	slayerPoints = 0;
 }
 
 
@@ -31,6 +33,38 @@ Slayer::~Slayer()
 	delete player;
 }
 
+
+void Slayer::completeTask()
+{
+	switch (currentMaster)
+	{
+	case 0:
+		slayerPoints += 2;
+		break;
+	case 1:
+		slayerPoints += 4;
+		break;
+	case 2:
+		slayerPoints += 10;
+		break;
+	case 3:
+		slayerPoints += 12;
+		break;
+	case 4:
+		slayerPoints += 15;
+		break;
+	case 5:
+		slayerPoints += 20;
+		break;
+	default:
+		break;
+	}
+
+	currentTask = nullptr;
+	currentSlot = -1;
+	currentMaster = -1;
+	amount = 0;
+}
 
 bool Slayer::hasTask()
 {
@@ -119,13 +153,75 @@ void Slayer::checkKill(Npc* npc)
 		amount--;
 
 		if (!amount)
-		{
-			currentTask = nullptr;
-			currentSlot = -1;
-			currentMaster = -1;
-			amount = 0;
-		}
+			completeTask();
 	}
+}
+
+void Slayer::slayerShop()
+{
+	int input;
+
+	do
+	{
+		system("CLS");
+		std::cout << "\t---Slayer Shop---" << std::endl;
+		std::cout << " [1] Slayer Helmet  x1     400 points" << std::endl;
+		std::cout << " [2] Broad Bolts    x250   35 points" << std::endl;
+		std::cout << " [3] Broad Arrows   x250   35 points" << std::endl;
+		std::cout << " [4] Skip Task             30 points" << std::endl;
+		std::cout << std::endl << "You have " << slayerPoints << " slayer points." << std::endl;
+		std::cout << ">";
+
+		while (!(std::cin >> input) || (input < 0 || input > 4))
+		{
+			if (std::cin.fail())
+			{
+				std::cin.clear();
+				std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+			}
+		}
+
+		switch (input)
+		{
+		case 0:
+			return;
+			break;
+		case 1:
+			if (slayerPoints >= 400 && player->inventory->getFreeSlots())
+			{
+				slayerPoints -= 400;
+				player->inventory->add(new Item(733, 1));
+			}
+			break;
+		case 2:
+			if (slayerPoints >= 35 && player->inventory->canAdd(Item(558, 250)))
+			{
+				slayerPoints -= 35;
+				player->inventory->add(new Item(558, 250));
+			}
+			break;
+		case 3:
+			if (slayerPoints >= 35 && player->inventory->canAdd(Item(557, 250)))
+			{
+				slayerPoints -= 35;
+				player->inventory->add(new Item(557, 250));
+			}
+			break;
+		case 4:
+			if (slayerPoints >= 30)
+			{
+				slayerPoints -= 30;
+
+				currentTask = nullptr;
+				currentSlot = -1;
+				currentMaster = -1;
+				amount = 0;
+			}
+			break;
+		default:
+			break;
+		}
+	} while (input);
 }
 
 void Slayer::save()
@@ -134,7 +230,7 @@ void Slayer::save()
 
 	outFile << "Slayer" << std::endl;
 
-	outFile << currentSlot << " " << currentMaster << " " << amount << std::endl << std::endl;
+	outFile << currentSlot << " " << currentMaster << " " << amount << " " << slayerPoints << std::endl << std::endl;
 
 	outFile.close();
 }
@@ -150,7 +246,7 @@ void Slayer::load()
 		std::istringstream iss(line);
 
 		if (line == "Slayer")
-			infile >> currentSlot >> currentMaster >> amount;
+			infile >> currentSlot >> currentMaster >> amount >> slayerPoints;
 	}
 
 	infile.close();

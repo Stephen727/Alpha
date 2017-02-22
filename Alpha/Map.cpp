@@ -490,9 +490,10 @@ void Map::slayerDisplay()
 	std::cout << " [4] Chaeldar" << std::endl;
 	std::cout << " [5] Nieve" << std::endl;
 	std::cout << " [6] Duradel" << std::endl;
+	std::cout << " [7] Slayer Shop" << std::endl;
 	std::cout << std::endl  << ">";
 
-	while (!(std::cin >> input) || (input < 0 || input > 6))
+	while (!(std::cin >> input) || (input < 0 || input > 7))
 	{
 		if (std::cin.fail())
 		{
@@ -502,7 +503,12 @@ void Map::slayerDisplay()
 	}
 
 	if (input)
-		player->slayer->getNewSlayerTask(input - 1);
+	{
+		if (input == 7)
+			player->slayer->slayerShop();
+		else
+			player->slayer->getNewSlayerTask(input - 1);
+	}
 }
 
 void Map::bagDisplay()

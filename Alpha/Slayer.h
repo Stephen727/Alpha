@@ -18,8 +18,10 @@ public:
 private:
 	Player* player;
 	SlayerTask* currentTask;
-	int amount, currentMaster, currentSlot;
+	int amount, currentMaster, currentSlot,
+		slayerPoints;
 
+	void completeTask();
 public:
 	bool hasTask();
 	void getCurrentSlayerTask();
@@ -29,6 +31,8 @@ public:
 
 	bool isTask(int);
 	void checkKill(Npc*);
+
+	void slayerShop();
 
 	void save();
 	void load();
