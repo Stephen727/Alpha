@@ -32,7 +32,6 @@ Player::Player(std::string _username)
 {
 	username = _username;
 	initialize();
-	giveStarterPack();
 }
 
 Player::~Player()
@@ -175,6 +174,9 @@ void Player::setCombatStance(int stance)
 
 void Player::create()
 {
+	std::cin.clear();
+	std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+
 	do
 	{
 		system("CLS");
@@ -189,6 +191,7 @@ void Player::create()
 		}
 	} while (username.length() < 3 || username.length() > 15);
 
+	initialize();
 	giveStarterPack();
 }
 

@@ -61,7 +61,6 @@ private:
 	bool autoCast, inCombat;
 
 	void initialize();
-	void giveStarterPack();
 public:
 	void setName(std::string str) { username = str; }
 	void tickDelay();
@@ -81,6 +80,7 @@ public:
 	int getCombatStance() const { return combatStance; }
 	bool getAutoCast() const { return autoCast; }
 
+	void giveStarterPack();
 	void create();
 
 	void respawn();

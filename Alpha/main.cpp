@@ -1,28 +1,9 @@
-#include "Player.h"
-#include "Map.h"
-
-#include <fstream>
-#include <iostream>
+#include "Game.h"
 
 int main()
 {
-	Player *player = new Player;
+	Game game;
+	game.play();
 
-	std::ifstream myfile("save.txt");
-	
-	if (myfile.is_open())
-	{
-		myfile.close();
-		player->load();
-	}
-	else
-		player->create();
-
-	Map *map = new Map(player);
-	map->display();
-
-	delete map;
-	delete player;
-	
 	return 0;
 }

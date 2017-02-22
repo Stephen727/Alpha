@@ -82,6 +82,7 @@
     <ClCompile Include="Fletching.cpp" />
     <ClCompile Include="Food.cpp" />
     <ClCompile Include="FormulaData.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="Herblore.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Item.cpp" />
@@ -105,6 +106,7 @@
     <ClCompile Include="SlayerTask.cpp" />
     <ClCompile Include="Smithing.cpp" />
     <ClCompile Include="SpellBook.cpp" />
+    <ClCompile Include="Tutorial.cpp" />
     <ClCompile Include="UseItem.cpp" />
     <ClCompile Include="Woodcutting.cpp" />
   </ItemGroup>
@@ -127,6 +129,7 @@
     <ClInclude Include="Food.h" />
     <ClInclude Include="FoodDefinition.h" />
     <ClInclude Include="FormulaData.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="Herblore.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Item.h" />
@@ -156,6 +159,7 @@
     <ClInclude Include="SlayerTask.h" />
     <ClInclude Include="Smithing.h" />
     <ClInclude Include="SpellBook.h" />
+    <ClInclude Include="Tutorial.h" />
     <ClInclude Include="UseItem.h" />
     <ClInclude Include="WeaponDefinition.h" />
     <ClInclude Include="Woodcutting.h" />
