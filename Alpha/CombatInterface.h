@@ -12,14 +12,18 @@ public:
 	~CombatInterface();
 
 private:
+	std::string npcOutput,
+		playerOutput;
+
 	void barDisplay(int, int);
 	void npcDisplay(const Npc&);
 	void playerDisplay(const Player&);
 	void attackDisplay(const Player&);
-	
+	void textDisplay(const Player&, const Npc&, int, int);
+
 public:
-	void displayMenu(const Player&, const Npc&);
-	void displayScreen(const Player&, const Npc&);
+	void displayMenu(const Player&, const Npc&, int, int);
+	void displayScreen(const Player&, const Npc&, int, int);
 };
 
 #endif

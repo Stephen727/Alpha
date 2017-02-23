@@ -24,6 +24,8 @@ Combat::Combat()
 {
 	srand(time(NULL));
 	playerInput = -1;
+	playerHit = 0;
+	npcHit = 0;
 }
 
 Combat::~Combat()
@@ -211,8 +213,6 @@ bool Combat::checkPlayerInput(Player* player)
 
 int Combat::getPlayerDamage(Player* player, Npc* npc)
 {
-	int playerHit = 0;
-
 	switch (player->getAttackStyle())
 	{
 	case 0:
@@ -251,8 +251,6 @@ int Combat::getPlayerDamage(Player* player, Npc* npc)
 
 int Combat::getNpcDamage(Npc* npc, Player* player)
 {
-	int npcHit = 0;
-
 	switch (npc->getNpcDefinition().getAttackStyle())
 	{
 	case 0:
@@ -279,34 +277,32 @@ int Combat::getNpcDamage(Npc* npc, Player* player)
 void Combat::fight(Player* player, Npc* npc)
 {
 	CombatInterface *combatInterface = new CombatInterface;
-	combatInterface->displayScreen(*player, *npc);
+	combatInterface->displayScreen(*player, *npc, playerHit, npcHit);
 
 	while (player->skills->getEffect(hitpoints) && npc->getHitpoints())
 	{
-		//combatInterface->displayScreen(player, npc);
-
 		if (checkPlayerInput(player)) { return; }
 
 		//Player is attacking npc
 		if (!player->getCombatDelay())
 		{
-			int playerHit = getPlayerDamage(player, npc);
+			playerHit = getPlayerDamage(player, npc);
 
 			npc->subHitpoints(playerHit);
 			player->skills->addCombatExperience(playerHit);
 
 			system("CLS");
-			combatInterface->displayScreen(*player, *npc);
+			combatInterface->displayScreen(*player, *npc, playerHit, npcHit);
 		}
 
 		//Npc is attacking player
 		if (!npc->getDelay())
 		{
-			int npcHit = getNpcDamage(npc, player);
+			npcHit = getNpcDamage(npc, player);
 			player->skills->subHitpoints(npcHit);
 
 			system("CLS");
-			combatInterface->displayScreen(*player, *npc);
+			combatInterface->displayScreen(*player, *npc, playerHit, npcHit);
 		}
 
 		_sleep(600);
@@ -350,7 +346,7 @@ void Combat::battle(Player* player, int id)
 
 		while (player->skills->getEffect(hitpoints) && npc->getHitpoints())
 		{
-			combatInterface->displayMenu(*player, *npc);
+			combatInterface->displayMenu(*player, *npc, playerHit, npcHit);
 
 			while (!(std::cin >> input))
 			{

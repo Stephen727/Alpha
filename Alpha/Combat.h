@@ -12,7 +12,9 @@ public:
 	~Combat();
 
 private:
-	int playerInput;
+	int playerInput,
+		playerHit,
+		npcHit;
 
 	int meleeAttack(Player*, Npc*);
 	int rangedAttack(Player*, Npc*);

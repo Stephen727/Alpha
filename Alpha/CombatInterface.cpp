@@ -1,11 +1,14 @@
 #include "CombatInterface.h"
 #include <iostream>
+#include <string>
 #include <vector>
 #include "Skills.h"
 
 
 CombatInterface::CombatInterface()
 {
+	npcOutput = "";
+	playerOutput = "";
 }
 
 
@@ -37,17 +40,18 @@ void CombatInterface::npcDisplay(const Npc &npc)
 	std::cout << "\t(Level " << npc.getNpcDefinition().getLevel() << ") " << npc.getNpcDefinition().getName() << std::endl;
 	std::cout << "   HP: " << npc.getHitpoints() << " / " << npc.getNpcDefinition().getHitpoints() << "   " << std::endl;
 	barDisplay(npc.getHitpoints(), npc.getNpcDefinition().getHitpoints());
-	std::cout << "   " << std::endl;
+	std::cout << std::endl << std::endl << " > " << npcOutput;
+	std::cout << std::endl << std::endl;
 }
 
 void CombatInterface::playerDisplay(const Player &player)
 {
-	std::cout << std::endl << " > " << std::endl << std::endl;
 	std::cout << "\t(Level " << player.skills->getCombatLevel() << ") " << player.getName() << std::endl;
 	std::cout << "   HP: " << player.skills->getEffect(hitpoints) << " / " << player.skills->getLevel(hitpoints) << "\t\tPray: " << player.skills->getEffect(prayer) << " / " << player.skills->getLevel(prayer) << "   " << std::endl;
 	barDisplay(player.skills->getEffect(hitpoints), player.skills->getLevel(hitpoints));
 	std::cout << "   " << std::endl;
-	std::cout << std::endl << " > " << std::endl << std::endl;
+	std::cout << std::endl << " > " << playerOutput;
+	std::cout << std::endl << std::endl;
 }
 
 void CombatInterface::attackDisplay(const Player &player)
@@ -88,7 +92,37 @@ void CombatInterface::attackDisplay(const Player &player)
 	}
 }
 
-void CombatInterface::displayMenu(const Player &player, const Npc &npc)
+void CombatInterface::textDisplay(const Player &player, const Npc &npc, int playerHit, int npcHit)
+{
+	static bool firstCall = true;
+
+	if (!firstCall)
+	{
+		if (!player.getCombatDelay())
+			playerOutput = "";
+		else
+		{
+			if (playerHit)
+				playerOutput = "You hit the " + npc.getNpcDefinition().getName() + " for " + std::to_string(playerHit) + " damage!";
+			else
+				playerOutput = "You miss the " + npc.getNpcDefinition().getName() + " and does no damage!";
+		}
+
+		if (!npc.getDelay())
+			npcOutput = "";
+		else
+		{
+			if (npcHit)
+				npcOutput = npc.getNpcDefinition().getName() + " hits you for " + std::to_string(npcHit) + " damage!";
+			else
+				npcOutput = npc.getNpcDefinition().getName() + " misses you and does no damage!";
+		}
+	}
+
+	firstCall = false;
+}
+
+void CombatInterface::displayMenu(const Player &player, const Npc &npc, int playerHit, int npcHit)
 {
 	std::cout << "\t\t\t\t---Combat---" << std::endl;
 	std::cout << "+-----------------------------------------------------------------------------+" << std::endl << std::endl;
@@ -106,8 +140,10 @@ void CombatInterface::displayMenu(const Player &player, const Npc &npc)
 	std::cout << ">";
 }
 
-void CombatInterface::displayScreen(const Player &player, const Npc &npc)
+void CombatInterface::displayScreen(const Player &player, const Npc &npc, int playerHit, int npcHit)
 {
+	textDisplay(player, npc, playerHit, npcHit);
+
 	std::cout << "\t\t\t\t---Combat---" << std::endl;
 	std::cout << "+-----------------------------------------------------------------------------+" << std::endl << std::endl;
 	npcDisplay(npc);
