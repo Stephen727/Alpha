@@ -97,13 +97,33 @@ void Equipment::useAmmo()
 
 		if (item[3]->getRangedDefinition()->getType())
 		{
-			if (keep) player->inventory->add(new Item(item[3]->getId(), 1));
-			item[3]->remove();
+			if (keep)
+			{
+				if (item[9] != nullptr)
+				{
+					if (item[9]->getId() == 777 || item[9]->getId() == 779)
+						return;
+				}
+				player->inventory->add(new Item(item[3]->getId(), 1));
+				item[3]->remove();
+			}
+			else
+				item[3]->remove();
 		}
 		else
 		{
-			if (keep) player->inventory->add(new Item(item[10]->getId(), 1));
-			item[10]->remove();
+			if (keep)
+			{
+				if (item[9] != nullptr)
+				{
+					if (item[9]->getId() == 777 || item[9]->getId() == 779)
+						return;
+				}
+				player->inventory->add(new Item(item[10]->getId(), 1));
+				item[10]->remove();
+			}
+			else
+				item[10]->remove();
 		}
 	}
 }

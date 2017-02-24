@@ -503,7 +503,20 @@ void Tutorial::getInput()
 	case 'B': //Inventory
 		bagDisplay();
 		break;
-	case 'S': //Save
+	case 'S': //Stats
+		int input;
+		do
+		{
+			player->skills->displayStats();
+			while (!(std::cin >> input))
+			{
+				if (std::cin.fail())
+				{
+					std::cin.clear();
+					std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+				}
+			}
+		} while (input);
 		break;
 	case '0': //Exit
 		break;
@@ -1050,8 +1063,8 @@ void Tutorial::conclude()
 	std::cout << "|                                                                             |" << std::endl;
 	std::cout << "|    You have completed the tutorial!                                         |" << std::endl;
 	std::cout << "|                                                                             |" << std::endl;
-	std::cout << "|    If you have any further questions, each skill has a short guide          |" << std::endl;
-	std::cout << "|    when you go into the <[S] Stats> tab.                                    |" << std::endl;
+	std::cout << "|    If you have any further questions, each skill has a ton of               |" << std::endl;
+	std::cout << "|    information about them online. Google 'OSRS ...'                         |" << std::endl;
 	std::cout << "|                                                                             |" << std::endl;
 	std::cout << "|    Good luck!                                                               |" << std::endl;
 	std::cout << "|                                                                             |" << std::endl;

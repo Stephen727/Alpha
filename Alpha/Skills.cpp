@@ -223,7 +223,7 @@ void Skills::displayStats()
 		totalLevel += skills[i].level;
 		totalExperience += skills[i].experience;
 		std::cout << " [" << i + 1 << "] " << name[i] << ":     \t" << skills[i].effectiveLevel << "/" << skills[i].level;
-		std::cout << "\t (" << skills[i].experience << ")" << std::endl;
+		std::cout << "\t (" << skills[i].experience  << " / " << EXP_FOR_LEVEL[skills[i].level] << ")" << std::endl;
 	}
 
 	std::cout << std::endl << " Total Level: " << totalLevel << std::endl;

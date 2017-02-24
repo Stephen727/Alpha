@@ -603,10 +603,23 @@ bool Map::getInput()
 	case 'B': //Inventory
 		bagDisplay();
 		break;
-	case 'S': //Save
-		player->save();
+	case 'S': //Stats
+		int input;
+		do
+		{
+			player->skills->displayStats();
+			while (!(std::cin >> input))
+			{
+				if (std::cin.fail())
+				{
+					std::cin.clear();
+					std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+				}
+			}
+		} while (input);
 		break;
 	case '0': //Exit
+		player->save();
 		return false;
 		break;
 	default:
@@ -647,7 +660,7 @@ void Map::display()
 		std::cout << "| [3] Falador                                     | [E] Skill   | [F] Slayer  |" << std::endl;
 		std::cout << "| [4] Seers' Village                              |-------------|-------------|" << std::endl;
 		std::cout << "| [5] Ardougne                                    | [G] Gear    | [B] Bag     |" << std::endl;
-		std::cout << "| [6] Karamja                                     | [S] Save    | [0] Exit    |" << std::endl;
+		std::cout << "| [6] Karamja                                     | [S] Stats   | [0] Exit    |" << std::endl;
 		std::cout << "+-----------------------------------------------------------------------------+" << std::endl;
 		std::cout << ">";
 	} while (getInput());

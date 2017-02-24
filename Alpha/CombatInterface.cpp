@@ -40,7 +40,7 @@ void CombatInterface::npcDisplay(const Npc &npc)
 	std::cout << "\t(Level " << npc.getNpcDefinition().getLevel() << ") " << npc.getNpcDefinition().getName() << std::endl;
 	std::cout << "   HP: " << npc.getHitpoints() << " / " << npc.getNpcDefinition().getHitpoints() << "   " << std::endl;
 	barDisplay(npc.getHitpoints(), npc.getNpcDefinition().getHitpoints());
-	std::cout << std::endl << std::endl << " > " << npcOutput;
+	std::cout << std::endl << std::endl << " > " << playerOutput;
 	std::cout << std::endl << std::endl;
 }
 
@@ -50,7 +50,7 @@ void CombatInterface::playerDisplay(const Player &player)
 	std::cout << "   HP: " << player.skills->getEffect(hitpoints) << " / " << player.skills->getLevel(hitpoints) << "\t\tPray: " << player.skills->getEffect(prayer) << " / " << player.skills->getLevel(prayer) << "   " << std::endl;
 	barDisplay(player.skills->getEffect(hitpoints), player.skills->getLevel(hitpoints));
 	std::cout << "   " << std::endl;
-	std::cout << std::endl << " > " << playerOutput;
+	std::cout << std::endl << " > " << npcOutput;
 	std::cout << std::endl << std::endl;
 }
 
@@ -99,27 +99,30 @@ void CombatInterface::textDisplay(const Player &player, const Npc &npc, int play
 	if (!firstCall)
 	{
 		if (!player.getCombatDelay())
-			playerOutput = "";
-		else
 		{
 			if (playerHit)
 				playerOutput = "You hit the " + npc.getNpcDefinition().getName() + " for " + std::to_string(playerHit) + " damage!";
 			else
 				playerOutput = "You miss the " + npc.getNpcDefinition().getName() + " and does no damage!";
 		}
+		else
+			playerOutput = "";
 
 		if (!npc.getDelay())
-			npcOutput = "";
-		else
 		{
 			if (npcHit)
 				npcOutput = npc.getNpcDefinition().getName() + " hits you for " + std::to_string(npcHit) + " damage!";
 			else
 				npcOutput = npc.getNpcDefinition().getName() + " misses you and does no damage!";
 		}
+		else
+			npcOutput = "";
 	}
 
 	firstCall = false;
+
+	if (!npc.getHitpoints())
+		firstCall = true;
 }
 
 void CombatInterface::displayMenu(const Player &player, const Npc &npc, int playerHit, int npcHit)

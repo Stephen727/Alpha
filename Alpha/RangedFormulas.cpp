@@ -53,50 +53,84 @@ double RangedFormulas::getEffectiveRange(const Player &player)
 
 double RangedFormulas::getRangedStrength(const Player &player)
 {
-	if (player.equipment->getItem(10) == nullptr)
-		return 0;
 
-	switch (player.equipment->getItem(10)->getId())
+	if (player.equipment->getItem(3)->getRangedDefinition()->getType())
 	{
-	case 65: //Bronze arrow
-		return 7;
-		break;
-	case 123: //Bronze bolt
-	case 66: //Iron arrow
-		return 10;
-		break;
-	case 67: //Steel arrow
-		return 16;
-		break;
-	case 68: //Mithril arrow
-		return 22;
-		break;
-	case 557: //Broad arrow
-		return 28;
-		break;
-	case 69: //Adamant arrow
-		return 31;
-		break;
-	case 124: //Iron bolt
-	case 70: //Rune arrow
-		return 49;
-		break;
-	case 125: //Steel bolt
-		return 64;
-		break;
-	case 126: //Mithril bolt
-		return 82;
-		break;
-	case 127: //Adamant bolt
-	case 558: //Broad bolt
-		return 100;
-		break;
-	case 128: //Rune bolt
-		return 115;
-		break;
-	default:
-		return 0;
-		break;
+		switch (player.equipment->getItem(3)->getId())
+		{
+		case 835: //Bronze knife
+			return 3;
+			break;
+		case 836: //Iron knife
+			return 4;
+			break;
+		case 837: //Steel knife
+			return 7;
+			break;
+		case 838: //Black knife
+			return 8;
+			break;
+		case 839: //Mithril knife
+			return 10;
+			break;
+		case 840: //Adamant knife
+			return 14;
+			break;
+		case 841: //Rune knife
+			return 24;
+			break;
+		default:
+			return 0;
+			break;
+		}
+	}
+	else
+	{
+		if (player.equipment->getItem(10) == nullptr)
+			return 0;
+
+		switch (player.equipment->getItem(10)->getId())
+		{
+		case 65: //Bronze arrow
+			return 7;
+			break;
+		case 123: //Bronze bolt
+		case 66: //Iron arrow
+			return 10;
+			break;
+		case 67: //Steel arrow
+			return 16;
+			break;
+		case 68: //Mithril arrow
+			return 22;
+			break;
+		case 557: //Broad arrow
+			return 28;
+			break;
+		case 69: //Adamant arrow
+			return 31;
+			break;
+		case 124: //Iron bolt
+		case 70: //Rune arrow
+			return 49;
+			break;
+		case 125: //Steel bolt
+			return 64;
+			break;
+		case 126: //Mithril bolt
+			return 82;
+			break;
+		case 127: //Adamant bolt
+		case 558: //Broad bolt
+			return 100;
+			break;
+		case 128: //Rune bolt
+			return 115;
+			break;
+		default:
+			return 0;
+			break;
+		}
 	}
 }
 

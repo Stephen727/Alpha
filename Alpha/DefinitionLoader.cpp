@@ -164,8 +164,13 @@ void DefinitionLoader::loadRangedDefinition()
 
 		iss >> _id >> _type;
 
-		while (iss >> temp)
-			_ammo.push_back(temp);
+		if (_type == 0)
+		{
+			while (iss >> temp)
+				_ammo.push_back(temp);
+		}
+		else
+			_ammo.push_back(-1);
 
 		rangedDefinition.push_back(new RangedDefinition(_id, _type != 0, _ammo));
 		_ammo.clear();
