@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "Npc.h"
+#include "Ground.h"
 
 #ifndef COMBAT_H
 #define COMBAT_H
@@ -35,7 +36,7 @@ private:
 	int getNpcDamage(Npc*, Player*);
 
 	void fight(Player*, Npc*);
-	void getLoot(Player*, int);
+	void getLoot(Player*, int, Ground*);
 
 public:
 	void battle(Player*, int);

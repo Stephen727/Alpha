@@ -89,8 +89,6 @@ void Mining::mine(int id)
 		oreModifier = 1;
 		break;
 	case 3:
-		oreModifier = 5;
-		break;
 	case 4:
 		oreModifier = 5;
 		break;
@@ -99,9 +97,11 @@ void Mining::mine(int id)
 		oreModifier = 6;
 		break;
 	case 7:
-		oreModifier = 8;
-		break;
+		oreModifier = 7;
 	case 8:
+		oreModifier = 10;
+		break;
+	case 9:
 		oreModifier = 15;
 		break;
 	default:
@@ -161,21 +161,40 @@ void Mining::mine(int id)
 				player->skills->addExperience(65, mining);
 			}
 			break;
-		case 6: //mithril ore
+		case 6: //gem rock
+			if (player->skills->getEffect(mining) >= 40)
+			{
+				int gem = rand() % 10;
+
+				if (gem < 78)
+					player->inventory->add(new Item(842, 1));
+				else if (gem < 78 && gem < 90)
+					player->inventory->add(new Item(844, 1));
+				else if (gem > 90 && gem < 96)
+					player->inventory->add(new Item(846, 1));
+				else if (gem > 96 && gem < 99)
+					player->inventory->add(new Item(848, 1));
+				else if (gem == 99)
+					player->inventory->add(new Item(850, 1));
+
+				player->skills->addExperience(65, mining);
+			}
+			break;
+		case 7: //mithril ore
 			if (player->skills->getEffect(mining) >= 55)
 			{
 				player->inventory->add(new Item(230, 1));
 				player->skills->addExperience(80, mining);
 			}
 			break;
-		case 7: //adamantite ore
+		case 8: //adamantite ore
 			if (player->skills->getEffect(mining) >= 70)
 			{
 				player->inventory->add(new Item(232, 1));
 				player->skills->addExperience(95, mining);
 			}
 			break;
-		case 8: //runite ore
+		case 9: //runite ore
 			if (player->skills->getEffect(mining) >= 85)
 			{
 				player->inventory->add(new Item(234, 1));

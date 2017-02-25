@@ -132,13 +132,13 @@ void CombatInterface::displayMenu(const Player &player, const Npc &npc, int play
 	npcDisplay(npc);
 	playerDisplay(player);
 	std::cout << "+-----------------------------------------------------------------------------+" << std::endl;
-	std::cout << " [1] Attack" << std::endl;
-	std::cout << " [2] Stats" << std::endl;
-	std::cout << " [3] Inventory" << std::endl;
-	std::cout << " [4] Equipment" << std::endl;
-	std::cout << " [5] Prayer" << std::endl;
-	std::cout << " [6] Magic" << std::endl;
-	std::cout << " [0] Escape" << std::endl;
+	std::cout << " [Q] Attack" << std::endl;
+	std::cout << " [S] Stats" << std::endl;
+	std::cout << " [B] Inventory" << std::endl;
+	std::cout << " [G] Equipment" << std::endl;
+	std::cout << " [W] Prayer" << std::endl;
+	std::cout << " [E] Magic" << std::endl;
+	std::cout << " [R] Loot                 [0] Escape" << std::endl;
 	std::cout << "+-----------------------------------------------------------------------------+" << std::endl;
 	std::cout << ">";
 }

@@ -828,11 +828,21 @@ void Fletching::fletch(int slotOne, int slotTwo)
 		knifeOnLog(slotOne, slotTwo);
 		return;
 	}
+	else if (player->inventory->getSlot(slotTwo)->getId() == 129)
+	{
+		knifeOnLog(slotTwo, slotOne);
+		return;
+	}
 
 	//String shortbow
 	if (player->inventory->getSlot(slotOne)->getId() == 30)
 	{
 		stringShortbow(slotOne, slotTwo);
+		return;
+	}
+	else if (player->inventory->getSlot(slotTwo)->getId() == 30)
+	{
+		stringShortbow(slotTwo, slotOne);
 		return;
 	}
 
@@ -842,6 +852,11 @@ void Fletching::fletch(int slotOne, int slotTwo)
 		stringCrossbow(slotOne, slotTwo);
 		return;
 	}
+	else if (player->inventory->getSlot(slotTwo)->getId() == 30)
+	{
+		stringCrossbow(slotTwo, slotOne);
+		return;
+	}
 
 	//Fletch arrows / bolts
 	if (player->inventory->getSlot(slotOne)->getId() == 57 || player->inventory->getSlot(slotOne)->getId() == 58)
@@ -849,7 +864,13 @@ void Fletching::fletch(int slotOne, int slotTwo)
 		fletchArrow(slotOne, slotTwo);
 		return;
 	}
+	else if (player->inventory->getSlot(slotTwo)->getId() == 57 || player->inventory->getSlot(slotTwo)->getId() == 58)
+	{
+		fletchArrow(slotTwo, slotOne);
+		return;
+	}
 
 	//Make crossbow unstrung
 	makeCrossbow(slotOne, slotTwo);
+	makeCrossbow(slotTwo, slotOne);
 }

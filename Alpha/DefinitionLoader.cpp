@@ -37,6 +37,18 @@ DefinitionLoader::~DefinitionLoader()
 
 	for (auto it = npcDefinition.begin(); it != npcDefinition.end();)
 		it = npcDefinition.erase(it);
+
+	for (auto it = lootDefinition.begin(); it != lootDefinition.end();)
+		it = lootDefinition.erase(it);
+
+	for (auto it = shopDefinition.begin(); it != shopDefinition.end();)
+		it = shopDefinition.erase(it);
+
+	for (auto it = dungeonDefinition.begin(); it != dungeonDefinition.end();)
+		it = dungeonDefinition.erase(it);
+
+	for (auto it = cityDefinition.begin(); it != cityDefinition.end();)
+		it = cityDefinition.erase(it);
 }
 
 void DefinitionLoader::loadItemDefinition()
@@ -164,13 +176,8 @@ void DefinitionLoader::loadRangedDefinition()
 
 		iss >> _id >> _type;
 
-		if (_type == 0)
-		{
-			while (iss >> temp)
-				_ammo.push_back(temp);
-		}
-		else
-			_ammo.push_back(-1);
+		while (iss >> temp)
+			_ammo.push_back(temp);
 
 		rangedDefinition.push_back(new RangedDefinition(_id, _type != 0, _ammo));
 		_ammo.clear();

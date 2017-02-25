@@ -122,7 +122,10 @@ void UseItem::select(int slot)
 		else if (input == 'f' || input == 'F')
 			player->fletching->fletch(slot, newSlot);
 		else if (input == 'c' || input == 'C')
+		{
 			player->crafting->craft(slot, newSlot);
+			player->crafting->craft(newSlot, slot);
+		}
 		break;
 	default:
 		return;

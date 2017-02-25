@@ -9,16 +9,17 @@
 8 God_Wars_Dungeon 27 29 34 102
 9 Brine_Cavern 100 42 20
 10 Abandoned_Lair 14 17 24
-11 Farm 38 39
+11 Farm 38 39 109
 12 Stronghold 44 92 91 89 95 94
 13 Chromatic_Dungeon 70 71 72 73
 14 Metallic_Dungeon 74 75 76 77
 15 Graveyard 40 46 48 47 93
-16 Wilderness 41 43 78 80
-17 Manor 56 57
+16 Wilderness 41 43 78 80 111
+17 Manor 56 57 112
 18 Campsite 97 45 58 59
 19 Burnt_Forest 62 63 64
 20 Shadow_Lair 61 88 99
-21 Waterfall 101 103 104
+21 Waterfall 101 103 104 113 114 115
 22 Mountains 49 50 52 51
 23 Lava_River 87 90 105
+24 Stone_Circle 110 106 107 108

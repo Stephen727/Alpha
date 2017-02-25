@@ -79,6 +79,9 @@ double RangedFormulas::getRangedStrength(const Player &player)
 		case 841: //Rune knife
 			return 24;
 			break;
+		case 926: //Obsidian ring
+			return 49;
+			break;
 		default:
 			return 0;
 			break;

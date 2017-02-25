@@ -100,13 +100,13 @@ void Tutorial::mineDisplay()
 		std::cout << " [3] Tin Rock" << std::endl;
 		std::cout << " [4] Iron Rock" << std::endl;
 		std::cout << " [5] Coal Rock" << std::endl;
-		std::cout << " [6] Gold Rock" << std::endl;
-		std::cout << " [7] Mithril Rock" << std::endl;
-		std::cout << " [8] Adamant Rock" << std::endl;
-		std::cout << " [9] Rune Rock" << std::endl;
+		std::cout << " [7] Gem Rock" << std::endl;
+		std::cout << " [8] Mithril Rock" << std::endl;
+		std::cout << " [9] Adamant Rock" << std::endl;
+		std::cout << " [10] Rune Rock" << std::endl;
 		std::cout << std::endl << ">";
 
-		while (!(std::cin >> input) || (input < 0 || input > 9))
+		while (!(std::cin >> input) || (input < 0 || input > 10))
 		{
 			if (std::cin.fail())
 			{

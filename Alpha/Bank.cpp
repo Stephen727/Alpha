@@ -220,7 +220,7 @@ void Bank::makeWithdraw()
 		displayBank();
 		std::cout << std::endl << "Which bank slot would you like to access? ";
 
-		while (!(std::cin >> input))
+		while (!(std::cin >> input) || input > item.size())
 		{
 			system("CLS");
 			displayBank();

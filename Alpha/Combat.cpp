@@ -314,7 +314,7 @@ void Combat::fight(Player* player, Npc* npc)
 	delete combatInterface;
 }
 
-void Combat::getLoot(Player* player, int id)
+void Combat::getLoot(Player* player, int id, Ground* ground)
 {
 	Loot *loot = new Loot(id);
 	std::vector<Item*> drop = loot->getDrop();
@@ -325,8 +325,10 @@ void Combat::getLoot(Player* player, int id)
 		{
 			if (player->prayer->boneCrusher(i))
 				;
-			else
+			else if (player->inventory->canAdd(*i))
 				player->inventory->add(new Item(i->getId(), i->getAmount()));
+			else
+				ground->drop(i);
 		}
 		delete loot;
 	}
@@ -336,7 +338,9 @@ void Combat::battle(Player* player, int id)
 {
 	CombatInterface *combatInterface = new CombatInterface;
 
+	char select = ' ';
 	int input;
+	Ground *ground = new Ground(player);
 
 	player->setInCombat(true);
 
@@ -348,23 +352,17 @@ void Combat::battle(Player* player, int id)
 		{
 			combatInterface->displayMenu(*player, *npc, playerHit, npcHit);
 
-			while (!(std::cin >> input))
-			{
-				if (std::cin.fail())
-				{
-					std::cin.clear();
-					std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
-				}
-			}
+			select = _getch();
+			select = toupper(select);
 
-			switch (input)
+			switch (select)
 			{
-			case 1:
+			case 'Q':
 				fight(player, npc);
 				resetPlayerInput();
 				break;
-			case 2:
-				while (input)
+			case 'S':
+				do
 				{
 					player->skills->displayStats();
 					while (!(std::cin >> input))
@@ -375,10 +373,10 @@ void Combat::battle(Player* player, int id)
 							std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
 						}
 					}
-				}
+				} while (input);
 				break;
-			case 3:
-				while (input)
+			case 'B':
+				do
 				{
 					player->inventory->displayInv();
 					while (!(std::cin >> input))
@@ -391,10 +389,10 @@ void Combat::battle(Player* player, int id)
 					}
 					if (input)
 						player->useItem->select(input - 1);
-				}
+				} while (input);
 				break;
-			case 4:
-				while (input)
+			case 'G':
+				do
 				{
 					player->equipment->displayEquip();
 					while (!(std::cin >> input))
@@ -406,10 +404,10 @@ void Combat::battle(Player* player, int id)
 						}
 					}
 					player->equipment->unequip(input - 1);
-				}
+				} while (input);
 				break;
-			case 5:
-				while (input)
+			case 'W':
+				do
 				{
 					player->prayerBook->displayPrayerBook();
 					while (!(std::cin >> input))
@@ -421,10 +419,10 @@ void Combat::battle(Player* player, int id)
 						}
 					}
 					player->prayerBook->toggle(input - 1);
-				}
+				} while (input);
 				break;
-			case 6:
-				while (input)
+			case 'E':
+				do
 				{
 					player->magic->displaySpellBook();
 					while (!(std::cin >> input))
@@ -436,24 +434,42 @@ void Combat::battle(Player* player, int id)
 						}
 					}
 					player->magic->setCurrentSpell(input - 1);
-				}
+				} while (input);
 				break;
-			case 0:
+			case 'R':
+				do
+				{
+					ground->display();
+					while (!(std::cin >> input))
+					{
+						if (std::cin.fail())
+						{
+							std::cin.clear();
+							std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+						}
+					}
+					ground->pickup(input - 1);
+				} while (input);
+				break;
+			case '0':
 				player->resetDelay();
 				player->setInCombat(false);
 				delete npc;
 				delete combatInterface;
+				delete ground;
 				return;
 				break;
 			default:
 				break;
 			}
 		}
-		if(!npc->getHitpoints()) getLoot(player, id);
+		if(!npc->getHitpoints()) getLoot(player, id, ground);
 		player->resetDelay();
 		delete npc;
 	}
 	if (!player->skills->getEffect(hitpoints))
 		player->respawn();
+
 	delete combatInterface;
+	delete ground;
 }
