@@ -1,4 +1,6 @@
 # Alpha
+OUTDATED (Working on updating file, play game for mini tutorial)!
+
 My attempt to clone a text-based version of a game called RuneScape.
 
 Controls:
