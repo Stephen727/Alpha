@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "PrayerBook.h"
 
+#include <iostream>
 #include <fstream>
 #include <sstream>
 
@@ -138,6 +139,7 @@ void Skills::restore(int skill)
 void Skills::addExperience(int exp, int skill)
 {
 	double ratio = (double)skills[skill].effectiveLevel / skills[skill].level;
+	int oLevel = skills[skill].level;
 
 	//BONUS EXPERIENCE
 	exp *= 3;
@@ -153,14 +155,30 @@ void Skills::addExperience(int exp, int skill)
 			if (skills[skill].effectiveLevel < skills[skill].level)
 				skills[skill].effectiveLevel = (skills[skill].level * ratio);
 
-			return;
+			break;
 		}
 	}
 
-	skills[skill].level = 99;
+	if (skills[skill].level > 99) skills[skill].level = 99;
 
 	if (skills[skill].effectiveLevel < skills[skill].level)
 		skills[skill].effectiveLevel = (skills[skill].level * ratio);
+
+	if (skills[skill].level > oLevel)
+	{
+		std::string name[] = { "Hitpoints", "Attack", "Strength", "Defense", "Ranged", "Prayer", "Magic", "Woodcutting",
+			"Fletching", "Fishing", "Cooking", "Mining", "Smithing", "Herblore", "Crafting", "Runecrafting", "Slayer" };
+
+		system("CLS");
+		std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+		std::cout << "+-----------------------------------------------------------------------------+" << std::endl << std::endl;
+		std::cout << "           Congratulations, you just advanced a " << name[skill] << " level." << std::endl;
+		std::cout << "           Your " << name[skill] << " level is now " << skills[skill].level << "." << std::endl << std::endl;
+		std::cout << "+-----------------------------------------------------------------------------+" << std::endl;
+		
+		system("PAUSE>nul");
+		system("CLS");
+	}
 }
 
 void Skills::addCombatExperience(int dmg)

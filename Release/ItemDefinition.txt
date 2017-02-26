@@ -994,3 +994,9 @@ Book_of_balance 992 0 0 993 120 5000
 Book_of_balance 993 1 1 992 120 5000
 Dark_bow 994 0 0 995 72000 0
 Dark_bow 995 1 1 994 72000 0
+Monk's_robe_top 996 0 0 997 24 48
+Monk's_robe_top 997 1 1 996 24 48
+Monk's_robe_bottom 998 0 0 999 18 36
+Monk's_robe_bottom 999 1 1 998 18 36
+Holy_symbol 1000 0 0 1001 120 240
+Holy_symbol 1001 1 1 1000 120 240

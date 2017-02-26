@@ -86,6 +86,21 @@ bool CombatAssistant::hasEquipmentRequirement(Player* player, Npc* npc)
 {
 	switch (npc->getId())
 	{
+	case 5:
+	case 13:
+	case 26:
+	case 28:
+	case 37:
+		if (player->equipment->getItem(0) != nullptr)
+			if (player->equipment->getItem(0)->getId() == 733)
+				return true;
+		break;
+	default:
+		break;
+	}
+
+	switch (npc->getId())
+	{
 	case 5: //Banshee
 		if (player->equipment->getItem(0) != nullptr)
 			if (player->equipment->getItem(0)->getId() == 737) //Earmuffs
@@ -151,8 +166,12 @@ bool CombatAssistant::hasEquipmentRequirement(Player* player, Npc* npc)
 	case 77: //Mithril Dragon
 	case 105: //Lava dragon
 		if (player->equipment->getItem(5) != nullptr)
+		{
 			if (player->equipment->getItem(5)->getId() == 763) //Anti-dragon Shield
 				return true;
+			else if (player->equipment->getItem(5)->getId() == 799) //Dragonfire Shield
+				return true;
+		}
 		return false;
 		break;
 	case 37: //Smoke Devil
@@ -313,6 +332,17 @@ int CombatAssistant::npcDamageModifier(Npc* npc, Player* player, int npcHit)
 		default:
 			break;
 		}
+	}
+
+	switch (npc->getId())
+	{
+	case 113:
+	case 114:
+	case 115:
+		npcHit += rand() % 12;
+		break;
+	default:
+		break;
 	}
 
 	return npcHit;

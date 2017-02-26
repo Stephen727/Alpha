@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "Npc.h"
+#include "CombatInterface.h"
 #include "Ground.h"
 
 #ifndef COMBAT_H
@@ -16,6 +17,7 @@ private:
 	int playerInput,
 		playerHit,
 		npcHit;
+	CombatInterface *combatInterface;
 
 	int meleeAttack(Player*, Npc*);
 	int rangedAttack(Player*, Npc*);

@@ -64,6 +64,15 @@ void Slayer::completeTask()
 	currentSlot = -1;
 	currentMaster = -1;
 	amount = 0;
+
+	system("CLS");
+	std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+	std::cout << "+-----------------------------------------------------------------------------+" << std::endl << std::endl;
+	std::cout << "           You complete your slayer task." << std::endl;
+	std::cout << "           Talk to a slayer master to receive a new one." << std::endl << std::endl;
+	std::cout << "+-----------------------------------------------------------------------------+" << std::endl;
+	
+	system("PAUSE>nul");
 }
 
 bool Slayer::hasTask()

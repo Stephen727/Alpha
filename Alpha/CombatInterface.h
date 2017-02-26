@@ -14,6 +14,7 @@ public:
 private:
 	std::string npcOutput,
 		playerOutput;
+	bool firstCall;
 
 	void barDisplay(int, int);
 	void npcDisplay(const Npc&);

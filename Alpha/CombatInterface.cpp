@@ -9,6 +9,7 @@ CombatInterface::CombatInterface()
 {
 	npcOutput = "";
 	playerOutput = "";
+	firstCall = true;
 }
 
 
@@ -94,8 +95,6 @@ void CombatInterface::attackDisplay(const Player &player)
 
 void CombatInterface::textDisplay(const Player &player, const Npc &npc, int playerHit, int npcHit)
 {
-	static bool firstCall = true;
-
 	if (!firstCall)
 	{
 		if (!player.getCombatDelay())
@@ -127,7 +126,15 @@ void CombatInterface::textDisplay(const Player &player, const Npc &npc, int play
 
 void CombatInterface::displayMenu(const Player &player, const Npc &npc, int playerHit, int npcHit)
 {
-	std::cout << "\t\t\t\t---Combat---" << std::endl;
+	if (firstCall)
+	{
+		playerOutput = "";
+		npcOutput = "";
+	}
+
+	firstCall = true;
+
+	std::cout << "\b\t\t\t\t---Combat---" << std::endl;
 	std::cout << "+-----------------------------------------------------------------------------+" << std::endl << std::endl;
 	npcDisplay(npc);
 	playerDisplay(player);
@@ -147,7 +154,7 @@ void CombatInterface::displayScreen(const Player &player, const Npc &npc, int pl
 {
 	textDisplay(player, npc, playerHit, npcHit);
 
-	std::cout << "\t\t\t\t---Combat---" << std::endl;
+	std::cout << "\b\t\t\t\t---Combat---" << std::endl;
 	std::cout << "+-----------------------------------------------------------------------------+" << std::endl << std::endl;
 	npcDisplay(npc);
 	playerDisplay(player);

@@ -1,5 +1,4 @@
 #include "Combat.h"
-#include "CombatInterface.h"
 #include "CombatAssistant.h"
 #include <iostream>
 #include "FormulaData.h"
@@ -26,10 +25,12 @@ Combat::Combat()
 	playerInput = -1;
 	playerHit = 0;
 	npcHit = 0;
+	combatInterface = new CombatInterface;
 }
 
 Combat::~Combat()
 {
+	delete combatInterface;
 }
 
 
@@ -276,7 +277,6 @@ int Combat::getNpcDamage(Npc* npc, Player* player)
 
 void Combat::fight(Player* player, Npc* npc)
 {
-	CombatInterface *combatInterface = new CombatInterface;
 	combatInterface->displayScreen(*player, *npc, playerHit, npcHit);
 
 	while (player->skills->getEffect(hitpoints) && npc->getHitpoints())
@@ -310,8 +310,6 @@ void Combat::fight(Player* player, Npc* npc)
 		npc->tickDelay();
 		player->skills->update();
 	}
-
-	delete combatInterface;
 }
 
 void Combat::getLoot(Player* player, int id, Ground* ground)
@@ -336,8 +334,6 @@ void Combat::getLoot(Player* player, int id, Ground* ground)
 
 void Combat::battle(Player* player, int id)
 {
-	CombatInterface *combatInterface = new CombatInterface;
-
 	char select = ' ';
 	int input;
 	Ground *ground = new Ground(player);
@@ -455,7 +451,6 @@ void Combat::battle(Player* player, int id)
 				player->resetDelay();
 				player->setInCombat(false);
 				delete npc;
-				delete combatInterface;
 				delete ground;
 				return;
 				break;
@@ -469,7 +464,5 @@ void Combat::battle(Player* player, int id)
 	}
 	if (!player->skills->getEffect(hitpoints))
 		player->respawn();
-
-	delete combatInterface;
 	delete ground;
 }
