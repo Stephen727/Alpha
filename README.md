@@ -1,34 +1,34 @@
 # Alpha
-OUTDATED (Working on updating file, play game for mini tutorial)!
-
 My attempt to clone a text-based version of a game called RuneScape.
 
 Controls:
-Inventory: u = use, d = drop, s = swap
+Inventory: [u] = use, [d] = drop, [s] = swap, [f] = fletch, [c] = craft
   -example: 1u (use slot one; depends on item) or 1s3 (swap slot 1 and 3), or 5d (drop item in slot 5)
- 0 is back
+ [0] is back/exit
  
- Equipment: Shows current bonuses, select slot to unequip items
- 
- Melee: Attack with fists or a melee weapon
- Range: Equip bow and arrows, each shot consumes an arrow but player has chance to pick back up
- Prayer: Select  prayer to toggle, gives bonuses (lookup OSRS Prayer to get a better idea)
- Magic: Similar to prayer, toggle spell to autocast (requires runes)
-
-Current Features
-  Finished Skills: Hitpoints, Attack, Strength, Defense, Ranged, Prayer, Magic, Slayer
-  Planned Skills: Woodcutting, Fletching, Fishing, Cooking, Mining, Smithing, Herblore, Crafting, Runecrafting
-
-  Combat: Melee, Ranged, and Magic combat styles
-          -Weapons have attack speeds and can be two-handed
-          -Ranged: Use of arrows/bolts with bows/crossbows, thrown weapons
-          -Magic: Uses runes to cast spells, some spells require certain staves to be held
-          
-  Slayer: Player assigned tasks to kill certain number of monsters
-          -Slayer Monsters: Require slayer level and proper gear to be able to fight
-          
-  Prayer: Experience gained through burying bones
-           -Auras provide player with combat bonuses in fights, slowly drain over time
-           
-  Consumeables: Player can boost stats by drinking potions and heal by eating food
-            -Players get an attack delay added to them for consuming food/potions
+Combat:
+  Melee - One handed and two handed weapons. Weapons have different skill requirements, bonuses and attack speeds.
+  Ranged - Thrown and shot weapons. Throwing knives, shortbows, and crossbows. Different arrow/bolt requirements.
+  Magic - Requires runes to cast spells. Alchemy turns items into gold. Conversion converts bones into peaches. Smite requires the "God Staff" to cast. Magic Dart requires a slayer staff to cast.
+  Prayer - Bury bones for experience or offer them at the temple. Select auras to use for increased bonuses or protection.
+  
+Skilling:
+  Woodcutting - Chop down trees for logs that can be flecthed.
+  Fletching - Flecth logs into bows, pick flax and spin them into bow strings. Make arrows or bolts with feathers.
+  Fishing - Fish for raw food that can be cooked later.
+  Cooking - Cook foods that you have caught fishing, and then eat them in combat to heal some hitpoints.
+  Mining - Mine ores to be used for smithing.
+  Smithing - Smelt metal ores into metal bars. Smith weapons and armors from metal bars with a hammer at the anvil.
+  Herblore - Brew potions with vials, herbs and other ingredients to boost stats temporarily.
+  Crafting - Tan hides into leather and craft ranged armor. Make amulets out of gems and gold.
+  Runecrafting - Turn rune essence into runes that can be used to train magic.
+  Slayer - Get tasks to kill monsters for experience and points that can be spent at a special shop. Some monsters have slayer level requirements and drop unique items.
+  
+Menu:
+  Cities -  Each city has a unique set of dungeons.
+  Dungeons - Each dungeon has a unique set of npcs.
+  Shops - Shops can buy or sell items to the player.
+  Bank - Withdraw or deposit items here.
+  
+Upcoming:
+  Currently working on adding in mini-games and boss battles. Few other things planned but I am still working out the details on how they will be implemented.
