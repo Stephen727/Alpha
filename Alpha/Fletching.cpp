@@ -22,8 +22,9 @@ void Fletching::knifeOnLog(int slotOne, int slotTwo)
 	else if (player->inventory->getSlot(slotTwo) == NULL)
 		return;
 
-	int input,
-		logs[6] = { 0, 2, 4, 6, 8, 10 };
+	int input, amount,
+		logs[6] = { 0, 2, 4, 6, 8, 10 },
+		id = player->inventory->getSlot(slotTwo)->getId();
 
 	for (int i = 0; i < 6; i++)
 	{
@@ -44,176 +45,202 @@ void Fletching::knifeOnLog(int slotOne, int slotTwo)
 		}
 	}
 
+	system("CLS");
+	player->inventory->displayInv();
+	std::cout << "\b [1] Shafts   [2] Shortbow(u)   [3] Stock   >" << input << "   >";
+
+	while (!(std::cin >> amount) || amount < 1)
+	{
+		if (std::cin.fail())
+		{
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		}
+	}
+
 	//Fletch arrow shafts
 	if (input == 1)
 	{
-		switch (player->inventory->getSlot(slotTwo)->getId())
+		do
 		{
-		case 0:
-			if (player->skills->getEffect(fletching) >= 1)
+			switch (id)
 			{
-				player->inventory->remove(slotTwo);
-				player->inventory->add(new Item(56, 15));
-				player->skills->addExperience(5, fletching);
+			case 0:
+				if (player->skills->getEffect(fletching) >= 1)
+				{
+					player->inventory->removeItem(id);
+					player->inventory->add(new Item(56, 15));
+					player->skills->addExperience(5, fletching);
+				}
+				break;
+			case 2:
+				if (player->skills->getEffect(fletching) >= 15)
+				{
+					player->inventory->removeItem(id);
+					player->inventory->add(new Item(56, 30));
+					player->skills->addExperience(10, fletching);
+				}
+				break;
+			case 4:
+				if (player->skills->getEffect(fletching) >= 30)
+				{
+					player->inventory->removeItem(id);
+					player->inventory->add(new Item(56, 45));
+					player->skills->addExperience(15, fletching);
+				}
+				break;
+			case 6:
+				if (player->skills->getEffect(fletching) >= 45)
+				{
+					player->inventory->removeItem(id);
+					player->inventory->add(new Item(56, 60));
+					player->skills->addExperience(20, fletching);
+				}
+				break;
+			case 8:
+				if (player->skills->getEffect(fletching) >= 60)
+				{
+					player->inventory->removeItem(id);
+					player->inventory->add(new Item(56, 75));
+					player->skills->addExperience(25, fletching);
+				}
+				break;
+			case 10:
+				if (player->skills->getEffect(fletching) >= 75)
+				{
+					player->inventory->removeItem(id);
+					player->inventory->add(new Item(56, 90));
+					player->skills->addExperience(30, fletching);
+				}
+				break;
+			default:
 				return;
+				break;
 			}
-			break;
-		case 2:
-			if (player->skills->getEffect(fletching) >= 15)
-			{
-				player->inventory->remove(slotTwo);
-				player->inventory->add(new Item(56, 30));
-				player->skills->addExperience(10, fletching);
-				return;
-			}
-			break;
-		case 4:
-			if (player->skills->getEffect(fletching) >= 30)
-			{
-				player->inventory->remove(slotTwo);
-				player->inventory->add(new Item(56, 45));
-				player->skills->addExperience(15, fletching);
-				return;
-			}
-			break;
-		case 6:
-			if (player->skills->getEffect(fletching) >= 45)
-			{
-				player->inventory->remove(slotTwo);
-				player->inventory->add(new Item(56, 60));
-				player->skills->addExperience(20, fletching);
-				return;
-			}
-			break;
-		case 8:
-			if (player->skills->getEffect(fletching) >= 60)
-			{
-				player->inventory->remove(slotTwo);
-				player->inventory->add(new Item(56, 75));
-				player->skills->addExperience(25, fletching);
-				return;
-			}
-			break;
-		case 10:
-			if (player->skills->getEffect(fletching) >= 75)
-			{
-				player->inventory->remove(slotTwo);
-				player->inventory->add(new Item(56, 90));
-				player->skills->addExperience(30, fletching);
-				return;
-			}
-			break;
-		default:
-			break;
-		}
+			amount--;
+		} while (amount && player->inventory->hasItem(id));
+		return;
 	}
 
 	//Fletch unstrung shortbow
 	if (input == 2)
 	{
-		switch (player->inventory->getSlot(slotTwo)->getId())
+		do
 		{
-		case 0:
-			if (player->skills->getEffect(fletching) >= 5)
+			switch (id)
 			{
-				player->inventory->replace(new Item(32, 1), slotTwo);
-				player->skills->addExperience(5, fletching);
+			case 0:
+				if (player->skills->getEffect(fletching) >= 5)
+				{
+					player->inventory->removeItem(id);
+					player->inventory->add(new Item(32, 1));
+					player->skills->addExperience(5, fletching);
+				}
+				break;
+			case 2:
+				if (player->skills->getEffect(fletching) >= 20)
+				{
+					player->inventory->removeItem(id);
+					player->inventory->add(new Item(34, 1));
+					player->skills->addExperience(17, fletching);
+				}
+				break;
+			case 4:
+				if (player->skills->getEffect(fletching) >= 35)
+				{
+					player->inventory->removeItem(id);
+					player->inventory->add(new Item(36, 1));
+					player->skills->addExperience(34, fletching);
+				}
+				break;
+			case 6:
+				if (player->skills->getEffect(fletching) >= 50)
+				{
+					player->inventory->removeItem(id);
+					player->inventory->add(new Item(38, 1));
+					player->skills->addExperience(50, fletching);
+				}
+				break;
+			case 8:
+				if (player->skills->getEffect(fletching) >= 65)
+				{
+					player->inventory->removeItem(id);
+					player->inventory->add(new Item(40, 1));
+					player->skills->addExperience(68, fletching);
+					return;
+				}
+				break;
+			case 10:
+				if (player->skills->getEffect(fletching) >= 80)
+				{
+					player->inventory->removeItem(id);
+					player->inventory->add(new Item(42, 1));
+					player->skills->addExperience(84, fletching);
+				}
+				break;
+			default:
 				return;
+				break;
 			}
-			break;
-		case 2:
-			if (player->skills->getEffect(fletching) >= 20)
-			{
-				player->inventory->replace(new Item(34, 1), slotTwo);
-				player->skills->addExperience(17, fletching);
-				return;
-			}
-			break;
-		case 4:
-			if (player->skills->getEffect(fletching) >= 35)
-			{
-				player->inventory->replace(new Item(36, 1), slotTwo);
-				player->skills->addExperience(34, fletching);
-				return;
-			}
-			break;
-		case 6:
-			if (player->skills->getEffect(fletching) >= 50)
-			{
-				player->inventory->replace(new Item(38, 1), slotTwo);
-				player->skills->addExperience(50, fletching);
-				return;
-			}
-			break;
-		case 8:
-			if (player->skills->getEffect(fletching) >= 65)
-			{
-				player->inventory->replace(new Item(40, 1), slotTwo);
-				player->skills->addExperience(68, fletching);
-				return;
-			}
-			break;
-		case 10:
-			if (player->skills->getEffect(fletching) >= 80)
-			{
-				player->inventory->replace(new Item(42, 1), slotTwo);
-				player->skills->addExperience(84, fletching);
-				return;
-			}
-			break;
-		default:
-			break;
-		}
+			amount--;
+		} while (amount && player->inventory->hasItem(id));
+		return;
 	}
 
 	//Fletch crossbow stock
 	if (input == 3)
 	{
-		switch (player->inventory->getSlot(slotTwo)->getId())
+		do
 		{
-		case 0:
-			if (player->skills->getEffect(fletching) >= 9)
+			switch (id)
 			{
-				player->inventory->replace(new Item(71, 1), slotTwo);
-				player->skills->addExperience(6, fletching);
+			case 0:
+				if (player->skills->getEffect(fletching) >= 9)
+				{
+					player->inventory->removeItem(id);
+					player->inventory->add(new Item(71, 1));
+					player->skills->addExperience(6, fletching);
+				}
+				break;
+			case 2:
+				if (player->skills->getEffect(fletching) >= 24)
+				{
+					player->inventory->removeItem(id);
+					player->inventory->add(new Item(73, 1));
+					player->skills->addExperience(27, fletching);
+				}
+				break;
+			case 4:
+				if (player->skills->getEffect(fletching) >= 39)
+				{
+					player->inventory->removeItem(id);
+					player->inventory->add(new Item(75, 1));
+					player->skills->addExperience(32, fletching);
+				}
+				break;
+			case 6:
+				if (player->skills->getEffect(fletching) >= 54)
+				{
+					player->inventory->removeItem(id);
+					player->inventory->add(new Item(77, 1));
+					player->skills->addExperience(41, fletching);
+				}
+				break;
+			case 8:
+				if (player->skills->getEffect(fletching) >= 69)
+				{
+					player->inventory->removeItem(id);
+					player->inventory->add(new Item(79, 1));
+					player->skills->addExperience(50, fletching);
+				}
+				break;
+			default:
 				return;
+				break;
 			}
-			break;
-		case 2:
-			if (player->skills->getEffect(fletching) >= 24)
-			{
-				player->inventory->replace(new Item(73, 1), slotTwo);
-				player->skills->addExperience(27, fletching);
-				return;
-			}
-			break;
-		case 4:
-			if (player->skills->getEffect(fletching) >= 39)
-			{
-				player->inventory->replace(new Item(75, 1), slotTwo);
-				player->skills->addExperience(32, fletching);
-				return;
-			}
-			break;
-		case 6:
-			if (player->skills->getEffect(fletching) >= 54)
-			{
-				player->inventory->replace(new Item(77, 1), slotTwo);
-				player->skills->addExperience(41, fletching);
-				return;
-			}
-			break;
-		case 8:
-			if (player->skills->getEffect(fletching) >= 69)
-			{
-				player->inventory->replace(new Item(79, 1), slotTwo);
-				player->skills->addExperience(50, fletching);
-				return;
-			}
-			break;
-		default:
-			break;
-		}
+			amount--;
+		} while (amount && player->inventory->hasItem(id));
+		return;
 	}
 }
 
@@ -224,64 +251,82 @@ void Fletching::stringShortbow(int slotOne, int slotTwo)
 	else if (player->inventory->getSlot(slotTwo) == NULL)
 		return;
 
-	switch (player->inventory->getSlot(slotTwo)->getId())
+	int amount, id = player->inventory->getSlot(slotTwo)->getId();
+
+	std::cout << "Amount: ";
+
+	while (!(std::cin >> amount) || amount < 1)
 	{
-	case 32:
-		if (player->skills->getEffect(fletching) >= 5)
+		if (std::cin.fail())
 		{
-			player->inventory->remove(slotOne);
-			player->inventory->replace(new Item(44, 1), slotTwo);
-			player->skills->addExperience(5, fletching);
-			return;
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		}
-		break;
-	case 34:
-		if (player->skills->getEffect(fletching) >= 20)
-		{
-			player->inventory->remove(slotOne, 1);
-			player->inventory->replace(new Item(46, 1), slotTwo);
-			player->skills->addExperience(17, fletching);
-			return;
-		}
-		break;
-	case 36:
-		if (player->skills->getEffect(fletching) >= 35)
-		{
-			player->inventory->remove(slotOne, 1);
-			player->inventory->replace(new Item(48, 1), slotTwo);
-			player->skills->addExperience(34, fletching);
-			return;
-		}
-		break;
-	case 38:
-		if (player->skills->getEffect(fletching) >= 50)
-		{
-			player->inventory->remove(slotOne, 1);
-			player->inventory->replace(new Item(50, 1), slotTwo);
-			player->skills->addExperience(50, fletching);
-			return;
-		}
-		break;
-	case 40:
-		if (player->skills->getEffect(fletching) >= 65)
-		{
-			player->inventory->remove(slotOne, 1);
-			player->inventory->replace(new Item(52, 1), slotTwo);
-			player->skills->addExperience(68, fletching);
-			return;
-		}
-		break;
-	case 42:
-		if (player->skills->getEffect(fletching) >= 80)
-		{
-			player->inventory->remove(slotOne, 1);
-			player->inventory->replace(new Item(84, 1), slotTwo);
-			return;
-		}
-		break;
-	default:
-		break;
 	}
+
+	do
+	{
+		switch (id)
+		{
+		case 32:
+			if (player->skills->getEffect(fletching) >= 5)
+			{
+				player->inventory->removeItem(30);
+				player->inventory->removeItem(id);
+				player->inventory->add(new Item(44, 1));
+				player->skills->addExperience(5, fletching);
+			}
+			break;
+		case 34:
+			if (player->skills->getEffect(fletching) >= 20)
+			{
+				player->inventory->removeItem(30);
+				player->inventory->removeItem(id);
+				player->inventory->add(new Item(46, 1));
+				player->skills->addExperience(17, fletching);
+			}
+			break;
+		case 36:
+			if (player->skills->getEffect(fletching) >= 35)
+			{
+				player->inventory->removeItem(30);
+				player->inventory->removeItem(id);
+				player->inventory->add(new Item(48, 1));
+				player->skills->addExperience(34, fletching);
+			}
+			break;
+		case 38:
+			if (player->skills->getEffect(fletching) >= 50)
+			{
+				player->inventory->removeItem(30);
+				player->inventory->removeItem(id);
+				player->inventory->add(new Item(50, 1));
+				player->skills->addExperience(50, fletching);
+			}
+			break;
+		case 40:
+			if (player->skills->getEffect(fletching) >= 65)
+			{
+				player->inventory->removeItem(30);
+				player->inventory->removeItem(id);
+				player->inventory->add(new Item(52, 1));
+				player->skills->addExperience(68, fletching);
+			}
+			break;
+		case 42:
+			if (player->skills->getEffect(fletching) >= 80)
+			{
+				player->inventory->removeItem(30);
+				player->inventory->removeItem(id);
+				player->inventory->add(new Item(54, 1));
+			}
+			break;
+		default:
+			return;
+			break;
+		}
+		amount--;
+	} while (amount && (player->inventory->hasItem(30) && player->inventory->hasItem(id)));
 }
 
 void Fletching::stringCrossbow(int slotOne, int slotTwo)
@@ -291,71 +336,82 @@ void Fletching::stringCrossbow(int slotOne, int slotTwo)
 	else if (player->inventory->getSlot(slotTwo) == NULL)
 		return;
 
-	switch (player->inventory->getSlot(slotTwo)->getId())
+	int amount, id = player->inventory->getSlot(slotTwo)->getId();
+
+	std::cout << "Amount: ";
+
+	while (!(std::cin >> amount) || amount < 1)
 	{
-	case 93:
-		if (player->skills->getEffect(fletching) >= 9)
+		if (std::cin.fail())
 		{
-			player->inventory->remove(slotOne, 1);
-			player->inventory->remove(slotTwo, 1);
-			player->inventory->add(new Item(105, 1));
-			player->skills->addExperience(6, fletching);
-			return;
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		}
-		break;
-	case 95:
-		if (player->skills->getEffect(fletching) >= 39)
-		{
-			player->inventory->remove(slotOne, 1);
-			player->inventory->remove(slotTwo, 1);
-			player->inventory->add(new Item(107, 1));
-			player->skills->addExperience(22, fletching);
-			return;
-		}
-		break;
-	case 97:
-		if (player->skills->getEffect(fletching) >= 46)
-		{
-			player->inventory->remove(slotOne, 1);
-			player->inventory->remove(slotTwo, 1);
-			player->inventory->add(new Item(109, 1));
-			player->skills->addExperience(24, fletching);
-			return;
-		}
-		break;
-	case 99:
-		if (player->skills->getEffect(fletching) >= 54)
-		{
-			player->inventory->remove(slotOne, 1);
-			player->inventory->remove(slotTwo, 1);
-			player->inventory->add(new Item(111, 1));
-			player->skills->addExperience(32, fletching);
-			return;
-		}
-		break;
-	case 101:
-		if (player->skills->getEffect(fletching) >= 61)
-		{
-			player->inventory->remove(slotOne, 1);
-			player->inventory->remove(slotTwo, 1);
-			player->inventory->add(new Item(113, 1));
-			player->skills->addExperience(41, fletching);
-			return;
-		}
-		break;
-	case 103:
-		if (player->skills->getEffect(fletching) >= 69)
-		{
-			player->inventory->remove(slotOne, 1);
-			player->inventory->remove(slotTwo, 1);
-			player->inventory->add(new Item(115, 1));
-			player->skills->addExperience(50, fletching);
-			return;
-		}
-		break;
-	default:
-		break;
 	}
+
+	do
+	{
+		switch (id)
+		{
+		case 93:
+			if (player->skills->getEffect(fletching) >= 9)
+			{
+				player->inventory->removeItem(30);
+				player->inventory->removeItem(id);
+				player->inventory->add(new Item(105, 1));
+				player->skills->addExperience(6, fletching);
+			}
+			break;
+		case 95:
+			if (player->skills->getEffect(fletching) >= 39)
+			{
+				player->inventory->removeItem(30);
+				player->inventory->removeItem(id);
+				player->inventory->add(new Item(107, 1));
+				player->skills->addExperience(22, fletching);
+			}
+			break;
+		case 97:
+			if (player->skills->getEffect(fletching) >= 46)
+			{
+				player->inventory->removeItem(30);
+				player->inventory->removeItem(id);
+				player->inventory->add(new Item(109, 1));
+				player->skills->addExperience(24, fletching);
+			}
+			break;
+		case 99:
+			if (player->skills->getEffect(fletching) >= 54)
+			{
+				player->inventory->removeItem(30);
+				player->inventory->removeItem(id);
+				player->inventory->add(new Item(111, 1));
+				player->skills->addExperience(32, fletching);
+			}
+			break;
+		case 101:
+			if (player->skills->getEffect(fletching) >= 61)
+			{
+				player->inventory->removeItem(30);
+				player->inventory->removeItem(id);
+				player->inventory->add(new Item(113, 1));
+				player->skills->addExperience(41, fletching);
+			}
+			break;
+		case 103:
+			if (player->skills->getEffect(fletching) >= 69)
+			{
+				player->inventory->removeItem(30);
+				player->inventory->removeItem(id);
+				player->inventory->add(new Item(115, 1));
+				player->skills->addExperience(50, fletching);
+			}
+			break;
+		default:
+			return;
+			break;
+		}
+	} while (amount && (player->inventory->hasItem(30) && player->inventory->hasItem(id)));
 }
 
 void Fletching::fletchBolt(int slotOne, int slotTwo)
@@ -735,6 +791,7 @@ void Fletching::makeCrossbow(int slotOne, int slotTwo)
 		return;
 	else if (player->inventory->getSlot(slotTwo) == NULL)
 		return;
+
 
 	switch (player->inventory->getSlot(slotOne)->getId())
 	{

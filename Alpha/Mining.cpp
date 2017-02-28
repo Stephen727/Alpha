@@ -209,6 +209,8 @@ void Mining::mine(int id)
 					player->inventory->add(new Item(850, 1));
 					std::cout << "You mine a diamond." << std::endl;
 				}
+				else
+					std::cout << "You crush the gem." << std::endl;
 
 				player->skills->addExperience(65, mining);
 			}

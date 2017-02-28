@@ -626,15 +626,10 @@ bool Map::getInput()
 	case '0': //Exit
 		player->save();
 		std::cout << "Type '0' again to exit the game: ";
-		while (!(std::cin >> input))
-		{
-			if (std::cin.fail())
-			{
-					std::cin.clear();
-					std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
-			}
-		}
-		if (!input) return false;
+		select = ' ';
+		select = _getch();
+		select = toupper(select);
+		if (select == '0') return false;
 		break;
 	default:
 		getInput();

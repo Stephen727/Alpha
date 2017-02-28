@@ -265,7 +265,7 @@ void Crafting::craft(int slotOne, int slotTwo)
 		}
 		else if (player->inventory->getSlot(slotTwo)->getId() == 452)
 		{
-			int input;
+			int input, amount;
 
 			std::cout << "\b [1] Vambs [2] Chaps [3] Body   >";
 
@@ -278,50 +278,70 @@ void Crafting::craft(int slotOne, int slotTwo)
 				}
 			}
 
-			switch (input)
+			system("CLS");
+			player->inventory->displayInv();
+			std::cout << "\b [1] Vambs [2] Chaps [3] Body   >";
+
+			while (!(std::cin >> amount) || amount < 1)
 			{
-			case 1:
-				if (player->skills->getEffect(crafting) >= 28)
+				if (std::cin.fail())
 				{
-					player->inventory->removeItem(452);
-					player->inventory->add(new Item(466, 1));
-					player->skills->addExperience(28, crafting);
+					std::cin.clear();
+					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 				}
-				else
-					return;
-				break;
-			case 2:
-				if (player->skills->getEffect(crafting) >= 41)
-				{
-					player->inventory->removeItem(452);
-					player->inventory->add(new Item(470, 1));
-					player->skills->addExperience(40, crafting);
-				}
-				else
-					return;
-				break;
-			case 3:
-				if (player->skills->getEffect(crafting) >= 44)
-				{
-					player->inventory->removeItem(452);
-					player->inventory->add(new Item(472, 1));
-					player->skills->addExperience(42, crafting);
-				}
-				else
-					return;
-				break;
-			default:
-				break;
 			}
 
-			if (rand() % 2)
-				player->inventory->removeItem(515, 1);
+			do
+			{
+				switch (input)
+				{
+				case 1:
+					if (player->skills->getEffect(crafting) >= 28)
+					{
+						player->inventory->removeItem(452);
+						player->inventory->add(new Item(466, 1));
+						player->skills->addExperience(28, crafting);
+					}
+					else
+						return;
+					break;
+				case 2:
+					if (player->skills->getEffect(crafting) >= 41)
+					{
+						player->inventory->removeItem(452);
+						player->inventory->add(new Item(470, 1));
+						player->skills->addExperience(40, crafting);
+					}
+					else
+						return;
+					break;
+				case 3:
+					if (player->skills->getEffect(crafting) >= 44)
+					{
+						player->inventory->removeItem(452);
+						player->inventory->add(new Item(472, 1));
+						player->skills->addExperience(42, crafting);
+					}
+					else
+						return;
+					break;
+				default:
+					break;
+				}
 
+				if (rand() % 2)
+					player->inventory->removeItem(515, 1);
+
+				if (!player->inventory->hasItem(452))
+					return;
+
+				amount--;
+			} while (amount && player->inventory->hasItem(515));
 			return;
 		}
 		else if (player->inventory->getSlot(slotTwo)->getId() == 482)
 		{
-			int input;
+			int input, amount;
 
 			std::cout << "\b [1] Vambs [2] Chaps [3] Body   >";
 
@@ -334,56 +354,76 @@ void Crafting::craft(int slotOne, int slotTwo)
 				}
 			}
 
-			switch (input)
+			system("CLS");
+			player->inventory->displayInv();
+			std::cout << "\b [1] Vambs [2] Chaps [3] Body   >";
+
+			while (!(std::cin >> amount) || amount < 1)
 			{
-			case 1:
-				if (player->skills->getEffect(crafting) >= 57)
+				if (std::cin.fail())
 				{
-					player->inventory->removeItem(482);
-					player->inventory->add(new Item(490, 1));
-					player->skills->addExperience(62, crafting);
+					std::cin.clear();
+					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 				}
-				else
-					return;
-				break;
-			case 2:
-				if (player->skills->getEffect(crafting) >= 60)
-				{
-					if (player->inventory->hasAmount(482) >= 2)
-					{
-						player->inventory->removeItem(482, 2);
-						player->inventory->add(new Item(492, 1));
-						player->skills->addExperience(124, crafting);
-					}
-				}
-				else
-					return;
-				break;
-			case 3:
-				if (player->skills->getEffect(crafting) >= 63)
-				{
-					if (player->inventory->hasAmount(482) >= 3)
-					{
-						player->inventory->removeItem(482, 3);
-						player->inventory->add(new Item(494, 1));
-						player->skills->addExperience(186, crafting);
-					}
-				}
-				else
-					return;
-				break;
-			default:
-				return;
 			}
 
-			if (rand() % 2)
-				player->inventory->removeItem(515, 1);
+			do
+			{
+				switch (input)
+				{
+				case 1:
+					if (player->skills->getEffect(crafting) >= 57)
+					{
+						player->inventory->removeItem(482);
+						player->inventory->add(new Item(490, 1));
+						player->skills->addExperience(62, crafting);
+					}
+					else
+						return;
+					break;
+				case 2:
+					if (player->skills->getEffect(crafting) >= 60)
+					{
+						if (player->inventory->hasAmount(482) >= 2)
+						{
+							player->inventory->removeItem(482, 2);
+							player->inventory->add(new Item(492, 1));
+							player->skills->addExperience(124, crafting);
+						}
+					}
+					else
+						return;
+					break;
+				case 3:
+					if (player->skills->getEffect(crafting) >= 63)
+					{
+						if (player->inventory->hasAmount(482) >= 3)
+						{
+							player->inventory->removeItem(482, 3);
+							player->inventory->add(new Item(494, 1));
+							player->skills->addExperience(186, crafting);
+						}
+					}
+					else
+						return;
+					break;
+				default:
+					return;
+				}
 
+				if (rand() % 2)
+					player->inventory->removeItem(515, 1);
+
+				if (!player->inventory->hasItem(482))
+					return;
+
+				amount--;
+			} while (amount && player->inventory->hasItem(515));
 			return;
 		}
 		else if (player->inventory->getSlot(slotTwo)->getId() == 484)
 		{
-			int input;
+			int input, amount;
 
 			std::cout << "\b [1] Vambs [2] Chaps [3] Body   >";
 
@@ -396,56 +436,76 @@ void Crafting::craft(int slotOne, int slotTwo)
 				}
 			}
 
-			switch (input)
+			system("CLS");
+			player->inventory->displayInv();
+			std::cout << "\b [1] Vambs [2] Chaps [3] Body   >";
+
+			while (!(std::cin >> amount) || amount < 1)
 			{
-			case 1:
-				if (player->skills->getEffect(crafting) >= 66)
+				if (std::cin.fail())
 				{
-					player->inventory->removeItem(484);
-					player->inventory->add(new Item(496, 1));
-					player->skills->addExperience(70, crafting);
+					std::cin.clear();
+					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 				}
-				else
-					return;
-				break;
-			case 2:
-				if (player->skills->getEffect(crafting) >= 68)
-				{
-					if (player->inventory->hasAmount(484) >= 2)
-					{
-						player->inventory->removeItem(484, 2);
-						player->inventory->add(new Item(498, 1));
-						player->skills->addExperience(140, crafting);
-					}
-				}
-				else
-					return;
-				break;
-			case 3:
-				if (player->skills->getEffect(crafting) >= 71)
-				{
-					if (player->inventory->hasAmount(484) >= 3)
-					{
-						player->inventory->removeItem(484, 3);
-						player->inventory->add(new Item(500, 1));
-						player->skills->addExperience(210, crafting);
-					}
-				}
-				else
-					return;
-				break;
-			default:
-				return;
 			}
 
-			if (rand() % 2)
-				player->inventory->removeItem(515, 1);
+			do
+			{
+				switch (input)
+				{
+				case 1:
+					if (player->skills->getEffect(crafting) >= 66)
+					{
+						player->inventory->removeItem(484);
+						player->inventory->add(new Item(496, 1));
+						player->skills->addExperience(70, crafting);
+					}
+					else
+						return;
+					break;
+				case 2:
+					if (player->skills->getEffect(crafting) >= 68)
+					{
+						if (player->inventory->hasAmount(484) >= 2)
+						{
+							player->inventory->removeItem(484, 2);
+							player->inventory->add(new Item(498, 1));
+							player->skills->addExperience(140, crafting);
+						}
+					}
+					else
+						return;
+					break;
+				case 3:
+					if (player->skills->getEffect(crafting) >= 71)
+					{
+						if (player->inventory->hasAmount(484) >= 3)
+						{
+							player->inventory->removeItem(484, 3);
+							player->inventory->add(new Item(500, 1));
+							player->skills->addExperience(210, crafting);
+						}
+					}
+					else
+						return;
+					break;
+				default:
+					return;
+				}
 
+				if (rand() % 2)
+					player->inventory->removeItem(515, 1);
+
+				if (!player->inventory->hasItem(484))
+					return;
+
+				amount--;
+			} while (amount && player->inventory->hasItem(515));
 			return;
 		}
 		else if (player->inventory->getSlot(slotTwo)->getId() == 486)
 		{
-			int input;
+			int input, amount;
 
 			std::cout << "\b [1] Vambs [2] Chaps [3] Body   >";
 
@@ -458,56 +518,76 @@ void Crafting::craft(int slotOne, int slotTwo)
 				}
 			}
 
-			switch (input)
+			system("CLS");
+			player->inventory->displayInv();
+			std::cout << "\b [1] Vambs [2] Chaps [3] Body   >";
+
+			while (!(std::cin >> amount) || amount < 1)
 			{
-			case 1:
-				if (player->skills->getEffect(crafting) >= 73)
+				if (std::cin.fail())
 				{
-					player->inventory->removeItem(486);
-					player->inventory->add(new Item(502, 1));
-					player->skills->addExperience(78, crafting);
+					std::cin.clear();
+					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 				}
-				else
-					return;
-				break;
-			case 2:
-				if (player->skills->getEffect(crafting) >= 75)
-				{
-					if (player->inventory->hasAmount(486) >= 2)
-					{
-						player->inventory->removeItem(486, 2);
-						player->inventory->add(new Item(504, 1));
-						player->skills->addExperience(156, crafting);
-					}
-				}
-				else
-					return;
-				break;
-			case 3:
-				if (player->skills->getEffect(crafting) >= 77)
-				{
-					if (player->inventory->hasAmount(486) >= 3)
-					{
-						player->inventory->removeItem(486, 3);
-						player->inventory->add(new Item(506, 1));
-						player->skills->addExperience(234, crafting);
-					}
-				}
-				else
-					return;
-				break;
-			default:
-				return;
 			}
 
-			if (rand() % 2)
-				player->inventory->removeItem(515, 1);
+			do
+			{
+				switch (input)
+				{
+				case 1:
+					if (player->skills->getEffect(crafting) >= 73)
+					{
+						player->inventory->removeItem(486);
+						player->inventory->add(new Item(502, 1));
+						player->skills->addExperience(78, crafting);
+					}
+					else
+						return;
+					break;
+				case 2:
+					if (player->skills->getEffect(crafting) >= 75)
+					{
+						if (player->inventory->hasAmount(486) >= 2)
+						{
+							player->inventory->removeItem(486, 2);
+							player->inventory->add(new Item(504, 1));
+							player->skills->addExperience(156, crafting);
+						}
+					}
+					else
+						return;
+					break;
+				case 3:
+					if (player->skills->getEffect(crafting) >= 77)
+					{
+						if (player->inventory->hasAmount(486) >= 3)
+						{
+							player->inventory->removeItem(486, 3);
+							player->inventory->add(new Item(506, 1));
+							player->skills->addExperience(234, crafting);
+						}
+					}
+					else
+						return;
+					break;
+				default:
+					return;
+				}
 
+				if (rand() % 2)
+					player->inventory->removeItem(515, 1);
+
+				if (!player->inventory->hasItem(486))
+					return;
+
+				amount--;
+			} while (amount && player->inventory->hasItem(515));
 			return;
 		}
 		else if (player->inventory->getSlot(slotTwo)->getId() == 488)
 		{
-			int input;
+			int input, amount;
 
 			std::cout << "\b [1] Vambs [2] Chaps [3] Body   >";
 
@@ -520,55 +600,75 @@ void Crafting::craft(int slotOne, int slotTwo)
 				}
 			}
 
-			switch (input)
+			system("CLS");
+			player->inventory->displayInv();
+			std::cout << "\b [1] Vambs [2] Chaps [3] Body   >";
+
+			while (!(std::cin >> amount) || amount < 1)
 			{
-			case 1:
-				if (player->skills->getEffect(crafting) >= 73)
+				if (std::cin.fail())
 				{
-					player->inventory->removeItem(488);
-					player->inventory->add(new Item(508, 1));
-					player->skills->addExperience(86, crafting);
+					std::cin.clear();
+					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 				}
-				else
-					return;
-				break;
-			case 2:
-				if (player->skills->getEffect(crafting) >= 75)
-				{
-					if (player->inventory->hasAmount(488) >= 2)
-					{
-						player->inventory->removeItem(488, 2);
-						player->inventory->add(new Item(510, 1));
-						player->skills->addExperience(156, crafting);
-					}
-				}
-				else
-					return;
-				break;
-			case 3:
-				if (player->skills->getEffect(crafting) >= 77)
-				{
-					if (player->inventory->hasAmount(488) >= 3)
-					{
-						player->inventory->removeItem(488, 3);
-						player->inventory->add(new Item(512, 1));
-						player->skills->addExperience(258, crafting);
-					}
-				}
-				else
-					return;
-				break;
-			default:
-				return;
 			}
+
+			do
+			{
+				switch (input)
+				{
+				case 1:
+					if (player->skills->getEffect(crafting) >= 73)
+					{
+						player->inventory->removeItem(488);
+						player->inventory->add(new Item(508, 1));
+						player->skills->addExperience(86, crafting);
+					}
+					else
+						return;
+					break;
+				case 2:
+					if (player->skills->getEffect(crafting) >= 75)
+					{
+						if (player->inventory->hasAmount(488) >= 2)
+						{
+							player->inventory->removeItem(488, 2);
+							player->inventory->add(new Item(510, 1));
+							player->skills->addExperience(156, crafting);
+						}
+					}
+					else
+						return;
+					break;
+				case 3:
+					if (player->skills->getEffect(crafting) >= 77)
+					{
+						if (player->inventory->hasAmount(488) >= 3)
+						{
+							player->inventory->removeItem(488, 3);
+							player->inventory->add(new Item(512, 1));
+							player->skills->addExperience(258, crafting);
+						}
+					}
+					else
+						return;
+					break;
+				default:
+					return;
+				}
+
+				if (rand() % 2)
+					player->inventory->removeItem(515, 1);
+
+				if (!player->inventory->hasItem(486))
+					return;
+
+				amount--;
+			} while (amount && player->inventory->hasItem(515));
+			return;
 		}
 		else
 			return;
-
-		if (rand() % 2)
-			player->inventory->removeItem(515, 1);
-
-		return;
 	}
 	else if (player->inventory->getSlot(slotOne)->getId() == 258)
 	{
