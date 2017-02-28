@@ -374,39 +374,43 @@ void Map::anvilDisplay()
 		{
 			tier = input - 1;
 
-			system("CLS");
-			std::cout << " ---Anvil---" << std::endl;
-			std::cout << " [1] Dagger" << std::endl;
-			std::cout << " [2] Hatchet" << std::endl;
-			std::cout << " [3] Mace" << std::endl;
-			std::cout << " [4] Med Helm" << std::endl;
-			std::cout << " [5] Bolts" << std::endl;
-			std::cout << " [6] Sword" << std::endl;
-			std::cout << " [7] Arrowtips" << std::endl;
-			std::cout << " [8] Scimitar" << std::endl;
-			std::cout << " [9] C'bow Limb" << std::endl;
-			std::cout << " [10] Longsword" << std::endl;
-			std::cout << " [11] Full Helm" << std::endl;
-			std::cout << " [12] Sq Shield" << std::endl;
-			std::cout << " [13] Warhammer" << std::endl;
-			std::cout << " [14] Battleaxe" << std::endl;
-			std::cout << " [15] Chainbody" << std::endl;
-			std::cout << " [16] 2h Sword" << std::endl;
-			std::cout << " [17] Platelegs" << std::endl;
-			std::cout << " [18] Platebody" << std::endl;
-			std::cout << std::endl << ">";
-
-			while (!(std::cin >> input) || (input < 0 || input > 18))
+			do
 			{
-				if (std::cin.fail())
-				{
-					std::cin.clear();
-					std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
-				}
-			}
+				system("CLS");
+				std::cout << " ---Anvil---" << std::endl;
+				std::cout << " [1] Dagger" << std::endl;
+				std::cout << " [2] Hatchet" << std::endl;
+				std::cout << " [3] Mace" << std::endl;
+				std::cout << " [4] Med Helm" << std::endl;
+				std::cout << " [5] Bolts" << std::endl;
+				std::cout << " [6] Sword" << std::endl;
+				std::cout << " [7] Arrowtips" << std::endl;
+				std::cout << " [8] Scimitar" << std::endl;
+				std::cout << " [9] C'bow Limb" << std::endl;
+				std::cout << " [10] Longsword" << std::endl;
+				std::cout << " [11] Full Helm" << std::endl;
+				std::cout << " [12] Sq Shield" << std::endl;
+				std::cout << " [13] Warhammer" << std::endl;
+				std::cout << " [14] Battleaxe" << std::endl;
+				std::cout << " [15] Chainbody" << std::endl;
+				std::cout << " [16] Kiteshield" << std::endl;
+				std::cout << " [17] 2h Sword" << std::endl;
+				std::cout << " [18] Platelegs" << std::endl;
+				std::cout << " [19] Platebody" << std::endl;
+				std::cout << std::endl << ">";
 
-			if (input)
-				player->smithing->smith(input - 1, tier);
+				while (!(std::cin >> input) || (input < 0 || input > 19))
+				{
+					if (std::cin.fail())
+					{
+						std::cin.clear();
+						std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+					}
+				}
+
+				if (input)
+					player->smithing->smith(input - 1, tier);
+			} while (input);
 		}
 	} while (input);
 }
@@ -621,7 +625,16 @@ bool Map::getInput()
 		break;
 	case '0': //Exit
 		player->save();
-		return false;
+		std::cout << "Type '0' again to exit the game: ";
+		while (!(std::cin >> input))
+		{
+			if (std::cin.fail())
+			{
+					std::cin.clear();
+					std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+			}
+		}
+		if (!input) return false;
 		break;
 	default:
 		getInput();
@@ -664,5 +677,6 @@ void Map::display()
 		std::cout << "| [6] Karamja                                     | [S] Stats   | [0] Exit    |" << std::endl;
 		std::cout << "+-----------------------------------------------------------------------------+" << std::endl;
 		std::cout << ">";
+		player->save();
 	} while (getInput());
 }

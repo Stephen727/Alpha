@@ -150,7 +150,7 @@ void Crafting::craft(int slotOne, int slotTwo)
 	{
 		if (player->inventory->getSlot(slotTwo)->getId() == 450)
 		{
-			int input;
+			int input, amount;
 
 			std::cout << "\b [1] Gloves [2] Boots [3] Cowl [4] Vambs [5] Body [6] Chaps [7] Coif   >";
 
@@ -163,84 +163,104 @@ void Crafting::craft(int slotOne, int slotTwo)
 				}
 			}
 
-			switch (input)
+			system("CLS");
+			player->inventory->displayInv();
+			std::cout << "\b [1] Gloves [2] Boots [3] Cowl [4] Vambs [5] Body [6] Chaps [7] Coif   >" << input << "   >";
+
+			while (!(std::cin >> amount) || amount < 1)
 			{
-			case 1: //Leather gloves
-				if (player->skills->getEffect(crafting) >= 1)
+				if (std::cin.fail())
 				{
-					player->inventory->removeItem(450);
-					player->inventory->add(new Item(454, 1));
-					player->skills->addExperience(14, crafting);
+					std::cin.clear();
+					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 				}
-				else
-					return;
-				break;
-			case 2: //Leather boots
-				if (player->skills->getEffect(crafting) >= 7)
-				{
-					player->inventory->removeItem(450);
-					player->inventory->add(new Item(456, 1));
-					player->skills->addExperience(17, crafting);
-				}
-				else
-					return;
-				break;
-			case 3: //Leather cowl
-				if (player->skills->getEffect(crafting) >= 9)
-				{
-					player->inventory->removeItem(450);
-					player->inventory->add(new Item(458, 1));
-					player->skills->addExperience(19, crafting);
-				}
-				else
-					return;
-				break;
-			case 4: //Leather vambraces
-				if (player->skills->getEffect(crafting) >= 11)
-				{
-					player->inventory->removeItem(450);
-					player->inventory->add(new Item(460, 1));
-					player->skills->addExperience(22, crafting);
-				}
-				else
-					return;
-				break;
-			case 5: //Leather body
-				if (player->skills->getEffect(crafting) >= 14)
-				{
-					player->inventory->removeItem(450);
-					player->inventory->add(new Item(462, 1));
-					player->skills->addExperience(25, crafting);
-				}
-				else
-					return;
-				break;
-			case 6: //Leather chaps
-				if (player->skills->getEffect(crafting) >= 18)
-				{
-					player->inventory->removeItem(450);
-					player->inventory->add(new Item(464, 1));
-					player->skills->addExperience(27, crafting);
-				}
-				else
-					return;
-				break;
-			case 7: //Coif
-				if (player->skills->getEffect(crafting) >= 38)
-				{
-					player->inventory->removeItem(450);
-					player->inventory->add(new Item(468, 1));
-					player->skills->addExperience(37, crafting);
-				}
-				else
-					return;
-			default:
-				return;
 			}
 
-			if (rand() % 2)
-				player->inventory->removeItem(515, 1);
+			do
+			{
+				switch (input)
+				{
+				case 1: //Leather gloves
+					if (player->skills->getEffect(crafting) >= 1)
+					{
+						player->inventory->removeItem(450);
+						player->inventory->add(new Item(454, 1));
+						player->skills->addExperience(14, crafting);
+					}
+					else
+						return;
+					break;
+				case 2: //Leather boots
+					if (player->skills->getEffect(crafting) >= 7)
+					{
+						player->inventory->removeItem(450);
+						player->inventory->add(new Item(456, 1));
+						player->skills->addExperience(17, crafting);
+					}
+					else
+						return;
+					break;
+				case 3: //Leather cowl
+					if (player->skills->getEffect(crafting) >= 9)
+					{
+						player->inventory->removeItem(450);
+						player->inventory->add(new Item(458, 1));
+						player->skills->addExperience(19, crafting);
+					}
+					else
+						return;
+					break;
+				case 4: //Leather vambraces
+					if (player->skills->getEffect(crafting) >= 11)
+					{
+						player->inventory->removeItem(450);
+						player->inventory->add(new Item(460, 1));
+						player->skills->addExperience(22, crafting);
+					}
+					else
+						return;
+					break;
+				case 5: //Leather body
+					if (player->skills->getEffect(crafting) >= 14)
+					{
+						player->inventory->removeItem(450);
+						player->inventory->add(new Item(462, 1));
+						player->skills->addExperience(25, crafting);
+					}
+					else
+						return;
+					break;
+				case 6: //Leather chaps
+					if (player->skills->getEffect(crafting) >= 18)
+					{
+						player->inventory->removeItem(450);
+						player->inventory->add(new Item(464, 1));
+						player->skills->addExperience(27, crafting);
+					}
+					else
+						return;
+					break;
+				case 7: //Coif
+					if (player->skills->getEffect(crafting) >= 38)
+					{
+						player->inventory->removeItem(450);
+						player->inventory->add(new Item(468, 1));
+						player->skills->addExperience(37, crafting);
+					}
+					else
+						return;
+				default:
+					return;
+				}
 
+				if (rand() % 2)
+					player->inventory->removeItem(515, 1);
+
+				if (!player->inventory->hasItem(450))
+					return;
+
+				amount--;
+			} while (amount && player->inventory->hasItem(515));
 			return;
 		}
 		else if (player->inventory->getSlot(slotTwo)->getId() == 452)

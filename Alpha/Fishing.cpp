@@ -307,6 +307,7 @@ void Fishing::fish(int id)
 			std::cout << "You attempt to catch a fish..." << std::endl;
 			if (fishTimer > 0) wait(fishTimer);
 			else wait(1);
+			std::cout << "You catch a fish." << std::endl;
 		}
 		else
 		{

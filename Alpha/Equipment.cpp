@@ -106,9 +106,13 @@ void Equipment::useAmmo()
 				}
 				player->inventory->add(new Item(item[3]->getId(), 1));
 				item[3]->remove();
+				if (!item[3]->getAmount()) item[3] = nullptr;
 			}
 			else
+			{
 				item[3]->remove();
+				if (!item[3]->getAmount()) item[3] = nullptr;
+			}
 		}
 		else
 		{
@@ -121,9 +125,13 @@ void Equipment::useAmmo()
 				}
 				player->inventory->add(new Item(item[10]->getId(), 1));
 				item[10]->remove();
+				if (!item[10]->getAmount()) item[10] = nullptr;
 			}
 			else
+			{
 				item[10]->remove();
+				if (!item[10]->getAmount()) item[10] = nullptr;
+			}
 		}
 	}
 }
@@ -172,6 +180,22 @@ void Equipment::equip(int slot)
 				return;
 			}
 		}
+
+		if (_item.getEquipmentDefinition()->getSlot() == 3)
+		{
+			if (_item.getRangedDefinition() != nullptr)
+			{
+				if (_item.getRangedDefinition()->getType())
+				{
+					if (item[3]->getId() == temp->getId())
+					{
+						item[3]->add(temp->getAmount());
+						return;
+					}
+				}
+			}
+		}
+		
 		player->inventory->add(item[_item.getEquipmentDefinition()->getSlot()]);
 	}
 

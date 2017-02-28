@@ -124,42 +124,60 @@ void Woodcutting::chop(int id)
 			{
 				player->inventory->add(new Item(0, 1));
 				player->skills->addExperience(25, woodcutting);
+				std::cout << "You chop a log." << std::endl;
 			}
+			else
+				std::cout << "You fail to chop the tree." << std::endl;
 			break;
 		case 1: //oak
 			if (player->skills->getEffect(woodcutting) >= 15)
 			{
 				player->inventory->add(new Item(2, 1));
 				player->skills->addExperience(38, woodcutting);
+				std::cout << "You chop an oak log." << std::endl;
 			}
+			else
+				std::cout << "You fail to chop the tree." << std::endl;
 			break;
 		case 2: //willow
 			if (player->skills->getEffect(woodcutting) >= 30)
 			{
 				player->inventory->add(new Item(4, 1));
 				player->skills->addExperience(68, woodcutting);
+				std::cout << "You chop a willow log." << std::endl;
 			}
+			else
+				std::cout << "You fail to chop the tree." << std::endl;
 			break;
 		case 3: //maple
 			if (player->skills->getEffect(woodcutting) >= 45)
 			{
 				player->inventory->add(new Item(6, 1));
 				player->skills->addExperience(100, woodcutting);
+				std::cout << "You chop a maple log." << std::endl;
 			}
+			else
+				std::cout << "You fail to chop the tree." << std::endl;
 			break;
 		case 4: //yew
 			if (player->skills->getEffect(woodcutting) >= 60)
 			{
 				player->inventory->add(new Item(8, 1));
 				player->skills->addExperience(175, woodcutting);
+				std::cout << "You chop a yew log." << std::endl;
 			}
+			else
+				std::cout << "You fail to chop the tree." << std::endl;
 			break;
 		case 5: //magic
 			if (player->skills->getEffect(woodcutting) >= 75)
 			{
 				player->inventory->add(new Item(10, 1));
 				player->skills->addExperience(250, woodcutting);
+				std::cout << "You chop a magic log." << std::endl;
 			}
+			else
+				std::cout << "You fail to chop the tree." << std::endl;
 			break;
 		default:
 			break;

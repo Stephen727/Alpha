@@ -124,82 +124,126 @@ void Mining::mine(int id)
 			{
 				player->inventory->add(new Item(218, 1));
 				player->skills->addExperience(5, mining);
+				std::cout << "You mine a rune essence." << std::endl;
 			}
+			else
+				std::cout << "You fail to mine the rock..." << std::endl;
 			break;
 		case 1: //copper ore
 			if (player->skills->getEffect(mining) >= 1)
 			{
 				player->inventory->add(new Item(220, 1));
 				player->skills->addExperience(18, mining);
+				std::cout << "You mine a copper ore." << std::endl;
 			}
+			else
+				std::cout << "You fail to mine the rock..." << std::endl;
 			break;
 		case 2: //tin ore
 			if (player->skills->getEffect(mining) >= 1)
 			{
 				player->inventory->add(new Item(222, 1));
 				player->skills->addExperience(18, mining);
+				std::cout << "You mine a tin ore." << std::endl;
 			}
+			else
+				std::cout << "You fail to mine the rock..." << std::endl;
 			break;
 		case 3: //iron ore
 			if (player->skills->getEffect(mining) >= 15)
 			{
 				player->inventory->add(new Item(224, 1));
 				player->skills->addExperience(35, mining);
+				std::cout << "You mine an iron ore." << std::endl;
 			}
+			else
+				std::cout << "You fail to mine the rock..." << std::endl;
 			break;
 		case 4: //coal
 			if (player->skills->getEffect(mining) >= 30)
 			{
 				player->inventory->add(new Item(226, 1));
 				player->skills->addExperience(50, mining);
+				std::cout << "You mine a coal ore." << std::endl;
 			}
+			else
+				std::cout << "You fail to mine the rock..." << std::endl;
 			break;
 		case 5: //gold ore
 			if (player->skills->getEffect(mining) >= 40)
 			{
 				player->inventory->add(new Item(228, 1));
 				player->skills->addExperience(65, mining);
+				std::cout << "You mine a gold ore." << std::endl;
 			}
+			else
+				std::cout << "You fail to mine the rock..." << std::endl;
 			break;
 		case 6: //gem rock
 			if (player->skills->getEffect(mining) >= 40)
 			{
-				int gem = rand() % 10;
+				int gem = rand() % 100;
 
 				if (gem < 78)
+				{
 					player->inventory->add(new Item(842, 1));
-				else if (gem < 78 && gem < 90)
+					std::cout << "You mine a jade." << std::endl;
+				}
+				else if (gem < 78 && gem < 86)
+				{
 					player->inventory->add(new Item(844, 1));
-				else if (gem > 90 && gem < 96)
+					std::cout << "You mine a sapphire." << std::endl;
+				}
+				else if (gem > 86 && gem < 91)
+				{
 					player->inventory->add(new Item(846, 1));
-				else if (gem > 96 && gem < 99)
+					std::cout << "You mine a emerald." << std::endl;
+				}
+				else if (gem > 91 && gem < 96)
+				{
 					player->inventory->add(new Item(848, 1));
-				else if (gem == 99)
+					std::cout << "You mine a ruby." << std::endl;
+				}
+				else if (gem > 96)
+				{
 					player->inventory->add(new Item(850, 1));
+					std::cout << "You mine a diamond." << std::endl;
+				}
 
 				player->skills->addExperience(65, mining);
 			}
+			else
+				std::cout << "You fail to mine the rock..." << std::endl;
 			break;
 		case 7: //mithril ore
 			if (player->skills->getEffect(mining) >= 55)
 			{
 				player->inventory->add(new Item(230, 1));
 				player->skills->addExperience(80, mining);
+				std::cout << "You mine a mithril ore." << std::endl;
 			}
+			else
+				std::cout << "You fail to mine the rock..." << std::endl;
 			break;
 		case 8: //adamantite ore
 			if (player->skills->getEffect(mining) >= 70)
 			{
 				player->inventory->add(new Item(232, 1));
 				player->skills->addExperience(95, mining);
+				std::cout << "You mine an adamantite ore." << std::endl;
 			}
+			else
+				std::cout << "You fail to mine the rock..." << std::endl;
 			break;
 		case 9: //runite ore
 			if (player->skills->getEffect(mining) >= 85)
 			{
 				player->inventory->add(new Item(234, 1));
 				player->skills->addExperience(125, mining);
+				std::cout << "You mine a runite ore." << std::endl;
 			}
+			else
+				std::cout << "You fail to mine the rock..." << std::endl;
 			break;
 		default:
 			break;

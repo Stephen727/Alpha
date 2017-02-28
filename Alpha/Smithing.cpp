@@ -68,6 +68,9 @@ void Smithing::smelt(int id)
 			{
 				player->inventory->removeItem(224, 1);
 
+				std::cout << "You smelt ores in the furnace..." << std::endl;
+				_sleep(300);
+
 				if (rand() % 2)
 				{
 					player->inventory->add(new Item(254, 1));
