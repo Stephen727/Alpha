@@ -63,11 +63,11 @@ Steel_arrowtips 61 1 0 -1 3 5
 Mithril_arrowtips 62 1 0 -1 9 15
 Adamant_arrowtips 63 1 0 -1 24 40
 Rune_arrowtips 64 1 0 -1 120 460
-Bronze_arrow 65 1 0 -1 2 6
-Iron_arrow 66 1 0 -1 4 18
-Steel_arrow 67 1 0 -1 7 31
-Mithril_arrow 68 1 0 -1 19 76
-Adamant_arrow 69 1 0 -1 48 120
+Bronze_arrow 65 1 0 -1 4 2
+Iron_arrow 66 1 0 -1 4 3
+Steel_arrow 67 1 0 -1 7 12
+Mithril_arrow 68 1 0 -1 19 32
+Adamant_arrow 69 1 0 -1 48 80
 Rune_arrow 70 1 0 -1 240 520
 Wooden_stock 71 0 0 72 12 60
 Wooden_stock 72 1 1 71 12 60
@@ -208,8 +208,8 @@ Lobster_pot 206 1 1 205 12 20
 Bait 207 1 0 -1 1 3
 Raw_chicken 208 0 0 209 36 60
 Raw_chicken 209 1 1 208 36 60
-Raw_beaf 210 0 0 211 35 0
-Raw_beaf 211 1 1 210 35 0
+Raw_beef 210 0 0 211 35 0
+Raw_beef 211 1 1 210 35 0
 Cooked_chicken 212 0 0 213 7 5
 Cooked_chicken 213 1 1 212 7 5
 Cooked_meat 214 0 0 215 18 5
@@ -994,3 +994,9 @@ Book_of_balance 992 0 0 993 120 5000
 Book_of_balance 993 1 1 992 120 5000
 Dark_bow 994 0 0 995 72000 0
 Dark_bow 995 1 1 994 72000 0
+Monk's_robe_top 996 0 0 997 24 48
+Monk's_robe_top 997 1 1 996 24 48
+Monk's_robe_bottom 998 0 0 999 18 36
+Monk's_robe_bottom 999 1 1 998 18 36
+Holy_symbol 1000 0 0 1001 120 240
+Holy_symbol 1001 1 1 1000 120 240

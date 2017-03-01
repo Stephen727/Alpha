@@ -22,7 +22,7 @@ private:
 	void stringShortbow(int, int);
 	void stringCrossbow(int, int);
 	void fletchArrow(int, int);
-	void fletchBolt(int, int);
+	void fletchBolt(int, int, int);
 	void makeCrossbow(int, int);
 public:
 	void fletch(int, int);

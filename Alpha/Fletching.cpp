@@ -414,174 +414,171 @@ void Fletching::stringCrossbow(int slotOne, int slotTwo)
 	} while (amount && (player->inventory->hasItem(30) && player->inventory->hasItem(id)));
 }
 
-void Fletching::fletchBolt(int slotOne, int slotTwo)
+void Fletching::fletchBolt(int slotOne, int slotTwo, int amount)
 {
 	if (player->inventory->getSlot(slotOne) == NULL)
 		return;
 	else if (player->inventory->getSlot(slotTwo) == NULL)
 		return;
 
-	switch (player->inventory->getSlot(slotTwo)->getId())
+	do
 	{
-	case 117:
-		if (player->skills->getEffect(fletching) >= 9)
+		switch (player->inventory->getSlot(slotTwo)->getId())
 		{
-			if (player->inventory->getSlot(slotOne)->getAmount() > 15 && player->inventory->getSlot(slotTwo)->getAmount() > 15)
+		case 117:
+			if (player->skills->getEffect(fletching) >= 9)
 			{
-				if (player->inventory->getFreeSlots())
+				if (player->inventory->getSlot(slotOne)->getAmount() > 15 && player->inventory->getSlot(slotTwo)->getAmount() > 15)
 				{
-					player->inventory->remove(slotOne, 15);
-					player->inventory->remove(slotTwo, 15);
-					player->inventory->add(new Item(123, 15));
-					player->skills->addExperience(5, fletching);
-					return;
+					if (player->inventory->getFreeSlots())
+					{
+						player->inventory->remove(slotOne, 15);
+						player->inventory->remove(slotTwo, 15);
+						player->inventory->add(new Item(123, 15));
+						player->skills->addExperience(5, fletching);
+					}
+				}
+				else
+				{
+					int amount = player->inventory->getSlot(slotOne)->getAmount() < player->inventory->getSlot(slotTwo)->getAmount() ? player->inventory->getSlot(slotOne)->getAmount() : player->inventory->getSlot(slotTwo)->getAmount();
+					player->inventory->remove(slotOne, amount);
+					player->inventory->remove(slotTwo, amount);
+					Item* temp = new Item(123, amount);
+					player->inventory->add(temp);
+					player->skills->addExperience(amount * 0.333, fletching);
 				}
 			}
-			else
+			break;
+		case 118:
+			if (player->skills->getEffect(fletching) >= 39)
 			{
-				int amount = player->inventory->getSlot(slotOne)->getAmount() < player->inventory->getSlot(slotTwo)->getAmount() ? player->inventory->getSlot(slotOne)->getAmount() : player->inventory->getSlot(slotTwo)->getAmount();
-				player->inventory->remove(slotOne, amount);
-				player->inventory->remove(slotTwo, amount);
-				Item* temp = new Item(123, amount);
-				player->inventory->add(temp);
-				player->skills->addExperience(amount * 0.333, fletching);
-				return;
-			}
-		}
-		break;
-	case 118:
-		if (player->skills->getEffect(fletching) >= 39)
-		{
-			if (player->inventory->getSlot(slotOne)->getAmount() > 15 && player->inventory->getSlot(slotTwo)->getAmount() > 15)
-			{
-				if (player->inventory->getFreeSlots())
+				if (player->inventory->getSlot(slotOne)->getAmount() > 15 && player->inventory->getSlot(slotTwo)->getAmount() > 15)
 				{
-					player->inventory->remove(slotOne, 15);
-					player->inventory->remove(slotTwo, 15);
-					player->inventory->add(new Item(124, 15));
-					player->skills->addExperience(15, fletching);
-					return;
+					if (player->inventory->getFreeSlots())
+					{
+						player->inventory->remove(slotOne, 15);
+						player->inventory->remove(slotTwo, 15);
+						player->inventory->add(new Item(124, 15));
+						player->skills->addExperience(15, fletching);
+					}
+				}
+				else
+				{
+					int amount = player->inventory->getSlot(slotOne)->getAmount() < player->inventory->getSlot(slotTwo)->getAmount() ? player->inventory->getSlot(slotOne)->getAmount() : player->inventory->getSlot(slotTwo)->getAmount();
+					player->inventory->remove(slotOne, amount);
+					player->inventory->remove(slotTwo, amount);
+					Item* temp = new Item(124, amount);
+					player->inventory->add(temp);
+					player->skills->addExperience(amount, fletching);
 				}
 			}
-			else
+			break;
+		case 119:
+			if (player->skills->getEffect(fletching) >= 46)
 			{
-				int amount = player->inventory->getSlot(slotOne)->getAmount() < player->inventory->getSlot(slotTwo)->getAmount() ? player->inventory->getSlot(slotOne)->getAmount() : player->inventory->getSlot(slotTwo)->getAmount();
-				player->inventory->remove(slotOne, amount);
-				player->inventory->remove(slotTwo, amount);
-				Item* temp = new Item(124, amount);
-				player->inventory->add(temp);
-				player->skills->addExperience(amount, fletching);
-				return;
-			}
-		}
-		break;
-	case 119:
-		if (player->skills->getEffect(fletching) >= 46)
-		{
-			if (player->inventory->getSlot(slotOne)->getAmount() > 15 && player->inventory->getSlot(slotTwo)->getAmount() > 15)
-			{
-				if (player->inventory->getFreeSlots())
+				if (player->inventory->getSlot(slotOne)->getAmount() > 15 && player->inventory->getSlot(slotTwo)->getAmount() > 15)
 				{
-					player->inventory->remove(slotOne, 15);
-					player->inventory->remove(slotTwo, 15);
-					player->inventory->add(new Item(125, 15));
-					player->skills->addExperience(35, fletching);
-					return;
+					if (player->inventory->getFreeSlots())
+					{
+						player->inventory->remove(slotOne, 15);
+						player->inventory->remove(slotTwo, 15);
+						player->inventory->add(new Item(125, 15));
+						player->skills->addExperience(35, fletching);
+					}
+				}
+				else
+				{
+					int amount = player->inventory->getSlot(slotOne)->getAmount() < player->inventory->getSlot(slotTwo)->getAmount() ? player->inventory->getSlot(slotOne)->getAmount() : player->inventory->getSlot(slotTwo)->getAmount();
+					player->inventory->remove(slotOne, amount);
+					player->inventory->remove(slotTwo, amount);
+					Item* temp = new Item(125, amount);
+					player->inventory->add(temp);
+					player->skills->addExperience(amount * 2.333, fletching);
 				}
 			}
-			else
+			break;
+		case 120:
+			if (player->skills->getEffect(fletching) >= 54)
 			{
-				int amount = player->inventory->getSlot(slotOne)->getAmount() < player->inventory->getSlot(slotTwo)->getAmount() ? player->inventory->getSlot(slotOne)->getAmount() : player->inventory->getSlot(slotTwo)->getAmount();
-				player->inventory->remove(slotOne, amount);
-				player->inventory->remove(slotTwo, amount);
-				Item* temp = new Item(125, amount);
-				player->inventory->add(temp);
-				player->skills->addExperience(amount * 2.333, fletching);
-				return;
-			}
-		}
-		break;
-	case 120:
-		if (player->skills->getEffect(fletching) >= 54)
-		{
-			if (player->inventory->getSlot(slotOne)->getAmount() > 15 && player->inventory->getSlot(slotTwo)->getAmount() > 15)
-			{
-				if (player->inventory->getFreeSlots())
+				if (player->inventory->getSlot(slotOne)->getAmount() > 15 && player->inventory->getSlot(slotTwo)->getAmount() > 15)
 				{
-					player->inventory->remove(slotOne, 15);
-					player->inventory->remove(slotTwo, 15);
-					player->inventory->add(new Item(126, 15));
-					player->skills->addExperience(50, fletching);
-					return;
+					if (player->inventory->getFreeSlots())
+					{
+						player->inventory->remove(slotOne, 15);
+						player->inventory->remove(slotTwo, 15);
+						player->inventory->add(new Item(126, 15));
+						player->skills->addExperience(50, fletching);
+					}
+				}
+				else
+				{
+					int amount = player->inventory->getSlot(slotOne)->getAmount() < player->inventory->getSlot(slotTwo)->getAmount() ? player->inventory->getSlot(slotOne)->getAmount() : player->inventory->getSlot(slotTwo)->getAmount();
+					player->inventory->remove(slotOne, amount);
+					player->inventory->remove(slotTwo, amount);
+					Item* temp = new Item(126, amount);
+					player->inventory->add(temp);
+					player->skills->addExperience(amount * 3.333, fletching);
 				}
 			}
-			else
+			break;
+		case 121:
+			if (player->skills->getEffect(fletching) >= 61)
 			{
-				int amount = player->inventory->getSlot(slotOne)->getAmount() < player->inventory->getSlot(slotTwo)->getAmount() ? player->inventory->getSlot(slotOne)->getAmount() : player->inventory->getSlot(slotTwo)->getAmount();
-				player->inventory->remove(slotOne, amount);
-				player->inventory->remove(slotTwo, amount);
-				Item* temp = new Item(126, amount);
-				player->inventory->add(temp);
-				player->skills->addExperience(amount * 3.333, fletching);
-				return;
-			}
-		}
-		break;
-	case 121:
-		if (player->skills->getEffect(fletching) >= 61)
-		{
-			if (player->inventory->getSlot(slotOne)->getAmount() > 15 && player->inventory->getSlot(slotTwo)->getAmount() > 15)
-			{
-				if (player->inventory->getFreeSlots())
+				if (player->inventory->getSlot(slotOne)->getAmount() > 15 && player->inventory->getSlot(slotTwo)->getAmount() > 15)
 				{
-					player->inventory->remove(slotOne, 15);
-					player->inventory->remove(slotTwo, 15);
-					player->inventory->add(new Item(127, 15));
-					player->skills->addExperience(70, fletching);
-					return;
+					if (player->inventory->getFreeSlots())
+					{
+						player->inventory->remove(slotOne, 15);
+						player->inventory->remove(slotTwo, 15);
+						player->inventory->add(new Item(127, 15));
+						player->skills->addExperience(70, fletching);
+					}
+				}
+				else
+				{
+					int amount = player->inventory->getSlot(slotOne)->getAmount() < player->inventory->getSlot(slotTwo)->getAmount() ? player->inventory->getSlot(slotOne)->getAmount() : player->inventory->getSlot(slotTwo)->getAmount();
+					player->inventory->remove(slotOne, amount);
+					player->inventory->remove(slotTwo, amount);
+					Item* temp = new Item(127, amount);
+					player->inventory->add(temp);
+					player->skills->addExperience(amount * 4.666, fletching);
 				}
 			}
-			else
+			break;
+		case 122:
+			if (player->skills->getEffect(fletching) >= 69)
 			{
-				int amount = player->inventory->getSlot(slotOne)->getAmount() < player->inventory->getSlot(slotTwo)->getAmount() ? player->inventory->getSlot(slotOne)->getAmount() : player->inventory->getSlot(slotTwo)->getAmount();
-				player->inventory->remove(slotOne, amount);
-				player->inventory->remove(slotTwo, amount);
-				Item* temp = new Item(127, amount);
-				player->inventory->add(temp);
-				player->skills->addExperience(amount * 4.666, fletching);
-				return;
-			}
-		}
-		break;
-	case 122:
-		if (player->skills->getEffect(fletching) >= 69)
-		{
-			if (player->inventory->getSlot(slotOne)->getAmount() > 15 && player->inventory->getSlot(slotTwo)->getAmount() > 15)
-			{
-				if (player->inventory->getFreeSlots())
+				if (player->inventory->getSlot(slotOne)->getAmount() > 15 && player->inventory->getSlot(slotTwo)->getAmount() > 15)
 				{
-					player->inventory->remove(slotOne, 15);
-					player->inventory->remove(slotTwo, 15);
-					player->inventory->add(new Item(128, 15));
-					player->skills->addExperience(100, fletching);
-					return;
+					if (player->inventory->getFreeSlots())
+					{
+						player->inventory->remove(slotOne, 15);
+						player->inventory->remove(slotTwo, 15);
+						player->inventory->add(new Item(128, 15));
+						player->skills->addExperience(100, fletching);
+					}
+				}
+				else
+				{
+					int amount = player->inventory->getSlot(slotOne)->getAmount() < player->inventory->getSlot(slotTwo)->getAmount() ? player->inventory->getSlot(slotOne)->getAmount() : player->inventory->getSlot(slotTwo)->getAmount();
+					player->inventory->remove(slotOne, amount);
+					player->inventory->remove(slotTwo, amount);
+					Item* temp = new Item(128, amount);
+					player->inventory->add(temp);
+					player->skills->addExperience(amount * 6.666, fletching);
 				}
 			}
-			else
-			{
-				int amount = player->inventory->getSlot(slotOne)->getAmount() < player->inventory->getSlot(slotTwo)->getAmount() ? player->inventory->getSlot(slotOne)->getAmount() : player->inventory->getSlot(slotTwo)->getAmount();
-				player->inventory->remove(slotOne, amount);
-				player->inventory->remove(slotTwo, amount);
-				Item* temp = new Item(128, amount);
-				player->inventory->add(temp);
-				player->skills->addExperience(amount * 6.666, fletching);
-				return;
-			}
+			break;
+		default:
+			return;
+			break;
 		}
-		break;
-	default:
-		break;
-	}
+		if (player->inventory->getSlot(slotOne) == NULL)
+			return;
+		else if (player->inventory->getSlot(slotTwo) == NULL)
+			return;
+		amount--;
+	} while (amount);
 }
 
 void Fletching::fletchArrow(int slotOne, int slotTwo)
@@ -590,39 +587,40 @@ void Fletching::fletchArrow(int slotOne, int slotTwo)
 		return;
 	else if (player->inventory->getSlot(slotTwo) == NULL)
 		return;
+	
+	int input, amount;
 
-	if (player->inventory->getSlot(slotTwo)->getId() == 56)
+	std::cout << "\b [1] Make 1   [2]   Make 5   [3] Make 10   > ";
+
+	while (!(std::cin >> input) || (input < 1 || input > 3))
 	{
-		if (player->skills->getEffect(fletching) >= 1)
+		if (std::cin.fail())
 		{
-			if (player->inventory->getSlot(slotOne)->getAmount() > 15 && player->inventory->getSlot(slotTwo)->getAmount() > 15)
-			{
-				if (player->inventory->getFreeSlots())
-				{
-					player->inventory->remove(slotOne, 15);
-					player->inventory->remove(slotTwo, 15);
-					player->inventory->add(new Item(58, 15));
-					player->skills->addExperience(15, fletching);
-					return;
-				}
-			}
-			else
-			{
-				int amount = player->inventory->getSlot(slotOne)->getAmount() < player->inventory->getSlot(slotTwo)->getAmount() ? player->inventory->getSlot(slotOne)->getAmount() : player->inventory->getSlot(slotTwo)->getAmount();
-				player->inventory->remove(slotOne, amount);
-				player->inventory->remove(slotTwo, amount);
-				Item* temp = new Item(58, amount);
-				player->inventory->add(temp);
-				player->skills->addExperience(amount, fletching);
-				return;
-			}
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		}
 	}
-	else
+
+	switch (input)
 	{
-		switch (player->inventory->getSlot(slotTwo)->getId())
+	case 1:
+		amount = 1;
+		break;
+	case 2:
+		amount = 5;
+		break;
+	case 3:
+		amount = 10;
+		break;
+	default:
+		return;
+		break;
+	}
+
+	do
+	{
+		if (player->inventory->getSlot(slotTwo)->getId() == 56)
 		{
-		case 59:
 			if (player->skills->getEffect(fletching) >= 1)
 			{
 				if (player->inventory->getSlot(slotOne)->getAmount() > 15 && player->inventory->getSlot(slotTwo)->getAmount() > 15)
@@ -631,9 +629,8 @@ void Fletching::fletchArrow(int slotOne, int slotTwo)
 					{
 						player->inventory->remove(slotOne, 15);
 						player->inventory->remove(slotTwo, 15);
-						player->inventory->add(new Item(65, 15));
-						player->skills->addExperience(20, fletching);
-						return;
+						player->inventory->add(new Item(58, 15));
+						player->skills->addExperience(15, fletching);
 					}
 				}
 				else
@@ -641,148 +638,172 @@ void Fletching::fletchArrow(int slotOne, int slotTwo)
 					int amount = player->inventory->getSlot(slotOne)->getAmount() < player->inventory->getSlot(slotTwo)->getAmount() ? player->inventory->getSlot(slotOne)->getAmount() : player->inventory->getSlot(slotTwo)->getAmount();
 					player->inventory->remove(slotOne, amount);
 					player->inventory->remove(slotTwo, amount);
-					Item* temp = new Item(65, amount);
+					Item* temp = new Item(58, amount);
 					player->inventory->add(temp);
-					player->skills->addExperience(amount * 1.333, fletching);
-					return;
+					player->skills->addExperience(amount, fletching);
 				}
 			}
-			break;
-		case 60:
-			if (player->skills->getEffect(fletching) >= 15)
-			{
-				if (player->inventory->getSlot(slotOne)->getAmount() > 15 && player->inventory->getSlot(slotTwo)->getAmount() > 15)
-				{
-					if (player->inventory->getFreeSlots())
-					{
-						player->inventory->remove(slotOne, 15);
-						player->inventory->remove(slotTwo, 15);
-						player->inventory->add(new Item(66, 15));
-						player->skills->addExperience(38, fletching);
-						return;
-					}
-				}
-				else
-				{
-					int amount = player->inventory->getSlot(slotOne)->getAmount() < player->inventory->getSlot(slotTwo)->getAmount() ? player->inventory->getSlot(slotOne)->getAmount() : player->inventory->getSlot(slotTwo)->getAmount();
-					player->inventory->remove(slotOne, amount);
-					player->inventory->remove(slotTwo, amount);
-					Item* temp = new Item(66, amount);
-					player->inventory->add(temp);
-					player->skills->addExperience(amount * 2.533, fletching);
-					return;
-				}
-			}
-			break;
-		case 61:
-			if (player->skills->getEffect(fletching) >= 30)
-			{
-				if (player->inventory->getSlot(slotOne)->getAmount() > 15 && player->inventory->getSlot(slotTwo)->getAmount() > 15)
-				{
-					if (player->inventory->getFreeSlots())
-					{
-						player->inventory->remove(slotOne, 15);
-						player->inventory->remove(slotTwo, 15);
-						player->inventory->add(new Item(67, 15));
-						player->skills->addExperience(75, fletching);
-						return;
-					}
-				}
-				else
-				{
-					int amount = player->inventory->getSlot(slotOne)->getAmount() < player->inventory->getSlot(slotTwo)->getAmount() ? player->inventory->getSlot(slotOne)->getAmount() : player->inventory->getSlot(slotTwo)->getAmount();
-					player->inventory->remove(slotOne, amount);
-					player->inventory->remove(slotTwo, amount);
-					Item* temp = new Item(67, amount);
-					player->inventory->add(temp);
-					player->skills->addExperience(amount * 5, fletching);
-					return;
-				}
-			}
-			break;
-		case 62:
-			if (player->skills->getEffect(fletching) >= 45)
-			{
-				if (player->inventory->getSlot(slotOne)->getAmount() > 15 && player->inventory->getSlot(slotTwo)->getAmount() > 15)
-				{
-					if (player->inventory->getFreeSlots())
-					{
-						player->inventory->remove(slotOne, 15);
-						player->inventory->remove(slotTwo, 15);
-						player->inventory->add(new Item(68, 15));
-						player->skills->addExperience(113, fletching);
-						return;
-					}
-				}
-				else
-				{
-					int amount = player->inventory->getSlot(slotOne)->getAmount() < player->inventory->getSlot(slotTwo)->getAmount() ? player->inventory->getSlot(slotOne)->getAmount() : player->inventory->getSlot(slotTwo)->getAmount();
-					player->inventory->remove(slotOne, amount);
-					player->inventory->remove(slotTwo, amount);
-					Item* temp = new Item(68, amount);
-					player->inventory->add(temp);
-					player->skills->addExperience(amount * 7.533, fletching);
-					return;
-				}
-			}
-			break;
-		case 63:
-			if (player->skills->getEffect(fletching) >= 60)
-			{
-				if (player->inventory->getSlot(slotOne)->getAmount() > 15 && player->inventory->getSlot(slotTwo)->getAmount() > 15)
-				{
-					if (player->inventory->getFreeSlots())
-					{
-						player->inventory->remove(slotOne, 15);
-						player->inventory->remove(slotTwo, 15);
-						player->inventory->add(new Item(69, 15));
-						player->skills->addExperience(150, fletching);
-						return;
-					}
-				}
-				else
-				{
-					int amount = player->inventory->getSlot(slotOne)->getAmount() < player->inventory->getSlot(slotTwo)->getAmount() ? player->inventory->getSlot(slotOne)->getAmount() : player->inventory->getSlot(slotTwo)->getAmount();
-					player->inventory->remove(slotOne, amount);
-					player->inventory->remove(slotTwo, amount);
-					Item* temp = new Item(69, amount);
-					player->inventory->add(temp);
-					player->skills->addExperience(amount * 10, fletching);
-					return;
-				}
-			}
-			break;
-		case 64:
-			if (player->skills->getEffect(fletching) >= 75)
-			{
-				if (player->inventory->getSlot(slotOne)->getAmount() > 15 && player->inventory->getSlot(slotTwo)->getAmount() > 15)
-				{
-					if (player->inventory->getFreeSlots())
-					{
-						player->inventory->remove(slotOne, 15);
-						player->inventory->remove(slotTwo, 15);
-						player->inventory->add(new Item(70, 15));
-						player->skills->addExperience(188, fletching);
-						return;
-					}
-				}
-				else
-				{
-					int amount = player->inventory->getSlot(slotOne)->getAmount() < player->inventory->getSlot(slotTwo)->getAmount() ? player->inventory->getSlot(slotOne)->getAmount() : player->inventory->getSlot(slotTwo)->getAmount();
-					player->inventory->remove(slotOne, amount);
-					player->inventory->remove(slotTwo, amount);
-					Item* temp = new Item(70, amount);
-					player->inventory->add(temp);
-					player->skills->addExperience(amount * 12.533, fletching);
-					return;
-				}
-			}
-			break;
-		default:
-			fletchBolt(slotOne, slotTwo);
-			break;
 		}
-	}
+		else
+		{
+			switch (player->inventory->getSlot(slotTwo)->getId())
+			{
+			case 59:
+				if (player->skills->getEffect(fletching) >= 1)
+				{
+					if (player->inventory->getSlot(slotOne)->getAmount() > 15 && player->inventory->getSlot(slotTwo)->getAmount() > 15)
+					{
+						if (player->inventory->getFreeSlots())
+						{
+							player->inventory->remove(slotOne, 15);
+							player->inventory->remove(slotTwo, 15);
+							player->inventory->add(new Item(65, 15));
+							player->skills->addExperience(20, fletching);
+						}
+					}
+					else
+					{
+						int amount = player->inventory->getSlot(slotOne)->getAmount() < player->inventory->getSlot(slotTwo)->getAmount() ? player->inventory->getSlot(slotOne)->getAmount() : player->inventory->getSlot(slotTwo)->getAmount();
+						player->inventory->remove(slotOne, amount);
+						player->inventory->remove(slotTwo, amount);
+						Item* temp = new Item(65, amount);
+						player->inventory->add(temp);
+						player->skills->addExperience(amount * 1.333, fletching);
+					}
+				}
+				break;
+			case 60:
+				if (player->skills->getEffect(fletching) >= 15)
+				{
+					if (player->inventory->getSlot(slotOne)->getAmount() > 15 && player->inventory->getSlot(slotTwo)->getAmount() > 15)
+					{
+						if (player->inventory->getFreeSlots())
+						{
+							player->inventory->remove(slotOne, 15);
+							player->inventory->remove(slotTwo, 15);
+							player->inventory->add(new Item(66, 15));
+							player->skills->addExperience(38, fletching);
+						}
+					}
+					else
+					{
+						int amount = player->inventory->getSlot(slotOne)->getAmount() < player->inventory->getSlot(slotTwo)->getAmount() ? player->inventory->getSlot(slotOne)->getAmount() : player->inventory->getSlot(slotTwo)->getAmount();
+						player->inventory->remove(slotOne, amount);
+						player->inventory->remove(slotTwo, amount);
+						Item* temp = new Item(66, amount);
+						player->inventory->add(temp);
+						player->skills->addExperience(amount * 2.533, fletching);
+					}
+				}
+				break;
+			case 61:
+				if (player->skills->getEffect(fletching) >= 30)
+				{
+					if (player->inventory->getSlot(slotOne)->getAmount() > 15 && player->inventory->getSlot(slotTwo)->getAmount() > 15)
+					{
+						if (player->inventory->getFreeSlots())
+						{
+							player->inventory->remove(slotOne, 15);
+							player->inventory->remove(slotTwo, 15);
+							player->inventory->add(new Item(67, 15));
+							player->skills->addExperience(75, fletching);
+						}
+					}
+					else
+					{
+						int amount = player->inventory->getSlot(slotOne)->getAmount() < player->inventory->getSlot(slotTwo)->getAmount() ? player->inventory->getSlot(slotOne)->getAmount() : player->inventory->getSlot(slotTwo)->getAmount();
+						player->inventory->remove(slotOne, amount);
+						player->inventory->remove(slotTwo, amount);
+						Item* temp = new Item(67, amount);
+						player->inventory->add(temp);
+						player->skills->addExperience(amount * 5, fletching);
+					}
+				}
+				break;
+			case 62:
+				if (player->skills->getEffect(fletching) >= 45)
+				{
+					if (player->inventory->getSlot(slotOne)->getAmount() > 15 && player->inventory->getSlot(slotTwo)->getAmount() > 15)
+					{
+						if (player->inventory->getFreeSlots())
+						{
+							player->inventory->remove(slotOne, 15);
+							player->inventory->remove(slotTwo, 15);
+							player->inventory->add(new Item(68, 15));
+							player->skills->addExperience(113, fletching);
+						}
+					}
+					else
+					{
+						int amount = player->inventory->getSlot(slotOne)->getAmount() < player->inventory->getSlot(slotTwo)->getAmount() ? player->inventory->getSlot(slotOne)->getAmount() : player->inventory->getSlot(slotTwo)->getAmount();
+						player->inventory->remove(slotOne, amount);
+						player->inventory->remove(slotTwo, amount);
+						Item* temp = new Item(68, amount);
+						player->inventory->add(temp);
+						player->skills->addExperience(amount * 7.533, fletching);
+					}
+				}
+				break;
+			case 63:
+				if (player->skills->getEffect(fletching) >= 60)
+				{
+					if (player->inventory->getSlot(slotOne)->getAmount() > 15 && player->inventory->getSlot(slotTwo)->getAmount() > 15)
+					{
+						if (player->inventory->getFreeSlots())
+						{
+							player->inventory->remove(slotOne, 15);
+							player->inventory->remove(slotTwo, 15);
+							player->inventory->add(new Item(69, 15));
+							player->skills->addExperience(150, fletching);
+						}
+					}
+					else
+					{
+						int amount = player->inventory->getSlot(slotOne)->getAmount() < player->inventory->getSlot(slotTwo)->getAmount() ? player->inventory->getSlot(slotOne)->getAmount() : player->inventory->getSlot(slotTwo)->getAmount();
+						player->inventory->remove(slotOne, amount);
+						player->inventory->remove(slotTwo, amount);
+						Item* temp = new Item(69, amount);
+						player->inventory->add(temp);
+						player->skills->addExperience(amount * 10, fletching);
+					}
+				}
+				break;
+			case 64:
+				if (player->skills->getEffect(fletching) >= 75)
+				{
+					if (player->inventory->getSlot(slotOne)->getAmount() > 15 && player->inventory->getSlot(slotTwo)->getAmount() > 15)
+					{
+						if (player->inventory->getFreeSlots())
+						{
+							player->inventory->remove(slotOne, 15);
+							player->inventory->remove(slotTwo, 15);
+							player->inventory->add(new Item(70, 15));
+							player->skills->addExperience(188, fletching);
+						}
+					}
+					else
+					{
+						int amount = player->inventory->getSlot(slotOne)->getAmount() < player->inventory->getSlot(slotTwo)->getAmount() ? player->inventory->getSlot(slotOne)->getAmount() : player->inventory->getSlot(slotTwo)->getAmount();
+						player->inventory->remove(slotOne, amount);
+						player->inventory->remove(slotTwo, amount);
+						Item* temp = new Item(70, amount);
+						player->inventory->add(temp);
+						player->skills->addExperience(amount * 12.533, fletching);
+					}
+				}
+				break;
+			default:
+				fletchBolt(slotOne, slotTwo, amount);
+				return;
+				break;
+			}
+		}
+		if (player->inventory->getSlot(slotOne) == NULL)
+			return;
+		else if (player->inventory->getSlot(slotTwo) == NULL)
+			return;
+		amount--;
+	} while (amount);
 }
 
 void Fletching::makeCrossbow(int slotOne, int slotTwo)

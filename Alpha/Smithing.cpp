@@ -14,6 +14,7 @@ std::vector<std::pair<int, int>> scimitar = { { 276, 5 }, { 306, 20 }, { 336, 35
 std::vector<std::pair<int, int>> cbowLimb = { { 81, 6 }, { 83, 23 }, { 85, 36 }, { 87, 56 }, { 89, 76 }, { 91, 91 } };
 std::vector<std::pair<int, int>> longsword = { { 278, 6 }, { 308, 21 }, { 338, 36 }, { 368, 56 }, { 398, 76 }, { 428, 91 } };
 std::vector<std::pair<int, int>> fullHelm = { { 280, 7 }, { 310, 22 }, { 340, 37 }, { 370, 57 }, { 400, 77 }, { 430, 92 } };
+std::vector<std::pair<int, int>> knife = { { 835, 7 }, { 836, 22 }, { 837, 37 }, { 838, 57 }, { 839, 77 }, { 840, 92 } };
 std::vector<std::pair<int, int>> sqShield = { { 282, 8 }, { 312, 23 }, { 342, 38 }, { 372, 58 }, { 402, 78 }, { 432, 93 } };
 std::vector<std::pair<int, int>> warhammer = { { 284, 9 }, { 314, 24 }, { 344, 39 }, { 374, 59 }, { 404, 79 }, { 434, 94 } };
 std::vector<std::pair<int, int>> battleaxe = { { 286, 10 }, { 316, 25 }, { 346, 40 }, { 376, 60 }, { 406, 80 }, { 436, 95 } };
@@ -295,6 +296,21 @@ void Smithing::smith(int id, int tier)
 		else return;
 		break;
 	case 11:
+		if (player->skills->getEffect(smithing) >= knife[tier].second)
+		{
+			if (player->inventory->hasItem(bar[tier].first, 1))
+			{
+				player->inventory->removeItem(bar[tier].first, 1);
+				player->inventory->add(new Item(knife[tier].first, 15));
+				player->skills->addExperience(bar[tier].second * 1, smithing);
+
+				std::cout << "You smith some knives!" << std::endl;
+			}
+			else return;
+		}
+		else return;
+		break;
+	case 12:
 		if (player->skills->getEffect(smithing) >= sqShield[tier].second)
 		{
 			if (player->inventory->hasItem(bar[tier].first, 2))
@@ -309,7 +325,7 @@ void Smithing::smith(int id, int tier)
 		}
 		else return;
 		break;
-	case 12:
+	case 13:
 		if (player->skills->getEffect(smithing) >= warhammer[tier].second)
 		{
 			if (player->inventory->hasItem(bar[tier].first, 3))
@@ -324,7 +340,7 @@ void Smithing::smith(int id, int tier)
 		}
 		else return;
 		break;
-	case 13:
+	case 14:
 		if (player->skills->getEffect(smithing) >= battleaxe[tier].second)
 		{
 			if (player->inventory->hasItem(bar[tier].first, 3))
@@ -339,7 +355,7 @@ void Smithing::smith(int id, int tier)
 		}
 		else return;
 		break;
-	case 14:
+	case 15:
 		if (player->skills->getEffect(smithing) >= chainbody[tier].second)
 		{
 			if (player->inventory->hasItem(bar[tier].first, 3))
@@ -354,7 +370,7 @@ void Smithing::smith(int id, int tier)
 		}
 		else return;
 		break;
-	case 15:
+	case 16:
 		if (player->skills->getEffect(smithing) >= kiteshield[tier].second)
 		{
 			if (player->inventory->hasItem(bar[tier].first, 3))
@@ -369,7 +385,7 @@ void Smithing::smith(int id, int tier)
 		}
 		else return;
 		break;
-	case 16:
+	case 17:
 		if (player->skills->getEffect(smithing) >= twohand[tier].second)
 		{
 			if (player->inventory->hasItem(bar[tier].first, 3))
@@ -384,7 +400,7 @@ void Smithing::smith(int id, int tier)
 		}
 		else return;
 		break;
-	case 17:
+	case 18:
 		if (player->skills->getEffect(smithing) >= plateleg[tier].second)
 		{
 			if (player->inventory->hasItem(bar[tier].first, 3))
@@ -399,7 +415,7 @@ void Smithing::smith(int id, int tier)
 		}
 		else return;
 		break;
-	case 18:
+	case 19:
 		if (player->skills->getEffect(smithing) >= platebody[tier].second)
 		{
 			if (player->inventory->hasItem(bar[tier].first, 5))

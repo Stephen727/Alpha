@@ -31,6 +31,8 @@ private:
 
 	void makeDeposit();
 	void makeWithdraw();
+
+	void swap(int, int);
 public:
 	void deposit(Item*);
 	void access();

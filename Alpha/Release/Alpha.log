@@ -1,68 +1,18 @@
-﻿Build started 2/28/2017 3:15:57 AM.
+﻿Build started 3/1/2017 3:41:15 AM.
      1>Project "C:\Users\Valued Customer\Desktop\Stephen Benner\Programming\C++\Runescape Clone\Alpha\Alpha\Alpha.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         E:\Program Files (x86)\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _UNICODE /D UNICODE /EHa /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /analyze- /errorReport:prompt /clr:nostdlib Crafting.cpp Fletching.cpp Loot.cpp Map.cpp Mining.cpp Smithing.cpp Woodcutting.cpp
-         Crafting.cpp
+         E:\Program Files (x86)\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _UNICODE /D UNICODE /EHa /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /analyze- /errorReport:prompt /clr:nostdlib PrayerBook.cpp Skills.cpp main.cpp
+         PrayerBook.cpp
      1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-     1>Crafting.cpp(27): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
-                 E:\Program Files (x86)\VC\include\stdlib.h(911) : see declaration of '_sleep'
-     1>Crafting.cpp(45): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
-                 E:\Program Files (x86)\VC\include\stdlib.h(911) : see declaration of '_sleep'
-     1>Crafting.cpp(61): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
-                 E:\Program Files (x86)\VC\include\stdlib.h(911) : see declaration of '_sleep'
-     1>Crafting.cpp(75): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
-                 E:\Program Files (x86)\VC\include\stdlib.h(911) : see declaration of '_sleep'
-     1>Crafting.cpp(89): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
-                 E:\Program Files (x86)\VC\include\stdlib.h(911) : see declaration of '_sleep'
-     1>Crafting.cpp(103): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
-                 E:\Program Files (x86)\VC\include\stdlib.h(911) : see declaration of '_sleep'
-     1>Crafting.cpp(117): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
-                 E:\Program Files (x86)\VC\include\stdlib.h(911) : see declaration of '_sleep'
-     1>Crafting.cpp(131): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
-                 E:\Program Files (x86)\VC\include\stdlib.h(911) : see declaration of '_sleep'
-         Fletching.cpp
+         Skills.cpp
      1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-     1>Fletching.cpp(447): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>Fletching.cpp(499): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>Fletching.cpp(525): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>Fletching.cpp(551): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>Fletching.cpp(577): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>Fletching.cpp(646): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>Fletching.cpp(672): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>Fletching.cpp(724): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>Fletching.cpp(776): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-         Loot.cpp
-     1>Loot.cpp(16): warning C4018: '<' : signed/unsigned mismatch
-     1>Loot.cpp(36): warning C4018: '<' : signed/unsigned mismatch
-         Map.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-     1>Map.cpp(48): warning C4018: '<' : signed/unsigned mismatch
-     1>Map.cpp(53): warning C4018: '>' : signed/unsigned mismatch
-     1>Map.cpp(78): warning C4018: '<' : signed/unsigned mismatch
-     1>Map.cpp(83): warning C4018: '>' : signed/unsigned mismatch
-     1>Map.cpp(103): warning C4018: '<' : signed/unsigned mismatch
-     1>Map.cpp(107): warning C4018: '>' : signed/unsigned mismatch
-         Mining.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-     1>Mining.cpp(49): warning C4018: '<' : signed/unsigned mismatch
-         Smithing.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-     1>Smithing.cpp(45): warning C4018: '<' : signed/unsigned mismatch
-     1>Smithing.cpp(49): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
-                 E:\Program Files (x86)\VC\include\stdlib.h(911) : see declaration of '_sleep'
-     1>Smithing.cpp(72): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
-                 E:\Program Files (x86)\VC\include\stdlib.h(911) : see declaration of '_sleep'
-     1>Smithing.cpp(124): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
-                 E:\Program Files (x86)\VC\include\stdlib.h(911) : see declaration of '_sleep'
-     1>Smithing.cpp(126): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
-                 E:\Program Files (x86)\VC\include\stdlib.h(911) : see declaration of '_sleep'
-     1>Smithing.cpp(128): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
-                 E:\Program Files (x86)\VC\include\stdlib.h(911) : see declaration of '_sleep'
-         Woodcutting.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-     1>Woodcutting.cpp(50): warning C4018: '<' : signed/unsigned mismatch
+     1>Skills.cpp(88): warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
+     1>Skills.cpp(95): warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
+     1>Skills.cpp(98): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>Skills.cpp(156): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>Skills.cpp(165): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+         main.cpp
          Generating Code...
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\slayer.h(28): warning C4715: 'Slayer::getCurrentSlayerTaskId' : not all control paths return a value
        Link:
          E:\Program Files (x86)\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Valued Customer\Desktop\Stephen Benner\Programming\C++\Runescape Clone\Alpha\Release\Alpha.exe" /INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Valued Customer\Desktop\Stephen Benner\Programming\C++\Runescape Clone\Alpha\Release\Alpha.pdb" /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 /SAFESEH Release\Aura.obj
          Release\Bank.obj
@@ -111,4 +61,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:05.88
+Time Elapsed 00:00:02.49

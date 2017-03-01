@@ -215,6 +215,15 @@ bool CombatAssistant::canKill(Player* player, Npc* npc)
 		else
 			return false;
 		break;
+	case 11: //Mogre
+		if (player->inventory->hasItem(743))
+		{
+			player->inventory->removeItem(743, 1);
+			return true;
+		}
+		else
+			return false;
+		break;
 	case 24: //Mutated Zygomite
 		if (player->inventory->hasItem(758)) //Fungicide Spray
 		{

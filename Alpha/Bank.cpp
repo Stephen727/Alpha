@@ -260,6 +260,18 @@ void Bank::makeWithdraw()
 	} while (input);
 }
 
+void Bank::swap(int first_slot, int second_slot)
+{
+	if (first_slot < 0 || first_slot > (item.size() - 1))
+		return;
+	else if (second_slot < 0 || second_slot > (item.size() - 1))
+		return;
+
+	Item *temp = item[first_slot];
+	item[first_slot] = item[second_slot];
+	item[second_slot] = temp;
+}
+
 void Bank::access()
 {
 	int input;
@@ -272,6 +284,7 @@ void Bank::access()
 		std::cout << "+--------------------+" << std::endl;
 		std::cout << "|   [1] Deposit      |" << std::endl;
 		std::cout << "|   [2] Withdraw     |" << std::endl;
+		std::cout << "|   [3] Organize     |" << std::endl;
 		std::cout << "+--------------------+" << std::endl;
 		std::cout << ">";
 
@@ -283,6 +296,7 @@ void Bank::access()
 			std::cout << "+--------------------+" << std::endl;
 			std::cout << "|   [1] Deposit      |" << std::endl;
 			std::cout << "|   [2] Withdraw     |" << std::endl;
+			std::cout << "|   [3] Organize     |" << std::endl;
 			std::cout << "+--------------------+" << std::endl;
 			std::cout << ">";
 
@@ -293,10 +307,48 @@ void Bank::access()
 			}
 		}
 
-		if (input == 1)
+		switch (input)
+		{
+		case 1:
 			makeDeposit();
-		else if (input == 2)
+			break;
+		case 2:
 			makeWithdraw();
+			break;
+		case 3:
+			int slotOne, slotTwo;
+			do
+			{
+				system("CLS");
+				displayBank();
+				while (!(std::cin >> slotOne))
+				{
+					if (std::cin.fail())
+					{
+						std::cin.clear();
+						std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+					}
+				}
+				if (slotOne)
+				{
+					char c;
+					std::cout << ">";
+					std::cin >> c;
+
+					if (c == 's')
+					{
+						std::cout << ">";
+						std::cin >> slotTwo;
+						swap(slotOne - 1, slotTwo - 1);
+					}	
+				}
+			} while (slotOne);
+			break;
+		case 4:
+			break;
+		default:
+			break;
+		}
 	} while (input);
 }
 

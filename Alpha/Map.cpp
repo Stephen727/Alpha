@@ -389,17 +389,18 @@ void Map::anvilDisplay()
 				std::cout << " [9] C'bow Limb" << std::endl;
 				std::cout << " [10] Longsword" << std::endl;
 				std::cout << " [11] Full Helm" << std::endl;
-				std::cout << " [12] Sq Shield" << std::endl;
-				std::cout << " [13] Warhammer" << std::endl;
-				std::cout << " [14] Battleaxe" << std::endl;
-				std::cout << " [15] Chainbody" << std::endl;
-				std::cout << " [16] Kiteshield" << std::endl;
-				std::cout << " [17] 2h Sword" << std::endl;
-				std::cout << " [18] Platelegs" << std::endl;
-				std::cout << " [19] Platebody" << std::endl;
+				std::cout << " [12] Knives" << std::endl;
+				std::cout << " [13] Sq Shield" << std::endl;
+				std::cout << " [14] Warhammer" << std::endl;
+				std::cout << " [15] Battleaxe" << std::endl;
+				std::cout << " [16] Chainbody" << std::endl;
+				std::cout << " [17] Kiteshield" << std::endl;
+				std::cout << " [18] 2h Sword" << std::endl;
+				std::cout << " [19] Platelegs" << std::endl;
+				std::cout << " [20] Platebody" << std::endl;
 				std::cout << std::endl << ">";
 
-				while (!(std::cin >> input) || (input < 0 || input > 19))
+				while (!(std::cin >> input) || (input < 0 || input > 20))
 				{
 					if (std::cin.fail())
 					{
