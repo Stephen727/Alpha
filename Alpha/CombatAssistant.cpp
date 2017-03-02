@@ -191,6 +191,8 @@ bool CombatAssistant::canAttack(Player* player, Npc* npc)
 	if (hasSlayerLevel(player, npc))
 		if (hasWeaponRequirement(player, npc))
 			return true;
+
+	return false;
 }
 
 bool CombatAssistant::canKill(Player* player, Npc* npc)
@@ -255,6 +257,20 @@ int CombatAssistant::playerDamageModifier(Player* player, Npc* npc, int playerHi
 			else if (player->equipment->getItem(0)->getId() == 733) //Slayer Helmet
 				playerHit *= 1.25;
 	}
+
+	if (npc->getId() == 121)
+	{
+		if (player->equipment->getItem(3) != nullptr)
+		{
+			if (player->equipment->getItem(3)->getId() == 1003)
+				playerHit = rand() % 25 + 25;
+			else
+				playerHit = 0;
+		}
+		else
+			playerHit = 0;
+	}
+
 	return playerHit;
 }
 
@@ -345,10 +361,16 @@ int CombatAssistant::npcDamageModifier(Npc* npc, Player* player, int npcHit)
 
 	switch (npc->getId())
 	{
-	case 113:
-	case 114:
-	case 115:
+	case 113: //Dagannoth Prime
+	case 114: //Dagannoth Rex
+	case 115: //Dagannoth Supreme
 		npcHit += rand() % 12;
+		break;
+	case 116: //Kalphite Queen
+		npcHit = rand() % 31;
+		break;
+	case 121:
+		npcHit = (rand() % player->skills->getLevel(hitpoints) + 10) * 0.10;
 		break;
 	default:
 		break;

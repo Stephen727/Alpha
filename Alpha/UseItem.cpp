@@ -7,6 +7,7 @@
 #include "Crafting.h"
 #include "Food.h"
 #include "Potion.h"
+#include "SupplyCrate.h"
 
 
 UseItem::UseItem()
@@ -80,6 +81,17 @@ void UseItem::use(int slot)
 		player->equipment->equip(slot);
 	else if (player->inventory->getSlot(slot)->getId() == 573)
 		player->herblore->display();
+	else if (player->inventory->getSlot(slot)->getId() == 1002)
+	{
+		SupplyCrate supplycrate;
+		std::vector<Item*> loot = supplycrate.open();
+		player->inventory->remove(slot);
+		for (auto i : loot)
+		{
+			if (player->inventory->canAdd(*i))
+				player->inventory->add(new Item(i->getId(), i->getAmount()));
+		}
+	}
 	else
 		return;
 }

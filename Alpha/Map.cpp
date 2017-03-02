@@ -19,6 +19,7 @@
 #include "Woodcutting.h"
 #include "Crafting.h"
 #include "Runecrafting.h"
+#include "Wintertodt.h"
 
 
 Map::Map()
@@ -592,12 +593,12 @@ bool Map::getInput()
 	case 'R': //Bank
 		player->bank->access();
 		break;
-	case 'D': //Task
-		if (player->slayer->hasTask())
+	case 'D': //Minigame
+		if (true)
 		{
-			Combat *combat = new Combat;
-			combat->battle(player, player->slayer->getCurrentSlayerTaskId());
-			delete combat;
+			Wintertodt* test = new Wintertodt;
+			test->play(player);
+			delete test;
 		}
 		break;
 	case 'F': //Slayer
@@ -665,12 +666,12 @@ void Map::display()
 		std::cout << "\t";	player->slayer->getCurrentSlayerTask();
 		std::cout << " /                                                                           \\" << std::endl;
 		std::cout << "+-----------------------------------------------------------------------------+" << std::endl;
-		std::cout << "| [1] Lumbridge                                   | [Q] Shops   | [R] Bank    |" << std::endl;
-		std::cout << "| [2] Varrock                                     | [W] World   | [D] Task    |" << std::endl;
-		std::cout << "| [3] Falador                                     | [E] Skill   | [F] Slayer  |" << std::endl;
+		std::cout << "| [1] Lumbridge                                   |  [Q] Shops  | [R] Bank    |" << std::endl;
+		std::cout << "| [2] Varrock                                     |  [W] World  | [D] Minigame|" << std::endl;
+		std::cout << "| [3] Falador                                     |  [E] Skill  | [F] Slayer  |" << std::endl;
 		std::cout << "| [4] Seers' Village                              |-------------|-------------|" << std::endl;
-		std::cout << "| [5] Ardougne                                    | [G] Gear    | [B] Bag     |" << std::endl;
-		std::cout << "| [6] Karamja                                     | [S] Stats   | [0] Exit    |" << std::endl;
+		std::cout << "| [5] Ardougne                                    |  [G] Gear   | [B] Bag     |" << std::endl;
+		std::cout << "| [6] Karamja                                     |  [S] Stats  | [0] Exit    |" << std::endl;
 		std::cout << "+-----------------------------------------------------------------------------+" << std::endl;
 		std::cout << ">";
 		player->save();

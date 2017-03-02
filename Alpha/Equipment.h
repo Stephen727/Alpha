@@ -35,6 +35,7 @@ public:
 	void useAmmo();
 
 	void clear();
+	void clearSlot(int);
 
 	Item* getItem(int);
 	int getBonus(int);

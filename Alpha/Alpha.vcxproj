@@ -107,8 +107,10 @@
     <ClCompile Include="SlayerTask.cpp" />
     <ClCompile Include="Smithing.cpp" />
     <ClCompile Include="SpellBook.cpp" />
+    <ClCompile Include="SupplyCrate.cpp" />
     <ClCompile Include="Tutorial.cpp" />
     <ClCompile Include="UseItem.cpp" />
+    <ClCompile Include="Wintertodt.cpp" />
     <ClCompile Include="Woodcutting.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -161,9 +163,11 @@
     <ClInclude Include="SlayerTask.h" />
     <ClInclude Include="Smithing.h" />
     <ClInclude Include="SpellBook.h" />
+    <ClInclude Include="SupplyCrate.h" />
     <ClInclude Include="Tutorial.h" />
     <ClInclude Include="UseItem.h" />
     <ClInclude Include="WeaponDefinition.h" />
+    <ClInclude Include="Wintertodt.h" />
     <ClInclude Include="Woodcutting.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -31,7 +31,7 @@ void Fletching::knifeOnLog(int slotOne, int slotTwo)
 		if (player->inventory->getSlot(slotTwo)->getId() == logs[i])
 			break;
 
-		return;
+		if (i == 6) return;
 	}
 
 	std::cout << "\b [1] Shafts   [2] Shortbow(u)   [3] Stock   >";

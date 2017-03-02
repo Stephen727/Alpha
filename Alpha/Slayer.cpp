@@ -20,6 +20,7 @@ Slayer::Slayer(Player* _player)
 	currentSlot = -1;
 	currentMaster = -1;
 	amount = 0;
+	tasksCompleted = 0;
 	slayerPoints = 0;
 }
 
@@ -39,22 +40,57 @@ void Slayer::completeTask()
 	switch (currentMaster)
 	{
 	case 0:
-		slayerPoints += 2;
+		tasksCompleted++;
+		slayerPoints += 0;
 		break;
 	case 1:
-		slayerPoints += 4;
+		tasksCompleted++;
+
+		if (tasksCompleted % 50 == 0)
+			slayerPoints += 15;
+		else if (tasksCompleted % 10 == 0)
+			slayerPoints += 5;
+		else
+			slayerPoints += 2;
 		break;
 	case 2:
-		slayerPoints += 10;
+		tasksCompleted++;
+
+		if (tasksCompleted % 50 == 0)
+			slayerPoints += 60;
+		else if (tasksCompleted % 10 == 0)
+			slayerPoints += 20;
+		else
+			slayerPoints += 4;
 		break;
 	case 3:
-		slayerPoints += 12;
+		tasksCompleted++;
+
+		if (tasksCompleted % 50 == 0)
+			slayerPoints += 150;
+		else if (tasksCompleted % 10 == 0)
+			slayerPoints += 50;
+		else
+			slayerPoints += 10;
 		break;
 	case 4:
-		slayerPoints += 15;
+		tasksCompleted++;
+
+		if (tasksCompleted % 50 == 0)
+			slayerPoints += 180;if (tasksCompleted % 10 == 0)
+			slayerPoints += 60;
+		else
+			slayerPoints += 12;
 		break;
 	case 5:
-		slayerPoints += 20;
+		tasksCompleted++;
+
+		if (tasksCompleted % 50 == 0)
+			slayerPoints += 225;
+		else if (tasksCompleted % 10 == 0)
+			slayerPoints += 75;
+		else 
+			slayerPoints += 15;
 		break;
 	default:
 		break;
@@ -105,6 +141,8 @@ void Slayer::getNewSlayerTask(int id)
 	{
 		if (currentMaster <= id)
 			return;
+		else
+			tasksCompleted = 0;
 	}
 
 	do
@@ -239,7 +277,7 @@ void Slayer::save()
 
 	outFile << "Slayer" << std::endl;
 
-	outFile << currentSlot << " " << currentMaster << " " << amount << " " << slayerPoints << std::endl << std::endl;
+	outFile << currentSlot << " " << currentMaster << " " << amount << " " << tasksCompleted << " " << slayerPoints << std::endl << std::endl;
 
 	outFile.close();
 }
@@ -255,7 +293,7 @@ void Slayer::load()
 		std::istringstream iss(line);
 
 		if (line == "Slayer")
-			infile >> currentSlot >> currentMaster >> amount >> slayerPoints;
+			infile >> currentSlot >> currentMaster >> amount >> tasksCompleted >> slayerPoints;
 	}
 
 	infile.close();

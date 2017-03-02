@@ -30,8 +30,6 @@ std::vector<Item*> Loot::getDrop()
 {
 	std::vector<Item*> drop, temp;
 	int dropRoll = roll(gen);
-	//int dropRoll = rand() % 100;
-
 
 	for (int i = 0; i < lootTable.size(); i++)
 	{

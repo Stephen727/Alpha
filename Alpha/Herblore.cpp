@@ -42,10 +42,6 @@ void Herblore::brew(int potionId)
 				player->skills->addExperience(150, herblore);
 
 				std::cout << "You brew: " << Item(729, 1).getItemDefinition()->getName() << std::endl;
-
-				std::cin.clear();
-				std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
-				std::cin.ignore();
 			}
 		}
 	}
@@ -62,10 +58,6 @@ void Herblore::brew(int potionId)
 				player->skills->addExperience(experience[potionId], herblore);
 
 				std::cout << "You brew: " << Item(product[potionId], 1).getItemDefinition()->getName() << std::endl;
-
-				std::cin.clear();
-				std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
-				std::cin.ignore();
 			}
 		}
 	}
@@ -103,7 +95,14 @@ void Herblore::display()
 	}
 
 	if (input)
-		brew(input - 1);
+	{
+		for (int i = 0; i < 6; i++)
+			brew(input - 1);
+
+		std::cin.clear();
+		std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+		std::cin.ignore();
+	}
 }
 
 bool Herblore::decant(int slotOne, int slotTwo)

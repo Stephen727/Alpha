@@ -1,18 +1,12 @@
-﻿Build started 3/1/2017 3:41:15 AM.
+﻿Build started 3/2/2017 3:58:55 AM.
      1>Project "C:\Users\Valued Customer\Desktop\Stephen Benner\Programming\C++\Runescape Clone\Alpha\Alpha\Alpha.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         E:\Program Files (x86)\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _UNICODE /D UNICODE /EHa /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /analyze- /errorReport:prompt /clr:nostdlib PrayerBook.cpp Skills.cpp main.cpp
-         PrayerBook.cpp
+         E:\Program Files (x86)\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _UNICODE /D UNICODE /EHa /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /analyze- /errorReport:prompt /clr:nostdlib Equipment.cpp
+         Equipment.cpp
      1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-         Skills.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-     1>Skills.cpp(88): warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
-     1>Skills.cpp(95): warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
-     1>Skills.cpp(98): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>Skills.cpp(156): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>Skills.cpp(165): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-         main.cpp
-         Generating Code...
+     1>Equipment.cpp(82): warning C4018: '<' : signed/unsigned mismatch
+     1>Equipment.cpp(96): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>Equipment.cpp(154): warning C4018: '<' : signed/unsigned mismatch
        Link:
          E:\Program Files (x86)\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Valued Customer\Desktop\Stephen Benner\Programming\C++\Runescape Clone\Alpha\Release\Alpha.exe" /INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Valued Customer\Desktop\Stephen Benner\Programming\C++\Runescape Clone\Alpha\Release\Alpha.pdb" /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 /SAFESEH Release\Aura.obj
          Release\Bank.obj
@@ -52,8 +46,10 @@
          Release\SlayerTask.obj
          Release\Smithing.obj
          Release\SpellBook.obj
+         Release\SupplyCrate.obj
          Release\Tutorial.obj
          Release\UseItem.obj
+         Release\Wintertodt.obj
          Release\Woodcutting.obj
          "Release\.NETFramework,Version=v4.5.AssemblyAttributes.obj"
          Alpha.vcxproj -> C:\Users\Valued Customer\Desktop\Stephen Benner\Programming\C++\Runescape Clone\Alpha\Release\Alpha.exe
@@ -61,4 +57,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.49
+Time Elapsed 00:00:02.02

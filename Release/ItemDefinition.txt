@@ -833,8 +833,8 @@ Dragon_platelegs 831 0 0 832 162000 0
 Dragon_platelegs 832 1 1 831 162000 0
 Granite_shield 833 0 0 834 33600 0
 Granite_shield 834 1 1 833 33600 0
-Bronze_knife 835 1 0 -1 8 1
-Iron_knife 836 1 0 -1 16 3
+Bronze_knife 835 1 0 -1 1 1
+Iron_knife 836 1 0 -1 2 3
 Steel_knife 837 1 0 -1 20 25
 Black_knife 838 1 0 -1 21 35
 Mithril_knife 839 1 0 -1 36 0
@@ -1000,3 +1000,5 @@ Monk's_robe_bottom 998 0 0 999 18 36
 Monk's_robe_bottom 999 1 1 998 18 36
 Holy_symbol 1000 0 0 1001 120 240
 Holy_symbol 1001 1 1 1000 120 240
+Supply_crate 1002 0 0 -1 0 0
+Bruma_torch 1003 1 0 -1 0 0

@@ -18,6 +18,9 @@ Bank::Bank(Player* p)
 
 Bank::~Bank()
 {
+	for (auto it = item.begin(); it != item.end(); ++it)
+		delete *it;
+	item.clear();
 }
 
 

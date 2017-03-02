@@ -312,6 +312,41 @@ void Combat::fight(Player* player, Npc* npc)
 	}
 }
 
+void Combat::funFight(Player* player, Npc* npc)
+{
+	combatInterface->displayScreen(*player, *npc, playerHit, npcHit);
+
+	while (player->skills->getEffect(hitpoints) && npc->getHitpoints())
+	{
+		if (checkPlayerInput(player)) { return; }
+
+		//Player is attacking npc
+		if (!player->getCombatDelay())
+		{
+			playerHit = getPlayerDamage(player, npc);
+			npc->subHitpoints(playerHit);
+
+			system("CLS");
+			combatInterface->displayScreen(*player, *npc, playerHit, npcHit);
+		}
+
+		//Npc is attacking player
+		if (!npc->getDelay())
+		{
+			npcHit = getNpcDamage(npc, player);
+			player->skills->subHitpoints(npcHit);
+
+			system("CLS");
+			combatInterface->displayScreen(*player, *npc, playerHit, npcHit);
+		}
+
+		_sleep(600);
+		player->tickDelay();
+		npc->tickDelay();
+		player->skills->update();
+	}
+}
+
 void Combat::getLoot(Player* player, int id, Ground* ground)
 {
 	Loot *loot = new Loot(id);
@@ -464,5 +499,138 @@ void Combat::battle(Player* player, int id)
 	}
 	if (!player->skills->getEffect(hitpoints))
 		player->respawn();
+	delete ground;
+}
+
+void Combat::battle(Player* player, Npc* npc)
+{
+	char select = ' ';
+	int input;
+	Ground *ground = new Ground(player);
+
+	player->setInCombat(true);
+
+	while (player->skills->getEffect(hitpoints) && npc->getHitpoints())
+	{
+		combatInterface->displayMenu(*player, *npc, playerHit, npcHit);
+
+		select = _getch();
+		select = toupper(select);
+
+		switch (select)
+		{
+		case 'Q':
+			funFight(player, npc);
+			resetPlayerInput();
+			break;
+		case 'S':
+			do
+			{
+				player->skills->displayStats();
+				while (!(std::cin >> input))
+				{
+					if (std::cin.fail())
+					{
+						std::cin.clear();
+						std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+					}
+				}
+			} while (input);
+			break;
+		case 'B':
+			do
+			{
+				player->inventory->displayInv();
+				while (!(std::cin >> input))
+				{
+					if (std::cin.fail())
+					{
+						std::cin.clear();
+						std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+					}
+				}
+				if (input)
+					player->useItem->select(input - 1);
+			} while (input);
+			break;
+		case 'G':
+			do
+			{
+				player->equipment->displayEquip();
+				while (!(std::cin >> input))
+				{
+					if (std::cin.fail())
+					{
+						std::cin.clear();
+						std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+					}
+				}
+				player->equipment->unequip(input - 1);
+			} while (input);
+			break;
+		case 'W':
+			do
+			{
+				player->prayerBook->displayPrayerBook();
+				while (!(std::cin >> input))
+				{
+					if (std::cin.fail())
+					{
+						std::cin.clear();
+						std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+					}
+				}
+				player->prayerBook->toggle(input - 1);
+			} while (input);
+			break;
+		case 'E':
+			do
+			{
+				player->magic->displaySpellBook();
+				while (!(std::cin >> input))
+				{
+					if (std::cin.fail())
+					{
+						std::cin.clear();
+						std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+					}
+				}
+				player->magic->setCurrentSpell(input - 1);
+			} while (input);
+			break;
+		case 'R':
+			do
+			{
+				ground->display();
+				while (!(std::cin >> input))
+				{
+					if (std::cin.fail())
+					{
+						std::cin.clear();
+						std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+					}
+				}
+				ground->pickup(input - 1);
+			} while (input);
+			break;
+		case '0':
+			player->resetDelay();
+			player->setInCombat(false);
+			delete ground;
+			return;
+			break;
+		default:
+			break;
+		}
+	}
+	player->setInCombat(false);
+	
+	if (!npc->getHitpoints()) getLoot(player, npc->getId(), ground);
+	
+	player->resetDelay();
+	
+	if (!player->skills->getEffect(hitpoints))
+		player->respawn();
+	
 	delete ground;
 }

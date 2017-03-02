@@ -97,6 +97,13 @@ void Equipment::useAmmo()
 
 		if (item[3]->getRangedDefinition()->getType())
 		{
+			if (item[3]->getId() == 1003)
+			{
+				item[3]->remove();
+				if (!item[3]->getAmount()) item[3] = nullptr;
+				return;
+			}
+
 			if (keep)
 			{
 				if (item[9] != nullptr)
@@ -222,6 +229,17 @@ void Equipment::clear()
 		delete item[i];
 		item[i] = nullptr;
 	}
+	calculateBonus();
+}
+
+void Equipment::clearSlot(int slot)
+{
+	if (slot < 0 || slot > 11)
+		return;
+
+	delete item[slot];
+	item[slot] = nullptr;
+
 	calculateBonus();
 }
 
