@@ -20,6 +20,7 @@
 #include "Crafting.h"
 #include "Runecrafting.h"
 #include "Wintertodt.h"
+#include "Barrows.h"
 
 
 Map::Map()
@@ -555,6 +556,41 @@ void Map::gearDisplay()
 	} while (input);
 }
 
+void Map::minigameDisplay()
+{
+	int input;
+	do
+	{
+		system("CLS");
+		std::cout << " ---Minigames---" << std::endl;
+		std::cout << " [1] Wintertodt" << std::endl;
+		std::cout << " [2] Barrows" << std::endl;
+		std::cout << std::endl << ">";
+
+		while (!(std::cin >> input) || (input < 0 || input > 2))
+		{
+			if (std::cin.fail())
+			{
+				std::cin.clear();
+				std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+			}
+		}
+
+		if (input == 1)
+		{
+			Wintertodt* wintertodt = new Wintertodt;
+			wintertodt->play(player);
+			delete wintertodt;
+		}
+		else if (input == 2)
+		{
+			Barrows* barrows = new Barrows;
+			barrows->play(player);
+			delete barrows;
+		}
+	} while (input);
+}
+
 bool Map::getInput()
 {
 	char select = ' ';
@@ -594,12 +630,7 @@ bool Map::getInput()
 		player->bank->access();
 		break;
 	case 'D': //Minigame
-		if (true)
-		{
-			Wintertodt* test = new Wintertodt;
-			test->play(player);
-			delete test;
-		}
+		minigameDisplay();
 		break;
 	case 'F': //Slayer
 		slayerDisplay();

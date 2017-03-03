@@ -283,13 +283,17 @@ void Combat::fight(Player* player, Npc* npc)
 	{
 		if (checkPlayerInput(player)) { return; }
 
+		player->setInCombat(true);
+
 		//Player is attacking npc
 		if (!player->getCombatDelay())
 		{
 			playerHit = getPlayerDamage(player, npc);
 
 			npc->subHitpoints(playerHit);
-			player->skills->addCombatExperience(playerHit);
+
+			if (npc->getId() != 121)
+				player->skills->addCombatExperience(playerHit);
 
 			system("CLS");
 			combatInterface->displayScreen(*player, *npc, playerHit, npcHit);
@@ -310,41 +314,7 @@ void Combat::fight(Player* player, Npc* npc)
 		npc->tickDelay();
 		player->skills->update();
 	}
-}
-
-void Combat::funFight(Player* player, Npc* npc)
-{
-	combatInterface->displayScreen(*player, *npc, playerHit, npcHit);
-
-	while (player->skills->getEffect(hitpoints) && npc->getHitpoints())
-	{
-		if (checkPlayerInput(player)) { return; }
-
-		//Player is attacking npc
-		if (!player->getCombatDelay())
-		{
-			playerHit = getPlayerDamage(player, npc);
-			npc->subHitpoints(playerHit);
-
-			system("CLS");
-			combatInterface->displayScreen(*player, *npc, playerHit, npcHit);
-		}
-
-		//Npc is attacking player
-		if (!npc->getDelay())
-		{
-			npcHit = getNpcDamage(npc, player);
-			player->skills->subHitpoints(npcHit);
-
-			system("CLS");
-			combatInterface->displayScreen(*player, *npc, playerHit, npcHit);
-		}
-
-		_sleep(600);
-		player->tickDelay();
-		npc->tickDelay();
-		player->skills->update();
-	}
+	player->setInCombat(false);
 }
 
 void Combat::getLoot(Player* player, int id, Ground* ground)
@@ -372,8 +342,6 @@ void Combat::battle(Player* player, int id)
 	char select = ' ';
 	int input;
 	Ground *ground = new Ground(player);
-
-	player->setInCombat(true);
 
 	while (player->skills->getEffect(hitpoints))
 	{
@@ -508,8 +476,6 @@ void Combat::battle(Player* player, Npc* npc)
 	int input;
 	Ground *ground = new Ground(player);
 
-	player->setInCombat(true);
-
 	while (player->skills->getEffect(hitpoints) && npc->getHitpoints())
 	{
 		combatInterface->displayMenu(*player, *npc, playerHit, npcHit);
@@ -520,7 +486,7 @@ void Combat::battle(Player* player, Npc* npc)
 		switch (select)
 		{
 		case 'Q':
-			funFight(player, npc);
+			fight(player, npc);
 			resetPlayerInput();
 			break;
 		case 'S':

@@ -97,7 +97,7 @@ void Equipment::useAmmo()
 
 		if (item[3]->getRangedDefinition()->getType())
 		{
-			if (item[3]->getId() == 1003)
+			if (item[3]->getId() == 1003) //Bruma torch
 			{
 				item[3]->remove();
 				if (!item[3]->getAmount()) item[3] = nullptr;
@@ -108,7 +108,7 @@ void Equipment::useAmmo()
 			{
 				if (item[9] != nullptr)
 				{
-					if (item[9]->getId() == 777 || item[9]->getId() == 779)
+					if (item[9]->getId() == 777 || item[9]->getId() == 779) //Ava's
 						return;
 				}
 				player->inventory->add(new Item(item[3]->getId(), 1));
@@ -123,11 +123,18 @@ void Equipment::useAmmo()
 		}
 		else
 		{
+			if (item[10]->getId() == 1064) //Bolt racks
+			{
+				item[10]->remove();
+				if (!item[10]->getAmount()) item[3] = nullptr;
+				return;
+			}
+
 			if (keep)
 			{
 				if (item[9] != nullptr)
 				{
-					if (item[9]->getId() == 777 || item[9]->getId() == 779)
+					if (item[9]->getId() == 777 || item[9]->getId() == 779) //Ava's
 						return;
 				}
 				player->inventory->add(new Item(item[10]->getId(), 1));

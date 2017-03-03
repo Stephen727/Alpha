@@ -2,6 +2,7 @@
 #include "Skills.h"
 #include "PrayerBook.h"
 #include "Equipment.h"
+#include "SetBonus.h"
 
 
 MeleeFormulas::MeleeFormulas()
@@ -84,17 +85,21 @@ double MeleeFormulas::getDefenseRoll(const Player &player)
 
 double MeleeFormulas::getDefenseRoll(const Npc &npc)
 {
-	return npc.getNpcDefinition().getDefenseStat() * (2.0 + npc.getNpcDefinition().getDefenseStat() * 0.33);
+	return npc.getNpcDefinition().getDefenseStat() * (2.0 + npc.getNpcDefinition().getDefenseStat() * 0.66);
 }
 
 double MeleeFormulas::getAttackRoll(const Player &player)
 {
-	return getEffectiveAttack(player) * (2.0 + (double)player.equipment->getBonus(0));
+	SetBonus setBonus;
+	if (setBonus.voidSet(player))
+		return getEffectiveAttack(player) * (2.0 + (double)player.equipment->getBonus(0)) * 1.1;
+	else
+		return getEffectiveAttack(player) * (2.0 + (double)player.equipment->getBonus(0));
 }
 
 double MeleeFormulas::getAttackRoll(const Npc &npc)
 {
-	return npc.getNpcDefinition().getAttackStat() * (2.0 + npc.getNpcDefinition().getAttackStat() * 0.33);
+	return npc.getNpcDefinition().getAttackStat() * (2.0 + npc.getNpcDefinition().getAttackStat() * 0.66);
 }
 
 double MeleeFormulas::calculateBasedamage(const Player &player)

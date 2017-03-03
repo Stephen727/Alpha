@@ -36,6 +36,8 @@ private:
 	void bagDisplay();
 	void gearDisplay();
 
+	void minigameDisplay();
+
 	bool getInput();
 public:
 	void display();

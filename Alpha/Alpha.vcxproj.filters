@@ -147,6 +147,12 @@
     <ClCompile Include="Wintertodt.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SetBonus.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Barrows.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EquipmentDefinition.h">
@@ -312,6 +318,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Wintertodt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SetBonus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Barrows.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

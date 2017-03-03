@@ -2,6 +2,7 @@
 #include "Skills.h"
 #include "Equipment.h"
 #include "PrayerBook.h"
+#include "SetBonus.h"
 
 
 RangedFormulas::RangedFormulas()
@@ -130,6 +131,9 @@ double RangedFormulas::getRangedStrength(const Player &player)
 		case 128: //Rune bolt
 			return 115;
 			break;
+		case 1064: //Bolt rack
+			return 55;
+			break;
 		default:
 			return 0;
 			break;
@@ -149,7 +153,11 @@ double RangedFormulas::getDefenseRoll(const Npc &npc)
 
 double RangedFormulas::getAttackRoll(const Player &player)
 {
-	return getEffectiveRange(player) * (2.0 + (double)player.equipment->getBonus(1));
+	SetBonus setBonus;
+	if (setBonus.voidSet(player))
+		return getEffectiveRange(player) * (2.0 + (double)player.equipment->getBonus(1)) * 1.2;
+	else
+		return getEffectiveRange(player) * (2.0 + (double)player.equipment->getBonus(1));
 }
 
 double RangedFormulas::getAttackRoll(const Npc &npc)

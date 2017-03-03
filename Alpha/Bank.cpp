@@ -151,7 +151,7 @@ void Bank::displayBank()
 	for (int i = 0; i < item.size(); i++)
 	{
 		str = " [" + std::to_string(i + 1) + "] " + item[i]->getItemDefinition()->getName();
-		str.resize(25);
+		str.resize(30);
 
 		std::cout << str << "x" << item[i]->getAmount() << std::endl;
 	}

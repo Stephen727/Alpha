@@ -1,15 +1,15 @@
-﻿Build started 3/2/2017 3:57:54 AM.
+﻿Build started 3/3/2017 3:37:12 PM.
      1>Project "C:\Users\Valued Customer\Desktop\Stephen Benner\Programming\C++\Runescape Clone\Alpha\Alpha\Alpha.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         E:\Program Files (x86)\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /analyze- /errorReport:prompt /clr:nostdlib Equipment.cpp
-         Equipment.cpp
-     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
-     1>Equipment.cpp(82): warning C4018: '<' : signed/unsigned mismatch
-     1>Equipment.cpp(96): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
-     1>Equipment.cpp(154): warning C4018: '<' : signed/unsigned mismatch
+         E:\Program Files (x86)\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /analyze- /errorReport:prompt /clr:nostdlib SupplyCrate.cpp
+         SupplyCrate.cpp
+     1>SupplyCrate.cpp(57): warning C4018: '<' : signed/unsigned mismatch
+     1>SupplyCrate.cpp(63): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\supplycrate.cpp(69): warning C4715: 'SupplyCrate::roll' : not all control paths return a value
        Link:
          E:\Program Files (x86)\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Valued Customer\Desktop\Stephen Benner\Programming\C++\Runescape Clone\Alpha\Debug\Alpha.exe" /INCREMENTAL /NOLOGO /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Valued Customer\Desktop\Stephen Benner\Programming\C++\Runescape Clone\Alpha\Debug\Alpha.pdb" /ASSEMBLYDEBUG /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 Debug\Aura.obj
          Debug\Bank.obj
+         Debug\Barrows.obj
          Debug\Combat.obj
          Debug\CombatAssistant.obj
          Debug\CombatInterface.obj
@@ -40,6 +40,7 @@
          Debug\PrayerBook.obj
          Debug\RangedFormulas.obj
          Debug\Runecrafting.obj
+         Debug\SetBonus.obj
          Debug\Shop.obj
          Debug\Skills.obj
          Debug\Slayer.obj
@@ -57,4 +58,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.46
+Time Elapsed 00:00:02.22

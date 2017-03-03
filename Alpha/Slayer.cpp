@@ -216,10 +216,11 @@ void Slayer::slayerShop()
 		std::cout << " [2] Broad Bolts    x250   35 points" << std::endl;
 		std::cout << " [3] Broad Arrows   x250   35 points" << std::endl;
 		std::cout << " [4] Skip Task             30 points" << std::endl;
+		std::cout << " [5] Experience            75 points" << std::endl;
 		std::cout << std::endl << "You have " << slayerPoints << " slayer points." << std::endl;
 		std::cout << ">";
 
-		while (!(std::cin >> input) || (input < 0 || input > 4))
+		while (!(std::cin >> input) || (input < 0 || input > 5))
 		{
 			if (std::cin.fail())
 			{
@@ -234,9 +235,10 @@ void Slayer::slayerShop()
 			return;
 			break;
 		case 1:
-			if (slayerPoints >= 400 && player->inventory->getFreeSlots())
+			if (slayerPoints >= 400 && player->inventory->hasItem(731))
 			{
 				slayerPoints -= 400;
+				player->inventory->removeItem(731);
 				player->inventory->add(new Item(733, 1));
 			}
 			break;
@@ -265,6 +267,12 @@ void Slayer::slayerShop()
 				amount = 0;
 			}
 			break;
+		case 5:
+			if (slayerPoints >= 75)
+			{
+				slayerPoints -= 75;
+				player->skills->addExperience(7500, slayer);
+			}
 		default:
 			break;
 		}

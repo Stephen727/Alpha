@@ -3,6 +3,7 @@
 #include "Equipment.h"
 #include "PrayerBook.h"
 #include "Magic.h"
+#include "SetBonus.h"
 
 
 MagicFormulas::MagicFormulas()
@@ -54,17 +55,21 @@ double MagicFormulas::getDefenseRoll(const Player &player)
 
 double MagicFormulas::getDefenseRoll(const Npc &npc)
 {
-	return npc.getNpcDefinition().getDefenseStat() * (2.0 + npc.getNpcDefinition().getDefenseStat() * 0.33);
+	return npc.getNpcDefinition().getDefenseStat() * (2.0 + npc.getNpcDefinition().getDefenseStat() * 0.66);
 }
 
 double MagicFormulas::getAttackRoll(const Player &player)
 {
-	return getEffectiveMagic(player) * (2.0 + (double)player.equipment->getBonus(2));
+	SetBonus setBonus;
+	if (setBonus.voidSet(player))
+		return getEffectiveMagic(player) * (2.0 + (double)player.equipment->getBonus(2)) * 1.3;
+	else
+		return getEffectiveMagic(player) * (2.0 + (double)player.equipment->getBonus(2));
 }
 
 double MagicFormulas::getAttackRoll(const Npc &npc)
 {
-	return npc.getNpcDefinition().getAttackStat() * (2.0 + npc.getNpcDefinition().getAttackStat() * 0.33);
+	return npc.getNpcDefinition().getAttackStat() * (2.0 + npc.getNpcDefinition().getAttackStat() * 0.66);
 }
 
 double MagicFormulas::calculateBasedamage(const Player& player)

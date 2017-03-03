@@ -25,6 +25,8 @@ SupplyCrate::SupplyCrate()
 		new DropDefinition(602, 25, 2, 3), //Harralander
 		new DropDefinition(604, 25, 2, 3), //Irit
 		new DropDefinition(606, 25, 1, 3), //Kwuarm
+		new DropDefinition(578, 20, 10, 30), //Limpwurt root
+		new DropDefinition(580, 20, 10, 30), //White berries
 		new DropDefinition(138, 25, 5, 12), //Raw anchovies
 		new DropDefinition(142, 25, 5, 12), //Raw trout
 		new DropDefinition(148, 25, 5, 12), //Raw salmon

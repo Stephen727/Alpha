@@ -6,6 +6,7 @@
 #include "Magic.h"
 #include "PrayerBook.h"
 #include "Slayer.h"
+#include "SetBonus.h"
 
 
 std::vector<std::pair<int, int>> slayerMonster = {
@@ -43,6 +44,7 @@ bool CombatAssistant::hasWeaponRequirement(Player* player, Npc* npc)
 	switch (npc->getId())
 	{
 	case 23: //Turoth
+	case 30: //Kurask
 		if (player->getAutoCast())
 		{
 			if (player->magic->getCurrentSpell()->getName() == "Magic Dart")
@@ -61,6 +63,8 @@ bool CombatAssistant::hasWeaponRequirement(Player* player, Npc* npc)
 		else if (player->equipment->getItem(3) != nullptr)
 		{
 			if (player->equipment->getItem(3)->getId() == 756) //Leaf-Bladed Spear
+				return true;
+			else if (player->equipment->getItem(3)->getId() == 1065) //Leaf-Bladed Sword
 				return true;
 		}
 		return false;
@@ -249,7 +253,8 @@ bool CombatAssistant::canKill(Player* player, Npc* npc)
 
 int CombatAssistant::playerDamageModifier(Player* player, Npc* npc, int playerHit)
 {
-	if (player->slayer->isTask(npc->getId()))
+
+	if (player->slayer->isTask(npc->getId())) //Slayer task
 	{
 		if (player->equipment->getItem(0) != nullptr)
 			if (player->equipment->getItem(0)->getId() == 731) //Black Mask
@@ -257,8 +262,7 @@ int CombatAssistant::playerDamageModifier(Player* player, Npc* npc, int playerHi
 			else if (player->equipment->getItem(0)->getId() == 733) //Slayer Helmet
 				playerHit *= 1.25;
 	}
-
-	if (npc->getId() == 121)
+	else if (npc->getId() == 121) //Wintertodt
 	{
 		if (player->equipment->getItem(3) != nullptr)
 		{
@@ -270,6 +274,10 @@ int CombatAssistant::playerDamageModifier(Player* player, Npc* npc, int playerHi
 		else
 			playerHit = 0;
 	}
+
+	SetBonus setBonus;
+	playerHit *= setBonus.getDamageModifier(*player);
+	setBonus.applyEffect(player, playerHit);
 
 	return playerHit;
 }
@@ -344,7 +352,15 @@ int CombatAssistant::npcDamageModifier(Npc* npc, Player* player, int npcHit)
 		{
 		case 0:
 			if (player->prayerBook->getActivated(15)) //Protect from Melee
-				npcHit *= 0;
+			{
+				if (npc->getId() == 127) //Verac
+				{
+					if (npcHit) npcHit = rand() % 15 + 1;
+				}
+				else
+					npcHit *= 0;
+			}
+				
 			break;
 		case 1:
 			if (player->prayerBook->getActivated(14)) //Protect from Range
@@ -369,8 +385,11 @@ int CombatAssistant::npcDamageModifier(Npc* npc, Player* player, int npcHit)
 	case 116: //Kalphite Queen
 		npcHit = rand() % 31;
 		break;
-	case 121:
+	case 121: //Wintertodt
 		npcHit = (rand() % player->skills->getLevel(hitpoints) + 10) * 0.10;
+		break;
+	case 123: //Dharok
+		npcHit *= 1 + ((double)npc->getHitpoints() / (double)npc->getNpcDefinition().getHitpoints());
 		break;
 	default:
 		break;
