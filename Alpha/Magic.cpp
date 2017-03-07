@@ -126,7 +126,7 @@ void Magic::setCurrentSpell(int spell)
 				{
 					player->inventory->add(new Item(516, player->inventory->getSlot(input - 1)->getItemDefinition()->getAlchemyPrice()));
 					player->inventory->remove(input - 1, 1);
-					player->skills->addExperience(65, magic);
+					player->skills->addExperience(spellBook[spell].getBaseExp(), magic);
 					useRunes();
 				}
 			}
@@ -152,7 +152,7 @@ void Magic::setCurrentSpell(int spell)
 						player->inventory->replace(new Item(517, 1), i);
 				}
 			}
-			player->skills->addExperience(36, magic);
+			player->skills->addExperience(spellBook[spell].getBaseExp(), magic);
 			useRunes();
 		}
 	}

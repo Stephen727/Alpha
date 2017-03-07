@@ -202,6 +202,14 @@ void Player::respawn()
 	this->inventory->clear();
 	this->equipment->clear();
 	this->skills->reset();
+
+	system("CLS");
+	std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+	std::cout << "+-----------------------------------------------------------------------------+" << std::endl << std::endl;
+	std::cout << "                       Oh dear, you are dead!" << std::endl << std::endl;
+	std::cout << "+-----------------------------------------------------------------------------+" << std::endl;
+	
+	system("PAUSE>nul");
 }
 
 void Player::save()

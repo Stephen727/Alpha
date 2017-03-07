@@ -42,10 +42,10 @@ Barrows::Barrows()
 		new DropDefinition(540, 200, 1, 2889), //Mind rune
 		new DropDefinition(545, 200, 1, 885), //Chaos rune
 		new DropDefinition(547, 200, 1, 461), //Death rune
-		new DropDefinition(548, 200, 1, 236), //Blood rune
+		new DropDefinition(548, 100, 1, 236), //Blood rune
 		new DropDefinition(516, 200, 1, 5306), //Coins
 		new DropDefinition(813, 50, 1, 1), //Dragon med helm
-		new DropDefinition(1064, 100, 1, 191) //Bolt rack
+		new DropDefinition(1064, 200, 1, 191) //Bolt rack
 	};
 }
 

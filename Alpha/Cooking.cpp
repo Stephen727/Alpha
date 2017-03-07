@@ -39,7 +39,7 @@ void Cooking::cook(int slot)
 		{
 			if (player->skills->getEffect(cooking) >= cookReq[i])
 			{
-				int rate = ((player->skills->getEffect(cooking) * 50) - (cookReq[i] * 15)) / cookReq[i] / 3 * 4;
+				int rate = (int)std::round((((double)player->skills->getEffect(cooking) * 50.0) - ((double)cookReq[i] * 15.0)) / (double)cookReq[i] / 3.0 * 4.0);
 				int roll = chance(randGen);
 
 				_sleep(300);

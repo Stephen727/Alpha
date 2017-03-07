@@ -1,6 +1,7 @@
 #include "Skills.h"
 #include "Player.h"
 #include "PrayerBook.h"
+#include "Magic.h"
 
 #include <iostream>
 #include <fstream>
@@ -214,7 +215,7 @@ void Skills::addCombatExperience(int dmg)
 		break;
 	case 7:
 		addExperience(dmg, hitpoints);
-		addExperience(dmg * 4, magic);
+		addExperience((dmg * 2) + player->magic->getCurrentSpell()->getBaseExp(), magic);
 		break;
 	}
 }

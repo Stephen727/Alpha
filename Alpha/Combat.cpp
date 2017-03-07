@@ -580,10 +580,17 @@ void Combat::battle(Player* player, Npc* npc)
 			} while (input);
 			break;
 		case '0':
-			player->resetDelay();
-			player->setInCombat(false);
-			delete ground;
-			return;
+			std::cout << "Type '0' again to exit the battle: ";
+			select = ' ';
+			select = _getch();
+			select = toupper(select);
+			if (select == '0')
+			{
+				player->resetDelay();
+				player->setInCombat(false);
+				delete ground;
+				return;
+			}	
 			break;
 		default:
 			break;
