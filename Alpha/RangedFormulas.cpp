@@ -148,7 +148,25 @@ double RangedFormulas::getDefenseRoll(const Player &player)
 
 double RangedFormulas::getDefenseRoll(const Npc &npc)
 {
-	return npc.getNpcDefinition().getDefenseStat() * (2.0 + npc.getNpcDefinition().getDefenseStat() * 0.33);
+	double bonus;
+
+	switch (npc.getNpcDefinition().getAttackStyle())
+	{
+	case 0: //Melee
+		bonus = npc.getNpcDefinition().getDefenseStat() * 0.0;
+		break;
+	case 1: //Ranged
+		bonus = npc.getNpcDefinition().getDefenseStat() * 0.33;
+		break;
+	case 2: //Magic
+		bonus = npc.getNpcDefinition().getDefenseStat() * 0.66;
+		break;
+	default:
+		bonus = 0;
+		break;
+	}
+
+	return npc.getNpcDefinition().getDefenseStat() * (2.0 + bonus);
 }
 
 double RangedFormulas::getAttackRoll(const Player &player)
@@ -162,7 +180,7 @@ double RangedFormulas::getAttackRoll(const Player &player)
 
 double RangedFormulas::getAttackRoll(const Npc &npc)
 {
-	return npc.getNpcDefinition().getAttackStat() * (2.0 + npc.getNpcDefinition().getAttackStat() * 0.33);
+	return npc.getNpcDefinition().getAttackStat() * (2.0 + npc.getNpcDefinition().getAttackStat() * 0.66);
 }
 
 double RangedFormulas::calculateBasedamage(const Player &player)

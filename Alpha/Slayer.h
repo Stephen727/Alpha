@@ -20,7 +20,8 @@ private:
 	SlayerTask* currentTask;
 	int amount, currentMaster, currentSlot,
 		tasksCompleted,
-		slayerPoints;
+		slayerPoints,
+		taskPoints;
 
 	void completeTask();
 public:

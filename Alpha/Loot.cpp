@@ -42,5 +42,17 @@ std::vector<Item*> Loot::getDrop()
 	if (temp.size())
 		drop.push_back(temp[rand() % temp.size()]);
 
+	for (int i = 0; i < drop.size(); i++)
+	{
+		if (!drop[i]->getItemDefinition()->isStackable() && drop[i]->getAmount() > 1)
+		{
+			while (drop[i]->getAmount() > 1)
+			{
+				drop.push_back(new Item(drop[i]->getId(), 1));
+				drop[i]->remove();
+			}
+		}
+	}
+
 	return drop;
 }

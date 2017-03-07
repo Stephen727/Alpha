@@ -54,9 +54,6 @@ void Crafting::tan()
 	//soft leather
 	while (player->inventory->hasAmount(516) >= 1 && player->inventory->hasItem(448))
 	{
-		if (!player->inventory->getFreeSlots())
-			return;
-
 		std::cout << "The cowhide is tanned into leather..." << std::endl;
 		_sleep(100);
 
@@ -68,9 +65,6 @@ void Crafting::tan()
 	//hard leather
 	while (player->inventory->hasAmount(516) >= 3 && player->inventory->hasItem(448))
 	{
-		if (!player->inventory->getFreeSlots())
-			return;
-
 		std::cout << "The cowhide is tanned into hard leather..." << std::endl;
 		_sleep(100);
 
@@ -82,9 +76,6 @@ void Crafting::tan()
 	//green dragonleather
 	while (player->inventory->hasAmount(516) >= 20 && player->inventory->hasItem(474))
 	{
-		if (!player->inventory->getFreeSlots())
-			return;
-
 		std::cout << "The green dragonhide is tanned into green dragon leather..." << std::endl;
 		_sleep(100);
 
@@ -96,9 +87,6 @@ void Crafting::tan()
 	//blue dragonleather
 	while (player->inventory->hasAmount(516) >= 20 && player->inventory->hasItem(476))
 	{
-		if (!player->inventory->getFreeSlots())
-			return;
-
 		std::cout << "The blue dragonhide is tanned into blue dragon leather..." << std::endl;
 		_sleep(100);
 
@@ -110,9 +98,6 @@ void Crafting::tan()
 	//red dragonleather
 	while (player->inventory->hasAmount(516) >= 20 && player->inventory->hasItem(478))
 	{
-		if (!player->inventory->getFreeSlots())
-			return;
-
 		std::cout << "The red dragonhide is tanned into red dragon leather..." << std::endl;
 		_sleep(100);
 
@@ -124,9 +109,6 @@ void Crafting::tan()
 	//black dragonleather
 	while (player->inventory->hasAmount(516) >= 20 && player->inventory->hasItem(480))
 	{
-		if (!player->inventory->getFreeSlots())
-			return;
-
 		std::cout << "The black dragonhide is tanned into black dragon leather..." << std::endl;
 		_sleep(100);
 

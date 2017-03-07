@@ -391,6 +391,9 @@ int CombatAssistant::npcDamageModifier(Npc* npc, Player* player, int npcHit)
 	case 123: //Dharok
 		npcHit *= 1 + ((double)npc->getHitpoints() / (double)npc->getNpcDefinition().getHitpoints());
 		break;
+	case 124:
+		break;
+		if (!(rand() % 4)) npc->addHitpoints(npcHit);
 	default:
 		break;
 	}

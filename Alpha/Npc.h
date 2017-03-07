@@ -29,6 +29,7 @@ public:
 	NpcDefinition& getNpcDefinition() const { return *npcDefinition; }
 
 	void subHitpoints(int i) { hitpoints -= i; if (hitpoints < 1) hitpoints = 0; }
+	void addHitpoints(int i) { hitpoints += i; if (hitpoints > npcDefinition->getHitpoints()) hitpoints = npcDefinition->getHitpoints(); }
 	void tickDelay() { delay--; if (delay == -1) delay = npcDefinition->getAttackSpeed(); }
 };
 

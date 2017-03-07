@@ -20,7 +20,7 @@ private:
 
 	void knifeOnLog(int, int);
 	void stringShortbow(int, int);
-	void stringCrossbow(int, int);
+	void stringCrossbow(int, int, int);
 	void fletchArrow(int, int);
 	void fletchBolt(int, int, int);
 	void makeCrossbow(int, int);

@@ -55,7 +55,25 @@ double MagicFormulas::getDefenseRoll(const Player &player)
 
 double MagicFormulas::getDefenseRoll(const Npc &npc)
 {
-	return npc.getNpcDefinition().getDefenseStat() * (2.0 + npc.getNpcDefinition().getDefenseStat() * 0.66);
+	double bonus;
+
+	switch (npc.getNpcDefinition().getAttackStyle())
+	{
+	case 0: //Melee
+		bonus = npc.getNpcDefinition().getDefenseStat() * 0.0;
+		break;
+	case 1: //Ranged
+		bonus = npc.getNpcDefinition().getDefenseStat() * 0.66;
+		break;
+	case 2: //Magic
+		bonus = npc.getNpcDefinition().getDefenseStat() * 0.33;
+		break;
+	default:
+		bonus = 0;
+		break;
+	}
+
+	return npc.getNpcDefinition().getDefenseStat() * (2.0 + bonus);
 }
 
 double MagicFormulas::getAttackRoll(const Player &player)

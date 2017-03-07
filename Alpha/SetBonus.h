@@ -14,7 +14,6 @@ private:
 
 	bool dharokSet(const Player&);
 	bool guthanSet(const Player&);
-	
 public:
 	bool voidSet(const Player&);
 	double getDamageModifier(const Player&);

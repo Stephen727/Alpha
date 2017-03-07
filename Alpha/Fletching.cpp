@@ -322,32 +322,21 @@ void Fletching::stringShortbow(int slotOne, int slotTwo)
 			}
 			break;
 		default:
-			return;
+			stringCrossbow(slotOne, slotTwo, amount);
 			break;
 		}
 		amount--;
 	} while (amount && (player->inventory->hasItem(30) && player->inventory->hasItem(id)));
 }
 
-void Fletching::stringCrossbow(int slotOne, int slotTwo)
+void Fletching::stringCrossbow(int slotOne, int slotTwo, int amount)
 {
 	if (player->inventory->getSlot(slotOne) == NULL)
 		return;
 	else if (player->inventory->getSlot(slotTwo) == NULL)
 		return;
 
-	int amount, id = player->inventory->getSlot(slotTwo)->getId();
-
-	std::cout << "Amount: ";
-
-	while (!(std::cin >> amount) || amount < 1)
-	{
-		if (std::cin.fail())
-		{
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		}
-	}
+	int id = player->inventory->getSlot(slotTwo)->getId();
 
 	do
 	{
@@ -912,7 +901,7 @@ void Fletching::fletch(int slotOne, int slotTwo)
 		return;
 	}
 
-	//String shortbow
+	//String shortbow or crossbow
 	if (player->inventory->getSlot(slotOne)->getId() == 30)
 	{
 		stringShortbow(slotOne, slotTwo);
@@ -921,18 +910,6 @@ void Fletching::fletch(int slotOne, int slotTwo)
 	else if (player->inventory->getSlot(slotTwo)->getId() == 30)
 	{
 		stringShortbow(slotTwo, slotOne);
-		return;
-	}
-
-	//String crossbow
-	if (player->inventory->getSlot(slotOne)->getId() == 30)
-	{
-		stringCrossbow(slotOne, slotTwo);
-		return;
-	}
-	else if (player->inventory->getSlot(slotTwo)->getId() == 30)
-	{
-		stringCrossbow(slotTwo, slotOne);
 		return;
 	}
 

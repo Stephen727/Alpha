@@ -357,13 +357,12 @@ void Map::anvilDisplay()
 		std::cout << " [1] Bronze" << std::endl;
 		std::cout << " [2] Iron" << std::endl;
 		std::cout << " [3] Steel" << std::endl;
-		std::cout << " [4] Gold" << std::endl;
-		std::cout << " [5] Mithril" << std::endl;
-		std::cout << " [6] Adamant" << std::endl;
-		std::cout << " [7] Rune" << std::endl;
+		std::cout << " [4] Mithril" << std::endl;
+		std::cout << " [5] Adamant" << std::endl;
+		std::cout << " [6] Rune" << std::endl;
 		std::cout << std::endl << ">";
 
-		while (!(std::cin >> input) || (input < 0 || input > 7))
+		while (!(std::cin >> input) || (input < 0 || input > 6))
 		{
 			if (std::cin.fail())
 			{

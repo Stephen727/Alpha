@@ -22,6 +22,7 @@ Slayer::Slayer(Player* _player)
 	amount = 0;
 	tasksCompleted = 0;
 	slayerPoints = 0;
+	taskPoints = 0;
 }
 
 
@@ -41,60 +42,63 @@ void Slayer::completeTask()
 	{
 	case 0:
 		tasksCompleted++;
-		slayerPoints += 0;
+		taskPoints = 0;
 		break;
 	case 1:
 		tasksCompleted++;
 
 		if (tasksCompleted % 50 == 0)
-			slayerPoints += 15;
+			taskPoints = 15;
 		else if (tasksCompleted % 10 == 0)
-			slayerPoints += 5;
+			taskPoints = 5;
 		else
-			slayerPoints += 2;
+			taskPoints = 2;
 		break;
 	case 2:
 		tasksCompleted++;
 
 		if (tasksCompleted % 50 == 0)
-			slayerPoints += 60;
+			taskPoints = 60;
 		else if (tasksCompleted % 10 == 0)
-			slayerPoints += 20;
+			taskPoints = 20;
 		else
-			slayerPoints += 4;
+			taskPoints = 4;
 		break;
 	case 3:
 		tasksCompleted++;
 
 		if (tasksCompleted % 50 == 0)
-			slayerPoints += 150;
+			taskPoints = 150;
 		else if (tasksCompleted % 10 == 0)
-			slayerPoints += 50;
+			taskPoints = 50;
 		else
-			slayerPoints += 10;
+			taskPoints = 10;
 		break;
 	case 4:
 		tasksCompleted++;
 
 		if (tasksCompleted % 50 == 0)
-			slayerPoints += 180;if (tasksCompleted % 10 == 0)
-			slayerPoints += 60;
+			taskPoints = 180;if (tasksCompleted % 10 == 0)
+			taskPoints = 60;
 		else
-			slayerPoints += 12;
+			taskPoints = 12;
 		break;
 	case 5:
 		tasksCompleted++;
 
 		if (tasksCompleted % 50 == 0)
-			slayerPoints += 225;
+			taskPoints = 225;
 		else if (tasksCompleted % 10 == 0)
-			slayerPoints += 75;
+			taskPoints = 75;
 		else 
-			slayerPoints += 15;
+			taskPoints = 15;
 		break;
 	default:
+		taskPoints = 0;
 		break;
 	}
+
+	slayerPoints += taskPoints;
 
 	currentTask = nullptr;
 	currentSlot = -1;
@@ -104,8 +108,8 @@ void Slayer::completeTask()
 	system("CLS");
 	std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 	std::cout << "+-----------------------------------------------------------------------------+" << std::endl << std::endl;
-	std::cout << "           You complete your slayer task." << std::endl;
-	std::cout << "           Talk to a slayer master to receive a new one." << std::endl << std::endl;
+	std::cout << "           You've completed " << tasksCompleted << " in a row and recieved " << std::endl;
+	std::cout << "           " << taskPoints << " points; return to a Slayer master." << std::endl << std::endl;
 	std::cout << "+-----------------------------------------------------------------------------+" << std::endl;
 	
 	system("PAUSE>nul");
@@ -130,7 +134,7 @@ bool Slayer::isTask(int id)
 void Slayer::getCurrentSlayerTask()
 {
 	if (hasTask())
-		std::cout << "Your current slayer task is to kill " << amount << " " << currentTask->getName() << "." << std::endl;
+		std::cout << "Your assigned to kill " << currentTask->getName() << "; only " << amount << " to go." << std::endl;
 	else
 		std::cout << "You currently have no slayer task." << std::endl;
 }

@@ -301,7 +301,7 @@ void Smithing::smith(int id, int tier)
 			if (player->inventory->hasItem(bar[tier].first, 1))
 			{
 				player->inventory->removeItem(bar[tier].first, 1);
-				player->inventory->add(new Item(knife[tier].first, 15));
+				player->inventory->add(new Item(knife[tier].first, 5));
 				player->skills->addExperience(bar[tier].second * 1, smithing);
 
 				std::cout << "You smith some knives!" << std::endl;

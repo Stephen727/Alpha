@@ -1063,3 +1063,5 @@ Verac's_plateskirt 1061 1 1 1060 165000 0
 Verac's_flail 1062 0 0 1063 96000 0
 Verac's_flail 1063 1 1 1062 96000 0
 Bolt_rack 1064 1 0 -1 30 50
+Leaf-bladed_sword 1065 0 0 1066 40800 0
+Leaf-bladed_sword 1066 1 1 1065 40800 0
