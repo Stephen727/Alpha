@@ -661,7 +661,7 @@ void Crafting::craft(int slotOne, int slotTwo)
 			{
 				player->inventory->remove(slotOne);
 				player->inventory->replace(new Item(856, 1), slotTwo);
-				player->skills->addExperience(30, crafting);
+				player->skills->addExperience(40, crafting);
 				return;
 			}
 			else
@@ -672,7 +672,7 @@ void Crafting::craft(int slotOne, int slotTwo)
 			{
 				player->inventory->remove(slotOne);
 				player->inventory->replace(new Item(858, 1), slotTwo);
-				player->skills->addExperience(65, crafting);
+				player->skills->addExperience(115, crafting);
 				return;
 			}
 			else
@@ -683,7 +683,7 @@ void Crafting::craft(int slotOne, int slotTwo)
 			{
 				player->inventory->remove(slotOne);
 				player->inventory->replace(new Item(860, 1), slotTwo);
-				player->skills->addExperience(70, crafting);
+				player->skills->addExperience(138, crafting);
 				return;
 			}
 			else
@@ -694,7 +694,7 @@ void Crafting::craft(int slotOne, int slotTwo)
 			{
 				player->inventory->remove(slotOne);
 				player->inventory->replace(new Item(862, 1), slotTwo);
-				player->skills->addExperience(85, crafting);
+				player->skills->addExperience(170, crafting);
 				return;
 			}
 			else
@@ -705,7 +705,7 @@ void Crafting::craft(int slotOne, int slotTwo)
 			{
 				player->inventory->remove(slotOne);
 				player->inventory->replace(new Item(864, 1), slotTwo);
-				player->skills->addExperience(100, crafting);
+				player->skills->addExperience(208, crafting);
 				return;
 			}
 			else
@@ -716,7 +716,7 @@ void Crafting::craft(int slotOne, int slotTwo)
 			{
 				player->inventory->remove(slotOne);
 				player->inventory->replace(new Item(866, 1), slotTwo);
-				player->skills->addExperience(150, crafting);
+				player->skills->addExperience(258, crafting);
 				return;
 			}
 			else
@@ -727,7 +727,7 @@ void Crafting::craft(int slotOne, int slotTwo)
 			{
 				player->inventory->remove(slotOne);
 				player->inventory->replace(new Item(868, 1), slotTwo);
-				player->skills->addExperience(165, crafting);
+				player->skills->addExperience(333, crafting);
 				return;
 			}
 			else

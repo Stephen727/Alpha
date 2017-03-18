@@ -96,7 +96,7 @@ double MeleeFormulas::getDefenseRoll(const Npc &npc)
 		bonus = npc.getNpcDefinition().getDefenseStat() * 0.66;
 		break;
 	case 2: //Magic
-		bonus = npc.getNpcDefinition().getDefenseStat() * 0.0;
+		bonus = npc.getNpcDefinition().getDefenseStat() * 0.05;
 		break;
 	default:
 		bonus = 0;

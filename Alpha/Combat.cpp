@@ -235,7 +235,7 @@ int Combat::getPlayerDamage(Player* player, Npc* npc)
 		playerHit = 0;
 
 	playerHit = combatAssistant->playerDamageModifier(player, npc, playerHit);
-	if (player->getAttackStyle() == npc->getNpcDefinition().getWeakness()) playerHit *= 1.15;
+	if (player->getAttackStyle() == npc->getNpcDefinition().getWeakness()) playerHit *= 1.10;
 	delete combatAssistant;
 
 	if (playerHit >= npc->getHitpoints())

@@ -184,27 +184,27 @@ void Mining::mine(int id)
 			{
 				int gem = rand() % 100;
 
-				if (gem < 78)
+				if (gem < 77)
 				{
 					player->inventory->add(new Item(842, 1));
 					std::cout << "You mine a jade." << std::endl;
 				}
-				else if (gem < 78 && gem < 86)
+				else if (gem < 86)
 				{
 					player->inventory->add(new Item(844, 1));
 					std::cout << "You mine a sapphire." << std::endl;
 				}
-				else if (gem > 86 && gem < 91)
+				else if (gem < 91)
 				{
 					player->inventory->add(new Item(846, 1));
 					std::cout << "You mine a emerald." << std::endl;
 				}
-				else if (gem > 91 && gem < 96)
+				else if (gem < 96)
 				{
 					player->inventory->add(new Item(848, 1));
 					std::cout << "You mine a ruby." << std::endl;
 				}
-				else if (gem > 96)
+				else if (gem < 100)
 				{
 					player->inventory->add(new Item(850, 1));
 					std::cout << "You mine a diamond." << std::endl;

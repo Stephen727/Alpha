@@ -12,6 +12,7 @@
 #include "Shop.h"
 #include "Combat.h"
 #include "Prayer.h"
+#include "Magic.h"
 #include "Fishing.h"
 #include "Cooking.h"
 #include "Mining.h"
@@ -640,11 +641,11 @@ bool Map::getInput()
 	case 'B': //Inventory
 		bagDisplay();
 		break;
-	case 'S': //Stats
+	case 'S': //Magic
 		int input;
 		do
 		{
-			player->skills->displayStats();
+			player->magic->displaySpellBook();
 			while (!(std::cin >> input))
 			{
 				if (std::cin.fail())
@@ -653,6 +654,7 @@ bool Map::getInput()
 					std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
 				}
 			}
+			player->magic->setCurrentSpell(input - 1);
 		} while (input);
 		break;
 	case '0': //Exit
@@ -701,7 +703,7 @@ void Map::display()
 		std::cout << "| [3] Falador                                     |  [E] Skill  | [F] Slayer  |" << std::endl;
 		std::cout << "| [4] Seers' Village                              |-------------|-------------|" << std::endl;
 		std::cout << "| [5] Ardougne                                    |  [G] Gear   | [B] Bag     |" << std::endl;
-		std::cout << "| [6] Karamja                                     |  [S] Stats  | [0] Exit    |" << std::endl;
+		std::cout << "| [6] Karamja                                     |  [S] Magic  | [0] Exit    |" << std::endl;
 		std::cout << "+-----------------------------------------------------------------------------+" << std::endl;
 		std::cout << ">";
 		player->save();

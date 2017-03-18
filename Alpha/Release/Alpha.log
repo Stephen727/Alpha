@@ -1,55 +1,7 @@
-﻿  Aura.cpp
-Aura.cpp(15): warning C4154: deletion of an array expression; conversion to pointer supplied
-  Combat.cpp
+﻿  Equipment.cpp
 c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-Combat.cpp(24): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-Combat.cpp(238): warning C4244: '*=': conversion from 'double' to 'int', possible loss of data
-Combat.cpp(312): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdlib.h(1266): note: see declaration of '_sleep'
-  CombatAssistant.cpp
-c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-CombatAssistant.cpp(33): warning C4018: '<': signed/unsigned mismatch
-CombatAssistant.cpp(261): warning C4244: '*=': conversion from 'double' to 'int', possible loss of data
-CombatAssistant.cpp(263): warning C4244: '*=': conversion from 'double' to 'int', possible loss of data
-CombatAssistant.cpp(279): warning C4244: '*=': conversion from 'double' to 'int', possible loss of data
-CombatAssistant.cpp(294): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-CombatAssistant.cpp(298): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-CombatAssistant.cpp(308): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-CombatAssistant.cpp(313): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-CombatAssistant.cpp(316): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-CombatAssistant.cpp(321): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-CombatAssistant.cpp(326): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-CombatAssistant.cpp(343): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-CombatAssistant.cpp(389): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-CombatAssistant.cpp(392): warning C4244: '*=': conversion from 'double' to 'int', possible loss of data
-  Magic.cpp
-c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-Magic.cpp(46): warning C4018: '<': signed/unsigned mismatch
-Magic.cpp(49): warning C4018: '<': signed/unsigned mismatch
-Magic.cpp(52): warning C4018: '<': signed/unsigned mismatch
-Magic.cpp(55): warning C4018: '<': signed/unsigned mismatch
-Magic.cpp(74): warning C4018: '<': signed/unsigned mismatch
-Magic.cpp(77): warning C4018: '<': signed/unsigned mismatch
-Magic.cpp(80): warning C4018: '<': signed/unsigned mismatch
-Magic.cpp(83): warning C4018: '<': signed/unsigned mismatch
-  MagicFormulas.cpp
-c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-  MeleeFormulas.cpp
-c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-  Player.cpp
-c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-  PrayerBook.cpp
-c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-  RangedFormulas.cpp
-c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-  Skills.cpp
-c:\users\valued customer\desktop\stephen benner\programming\c++\runescape clone\alpha\alpha\Skills.h(45): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-Skills.cpp(89): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-Skills.cpp(96): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-Skills.cpp(99): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-Skills.cpp(157): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-Skills.cpp(166): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-  SpellBook.cpp
-  Generating Code...
+Equipment.cpp(82): warning C4018: '<': signed/unsigned mismatch
+Equipment.cpp(96): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
+Equipment.cpp(161): warning C4018: '<': signed/unsigned mismatch
   Alpha.vcxproj -> C:\Users\Valued Customer\Desktop\Stephen Benner\Programming\C++\Runescape Clone\Alpha\Release\Alpha.exe
   Alpha.vcxproj -> C:\Users\Valued Customer\Desktop\Stephen Benner\Programming\C++\Runescape Clone\Alpha\Release\Alpha.pdb (Full PDB)

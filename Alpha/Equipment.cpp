@@ -93,7 +93,7 @@ void Equipment::useAmmo()
 {
 	if (hasAmmo())
 	{
-		bool keep = (rand() % 5);
+		bool keep = (rand() % 3);
 
 		if (item[3]->getRangedDefinition()->getType())
 		{

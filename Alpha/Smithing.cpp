@@ -51,6 +51,7 @@ void Smithing::smelt(std::vector<Item> items, int newId, int exp)
 
 		player->inventory->add(new Item(newId, 1));
 		player->skills->addExperience(exp, smithing);
+		if (newId == 258) player->skills->addExperience(30, crafting); //Gold bar
 	}
 }
 

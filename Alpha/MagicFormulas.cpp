@@ -60,7 +60,7 @@ double MagicFormulas::getDefenseRoll(const Npc &npc)
 	switch (npc.getNpcDefinition().getAttackStyle())
 	{
 	case 0: //Melee
-		bonus = npc.getNpcDefinition().getDefenseStat() * 0.0;
+		bonus = npc.getNpcDefinition().getDefenseStat() * 0.05;
 		break;
 	case 1: //Ranged
 		bonus = npc.getNpcDefinition().getDefenseStat() * 0.66;
